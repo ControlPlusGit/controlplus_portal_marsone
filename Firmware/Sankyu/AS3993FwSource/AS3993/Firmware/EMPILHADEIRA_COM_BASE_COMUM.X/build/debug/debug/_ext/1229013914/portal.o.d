@@ -1,0 +1,34 @@
+build/debug/debug/_ext/1229013914/portal.o:  \
+ C:/Projetos/control-plus/Firmware/BaseComum/portal.c  \
+ ../src/as3993_public.h  \
+../src/global.h  \
+../src/as3993_config.h  \
+ ../src/ams_types.h  \
+../src/GenericTypeDefs.h  \
+../src/errno_as3993.h  \
+ ../src/errno.h  \
+../src/platform.h  \
+../src/p24FJ256DA210.h  \
+ ../src/Compiler.h  \
+../src/timer.h  \
+ C:/Projetos/control-plus/Firmware/BaseComum/i2c.h  \
+ C:/Projetos/control-plus/Firmware/BaseComum/wiegand.h  \
+ C:/Projetos/control-plus/Firmware/BaseComum/onewire.h  \
+ ../src/uart_driver.h  \
+../src/as3993.h  \
+../src/platform.h  \
+../src/tuner.h  \
+ C:/Projetos/control-plus/Firmware/BaseComum/rtc.h  \
+ C:/Projetos/control-plus/Firmware/BaseComum/zigbee.h  \
+ C:/Projetos/control-plus/Firmware/BaseComum/exclusao.h  \
+../src/global.h  \
+ C:/Projetos/control-plus/Firmware/BaseComum/portal.h  \
+ C:/Projetos/control-plus/Firmware/BaseComum/perifericos.h  \
+ C:/Projetos/control-plus/Firmware/BaseComum/varal.h  \
+ C:/Projetos/control-plus/Firmware/BaseComum/eth.h  \
+ C:/Projetos/control-plus/Firmware/BaseComum/wifi.h  \
+ C:/Projetos/control-plus/Firmware/BaseComum//eth.h  \
+ ../src/appl_commands.h  \
+ C:/Projetos/control-plus/Firmware/BaseComum/cancelas.h  \
+ C:/Projetos/control-plus/Firmware/Sankyu/AS3993FwSource/AS3993/Firmware/src/setup_usb.h  \
+ C:/Projetos/control-plus/Firmware/Sankyu/AS3993FwSource/AS3993/Firmware/src//ajuste_cap.h 

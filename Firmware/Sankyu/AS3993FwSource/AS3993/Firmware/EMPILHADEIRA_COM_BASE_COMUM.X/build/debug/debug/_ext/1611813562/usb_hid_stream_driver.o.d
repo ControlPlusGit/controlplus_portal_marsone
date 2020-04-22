@@ -1,0 +1,24 @@
+build/debug/debug/_ext/1611813562/usb_hid_stream_driver.o:  \
+ ../../../common/firmware/microchip/src/usb_hid_stream_driver.c  \
+ ../../../common/include/ams_stream.h  \
+../src/GenericTypeDefs.h  \
+ ../src/errno.h  \
+../src/stream_driver.h  \
+../src/ams_types.h  \
+ ../src/GenericTypeDefs.h  \
+../src/Compiler.h  \
+../src/stream_dispatcher.h  \
+ ../src/stream_driver.h  \
+../src/usb_hid_stream_driver.h  \
+../src/usb.h  \
+ ../src/usb_config.h  \
+../src/usb_common.h  \
+../src/usb_ch9.h  \
+ ../src/usb_device.h  \
+../src/usb_hal.h  \
+../src/usb_hal_pic24.h  \
+ ../src/usb_function_hid.h  \
+../src/usb.h  \
+../src/usb_function_hid.h  \
+ ../src/ams_types.h  \
+../src/logger.h 

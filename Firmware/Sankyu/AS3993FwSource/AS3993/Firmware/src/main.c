@@ -1989,45 +1989,90 @@ void enableBootloader() {
 }
 #endif
 
-void realizaAutoSintoniaDosCapacitores(int Metodo, int Antena){
+void realizaAutoSintoniaDosCapacitores(int Metodo){
     //extern  TunerParameters tunerParams;
     static TunerParameters tunerParams = {2, 12, 12};
     extern TunerConfiguration mainTuner;
     TunerConfiguration *tuner = NULL;
     TunerParameters *params = NULL;
-    int Resultados[3];
+//    int Resultados[3];
     
-    char mensagem[50];
+    int endereco = 0;
+    char enderecoRefl_MSB = 0;
+    char enderecoRefl_LSB = 0;
+    unsigned char aux1,aux2;
+    
+    char Mensagem[100];
     int Contador;
     
     tuner = &mainTuner;
     params = &tunerParams;
     
-    int AntenaASerLida;
-    AntenaASerLida = Antena;
-    
-    sel_led(AntenaASerLida, 1);
-    sel_antena(AntenaASerLida);
-    
-    
-    switch(Metodo){
-        case (0):
-            as3993AntennaPower(1);
-            tunerOneHillClimb(tuner, params, 100);
-            as3993AntennaPower(0);
-            break;
-        case (1): /* advanced: hill climb from more points */
-            as3993AntennaPower(1);
-            tunerMultiHillClimb(tuner, params);
-            as3993AntennaPower(0);
-            break;
-        case (2):
-            as3993AntennaPower(1);
-            tunerTraversal(tuner, params);
-            as3993AntennaPower(0);
+    int _AntenaASerLida;
+    _AntenaASerLida = 1;
+    sel_led(0,0);
+    for(_AntenaASerLida=1;_AntenaASerLida<=4;_AntenaASerLida++){
+        sel_led(_AntenaASerLida, 1);
+        sel_antena(_AntenaASerLida);
+        delay_ms(300);
+        switch(Metodo){
+            case (0):
+                as3993AntennaPower(1);
+                tunerOneHillClimb(tuner, params, 100);
+                as3993AntennaPower(0);
+                break;
+            case (1): /* advanced: hill climb from more points */
+                as3993AntennaPower(1);
+                tunerMultiHillClimb(tuner, params);
+                as3993AntennaPower(0);
+                break;
+            case (2):
+                as3993AntennaPower(1);
+                tunerTraversal(tuner, params);
+                as3993AntennaPower(0);
+        }
+
+        sprintf(Mensagem, "Antena %d -> Cin: %d, Clen: %d, Cout: %d, Reflexao: %d\n", _AntenaASerLida,params->cin, params->clen, params->cout,params->reflectedPower);
+        
+        switch(_AntenaASerLida){
+            case 1:
+                endereco = END_AJUSTE_CAP0_ANTENA_1;
+                enderecoRefl_MSB = END_INTENSIDADE_REFLEXAO_ANTENA_1_MSB;
+                enderecoRefl_LSB = END_INTENSIDADE_REFLEXAO_ANTENA_1_LSB;
+                break;
+            case 2:
+                endereco = END_AJUSTE_CAP0_ANTENA_2;
+                enderecoRefl_MSB = END_INTENSIDADE_REFLEXAO_ANTENA_2_MSB;
+                enderecoRefl_LSB = END_INTENSIDADE_REFLEXAO_ANTENA_2_LSB;
+                break;
+            case 3:
+                endereco = END_AJUSTE_CAP0_ANTENA_3;
+                enderecoRefl_MSB = END_INTENSIDADE_REFLEXAO_ANTENA_3_MSB;
+                enderecoRefl_LSB = END_INTENSIDADE_REFLEXAO_ANTENA_3_LSB;
+                break;
+            case 4: 
+                endereco = END_AJUSTE_CAP0_ANTENA_4;
+                enderecoRefl_MSB = END_INTENSIDADE_REFLEXAO_ANTENA_4_MSB;
+                enderecoRefl_LSB = END_INTENSIDADE_REFLEXAO_ANTENA_4_LSB;                       
+                break;
+        }
+        
+        EscreverNaEEprom(endereco, params->cin);
+        EscreverNaEEprom(endereco+1, params->clen);
+        EscreverNaEEprom(endereco+2, params->cout);
+        
+        aux1 = (unsigned char)(params->reflectedPower>>8);
+        aux2 = (unsigned char)(params->reflectedPower & 0X00FF);
+        EscreverNaEEprom(enderecoRefl_MSB,aux1);
+        EscreverNaEEprom(enderecoRefl_LSB,aux2);
+        
+        Contador = 0;
+        while(Mensagem[Contador]){
+            uart3Tx(Mensagem[Contador]);
+            Contador = Contador + 1;
+        }
+            sel_led(_AntenaASerLida, 0);
     }
-    sprintf(mensagem, "Capacitores = %d,%d,%d - Metodo = %d - Antena = %d\r\n", params->cin, params->clen, params->cout, Metodo, Antena);
-    enviaDadosParaUSBserial(mensagem, strlen(mensagem));
 }
 
 void tick(void) {

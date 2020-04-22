@@ -11,7 +11,7 @@
 #include "ajuste_cap.h"
 
 
-#define FIRMWARE "FWEMP_V01R00"
+#define FIRMWARE "FWPORTAL_V01R00"
 
 #define TAMANHO_ENDERECO_IP 15
 #define TAMANHO_BUFFER_COMANDOS_USB 100

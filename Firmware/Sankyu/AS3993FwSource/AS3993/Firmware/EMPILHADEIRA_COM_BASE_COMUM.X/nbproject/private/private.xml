@@ -198,15 +198,9 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/projetos/control-plus/Firmware/BaseComum/portal.c</file>
-            <file>file:/C:/projetos/control-plus/Firmware/BaseComum/zibbee.c</file>
-            <file>file:/C:/projetos/control-plus/Firmware/Sankyu/AS3993FwSource/AS3993/Firmware/src/empilhadeira.h</file>
-            <file>file:/C:/projetos/BaseComum/eth.c</file>
-            <file>file:/C:/projetos/control-plus/Firmware/Sankyu/AS3993FwSource/AS3993/Firmware/src/empilhadeira.c</file>
-            <file>file:/C:/projetos/control-plus/Firmware/Sankyu/AS3993FwSource/AS3993/Firmware/EMPILHADEIRA_COM_BASE_COMUM.X/nbproject/Makefile-debug.mk</file>
-            <file>file:/C:/projetos/BaseComum/wifi.c</file>
-            <file>file:/C:/projetos/control-plus/Firmware/BaseComum/exclusao.c</file>
-            <file>file:/C:/projetos/control-plus/Firmware/Sankyu/AS3993FwSource/AS3993/Firmware/src/ajuste_cap.c</file>
+            <file>file:/C:/projetos/control-plus/Firmware/Sankyu/AS3993FwSource/AS3993/Firmware/src/setup_usb.c</file>
+            <file>file:/C:/projetos/control-plus/Firmware/Sankyu/AS3993FwSource/AS3993/Firmware/src/perifericos.c</file>
+            <file>file:/C:/projetos/control-plus/Firmware/Sankyu/AS3993FwSource/AS3993/Firmware/src/as3993.c</file>
             <file>file:/C:/projetos/control-plus/Firmware/Sankyu/AS3993FwSource/AS3993/Firmware/src/main.c</file>
         </group>
     </open-files>
