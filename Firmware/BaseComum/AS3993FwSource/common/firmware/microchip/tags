@@ -1,0 +1,2213 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ADDRESS_STATE	include/usb_device.h	/^    ADDRESS_STATE$/;"	e	enum:__anon32
+ADR	include/usb_hal_pic24.h	/^            WORD        ADR; \/\/Buffer Address$/;"	m	struct:__BDT::__anon48::__anon50
+ADR_PENDING_STATE	include/usb_device.h	/^    ADR_PENDING_STATE$/;"	e	enum:__anon32
+ALLOFF	bootloader/usb/src/main.c	132;"	d	file:
+ALPHA_LC_TO_INTEGER	src/logger.c	54;"	d	file:
+ALPHA_UC_TO_INTEGER	src/logger.c	55;"	d	file:
+AMS_MATH_MACROS_H	include/ams_math_macros.h	37;"	d
+AMS_TYPES_H	include/ams_types.h	37;"	d
+AMS_USB_H	include/ams_usb.h	39;"	d
+APP_ID	include/bootloadable.h	45;"	d
+APP_ID_ADDR	include/bootloadable.h	44;"	d
+AR	bootloader/measure/Makefile	/^AR = $(C30DIR)\/bin\/pic30-ar$/;"	m
+AR	bootloader/test/Makefile	/^AR = $(C30DIR)\/bin\/pic30-ar$/;"	m
+AR	bootloader/usb/Makefile	/^AR = $(C30DIR)\/bin\/pic30-ar$/;"	m
+AS	bootloader/measure/Makefile	/^AS = $(C30DIR)\/bin\/pic30-as$/;"	m
+AS	bootloader/test/Makefile	/^AS = $(C30DIR)\/bin\/pic30-as$/;"	m
+AS	bootloader/usb/Makefile	/^AS = $(C30DIR)\/bin\/pic30-as$/;"	m
+AS3911	bootloader/usb/src/config.h	69;"	d
+AS393X_RX	bootloader/usb/src/config.h	71;"	d
+AS393X_TX	bootloader/usb/src/config.h	70;"	d
+ASFLAGS	bootloader/measure/Makefile	/^ASFLAGS=-p$(CPU)$/;"	m
+ASFLAGS	bootloader/test/Makefile	/^ASFLAGS=-p$(CPU)$/;"	m
+ASFLAGS	bootloader/usb/Makefile	/^ASFLAGS=-p$(CPU)$/;"	m
+ASM_FILES	bootloader/measure/Makefile	/^ASM_FILES=\\$/;"	m
+ASM_FILES	bootloader/test/Makefile	/^ASM_FILES=\\$/;"	m
+ASM_FILES	bootloader/usb/Makefile	/^ASM_FILES=\\$/;"	m
+ATTACHED_STATE	include/usb_device.h	/^    ATTACHED_STATE$/;"	e	enum:__anon32
+BD	src/usb_device.c	221;"	d	file:
+BD	src/usb_device.c	293;"	d	file:
+BD	src/usb_device.c	366;"	d	file:
+BD	src/usb_device.c	438;"	d	file:
+BDT	src/usb_device.c	/^volatile BDT_ENTRY BDT[((USB_MAX_EP_NUMBER + 1) * 2)+1] __attribute__ ((aligned (512)));$/;"	v
+BDT	src/usb_device.c	/^volatile BDT_ENTRY BDT[((USB_MAX_EP_NUMBER + 1) * 4)-2] __attribute__ ((aligned (512)));$/;"	v
+BDT	src/usb_device.c	/^volatile BDT_ENTRY BDT[(USB_MAX_EP_NUMBER + 1) * 2] __attribute__ ((aligned (512)));$/;"	v
+BDT	src/usb_device.c	/^volatile BDT_ENTRY BDT[(USB_MAX_EP_NUMBER + 1) * 4] __attribute__ ((aligned (512)));$/;"	v
+BDT_ENTRY	include/usb_hal_pic24.h	/^} BDT_ENTRY;$/;"	t	typeref:union:__BDT
+BD_STAT	include/usb_hal_pic24.h	/^} BD_STAT;                      \/\/Buffer Descriptor Status Register$/;"	t	typeref:union:_BD_STAT
+BIT	include/GenericTypeDefs.h	/^typedef enum _BIT { CLEAR = 0, SET } BIT;$/;"	t	typeref:enum:_BIT
+BL_DEBUG_LOG	bootloader/usb/src/config.h	79;"	d
+BL_INFO_LOG	bootloader/usb/src/config.h	77;"	d
+BL_LOG	bootloader/usb/src/config.h	132;"	d
+BL_LOG	bootloader/usb/src/config.h	147;"	d
+BL_LOG_16	bootloader/usb/src/config.h	135;"	d
+BL_LOG_16	bootloader/usb/src/config.h	149;"	d
+BL_LOG_8	bootloader/usb/src/config.h	138;"	d
+BL_LOG_8	bootloader/usb/src/config.h	150;"	d
+BL_LOG_CHAR	bootloader/usb/src/config.h	141;"	d
+BL_LOG_CHAR	bootloader/usb/src/config.h	148;"	d
+BL_LOG_DEINIT	bootloader/usb/src/config.h	108;"	d
+BL_LOG_DEINIT	bootloader/usb/src/config.h	122;"	d
+BL_LOG_DEINIT	bootloader/usb/src/config.h	146;"	d
+BL_LOG_INIT	bootloader/usb/src/config.h	102;"	d
+BL_LOG_INIT	bootloader/usb/src/config.h	116;"	d
+BL_LOG_INIT	bootloader/usb/src/config.h	145;"	d
+BL_LOG_LEVEL	bootloader/usb/src/config.h	83;"	d
+BL_LOG_LEVEL	bootloader/usb/src/config.h	88;"	d
+BL_NO_LOG	bootloader/usb/src/config.h	76;"	d
+BL_VERBOSE_LOG	bootloader/usb/src/config.h	78;"	d
+BOOL	include/GenericTypeDefs.h	/^typedef enum _BOOL { FALSE = 0, TRUE } BOOL;    \/* Undefined size *\/$/;"	t	typeref:enum:_BOOL
+BOOTLOADER_H	bootloader/measure/src/bootloader.h	39;"	d
+BOOTLOADER_H	bootloader/usb/src/bootloader.h	39;"	d
+BOOT_ADDR_HI	bootloader/usb/src/bootloader.h	70;"	d
+BOOT_ADDR_LOW	bootloader/usb/src/bootloader.h	69;"	d
+BOOT_INTF_SUBCLASS	include/usb_function_hid.h	122;"	d
+BOOT_PROTOCOL	include/usb_function_hid.h	115;"	d
+BSTALL	include/usb_hal_pic24.h	/^        unsigned    BSTALL  :1;     \/\/Buffer Stall Enable$/;"	m	struct:_BD_STAT::__anon45
+BUILD_DIR	bootloader/measure/Makefile	/^BUILD_DIR=build$/;"	m
+BUILD_DIR	bootloader/test/Makefile	/^BUILD_DIR=build$/;"	m
+BUILD_DIR	bootloader/usb/Makefile	/^BUILD_DIR=build$/;"	m
+BYTE	include/GenericTypeDefs.h	/^typedef unsigned char           BYTE;                           \/* 8-bit unsigned  *\/$/;"	t
+BYTE	include/usb_hal_pic24.h	/^            BYTE        :6;$/;"	m	struct:__BDT::__anon48::__anon50
+BYTE_BITS	include/GenericTypeDefs.h	/^} BYTE_VAL, BYTE_BITS;$/;"	t	typeref:union:__anon10
+BYTE_VAL	include/GenericTypeDefs.h	/^} BYTE_VAL, BYTE_BITS;$/;"	t	typeref:union:__anon10
+BothEP0OutUOWNsSet	src/usb_device.c	/^USB_VOLATILE BOOL BothEP0OutUOWNsSet;$/;"	v
+C12832A1Z_CMD_ADC_NORMAL	src/lcd_NHD_A1Z.c	61;"	d	file:
+C12832A1Z_CMD_ADC_REVERSE	src/lcd_NHD_A1Z.c	62;"	d	file:
+C12832A1Z_CMD_BOOSTER_RATIO_2X_3X_4X	src/lcd_NHD_A1Z.c	87;"	d	file:
+C12832A1Z_CMD_BOOSTER_RATIO_5X	src/lcd_NHD_A1Z.c	88;"	d	file:
+C12832A1Z_CMD_BOOSTER_RATIO_6X	src/lcd_NHD_A1Z.c	89;"	d	file:
+C12832A1Z_CMD_BOOSTER_RATIO_SET	src/lcd_NHD_A1Z.c	86;"	d	file:
+C12832A1Z_CMD_COLUMN_ADDRESS_SET_LSB	src/lcd_NHD_A1Z.c	60;"	d	file:
+C12832A1Z_CMD_COLUMN_ADDRESS_SET_MSB	src/lcd_NHD_A1Z.c	59;"	d	file:
+C12832A1Z_CMD_DISPLAY_ALL_POINTS_OFF	src/lcd_NHD_A1Z.c	65;"	d	file:
+C12832A1Z_CMD_DISPLAY_ALL_POINTS_ON	src/lcd_NHD_A1Z.c	66;"	d	file:
+C12832A1Z_CMD_DISPLAY_NORMAL	src/lcd_NHD_A1Z.c	63;"	d	file:
+C12832A1Z_CMD_DISPLAY_OFF	src/lcd_NHD_A1Z.c	56;"	d	file:
+C12832A1Z_CMD_DISPLAY_ON	src/lcd_NHD_A1Z.c	55;"	d	file:
+C12832A1Z_CMD_DISPLAY_REVERSE	src/lcd_NHD_A1Z.c	64;"	d	file:
+C12832A1Z_CMD_ELECTRONIC_VOLUME	src/lcd_NHD_A1Z.c	85;"	d	file:
+C12832A1Z_CMD_ELECTRONIC_VOLUME_MODE_SET	src/lcd_NHD_A1Z.c	84;"	d	file:
+C12832A1Z_CMD_END	src/lcd_NHD_A1Z.c	91;"	d	file:
+C12832A1Z_CMD_LCD_BIAS_1_DIV_5_DUTY33	src/lcd_NHD_A1Z.c	67;"	d	file:
+C12832A1Z_CMD_LCD_BIAS_1_DIV_6_DUTY33	src/lcd_NHD_A1Z.c	68;"	d	file:
+C12832A1Z_CMD_NOP	src/lcd_NHD_A1Z.c	83;"	d	file:
+C12832A1Z_CMD_NORMAL_MODE	src/lcd_NHD_A1Z.c	81;"	d	file:
+C12832A1Z_CMD_NORMAL_SCAN_DIRECTION	src/lcd_NHD_A1Z.c	69;"	d	file:
+C12832A1Z_CMD_PAGE_ADDRESS_SET	src/lcd_NHD_A1Z.c	58;"	d	file:
+C12832A1Z_CMD_POWER_CTRL_ALL_ON	src/lcd_NHD_A1Z.c	79;"	d	file:
+C12832A1Z_CMD_READ_MODIFY_WRITE	src/lcd_NHD_A1Z.c	92;"	d	file:
+C12832A1Z_CMD_RESET	src/lcd_NHD_A1Z.c	82;"	d	file:
+C12832A1Z_CMD_REVERSE_SCAN_DIRECTION	src/lcd_NHD_A1Z.c	70;"	d	file:
+C12832A1Z_CMD_SLEEP_MODE	src/lcd_NHD_A1Z.c	80;"	d	file:
+C12832A1Z_CMD_START_LINE_SET	src/lcd_NHD_A1Z.c	57;"	d	file:
+C12832A1Z_CMD_STATUS_READ	src/lcd_NHD_A1Z.c	90;"	d	file:
+C12832A1Z_CMD_VOLTAGE_RESISTOR_RATIO_0	src/lcd_NHD_A1Z.c	71;"	d	file:
+C12832A1Z_CMD_VOLTAGE_RESISTOR_RATIO_1	src/lcd_NHD_A1Z.c	72;"	d	file:
+C12832A1Z_CMD_VOLTAGE_RESISTOR_RATIO_2	src/lcd_NHD_A1Z.c	73;"	d	file:
+C12832A1Z_CMD_VOLTAGE_RESISTOR_RATIO_3	src/lcd_NHD_A1Z.c	74;"	d	file:
+C12832A1Z_CMD_VOLTAGE_RESISTOR_RATIO_4	src/lcd_NHD_A1Z.c	75;"	d	file:
+C12832A1Z_CMD_VOLTAGE_RESISTOR_RATIO_5	src/lcd_NHD_A1Z.c	76;"	d	file:
+C12832A1Z_CMD_VOLTAGE_RESISTOR_RATIO_6	src/lcd_NHD_A1Z.c	77;"	d	file:
+C12832A1Z_CMD_VOLTAGE_RESISTOR_RATIO_7	src/lcd_NHD_A1Z.c	78;"	d	file:
+C12832A1Z_DISPLAY_CONTRAST_MAX	src/lcd_NHD_A1Z.c	93;"	d	file:
+C12832A1Z_DISPLAY_CONTRAST_MIN	src/lcd_NHD_A1Z.c	94;"	d	file:
+C30DIR	bootloader/measure/Makefile	/^C30DIR="$(c30dir)"$/;"	m
+C30DIR	bootloader/test/Makefile	/^C30DIR="$(c30dir)"$/;"	m
+C30DIR	bootloader/usb/Makefile	/^C30DIR="$(c30dir)"$/;"	m
+C30_RESOURE_FILE	bootloader/measure/Makefile	/^C30_RESOURE_FILE = $(C30DIR)"\/bin\/c30_device.info"$/;"	m
+C30_RESOURE_FILE	bootloader/test/Makefile	/^C30_RESOURE_FILE = $(C30DIR)"\/bin\/c30_device.info"$/;"	m
+C30_RESOURE_FILE	bootloader/usb/Makefile	/^C30_RESOURE_FILE = $(C30DIR)"\/bin\/c30_device.info"$/;"	m
+CC	bootloader/measure/Makefile	/^CC = $(C30DIR)\/bin\/pic30-gcc$/;"	m
+CC	bootloader/test/Makefile	/^CC = $(C30DIR)\/bin\/pic30-gcc$/;"	m
+CC	bootloader/usb/Makefile	/^CC = $(C30DIR)\/bin\/pic30-gcc$/;"	m
+CCADMIN	bootloader/usb/PIC24F_Bootloader.X/Makefile	/^CCADMIN=CCadmin$/;"	m
+CCADMIN	bootloader/usb/PIC24F_USB_HID_Bootloader_v021403_nolog.X/Makefile	/^CCADMIN=CCadmin$/;"	m
+CCADMIN	bootloader/usb/PIC24F_USB_HID_Bootloader_v021601.X/Makefile	/^CCADMIN=CCadmin$/;"	m
+CFLAGS	bootloader/measure/Makefile	/^CFLAGS=\\$/;"	m
+CFLAGS	bootloader/test/Makefile	/^CFLAGS=\\$/;"	m
+CFLAGS	bootloader/usb/Makefile	/^CFLAGS=\\$/;"	m
+CHAR	include/GenericTypeDefs.h	/^typedef signed char             CHAR;                           \/* 8-bit signed    *\/$/;"	t
+CHAR8	include/GenericTypeDefs.h	/^typedef char                    CHAR8;$/;"	t
+CLEAR	include/GenericTypeDefs.h	/^typedef enum _BIT { CLEAR = 0, SET } BIT;$/;"	e	enum:_BIT
+CLK_SRC_FRC	include/system_clock.h	82;"	d
+CLK_SRC_FRCDIV	include/system_clock.h	76;"	d
+CLK_SRC_FRCPLL	include/system_clock.h	81;"	d
+CLK_SRC_LPRC	include/system_clock.h	77;"	d
+CLK_SRC_POSC	include/system_clock.h	80;"	d
+CLK_SRC_POSC_PLL	include/system_clock.h	79;"	d
+CLK_SRC_SOSC	include/system_clock.h	78;"	d
+CNT	include/usb_hal_pic24.h	/^            BYTE CNT         __attribute__ ((packed));$/;"	m	struct:__BDT::__anon48::__anon49
+COMMON_SOURCE_DIR	bootloader/measure/Makefile	/^COMMON_SOURCE_DIR=$(MCU_DIR)\/src$/;"	m
+COMMON_SOURCE_DIR	bootloader/test/Makefile	/^COMMON_SOURCE_DIR=$(MCU_DIR)\/src$/;"	m
+COMMON_SOURCE_DIR	bootloader/usb/Makefile	/^COMMON_SOURCE_DIR=$(MCU_DIR)\/src$/;"	m
+CONFIGURED_STATE	include/usb_device.h	/^    CONFIGURED_STATE$/;"	e	enum:__anon32
+CONFIG_END	bootloader/usb/src/bootloader.h	86;"	d
+CONFIG_H	bootloader/usb/src/config.h	40;"	d
+CONFIG_START	bootloader/usb/src/bootloader.h	85;"	d
+CON_putchar	src/logger.c	57;"	d	file:
+CP	bootloader/usb/PIC24F_Bootloader.X/Makefile	/^CP=cp$/;"	m
+CP	bootloader/usb/PIC24F_USB_HID_Bootloader_v021403_nolog.X/Makefile	/^CP=cp$/;"	m
+CP	bootloader/usb/PIC24F_USB_HID_Bootloader_v021601.X/Makefile	/^CP=cp$/;"	m
+CPU	bootloader/measure/Makefile	/^CPU=24FJ64GB002$/;"	m
+CPU	bootloader/test/Makefile	/^CPU=24FJ64GB002$/;"	m
+CPU	bootloader/usb/Makefile	/^CPU=24FJ64GB002$/;"	m
+CTRL_TRF_PARAMS	include/usb_device.h	1201;"	d
+CTRL_TRF_RETURN	include/usb_device.h	1200;"	d
+CTRL_TRF_RX	src/usb_device.c	148;"	d	file:
+CTRL_TRF_SETUP	include/usb_ch9.h	/^} CTRL_TRF_SETUP, SETUP_PKT, *PSETUP_PKT;$/;"	t	typeref:union:__anon16
+CTRL_TRF_TX	src/usb_device.c	147;"	d	file:
+ConvertToPhysicalAddress	include/usb_hal_pic24.h	250;"	d
+ConvertToVirtualAddress	include/usb_hal_pic24.h	251;"	d
+CtrlTrfData	src/usb_device.c	/^volatile BYTE CtrlTrfData[USB_EP0_BUFF_SIZE];$/;"	v
+DBG_ASSERT	include/logger.h	107;"	d
+DBG_ASSERT	include/logger.h	117;"	d
+DEBUG	bootloader/measure/Makefile	/^DEBUG=1$/;"	m
+DEBUG_H	include/debug.h	40;"	d
+DEBUG_NUM	src/usb_device.c	127;"	d	file:
+DEBUG_NUM	src/usb_device.c	130;"	d	file:
+DEBUG_WITH_TIME	src/usb_device.c	128;"	d	file:
+DEBUG_WITH_TIME	src/usb_device.c	131;"	d	file:
+DEFAULT_ALLOW_WRITE_CONFIG	bootloader/usb/src/config.h	158;"	d
+DEFAULT_STATE	include/usb_device.h	/^    DEFAULT_STATE$/;"	e	enum:__anon32
+DESCRIPTOR_ID	include/usb_ch9.h	/^} DESCRIPTOR_ID;$/;"	t	typeref:struct:__anon15
+DESC_CONFIG_BYTE	include/usb_device.h	1165;"	d
+DESC_CONFIG_DWORD	include/usb_device.h	1158;"	d
+DESC_CONFIG_WORD	include/usb_device.h	1151;"	d
+DETACHED_STATE	include/usb_device.h	/^    DETACHED_STATE$/;"	e	enum:__anon32
+DEVICE_RELEASE_NUMBER	bootloader/usb/src/config.h	63;"	d
+DEV_HAS_WORD_WRITE	bootloader/usb/src/bootloader.h	58;"	d
+DIV_ROUND_DOWN	include/ams_math_macros.h	49;"	d
+DIV_ROUND_NEAREST	include/ams_math_macros.h	50;"	d
+DIV_ROUND_UP	include/ams_math_macros.h	48;"	d
+DOC_DIR	bootloader/measure/Makefile	/^DOC_DIR=doc$/;"	m
+DOC_DIR	bootloader/test/Makefile	/^DOC_DIR=doc$/;"	m
+DOC_DIR	bootloader/usb/Makefile	/^DOC_DIR=doc$/;"	m
+DOC_OUTPUT_DIR	bootloader/measure/Makefile	/^DOC_OUTPUT_DIR=$(DOC_DIR)\/generated$/;"	m
+DOC_OUTPUT_DIR	bootloader/test/Makefile	/^DOC_OUTPUT_DIR=$(DOC_DIR)\/generated$/;"	m
+DOC_OUTPUT_DIR	bootloader/usb/Makefile	/^DOC_OUTPUT_DIR=$(DOC_DIR)\/generated$/;"	m
+DOXYGEN	bootloader/measure/Makefile	/^DOXYGEN = doxygen$/;"	m
+DOXYGEN	bootloader/test/Makefile	/^DOXYGEN = doxygen$/;"	m
+DOXYGEN	bootloader/usb/Makefile	/^DOXYGEN = doxygen$/;"	m
+DSC_HID	include/usb_function_hid.h	110;"	d
+DSC_PHY	include/usb_function_hid.h	112;"	d
+DSC_RPT	include/usb_function_hid.h	111;"	d
+DTS	include/usb_hal_pic24.h	/^        unsigned    DTS     :1;     \/\/Data Toggle Synch Value$/;"	m	struct:_BD_STAT::__anon45
+DTSEN	include/usb_hal_pic24.h	/^        unsigned    DTSEN   :1;     \/\/Data Toggle Synch Enable$/;"	m	struct:_BD_STAT::__anon45
+DWORD	include/GenericTypeDefs.h	/^typedef unsigned long           DWORD;                          \/* 32-bit unsigned *\/$/;"	t
+DWORD_VAL	include/GenericTypeDefs.h	/^} DWORD_VAL;$/;"	t	typeref:union:__anon12
+DataDir	include/usb_ch9.h	/^        unsigned DataDir:1;     \/\/Host-to-device,Device-to-host$/;"	m	struct:__anon16::__anon19
+DisableNonZeroEndpoints	include/usb_hal_pic24.h	323;"	d
+ENABLE_BOOTLOADER_ADDR	include/bootloadable.h	47;"	d
+ENDPOINT_MASK	include/usb_hal_pic24.h	382;"	d
+EP	src/usb_device.c	219;"	d	file:
+EP	src/usb_device.c	292;"	d	file:
+EP	src/usb_device.c	364;"	d	file:
+EP	src/usb_device.c	437;"	d	file:
+EP0_IN_EVEN	src/usb_device.c	156;"	d	file:
+EP0_IN_EVEN	src/usb_device.c	229;"	d	file:
+EP0_IN_EVEN	src/usb_device.c	301;"	d	file:
+EP0_IN_EVEN	src/usb_device.c	374;"	d	file:
+EP0_IN_ODD	src/usb_device.c	157;"	d	file:
+EP0_IN_ODD	src/usb_device.c	230;"	d	file:
+EP0_IN_ODD	src/usb_device.c	302;"	d	file:
+EP0_IN_ODD	src/usb_device.c	375;"	d	file:
+EP0_OUT_EVEN	src/usb_device.c	154;"	d	file:
+EP0_OUT_EVEN	src/usb_device.c	227;"	d	file:
+EP0_OUT_EVEN	src/usb_device.c	299;"	d	file:
+EP0_OUT_EVEN	src/usb_device.c	372;"	d	file:
+EP0_OUT_ODD	src/usb_device.c	155;"	d	file:
+EP0_OUT_ODD	src/usb_device.c	228;"	d	file:
+EP0_OUT_ODD	src/usb_device.c	300;"	d	file:
+EP0_OUT_ODD	src/usb_device.c	373;"	d	file:
+EP10_IN_EVEN	src/usb_device.c	196;"	d	file:
+EP10_IN_EVEN	src/usb_device.c	269;"	d	file:
+EP10_IN_EVEN	src/usb_device.c	341;"	d	file:
+EP10_IN_EVEN	src/usb_device.c	414;"	d	file:
+EP10_IN_ODD	src/usb_device.c	197;"	d	file:
+EP10_IN_ODD	src/usb_device.c	270;"	d	file:
+EP10_IN_ODD	src/usb_device.c	342;"	d	file:
+EP10_IN_ODD	src/usb_device.c	415;"	d	file:
+EP10_OUT_EVEN	src/usb_device.c	194;"	d	file:
+EP10_OUT_EVEN	src/usb_device.c	267;"	d	file:
+EP10_OUT_EVEN	src/usb_device.c	339;"	d	file:
+EP10_OUT_EVEN	src/usb_device.c	412;"	d	file:
+EP10_OUT_ODD	src/usb_device.c	195;"	d	file:
+EP10_OUT_ODD	src/usb_device.c	268;"	d	file:
+EP10_OUT_ODD	src/usb_device.c	340;"	d	file:
+EP10_OUT_ODD	src/usb_device.c	413;"	d	file:
+EP11_IN_EVEN	src/usb_device.c	200;"	d	file:
+EP11_IN_EVEN	src/usb_device.c	273;"	d	file:
+EP11_IN_EVEN	src/usb_device.c	345;"	d	file:
+EP11_IN_EVEN	src/usb_device.c	418;"	d	file:
+EP11_IN_ODD	src/usb_device.c	201;"	d	file:
+EP11_IN_ODD	src/usb_device.c	274;"	d	file:
+EP11_IN_ODD	src/usb_device.c	346;"	d	file:
+EP11_IN_ODD	src/usb_device.c	419;"	d	file:
+EP11_OUT_EVEN	src/usb_device.c	198;"	d	file:
+EP11_OUT_EVEN	src/usb_device.c	271;"	d	file:
+EP11_OUT_EVEN	src/usb_device.c	343;"	d	file:
+EP11_OUT_EVEN	src/usb_device.c	416;"	d	file:
+EP11_OUT_ODD	src/usb_device.c	199;"	d	file:
+EP11_OUT_ODD	src/usb_device.c	272;"	d	file:
+EP11_OUT_ODD	src/usb_device.c	344;"	d	file:
+EP11_OUT_ODD	src/usb_device.c	417;"	d	file:
+EP12_IN_EVEN	src/usb_device.c	204;"	d	file:
+EP12_IN_EVEN	src/usb_device.c	277;"	d	file:
+EP12_IN_EVEN	src/usb_device.c	349;"	d	file:
+EP12_IN_EVEN	src/usb_device.c	422;"	d	file:
+EP12_IN_ODD	src/usb_device.c	205;"	d	file:
+EP12_IN_ODD	src/usb_device.c	278;"	d	file:
+EP12_IN_ODD	src/usb_device.c	350;"	d	file:
+EP12_IN_ODD	src/usb_device.c	423;"	d	file:
+EP12_OUT_EVEN	src/usb_device.c	202;"	d	file:
+EP12_OUT_EVEN	src/usb_device.c	275;"	d	file:
+EP12_OUT_EVEN	src/usb_device.c	347;"	d	file:
+EP12_OUT_EVEN	src/usb_device.c	420;"	d	file:
+EP12_OUT_ODD	src/usb_device.c	203;"	d	file:
+EP12_OUT_ODD	src/usb_device.c	276;"	d	file:
+EP12_OUT_ODD	src/usb_device.c	348;"	d	file:
+EP12_OUT_ODD	src/usb_device.c	421;"	d	file:
+EP13_IN_EVEN	src/usb_device.c	208;"	d	file:
+EP13_IN_EVEN	src/usb_device.c	281;"	d	file:
+EP13_IN_EVEN	src/usb_device.c	353;"	d	file:
+EP13_IN_EVEN	src/usb_device.c	426;"	d	file:
+EP13_IN_ODD	src/usb_device.c	209;"	d	file:
+EP13_IN_ODD	src/usb_device.c	282;"	d	file:
+EP13_IN_ODD	src/usb_device.c	354;"	d	file:
+EP13_IN_ODD	src/usb_device.c	427;"	d	file:
+EP13_OUT_EVEN	src/usb_device.c	206;"	d	file:
+EP13_OUT_EVEN	src/usb_device.c	279;"	d	file:
+EP13_OUT_EVEN	src/usb_device.c	351;"	d	file:
+EP13_OUT_EVEN	src/usb_device.c	424;"	d	file:
+EP13_OUT_ODD	src/usb_device.c	207;"	d	file:
+EP13_OUT_ODD	src/usb_device.c	280;"	d	file:
+EP13_OUT_ODD	src/usb_device.c	352;"	d	file:
+EP13_OUT_ODD	src/usb_device.c	425;"	d	file:
+EP14_IN_EVEN	src/usb_device.c	212;"	d	file:
+EP14_IN_EVEN	src/usb_device.c	285;"	d	file:
+EP14_IN_EVEN	src/usb_device.c	357;"	d	file:
+EP14_IN_EVEN	src/usb_device.c	430;"	d	file:
+EP14_IN_ODD	src/usb_device.c	213;"	d	file:
+EP14_IN_ODD	src/usb_device.c	286;"	d	file:
+EP14_IN_ODD	src/usb_device.c	358;"	d	file:
+EP14_IN_ODD	src/usb_device.c	431;"	d	file:
+EP14_OUT_EVEN	src/usb_device.c	210;"	d	file:
+EP14_OUT_EVEN	src/usb_device.c	283;"	d	file:
+EP14_OUT_EVEN	src/usb_device.c	355;"	d	file:
+EP14_OUT_EVEN	src/usb_device.c	428;"	d	file:
+EP14_OUT_ODD	src/usb_device.c	211;"	d	file:
+EP14_OUT_ODD	src/usb_device.c	284;"	d	file:
+EP14_OUT_ODD	src/usb_device.c	356;"	d	file:
+EP14_OUT_ODD	src/usb_device.c	429;"	d	file:
+EP15_IN_EVEN	src/usb_device.c	216;"	d	file:
+EP15_IN_EVEN	src/usb_device.c	289;"	d	file:
+EP15_IN_EVEN	src/usb_device.c	361;"	d	file:
+EP15_IN_EVEN	src/usb_device.c	434;"	d	file:
+EP15_IN_ODD	src/usb_device.c	217;"	d	file:
+EP15_IN_ODD	src/usb_device.c	290;"	d	file:
+EP15_IN_ODD	src/usb_device.c	362;"	d	file:
+EP15_IN_ODD	src/usb_device.c	435;"	d	file:
+EP15_OUT_EVEN	src/usb_device.c	214;"	d	file:
+EP15_OUT_EVEN	src/usb_device.c	287;"	d	file:
+EP15_OUT_EVEN	src/usb_device.c	359;"	d	file:
+EP15_OUT_EVEN	src/usb_device.c	432;"	d	file:
+EP15_OUT_ODD	src/usb_device.c	215;"	d	file:
+EP15_OUT_ODD	src/usb_device.c	288;"	d	file:
+EP15_OUT_ODD	src/usb_device.c	360;"	d	file:
+EP15_OUT_ODD	src/usb_device.c	433;"	d	file:
+EP1_IN_EVEN	src/usb_device.c	160;"	d	file:
+EP1_IN_EVEN	src/usb_device.c	233;"	d	file:
+EP1_IN_EVEN	src/usb_device.c	305;"	d	file:
+EP1_IN_EVEN	src/usb_device.c	378;"	d	file:
+EP1_IN_ODD	src/usb_device.c	161;"	d	file:
+EP1_IN_ODD	src/usb_device.c	234;"	d	file:
+EP1_IN_ODD	src/usb_device.c	306;"	d	file:
+EP1_IN_ODD	src/usb_device.c	379;"	d	file:
+EP1_OUT_EVEN	src/usb_device.c	158;"	d	file:
+EP1_OUT_EVEN	src/usb_device.c	231;"	d	file:
+EP1_OUT_EVEN	src/usb_device.c	303;"	d	file:
+EP1_OUT_EVEN	src/usb_device.c	376;"	d	file:
+EP1_OUT_ODD	src/usb_device.c	159;"	d	file:
+EP1_OUT_ODD	src/usb_device.c	232;"	d	file:
+EP1_OUT_ODD	src/usb_device.c	304;"	d	file:
+EP1_OUT_ODD	src/usb_device.c	377;"	d	file:
+EP2_IN_EVEN	src/usb_device.c	164;"	d	file:
+EP2_IN_EVEN	src/usb_device.c	237;"	d	file:
+EP2_IN_EVEN	src/usb_device.c	309;"	d	file:
+EP2_IN_EVEN	src/usb_device.c	382;"	d	file:
+EP2_IN_ODD	src/usb_device.c	165;"	d	file:
+EP2_IN_ODD	src/usb_device.c	238;"	d	file:
+EP2_IN_ODD	src/usb_device.c	310;"	d	file:
+EP2_IN_ODD	src/usb_device.c	383;"	d	file:
+EP2_OUT_EVEN	src/usb_device.c	162;"	d	file:
+EP2_OUT_EVEN	src/usb_device.c	235;"	d	file:
+EP2_OUT_EVEN	src/usb_device.c	307;"	d	file:
+EP2_OUT_EVEN	src/usb_device.c	380;"	d	file:
+EP2_OUT_ODD	src/usb_device.c	163;"	d	file:
+EP2_OUT_ODD	src/usb_device.c	236;"	d	file:
+EP2_OUT_ODD	src/usb_device.c	308;"	d	file:
+EP2_OUT_ODD	src/usb_device.c	381;"	d	file:
+EP3_IN_EVEN	src/usb_device.c	168;"	d	file:
+EP3_IN_EVEN	src/usb_device.c	241;"	d	file:
+EP3_IN_EVEN	src/usb_device.c	313;"	d	file:
+EP3_IN_EVEN	src/usb_device.c	386;"	d	file:
+EP3_IN_ODD	src/usb_device.c	169;"	d	file:
+EP3_IN_ODD	src/usb_device.c	242;"	d	file:
+EP3_IN_ODD	src/usb_device.c	314;"	d	file:
+EP3_IN_ODD	src/usb_device.c	387;"	d	file:
+EP3_OUT_EVEN	src/usb_device.c	166;"	d	file:
+EP3_OUT_EVEN	src/usb_device.c	239;"	d	file:
+EP3_OUT_EVEN	src/usb_device.c	311;"	d	file:
+EP3_OUT_EVEN	src/usb_device.c	384;"	d	file:
+EP3_OUT_ODD	src/usb_device.c	167;"	d	file:
+EP3_OUT_ODD	src/usb_device.c	240;"	d	file:
+EP3_OUT_ODD	src/usb_device.c	312;"	d	file:
+EP3_OUT_ODD	src/usb_device.c	385;"	d	file:
+EP4_IN_EVEN	src/usb_device.c	172;"	d	file:
+EP4_IN_EVEN	src/usb_device.c	245;"	d	file:
+EP4_IN_EVEN	src/usb_device.c	317;"	d	file:
+EP4_IN_EVEN	src/usb_device.c	390;"	d	file:
+EP4_IN_ODD	src/usb_device.c	173;"	d	file:
+EP4_IN_ODD	src/usb_device.c	246;"	d	file:
+EP4_IN_ODD	src/usb_device.c	318;"	d	file:
+EP4_IN_ODD	src/usb_device.c	391;"	d	file:
+EP4_OUT_EVEN	src/usb_device.c	170;"	d	file:
+EP4_OUT_EVEN	src/usb_device.c	243;"	d	file:
+EP4_OUT_EVEN	src/usb_device.c	315;"	d	file:
+EP4_OUT_EVEN	src/usb_device.c	388;"	d	file:
+EP4_OUT_ODD	src/usb_device.c	171;"	d	file:
+EP4_OUT_ODD	src/usb_device.c	244;"	d	file:
+EP4_OUT_ODD	src/usb_device.c	316;"	d	file:
+EP4_OUT_ODD	src/usb_device.c	389;"	d	file:
+EP5_IN_EVEN	src/usb_device.c	176;"	d	file:
+EP5_IN_EVEN	src/usb_device.c	249;"	d	file:
+EP5_IN_EVEN	src/usb_device.c	321;"	d	file:
+EP5_IN_EVEN	src/usb_device.c	394;"	d	file:
+EP5_IN_ODD	src/usb_device.c	177;"	d	file:
+EP5_IN_ODD	src/usb_device.c	250;"	d	file:
+EP5_IN_ODD	src/usb_device.c	322;"	d	file:
+EP5_IN_ODD	src/usb_device.c	395;"	d	file:
+EP5_OUT_EVEN	src/usb_device.c	174;"	d	file:
+EP5_OUT_EVEN	src/usb_device.c	247;"	d	file:
+EP5_OUT_EVEN	src/usb_device.c	319;"	d	file:
+EP5_OUT_EVEN	src/usb_device.c	392;"	d	file:
+EP5_OUT_ODD	src/usb_device.c	175;"	d	file:
+EP5_OUT_ODD	src/usb_device.c	248;"	d	file:
+EP5_OUT_ODD	src/usb_device.c	320;"	d	file:
+EP5_OUT_ODD	src/usb_device.c	393;"	d	file:
+EP6_IN_EVEN	src/usb_device.c	180;"	d	file:
+EP6_IN_EVEN	src/usb_device.c	253;"	d	file:
+EP6_IN_EVEN	src/usb_device.c	325;"	d	file:
+EP6_IN_EVEN	src/usb_device.c	398;"	d	file:
+EP6_IN_ODD	src/usb_device.c	181;"	d	file:
+EP6_IN_ODD	src/usb_device.c	254;"	d	file:
+EP6_IN_ODD	src/usb_device.c	326;"	d	file:
+EP6_IN_ODD	src/usb_device.c	399;"	d	file:
+EP6_OUT_EVEN	src/usb_device.c	178;"	d	file:
+EP6_OUT_EVEN	src/usb_device.c	251;"	d	file:
+EP6_OUT_EVEN	src/usb_device.c	323;"	d	file:
+EP6_OUT_EVEN	src/usb_device.c	396;"	d	file:
+EP6_OUT_ODD	src/usb_device.c	179;"	d	file:
+EP6_OUT_ODD	src/usb_device.c	252;"	d	file:
+EP6_OUT_ODD	src/usb_device.c	324;"	d	file:
+EP6_OUT_ODD	src/usb_device.c	397;"	d	file:
+EP7_IN_EVEN	src/usb_device.c	184;"	d	file:
+EP7_IN_EVEN	src/usb_device.c	257;"	d	file:
+EP7_IN_EVEN	src/usb_device.c	329;"	d	file:
+EP7_IN_EVEN	src/usb_device.c	402;"	d	file:
+EP7_IN_ODD	src/usb_device.c	185;"	d	file:
+EP7_IN_ODD	src/usb_device.c	258;"	d	file:
+EP7_IN_ODD	src/usb_device.c	330;"	d	file:
+EP7_IN_ODD	src/usb_device.c	403;"	d	file:
+EP7_OUT_EVEN	src/usb_device.c	182;"	d	file:
+EP7_OUT_EVEN	src/usb_device.c	255;"	d	file:
+EP7_OUT_EVEN	src/usb_device.c	327;"	d	file:
+EP7_OUT_EVEN	src/usb_device.c	400;"	d	file:
+EP7_OUT_ODD	src/usb_device.c	183;"	d	file:
+EP7_OUT_ODD	src/usb_device.c	256;"	d	file:
+EP7_OUT_ODD	src/usb_device.c	328;"	d	file:
+EP7_OUT_ODD	src/usb_device.c	401;"	d	file:
+EP8_IN_EVEN	src/usb_device.c	188;"	d	file:
+EP8_IN_EVEN	src/usb_device.c	261;"	d	file:
+EP8_IN_EVEN	src/usb_device.c	333;"	d	file:
+EP8_IN_EVEN	src/usb_device.c	406;"	d	file:
+EP8_IN_ODD	src/usb_device.c	189;"	d	file:
+EP8_IN_ODD	src/usb_device.c	262;"	d	file:
+EP8_IN_ODD	src/usb_device.c	334;"	d	file:
+EP8_IN_ODD	src/usb_device.c	407;"	d	file:
+EP8_OUT_EVEN	src/usb_device.c	186;"	d	file:
+EP8_OUT_EVEN	src/usb_device.c	259;"	d	file:
+EP8_OUT_EVEN	src/usb_device.c	331;"	d	file:
+EP8_OUT_EVEN	src/usb_device.c	404;"	d	file:
+EP8_OUT_ODD	src/usb_device.c	187;"	d	file:
+EP8_OUT_ODD	src/usb_device.c	260;"	d	file:
+EP8_OUT_ODD	src/usb_device.c	332;"	d	file:
+EP8_OUT_ODD	src/usb_device.c	405;"	d	file:
+EP9_IN_EVEN	src/usb_device.c	192;"	d	file:
+EP9_IN_EVEN	src/usb_device.c	265;"	d	file:
+EP9_IN_EVEN	src/usb_device.c	337;"	d	file:
+EP9_IN_EVEN	src/usb_device.c	410;"	d	file:
+EP9_IN_ODD	src/usb_device.c	193;"	d	file:
+EP9_IN_ODD	src/usb_device.c	266;"	d	file:
+EP9_IN_ODD	src/usb_device.c	338;"	d	file:
+EP9_IN_ODD	src/usb_device.c	411;"	d	file:
+EP9_OUT_EVEN	src/usb_device.c	190;"	d	file:
+EP9_OUT_EVEN	src/usb_device.c	263;"	d	file:
+EP9_OUT_EVEN	src/usb_device.c	335;"	d	file:
+EP9_OUT_EVEN	src/usb_device.c	408;"	d	file:
+EP9_OUT_ODD	src/usb_device.c	191;"	d	file:
+EP9_OUT_ODD	src/usb_device.c	264;"	d	file:
+EP9_OUT_ODD	src/usb_device.c	336;"	d	file:
+EP9_OUT_ODD	src/usb_device.c	409;"	d	file:
+EPDir	include/usb_ch9.h	/^        unsigned EPDir:1;       \/\/Endpoint Direction: 0-OUT, 1-IN$/;"	m	struct:__anon16::__anon28
+EPNum	include/usb_ch9.h	/^        unsigned EPNum:4;       \/\/Endpoint Number 0-15$/;"	m	struct:__anon16::__anon28
+EP_ATTR_ADAPT	include/usb_ch9.h	217;"	d
+EP_ATTR_ASYNC	include/usb_ch9.h	216;"	d
+EP_ATTR_BULK	include/usb_ch9.h	211;"	d
+EP_ATTR_CONTROL	include/usb_ch9.h	209;"	d
+EP_ATTR_DATA	include/usb_ch9.h	221;"	d
+EP_ATTR_FEEDBACK	include/usb_ch9.h	222;"	d
+EP_ATTR_IMP_FB	include/usb_ch9.h	223;"	d
+EP_ATTR_INTR	include/usb_ch9.h	212;"	d
+EP_ATTR_ISOCH	include/usb_ch9.h	210;"	d
+EP_ATTR_NO_SYNC	include/usb_ch9.h	215;"	d
+EP_ATTR_SYNC	include/usb_ch9.h	218;"	d
+EP_CTRL	include/usb_hal_pic24.h	384;"	d
+EP_DIR_IN	include/usb_ch9.h	200;"	d
+EP_DIR_OUT	include/usb_ch9.h	201;"	d
+EP_IN	include/usb_hal_pic24.h	386;"	d
+EP_LG_PKT_BULK_FS	include/usb_ch9.h	230;"	d
+EP_MAX_PKT_BULK_FS	include/usb_ch9.h	229;"	d
+EP_MAX_PKT_INTR_FS	include/usb_ch9.h	227;"	d
+EP_MAX_PKT_INTR_LS	include/usb_ch9.h	226;"	d
+EP_MAX_PKT_ISOCH_FS	include/usb_ch9.h	228;"	d
+EP_MED_PKT_BULK_FS	include/usb_ch9.h	231;"	d
+EP_OUT	include/usb_hal_pic24.h	385;"	d
+EP_OUT_IN	include/usb_hal_pic24.h	387;"	d
+EP_SM_PKT_BULK_FS	include/usb_ch9.h	232;"	d
+ERRNO_H	include/errno.h	39;"	d
+ERR_BUSY	include/errno.h	47;"	d
+ERR_IO	include/errno.h	48;"	d
+ERR_LAST_ERROR	include/errno.h	54;"	d
+ERR_NOMEM	include/errno.h	46;"	d
+ERR_NOMSG	include/errno.h	51;"	d
+ERR_NONE	include/errno.h	45;"	d
+ERR_PARAM	include/errno.h	52;"	d
+ERR_REQUEST	include/errno.h	50;"	d
+ERR_TIMEOUT	include/errno.h	49;"	d
+ER_FLASH	bootloader/usb/src/bootloader.h	100;"	d
+EVENT_ATTACH	include/usb_device.h	/^    EVENT_ATTACH$/;"	e	enum:__anon33
+EVENT_AUDIO_BASE	include/usb_common.h	/^    EVENT_AUDIO_BASE    = 1000,      \/\/ Offset for Audio client driver events.$/;"	e	enum:__anon31
+EVENT_BUS_ERROR	include/usb_common.h	/^    EVENT_BUS_ERROR     = INT_MAX$/;"	e	enum:__anon31
+EVENT_CANNOT_ENUMERATE	include/usb_common.h	/^    EVENT_CANNOT_ENUMERATE,$/;"	e	enum:__anon31
+EVENT_CDC_BASE	include/usb_common.h	/^    EVENT_CDC_BASE      = 800,      \/\/ Offset for CDC class events$/;"	e	enum:__anon31
+EVENT_CHARGER_BASE	include/usb_common.h	/^    EVENT_CHARGER_BASE  = 900,      \/\/ Offset for Charger client driver events.$/;"	e	enum:__anon31
+EVENT_CLIENT_INIT_ERROR	include/usb_common.h	/^    EVENT_CLIENT_INIT_ERROR,$/;"	e	enum:__anon31
+EVENT_CONFIGURED	include/usb_device.h	/^    EVENT_CONFIGURED$/;"	e	enum:__anon33
+EVENT_DETACH	include/usb_common.h	/^    EVENT_DETACH,$/;"	e	enum:__anon31
+EVENT_DEVICE_STACK_BASE	include/usb_common.h	/^    EVENT_DEVICE_STACK_BASE = 1,$/;"	e	enum:__anon31
+EVENT_EP0_REQUEST	include/usb_device.h	/^    EVENT_EP0_REQUEST,$/;"	e	enum:__anon33
+EVENT_GENERIC_BASE	include/usb_common.h	/^    EVENT_GENERIC_BASE  = 400,      \/\/ Offset for Generic class events$/;"	e	enum:__anon31
+EVENT_HID_BASE	include/usb_common.h	/^    EVENT_HID_BASE      = 600,      \/\/ Offset for Human Interface Device class events$/;"	e	enum:__anon31
+EVENT_HOST_STACK_BASE	include/usb_common.h	/^    EVENT_HOST_STACK_BASE = 100,$/;"	e	enum:__anon31
+EVENT_HUB_ATTACH	include/usb_common.h	/^    EVENT_HUB_ATTACH,$/;"	e	enum:__anon31
+EVENT_MSD_BASE	include/usb_common.h	/^    EVENT_MSD_BASE      = 500,      \/\/ Offset for Mass Storage Device class events$/;"	e	enum:__anon31
+EVENT_NONE	include/usb_common.h	/^    EVENT_NONE = 0,$/;"	e	enum:__anon31
+EVENT_OUT_OF_MEMORY	include/usb_common.h	/^    EVENT_OUT_OF_MEMORY,$/;"	e	enum:__anon31
+EVENT_PRINTER_BASE	include/usb_common.h	/^    EVENT_PRINTER_BASE  = 700,      \/\/ Offset for Printer class events$/;"	e	enum:__anon31
+EVENT_RESET	include/usb_common.h	/^    EVENT_RESET,$/;"	e	enum:__anon31
+EVENT_RESUME	include/usb_common.h	/^    EVENT_RESUME,$/;"	e	enum:__anon31
+EVENT_SET_DESCRIPTOR	include/usb_device.h	/^    EVENT_SET_DESCRIPTOR,$/;"	e	enum:__anon33
+EVENT_SOF	include/usb_common.h	/^    EVENT_SOF,$/;"	e	enum:__anon31
+EVENT_STALL	include/usb_common.h	/^    EVENT_STALL,$/;"	e	enum:__anon31
+EVENT_SUSPEND	include/usb_common.h	/^    EVENT_SUSPEND,$/;"	e	enum:__anon31
+EVENT_TRANSFER	include/usb_common.h	/^    EVENT_TRANSFER,$/;"	e	enum:__anon31
+EVENT_UNSPECIFIED_ERROR	include/usb_common.h	/^    EVENT_UNSPECIFIED_ERROR,$/;"	e	enum:__anon31
+EVENT_UNSUPPORTED_DEVICE	include/usb_common.h	/^    EVENT_UNSUPPORTED_DEVICE,$/;"	e	enum:__anon31
+EVENT_USER_BASE	include/usb_common.h	/^    EVENT_USER_BASE     = 10000,    \/\/ Add integral values to this event number$/;"	e	enum:__anon31
+EVENT_VBUS_OVERCURRENT	include/usb_common.h	/^    EVENT_VBUS_OVERCURRENT,$/;"	e	enum:__anon31
+EVENT_VBUS_POWER_AVAILABLE	include/usb_common.h	/^    EVENT_VBUS_POWER_AVAILABLE,$/;"	e	enum:__anon31
+EVENT_VBUS_RELEASE_POWER	include/usb_common.h	/^    EVENT_VBUS_RELEASE_POWER,$/;"	e	enum:__anon31
+EVENT_VBUS_REQUEST_POWER	include/usb_common.h	/^    EVENT_VBUS_REQUEST_POWER,$/;"	e	enum:__anon31
+EVENT_VBUS_SES_REQUEST	include/usb_common.h	/^    EVENT_VBUS_SES_REQUEST,$/;"	e	enum:__anon31
+EnterBootloader	bootloader/usb/src/usb_config.h	172;"	d
+Erase	bootloader/usb/src/memory.c	/^void Erase(WORD page, WORD addrLo, WORD cmd)$/;"	f
+FALSE	include/GenericTypeDefs.h	/^typedef enum _BOOL { FALSE = 0, TRUE } BOOL;    \/* Undefined size *\/$/;"	e	enum:_BOOL
+FAR	include/Compiler.h	74;"	d
+FCY	bootloader/measure/src/bootloader.h	56;"	d
+FCY	bootloader/usb/src/bootloader.h	61;"	d
+FCY	include/system_clock.h	49;"	d
+FCY	src/stream_dispatcher.c	53;"	d	file:
+FLASH_ACCESS_H	include/flash_access.h	40;"	d
+FLASH_ACCESS_PAGE_ERASE	src/flash_access.c	66;"	d	file:
+FLASH_ACCESS_ROW_PROGRAM	src/flash_access.c	67;"	d	file:
+FLASH_ACCESS_WORD_PROGRAM	src/flash_access.c	68;"	d	file:
+FLASH_PAGE	include/flash_access.h	81;"	d
+FLASH_PAGE_OFFSET	src/flash_access.c	57;"	d	file:
+FLASH_PAGE_SIZE_IN_BYTES	include/flash_access.h	65;"	d
+FLASH_PAGE_SIZE_IN_WORDS	include/flash_access.h	75;"	d
+FLASH_ROW	src/flash_access.c	60;"	d	file:
+FLASH_ROW_SIZE_IN_BYTES	include/flash_access.h	61;"	d
+FLASH_ROW_SIZE_IN_WORDS	src/flash_access.c	55;"	d	file:
+FLASH_TABLE_PAGE_SIZE_MASK	src/flash_access.c	73;"	d	file:
+FLASH_TABLE_PAGE_SIZE_SHIFT	src/flash_access.c	74;"	d	file:
+FRC_NOMINAL	src/system_clock.c	48;"	d	file:
+GENERIC_BOARD	bootloader/usb/src/config.h	72;"	d
+GET_IDLE	include/usb_function_hid.h	103;"	d
+GET_PROTOCOL	include/usb_function_hid.h	104;"	d
+GET_REPORT	include/usb_function_hid.h	102;"	d
+HB	include/GenericTypeDefs.h	/^        BYTE HB;$/;"	m	struct:__anon11::__PACKED
+HB	include/GenericTypeDefs.h	/^        BYTE HB;$/;"	m	struct:__anon12::__PACKED
+HB	include/GenericTypeDefs.h	/^        UINT8 HB;$/;"	m	struct:__anon7::__PACKED
+HB	include/GenericTypeDefs.h	/^        UINT8 HB;$/;"	m	struct:__anon8::__PACKED
+HD	include/GenericTypeDefs.h	/^        DWORD HD;$/;"	m	struct:__anon13::__PACKED
+HD	include/GenericTypeDefs.h	/^        UINT32 HD;$/;"	m	struct:__anon9::__PACKED
+HEX2BIN	bootloader/measure/Makefile	/^HEX2BIN = objcopy -I ihex -O binary$/;"	m
+HEX2BIN	bootloader/test/Makefile	/^HEX2BIN = objcopy -I ihex -O binary$/;"	m
+HEX2BIN	bootloader/usb/Makefile	/^HEX2BIN = objcopy -I ihex -O binary$/;"	m
+HEXER	bootloader/measure/Makefile	/^HEXER = $(C30DIR)\/bin\/pic30-bin2hex$/;"	m
+HEXER	bootloader/test/Makefile	/^HEXER = $(C30DIR)\/bin\/pic30-bin2hex$/;"	m
+HEXER	bootloader/usb/Makefile	/^HEXER = $(C30DIR)\/bin\/pic30-bin2hex$/;"	m
+HIDRxHandleBusy	include/usb_function_hid.h	225;"	d
+HIDRxPacket	include/usb_function_hid.h	301;"	d
+HIDTxHandleBusy	include/usb_function_hid.h	179;"	d
+HIDTxPacket	include/usb_function_hid.h	265;"	d
+HID_EP	bootloader/usb/src/usb_config.h	130;"	d
+HID_H	include/usb_function_hid.h	94;"	d
+HID_INTF	include/usb_function_hid.h	119;"	d
+HID_INTF_ID	bootloader/usb/src/usb_config.h	129;"	d
+HID_INT_IN_EP_SIZE	bootloader/usb/src/usb_config.h	132;"	d
+HID_INT_OUT_EP_SIZE	bootloader/usb/src/usb_config.h	131;"	d
+HID_NUM_OF_DSC	bootloader/usb/src/usb_config.h	133;"	d
+HID_PROTOCOL_KEYBOARD	include/usb_function_hid.h	126;"	d
+HID_PROTOCOL_MOUSE	include/usb_function_hid.h	127;"	d
+HID_PROTOCOL_NONE	include/usb_function_hid.h	125;"	d
+HID_REPORT_DESCRIPTOR_SIZE	bootloader/usb/src/usb_config.h	125;"	d
+HID_REPORT_DESCRIPTOR_SIZE_LE	bootloader/usb/src/usb_config.h	126;"	d
+HID_REPORT_DESC_DIR_IN	bootloader/usb/src/usb_descriptors.c	248;"	d	file:
+HID_REPORT_DESC_DIR_OUT	bootloader/usb/src/usb_descriptors.c	247;"	d	file:
+HID_REPORT_DESC_ENTRY	bootloader/usb/src/usb_descriptors.c	251;"	d	file:
+HID_REPORT_DESC_ENTRY_SIZE	bootloader/usb/src/usb_config.h	120;"	d
+HID_REPORT_DESC_NUM_ENTRIES	bootloader/usb/src/usb_config.h	123;"	d
+HID_RPT01_SIZE	bootloader/usb/src/usb_config.h	134;"	d
+HSHK_EN	include/usb_hal_pic24.h	388;"	d
+HW	include/GenericTypeDefs.h	/^        UINT16 HW;$/;"	m	struct:__anon8::__PACKED
+HW	include/GenericTypeDefs.h	/^        UINT16 HW;$/;"	m	struct:__anon9::__PACKED
+HW	include/GenericTypeDefs.h	/^        WORD HW;$/;"	m	struct:__anon12::__PACKED
+HW	include/GenericTypeDefs.h	/^        WORD HW;$/;"	m	struct:__anon13::__PACKED
+I2C1_MODULE	include/i2c_driver.h	60;"	d
+I2C2_MODULE	include/i2c_driver.h	61;"	d
+I2C_ADDRESS_MODE_10_BIT	include/i2c_driver.h	64;"	d
+I2C_ADDRESS_MODE_7_BIT	include/i2c_driver.h	63;"	d
+I2C_DRIVER_H	include/i2c_driver.h	47;"	d
+I2C_LOG	include/logger.h	131;"	d
+I2C_LOG	include/logger.h	134;"	d
+I2C_LOGDUMP	include/logger.h	132;"	d
+I2C_LOGDUMP	include/logger.h	135;"	d
+I2C_SCK_1000KHZ	include/i2c_driver.h	68;"	d
+I2C_SCK_100KHZ	include/i2c_driver.h	66;"	d
+I2C_SCK_3400KHZ	include/i2c_driver.h	69;"	d
+I2C_SCK_400KHZ	include/i2c_driver.h	67;"	d
+I2C_SCK_CUSTOM	include/i2c_driver.h	70;"	d
+I2C_SPEED_1000KHZ	src/i2c_driver.c	69;"	d	file:
+I2C_SPEED_100KHZ	src/i2c_driver.c	67;"	d	file:
+I2C_SPEED_3400KHZ	src/i2c_driver.c	70;"	d	file:
+I2C_SPEED_400KHZ	src/i2c_driver.c	68;"	d	file:
+INC_DIRS	bootloader/measure/Makefile	/^INC_DIRS=$(addprefix -I,$(INCLUDE_DIRS))$/;"	m
+INC_DIRS	bootloader/test/Makefile	/^INC_DIRS=$(addprefix -I,$(INCLUDE_DIRS))$/;"	m
+INC_DIRS	bootloader/usb/Makefile	/^INC_DIRS=$(addprefix -I,$(INCLUDE_DIRS))$/;"	m
+INFO_LOG	include/logger.h	147;"	d
+INFO_LOG	include/logger.h	150;"	d
+INFO_LOGDUMP	include/logger.h	148;"	d
+INFO_LOGDUMP	include/logger.h	151;"	d
+INT	include/GenericTypeDefs.h	/^typedef signed int          INT;$/;"	t
+INT16	include/GenericTypeDefs.h	/^typedef signed short int    INT16;$/;"	t
+INT32	include/GenericTypeDefs.h	/^typedef signed long int     INT32;$/;"	t
+INT64	include/GenericTypeDefs.h	/^__EXTENSION typedef signed long long    INT64;$/;"	t
+INT8	include/GenericTypeDefs.h	/^typedef signed char         INT8;$/;"	t
+INTERRUPT	include/Compiler.h	76;"	d
+IN_FIRM_PROGRAM_ID	bootloader/usb/src/usb_config.h	137;"	d
+IN_FIRM_PROGRAM_IDSize	bootloader/usb/src/usb_config.h	140;"	d
+IN_PIPE	include/usb_device.h	/^} IN_PIPE;$/;"	t	typeref:struct:__anon34
+IN_TO_HOST	include/usb_ch9.h	613;"	d
+LB	include/GenericTypeDefs.h	/^        BYTE LB;$/;"	m	struct:__anon11::__PACKED
+LB	include/GenericTypeDefs.h	/^        BYTE LB;$/;"	m	struct:__anon12::__PACKED
+LB	include/GenericTypeDefs.h	/^        UINT8 LB;$/;"	m	struct:__anon7::__PACKED
+LB	include/GenericTypeDefs.h	/^        UINT8 LB;$/;"	m	struct:__anon8::__PACKED
+LCD_COMMON_H	include/lcd_common.h	37;"	d
+LCD_FONT_5x7_ASCII_H	include/lcd_font_5x7_ASCII.h	37;"	d
+LCD_H	include/lcd.h	44;"	d
+LCD_NHD_A1Z_COMMAND_A0	include/lcd_NHD_A1Z.h	71;"	d
+LCD_NHD_A1Z_DATA_A0	include/lcd_NHD_A1Z.h	72;"	d
+LCD_NHD_A1Z_DISABLE_CS	include/lcd_NHD_A1Z.h	70;"	d
+LCD_NHD_A1Z_ENABLE_CS	include/lcd_NHD_A1Z.h	69;"	d
+LCD_NHD_A1Z_H	include/lcd_NHD_A1Z.h	51;"	d
+LCD_NHD_A1Z_NUMBER_MAX_PAGES	include/lcd_NHD_A1Z.h	76;"	d
+LCD_NHD_A1Z_NUM_COLUMNS	include/lcd_NHD_A1Z.h	81;"	d
+LCD_NHD_A1Z_NUM_LINES	include/lcd_NHD_A1Z.h	80;"	d
+LCD_NHD_A1Z_PIXELS_PER_COLUMN	include/lcd_NHD_A1Z.h	78;"	d
+LCD_NHD_A1Z_PIXELS_PER_LINE	include/lcd_NHD_A1Z.h	79;"	d
+LCD_NHD_A1Z_PIXELS_WIDTH	include/lcd_NHD_A1Z.h	77;"	d
+LCD_NHD_A1Z_RESET_RS	include/lcd_NHD_A1Z.h	73;"	d
+LCD_NHD_A1Z_SET_RS	include/lcd_NHD_A1Z.h	74;"	d
+LD	bootloader/measure/Makefile	/^LD = $(C30DIR)\/bin\/pic30-ld$/;"	m
+LD	bootloader/test/Makefile	/^LD = $(C30DIR)\/bin\/pic30-ld$/;"	m
+LD	bootloader/usb/Makefile	/^LD = $(C30DIR)\/bin\/pic30-ld$/;"	m
+LD	include/GenericTypeDefs.h	/^        DWORD LD;$/;"	m	struct:__anon13::__PACKED
+LD	include/GenericTypeDefs.h	/^        UINT32 LD;$/;"	m	struct:__anon9::__PACKED
+LDFLAGS	bootloader/measure/Makefile	/^LDFLAGS=-mcpu=$(CPU) -omf=elf \\$/;"	m
+LDFLAGS	bootloader/test/Makefile	/^LDFLAGS=-mcpu=$(CPU) -omf=elf \\$/;"	m
+LDFLAGS	bootloader/usb/Makefile	/^LDFLAGS=-mcpu=$(CPU) -omf=elf  -u compatibilityUserReset -u compatiblitlyAppId \\$/;"	m
+LIBRARIES	bootloader/measure/Makefile	/^LIBRARIES=$(addprefix -l,$(LIBS))$/;"	m
+LIBRARIES	bootloader/test/Makefile	/^LIBRARIES=$(addprefix -l,$(LIBS))$/;"	m
+LIBRARIES	bootloader/usb/Makefile	/^LIBRARIES=$(addprefix -l,$(LIBS))$/;"	m
+LIBS	bootloader/measure/Makefile	/^LIBS= $/;"	m
+LIBS	bootloader/test/Makefile	/^LIBS= $/;"	m
+LIBS	bootloader/usb/Makefile	/^LIBS= $/;"	m
+LINKER_SCRIPT	bootloader/measure/Makefile	/^LINKER_SCRIPT = $(SOURCE_DIR)\/p24FJ64GB002.gld$/;"	m
+LINKER_SCRIPT	bootloader/test/Makefile	/^LINKER_SCRIPT = $(SOURCE_DIR)\/p24FJ64GB002.gld$/;"	m
+LINKER_SCRIPT	bootloader/usb/Makefile	/^LINKER_SCRIPT = $(SOURCE_DIR)\/p$(CPU).gld$/;"	m
+LOG	include/logger.h	102;"	d
+LOG	include/logger.h	115;"	d
+LOGDUMP	include/logger.h	103;"	d
+LOGDUMP	include/logger.h	116;"	d
+LOGGER_H	include/logger.h	45;"	d
+LOGGER_OFF	include/logger.h	60;"	d
+LOGGER_ON	include/logger.h	59;"	d
+LONG	include/GenericTypeDefs.h	/^typedef signed long             LONG;                           \/* 32-bit signed   *\/$/;"	t
+LONGLONG	include/GenericTypeDefs.h	/^typedef signed long long        LONGLONG;                       \/* 64-bit signed   *\/$/;"	t
+LPRC_NOMINAL	src/system_clock.c	49;"	d	file:
+LW	include/GenericTypeDefs.h	/^        UINT16 LW;$/;"	m	struct:__anon8::__PACKED
+LW	include/GenericTypeDefs.h	/^        UINT16 LW;$/;"	m	struct:__anon9::__PACKED
+LW	include/GenericTypeDefs.h	/^        WORD LW;$/;"	m	struct:__anon12::__PACKED
+LW	include/GenericTypeDefs.h	/^        WORD LW;$/;"	m	struct:__anon13::__PACKED
+MAJOR_VERSION	bootloader/usb/src/config.h	56;"	d
+MAX	include/ams_math_macros.h	45;"	d
+MAX_APP_IMAGE_LENGTH	bootloader/usb/src/bootloader.h	66;"	d
+MAX_APP_IMAGE_LENGTH_IN_WORDS	bootloader/usb/src/bootloader.h	67;"	d
+MAX_NR_OF_TIMERS	include/timer_driver.h	82;"	d
+MAX_PACKET_SIZE	bootloader/usb/src/bootloader.h	63;"	d
+MB	include/GenericTypeDefs.h	/^        BYTE MB;$/;"	m	struct:__anon12::__PACKED
+MB	include/GenericTypeDefs.h	/^        UINT8 MB;$/;"	m	struct:__anon8::__PACKED
+MCU_DIR	bootloader/measure/Makefile	/^MCU_DIR=$(ROOT_DIR)\/common\/firmware\/microchip$/;"	m
+MCU_DIR	bootloader/test/Makefile	/^MCU_DIR=$(ROOT_DIR)\/common\/firmware\/microchip$/;"	m
+MCU_DIR	bootloader/usb/Makefile	/^MCU_DIR=$(ROOT_DIR)$/;"	m
+MIN	include/ams_math_macros.h	41;"	d
+MINOR_VERSION	bootloader/usb/src/config.h	57;"	d
+MKDIR	bootloader/usb/PIC24F_Bootloader.X/Makefile	/^MKDIR=mkdir$/;"	m
+MKDIR	bootloader/usb/PIC24F_USB_HID_Bootloader_v021403_nolog.X/Makefile	/^MKDIR=mkdir$/;"	m
+MKDIR	bootloader/usb/PIC24F_USB_HID_Bootloader_v021601.X/Makefile	/^MKDIR=mkdir$/;"	m
+MW	include/GenericTypeDefs.h	/^        UINT16 MW;$/;"	m	struct:__anon9::__PACKED
+MW	include/GenericTypeDefs.h	/^        WORD MW;$/;"	m	struct:__anon13::__PACKED
+MWORD_C	include/ams_types.h	89;"	d
+NMOS1	bootloader/usb/src/main.c	119;"	d	file:
+NMOS1OFF	bootloader/usb/src/main.c	126;"	d	file:
+NMOS1ON	bootloader/usb/src/main.c	125;"	d	file:
+NMOS2	bootloader/usb/src/main.c	121;"	d	file:
+NMOS2OFF	bootloader/usb/src/main.c	130;"	d	file:
+NMOS2ON	bootloader/usb/src/main.c	129;"	d	file:
+NO_OF_NIBBLES	src/logger.c	52;"	d	file:
+NO_WRITE_CONFIG	bootloader/usb/src/config.h	155;"	d
+NULL	include/ams_types.h	111;"	d
+NULL_CHARACTER	src/logger.c	53;"	d	file:
+NUMCHAR_TO_INTEGER	src/logger.c	56;"	d	file:
+OBJECTS	bootloader/measure/Makefile	/^OBJECTS:=\\$/;"	m
+OBJECTS	bootloader/test/Makefile	/^OBJECTS:=\\$/;"	m
+OBJECTS	bootloader/usb/Makefile	/^OBJECTS:=\\$/;"	m
+OTG_FEATURE_A_ALT_HNP_SUPPORT	include/usb_ch9.h	528;"	d
+OTG_FEATURE_A_HNP_SUPPORT	include/usb_ch9.h	527;"	d
+OTG_FEATURE_B_HNP_ENABLE	include/usb_ch9.h	526;"	d
+OTG_HNP_SUPPORT	include/usb_ch9.h	476;"	d
+OTG_SRP_SUPPORT	include/usb_ch9.h	477;"	d
+OUT_FIRM_PROGRAM_ID	bootloader/usb/src/usb_config.h	136;"	d
+OUT_FIRM_PROGRAM_IDSize	bootloader/usb/src/usb_config.h	139;"	d
+OUT_FROM_HOST	include/usb_ch9.h	612;"	d
+OUT_PIPE	include/usb_device.h	/^} OUT_PIPE;$/;"	t	typeref:struct:__anon38
+PICPROGRAMMER	bootloader/measure/Makefile	/^PICPROGRAMMER = $(wildcard \/cygdrive\/c\/Program\\ Files\\ (x86)\/Microchip\/MPLAB\\ IDE\/Programmer\\ Utilities\/ICD3\/ICD3CMD.exe \\$/;"	m
+PICPROGRAMMER	bootloader/test/Makefile	/^PICPROGRAMMER = $(wildcard \/cygdrive\/c\/Program\\ Files\\ (x86)\/Microchip\/MPLAB\\ IDE\/Programmer\\ Utilities\/ICD3\/ICD3CMD.exe \\$/;"	m
+PICPROGRAMMER	bootloader/usb/Makefile	/^PICPROGRAMMER = "\/cygdrive\/c\/Program Files (x86)\/Microchip\/MPLAB IDE\/Programmer Utilities\/ICD3"\/ICD3CMD.exe$/;"	m
+PICPROGRAMMER	bootloader/usb/Makefile	/^PICPROGRAMMER = $(C30DIR)\/"..\/MPLAB IDE\/Programmer Utilities\/ICD3"\/ICD3CMD.exe$/;"	m
+PID	include/usb_hal_pic24.h	/^        unsigned    PID     :4;     \/\/ Packet Identifier$/;"	m	struct:_BD_STAT::__anon47
+PID0	include/usb_hal_pic24.h	/^        unsigned    PID0    :1;$/;"	m	struct:_BD_STAT::__anon46
+PID1	include/usb_hal_pic24.h	/^        unsigned    PID1    :1;$/;"	m	struct:_BD_STAT::__anon46
+PID2	include/usb_hal_pic24.h	/^        unsigned    PID2    :1;$/;"	m	struct:_BD_STAT::__anon46
+PID3	include/usb_hal_pic24.h	/^        unsigned    PID3    :1;$/;"	m	struct:_BD_STAT::__anon46
+PID_ACK	include/usb_ch9.h	447;"	d
+PID_DATA0	include/usb_ch9.h	448;"	d
+PID_DATA1	include/usb_ch9.h	456;"	d
+PID_DATA2	include/usb_ch9.h	452;"	d
+PID_ERR	include/usb_ch9.h	458;"	d
+PID_IN	include/usb_ch9.h	454;"	d
+PID_MASK_DATA	include/usb_ch9.h	463;"	d
+PID_MASK_DATA_SHIFTED	include/usb_ch9.h	464;"	d
+PID_MDATA	include/usb_ch9.h	461;"	d
+PID_NAK	include/usb_ch9.h	455;"	d
+PID_NYET	include/usb_ch9.h	451;"	d
+PID_OUT	include/usb_ch9.h	446;"	d
+PID_PING	include/usb_ch9.h	449;"	d
+PID_PRE	include/usb_ch9.h	457;"	d
+PID_SETUP	include/usb_ch9.h	459;"	d
+PID_SOF	include/usb_ch9.h	450;"	d
+PID_SPLIT	include/usb_ch9.h	453;"	d
+PID_STALL	include/usb_ch9.h	460;"	d
+PLL_OUT_NOMINAL	src/system_clock.c	50;"	d	file:
+PMOS1	bootloader/usb/src/main.c	118;"	d	file:
+PMOS1OFF	bootloader/usb/src/main.c	124;"	d	file:
+PMOS1ON	bootloader/usb/src/main.c	123;"	d	file:
+PMOS2	bootloader/usb/src/main.c	120;"	d	file:
+PMOS2OFF	bootloader/usb/src/main.c	128;"	d	file:
+PMOS2ON	bootloader/usb/src/main.c	127;"	d	file:
+PM_INSTR_SIZE	bootloader/measure/src/bootloader.h	62;"	d
+PM_INSTR_SIZE	bootloader/usb/src/bootloader.h	75;"	d
+PM_PAGE	bootloader/measure/src/bootloader.h	67;"	d
+PM_PAGE	bootloader/usb/src/bootloader.h	80;"	d
+PM_PAGE_ERASE	bootloader/usb/src/bootloader.h	90;"	d
+PM_PAGE_SIZE	bootloader/measure/src/bootloader.h	64;"	d
+PM_PAGE_SIZE	bootloader/usb/src/bootloader.h	77;"	d
+PM_PAGE_SIZE_IN_WORDS	bootloader/measure/src/bootloader.h	66;"	d
+PM_PAGE_SIZE_IN_WORDS	bootloader/usb/src/bootloader.h	79;"	d
+PM_ROW_SIZE	bootloader/measure/src/bootloader.h	63;"	d
+PM_ROW_SIZE	bootloader/usb/src/bootloader.h	76;"	d
+PM_ROW_WRITE	bootloader/usb/src/bootloader.h	91;"	d
+PM_WORD_WRITE	bootloader/usb/src/bootloader.h	94;"	d
+POINTER	include/usb_hal_pic24.h	/^} POINTER;$/;"	t	typeref:union:_POINTER
+POSC_NOMINAL	src/system_clock.c	53;"	d	file:
+POWERED_STATE	include/usb_device.h	/^    POWERED_STATE$/;"	e	enum:__anon32
+PRIVATE	include/GenericTypeDefs.h	69;"	d
+PROGRAMMABLE_WITH_USB_HID_BOOTLOADER	bootloader/usb/src/usb_config.h	166;"	d
+PROGRAM_BUFFER_CLEAR_CHARACTER	bootloader/usb/src/usb_appl_handler.c	53;"	d	file:
+PROTECTED	include/GenericTypeDefs.h	68;"	d
+PSETUP_PKT	include/usb_ch9.h	/^} CTRL_TRF_SETUP, SETUP_PKT, *PSETUP_PKT;$/;"	t	typeref:union:__anon16
+PTR_BASE	include/Compiler.h	65;"	d
+PUBLIC	include/GenericTypeDefs.h	67;"	d
+ProcessIO	bootloader/usb/src/usb_appl_handler.c	/^void ProcessIO(void)$/;"	f
+ProcessIO	src/stream_dispatcher.c	/^void ProcessIO(void)$/;"	f
+PullUpConfiguration	include/usb_hal_pic24.h	406;"	d
+PullUpConfiguration	include/usb_hal_pic24.h	408;"	d
+QWORD	include/GenericTypeDefs.h	/^typedef unsigned long long      QWORD;                          \/* 64-bit unsigned *\/$/;"	t
+QWORD_VAL	include/GenericTypeDefs.h	/^} QWORD_VAL;$/;"	t	typeref:union:__anon13
+RANLIB	bootloader/usb/PIC24F_Bootloader.X/Makefile	/^RANLIB=ranlib$/;"	m
+RANLIB	bootloader/usb/PIC24F_USB_HID_Bootloader_v021403_nolog.X/Makefile	/^RANLIB=ranlib$/;"	m
+RANLIB	bootloader/usb/PIC24F_USB_HID_Bootloader_v021601.X/Makefile	/^RANLIB=ranlib$/;"	m
+RELEASE_MARKER	bootloader/usb/src/config.h	58;"	d
+RESET_DEV	bootloader/usb/src/bootloader.h	99;"	d
+ROM	include/Compiler.h	70;"	d
+ROM_PTR_BASE	include/Compiler.h	66;"	d
+ROOT_DIR	bootloader/measure/Makefile	/^ROOT_DIR=..\/..\/..\/..\/..$/;"	m
+ROOT_DIR	bootloader/test/Makefile	/^ROOT_DIR=..\/..\/..\/..\/..$/;"	m
+ROOT_DIR	bootloader/usb/Makefile	/^ROOT_DIR=..\/..$/;"	m
+RPT_PROTOCOL	include/usb_function_hid.h	116;"	d
+ReadLatch	bootloader/usb/src/memory.c	/^DWORD ReadLatch(WORD page, WORD addrLo)$/;"	f
+ReceivedDataBuffer	bootloader/usb/src/usb_appl_handler.c	/^unsigned char ReceivedDataBuffer[MAX_PACKET_SIZE];$/;"	v
+Recipient	include/usb_ch9.h	/^        unsigned Recipient:5;   \/\/Device,Interface,Endpoint,Other$/;"	m	struct:__anon16::__anon19
+RemoteWakeup	src/usb_device.c	/^USB_VOLATILE BOOL RemoteWakeup;$/;"	v
+RequestType	include/usb_ch9.h	/^        unsigned RequestType:2; \/\/Standard,Class,Vendor,Reserved$/;"	m	struct:__anon16::__anon19
+Reset	include/Compiler.h	73;"	d
+ResetDevice	bootloader/usb/src/memory.c	/^void ResetDevice(WORD addr)$/;"	f
+S16_C	include/ams_types.h	77;"	d
+S32_C	include/ams_types.h	81;"	d
+S64_C	include/ams_types.h	85;"	d
+S8_C	include/ams_types.h	73;"	d
+SET	include/GenericTypeDefs.h	/^typedef enum _BIT { CLEAR = 0, SET } BIT;$/;"	e	enum:_BIT
+SETUP_PKT	include/usb_ch9.h	/^} CTRL_TRF_SETUP, SETUP_PKT, *PSETUP_PKT;$/;"	t	typeref:union:__anon16
+SET_IDLE	include/usb_function_hid.h	106;"	d
+SET_PROTOCOL	include/usb_function_hid.h	107;"	d
+SET_REPORT	include/usb_function_hid.h	105;"	d
+SHORT	include/GenericTypeDefs.h	/^typedef signed short int        SHORT;                          \/* 16-bit signed   *\/$/;"	t
+SHORT_PKT_NOT_USED	src/usb_device.c	141;"	d	file:
+SHORT_PKT_PENDING	src/usb_device.c	142;"	d	file:
+SHORT_PKT_SENT	src/usb_device.c	143;"	d	file:
+SOSC_NOMINAL	src/system_clock.c	56;"	d	file:
+SOURCE_DIR	bootloader/measure/Makefile	/^SOURCE_DIR=src$/;"	m
+SOURCE_DIR	bootloader/test/Makefile	/^SOURCE_DIR=.$/;"	m
+SOURCE_DIR	bootloader/usb/Makefile	/^SOURCE_DIR=src$/;"	m
+SPI1	include/spi_driver.h	63;"	d
+SPI2	include/spi_driver.h	64;"	d
+SPI_FIFO_DEPTH	src/spi_driver.c	55;"	d	file:
+SPI_H	include/spi_driver.h	47;"	d
+SPI_LOG	include/logger.h	139;"	d
+SPI_LOG	include/logger.h	142;"	d
+SPI_LOGDUMP	include/logger.h	140;"	d
+SPI_LOGDUMP	include/logger.h	143;"	d
+SPI_MAX_FREQ_CONF_TABLE_ENTRIES	src/spi_driver.c	57;"	d	file:
+SPI_MAX_INSTANCES	include/spi_driver.h	62;"	d
+STAT	include/usb_hal_pic24.h	/^            BD_STAT     STAT __attribute__ ((packed));$/;"	m	struct:__BDT::__anon48::__anon49
+STREAM_DEBUG	include/stream_driver.h	62;"	d
+STREAM_DISPATCHER_H	include/stream_dispatcher.h	38;"	d
+STREAM_DRIVER_H	include/stream_driver.h	45;"	d
+SYSTEM_CLOCK_H	include/system_clock.h	40;"	d
+SetConfigurationOptions	include/usb_hal_pic24.h	411;"	d
+SetupPkt	src/usb_device.c	/^volatile CTRL_TRF_SETUP SetupPkt;           \/\/ 8-byte only$/;"	v
+StreamConnect	include/stream_driver.h	69;"	d
+StreamConnect	include/stream_driver.h	81;"	d
+StreamDisconnect	include/stream_driver.h	70;"	d
+StreamDisconnect	include/stream_driver.h	82;"	d
+StreamDispatcherGetLastError	src/stream_dispatcher.c	/^u8 StreamDispatcherGetLastError( )$/;"	f
+StreamDispatcherInit	src/stream_dispatcher.c	/^void StreamDispatcherInit ( u32 sysClk )$/;"	f
+StreamDispatcherInitAndConnect	src/stream_dispatcher.c	/^void StreamDispatcherInitAndConnect ( u32 sysClk )$/;"	f
+StreamHasAnotherPacket	include/stream_driver.h	72;"	d
+StreamHasAnotherPacket	include/stream_driver.h	84;"	d
+StreamInitialize	include/stream_driver.h	68;"	d
+StreamInitialize	include/stream_driver.h	80;"	d
+StreamPacketProcessed	include/stream_driver.h	73;"	d
+StreamPacketProcessed	include/stream_driver.h	85;"	d
+StreamReady	include/stream_driver.h	71;"	d
+StreamReady	include/stream_driver.h	83;"	d
+StreamReceive	include/stream_driver.h	74;"	d
+StreamReceive	include/stream_driver.h	86;"	d
+StreamTransmit	include/stream_driver.h	75;"	d
+StreamTransmit	include/stream_driver.h	87;"	d
+TARGET	bootloader/measure/Makefile	/^TARGET=measure$/;"	m
+TARGET	bootloader/test/Makefile	/^TARGET=test$/;"	m
+TARGET	bootloader/usb/Makefile	/^TARGET=PIC24F_USB_HID_Bootloader$/;"	m
+TARGET	bootloader/usb/Makefile	/^TARGET=PIC24F_USB_HID_Bootloader_$(TARGET_BOARD)$/;"	m
+TARGET_BOARD	bootloader/usb/Makefile	/^TARGET_BOARD=GENERIC_BOARD$/;"	m
+TEST_PAGE	bootloader/measure/src/main.c	58;"	d	file:
+TEST_PATTERN	bootloader/measure/src/main.c	59;"	d	file:
+TIMER1_MODULE	include/timer_driver.h	83;"	d
+TIMER2_MODULE	include/timer_driver.h	84;"	d
+TIMER3_MODULE	include/timer_driver.h	85;"	d
+TIMER4_MODULE	include/timer_driver.h	86;"	d
+TIMER5_MODULE	include/timer_driver.h	87;"	d
+TIMER_DRIVER_H	include/timer_driver.h	40;"	d
+TOGGLE_PIN	bootloader/measure/src/main.c	61;"	d	file:
+TRANSFER_FLAGS	include/usb_common.h	/^} TRANSFER_FLAGS;$/;"	t	typeref:union:__anon29
+TRUE	include/GenericTypeDefs.h	/^typedef enum _BOOL { FALSE = 0, TRUE } BOOL;    \/* Undefined size *\/$/;"	e	enum:_BOOL
+ToSendDataBuffer	bootloader/usb/src/usb_appl_handler.c	/^unsigned char ToSendDataBuffer[MAX_PACKET_SIZE];$/;"	v
+U16_C	include/ams_types.h	75;"	d
+U32_C	include/ams_types.h	79;"	d
+U64_C	include/ams_types.h	83;"	d
+U8_C	include/ams_types.h	71;"	d
+UART_BAUDRATE	src/debug.c	50;"	d	file:
+UART_BRG	src/debug.c	51;"	d	file:
+UART_DRIVER_H__	include/uart_driver.h	53;"	d
+UART_NIBBLE_TO_HEX	src/debug.c	117;"	d	file:
+UART_READ_REG	include/uart_driver.h	83;"	d
+UART_RECEIVE_ENABLED	include/uart_driver.h	68;"	d
+UART_RECEIVE_ENABLED	include/uart_driver.h	71;"	d
+UART_RX_BUFFER_SIZE	include/uart_driver.h	86;"	d
+UART_SYSCLK	src/debug.c	49;"	d	file:
+UART_TXAUTO	src/debug.c	55;"	d	file:
+UART_TXENABLE	src/debug.c	54;"	d	file:
+UART_TXFULL	src/debug.c	53;"	d	file:
+UART_WRITE_REG	include/uart_driver.h	77;"	d
+UB	include/GenericTypeDefs.h	/^        BYTE UB;$/;"	m	struct:__anon12::__PACKED
+UB	include/GenericTypeDefs.h	/^        UINT8 UB;$/;"	m	struct:__anon8::__PACKED
+UCHAR8	include/GenericTypeDefs.h	/^typedef unsigned char           UCHAR8;$/;"	t
+UEP	include/usb_hal_pic24.h	/^    WORD UEP[16];$/;"	m	union:__anon43
+UEP_STALL	include/usb_hal_pic24.h	203;"	d
+UINT	include/GenericTypeDefs.h	/^typedef unsigned int        UINT;$/;"	t
+UINT16	include/GenericTypeDefs.h	/^typedef unsigned short int  UINT16;$/;"	t
+UINT16_BITS	include/GenericTypeDefs.h	/^} UINT16_VAL, UINT16_BITS;$/;"	t	typeref:union:__anon7
+UINT16_VAL	include/GenericTypeDefs.h	/^} UINT16_VAL, UINT16_BITS;$/;"	t	typeref:union:__anon7
+UINT32	include/GenericTypeDefs.h	/^typedef unsigned long int   UINT32;     \/* other name for 32-bit integer *\/$/;"	t
+UINT32_VAL	include/GenericTypeDefs.h	/^} UINT32_VAL;$/;"	t	typeref:union:__anon8
+UINT64	include/GenericTypeDefs.h	/^__EXTENSION typedef unsigned long long  UINT64;$/;"	t
+UINT64_VAL	include/GenericTypeDefs.h	/^} UINT64_VAL;$/;"	t	typeref:union:__anon9
+UINT8	include/GenericTypeDefs.h	/^typedef unsigned char       UINT8;$/;"	t
+UINT8_BITS	include/GenericTypeDefs.h	/^} UINT8_VAL, UINT8_BITS;$/;"	t	typeref:union:__anon5
+UINT8_VAL	include/GenericTypeDefs.h	/^} UINT8_VAL, UINT8_BITS;$/;"	t	typeref:union:__anon5
+UMWORD_C	include/ams_types.h	87;"	d
+UOWN	include/usb_hal_pic24.h	/^        unsigned    UOWN    :1;     \/\/USB Ownership$/;"	m	struct:_BD_STAT::__anon45
+USBActiveConfiguration	src/usb_device.c	/^USB_VOLATILE BYTE USBActiveConfiguration;$/;"	v
+USBActivityIE	include/usb_hal_pic24.h	137;"	d
+USBActivityIF	include/usb_hal_pic24.h	138;"	d
+USBActivityIFBitNum	include/usb_hal_pic24.h	140;"	d
+USBActivityIFReg	include/usb_hal_pic24.h	139;"	d
+USBAlternateInterface	src/usb_device.c	/^USB_VOLATILE BYTE USBAlternateInterface[USB_MAX_NUM_INT];$/;"	v
+USBCBCheckOtherReq	bootloader/usb/src/usb_appl_handler.c	/^void USBCBCheckOtherReq(void)$/;"	f
+USBCBCheckOtherReq	src/usb_hid_stream_driver.c	/^void USBCBCheckOtherReq(void)$/;"	f
+USBCBErrorHandler	bootloader/usb/src/usb_appl_handler.c	/^void USBCBErrorHandler(void)$/;"	f
+USBCBErrorHandler	src/usb_hid_stream_driver.c	/^void USBCBErrorHandler(void)$/;"	f
+USBCBInitEP	bootloader/usb/src/usb_appl_handler.c	/^void USBCBInitEP(void)$/;"	f
+USBCBInitEP	src/usb_hid_stream_driver.c	/^void USBCBInitEP(void)$/;"	f
+USBCBSendResume	bootloader/usb/src/usb_appl_handler.c	/^void USBCBSendResume(void)$/;"	f
+USBCBSendResume	src/usb_hid_stream_driver.c	/^void USBCBSendResume(void)$/;"	f
+USBCBStdSetDscHandler	bootloader/usb/src/usb_appl_handler.c	/^void USBCBStdSetDscHandler(void)$/;"	f
+USBCBStdSetDscHandler	src/usb_hid_stream_driver.c	/^void USBCBStdSetDscHandler(void)$/;"	f
+USBCBSuspend	bootloader/usb/src/usb_appl_handler.c	/^void USBCBSuspend(void)$/;"	f
+USBCBSuspend	src/usb_hid_stream_driver.c	/^void USBCBSuspend(void)$/;"	f
+USBCBWakeFromSuspend	bootloader/usb/src/usb_appl_handler.c	/^void USBCBWakeFromSuspend(void)$/;"	f
+USBCBWakeFromSuspend	src/usb_hid_stream_driver.c	/^void USBCBWakeFromSuspend(void)$/;"	f
+USBCB_SOF_Handler	bootloader/usb/src/usb_appl_handler.c	/^void USBCB_SOF_Handler(void)$/;"	f
+USBCB_SOF_Handler	src/usb_hid_stream_driver.c	/^void USBCB_SOF_Handler(void)$/;"	f
+USBCFG_H	bootloader/usb/src/usb_config.h	50;"	d
+USBCancelIO	src/usb_device.c	/^void USBCancelIO(BYTE endpoint)$/;"	f
+USBCheckHIDRequest	src/usb_function_hid.c	/^void USBCheckHIDRequest(void)$/;"	f
+USBCheckStdRequest	src/usb_device.c	/^void USBCheckStdRequest(void)$/;"	f
+USBClearInterruptFlag	include/usb_hal_pic24.h	300;"	d
+USBClearInterruptRegister	include/usb_hal_pic24.h	425;"	d
+USBClearUSBInterrupt	include/usb_hal_pic24.h	353;"	d
+USBConfigureEndpoint	src/usb_device.c	/^void USBConfigureEndpoint(BYTE EPNum, BYTE direction)$/;"	f
+USBCtrlEPService	src/usb_device.c	/^void USBCtrlEPService(void)$/;"	f
+USBCtrlEPServiceComplete	src/usb_device.c	/^void USBCtrlEPServiceComplete(void)$/;"	f
+USBCtrlTrfInHandler	src/usb_device.c	/^void USBCtrlTrfInHandler(void)$/;"	f
+USBCtrlTrfOutHandler	src/usb_device.c	/^void USBCtrlTrfOutHandler(void)$/;"	f
+USBCtrlTrfRxService	src/usb_device.c	/^void USBCtrlTrfRxService(void)$/;"	f
+USBCtrlTrfSetupHandler	src/usb_device.c	/^void USBCtrlTrfSetupHandler(void)$/;"	f
+USBCtrlTrfTxService	src/usb_device.c	/^void USBCtrlTrfTxService(void)$/;"	f
+USBDEVICE_H	include/usb_device.h	102;"	d
+USBDeviceAttach	include/usb_device.h	1046;"	d
+USBDeviceAttach	src/usb_device.c	/^void USBDeviceAttach(void)$/;"	f
+USBDeviceDetach	include/usb_device.h	1008;"	d
+USBDeviceDetach	src/usb_device.c	/^void USBDeviceDetach(void)$/;"	f
+USBDeviceInit	src/usb_device.c	/^void USBDeviceInit(void)$/;"	f
+USBDeviceState	src/usb_device.c	/^USB_VOLATILE USB_DEVICE_STATE USBDeviceState;$/;"	v
+USBDisableInterrupts	include/usb_hal_pic24.h	381;"	d
+USBEP0Receive	include/usb_device.h	897;"	d
+USBEP0SendRAMPtr	include/usb_device.h	837;"	d
+USBEP0SendROMPtr	include/usb_device.h	869;"	d
+USBEP0Transmit	include/usb_device.h	809;"	d
+USBEnableEndpoint	src/usb_device.c	/^void USBEnableEndpoint(BYTE ep, BYTE options)$/;"	f
+USBEnableInterrupts	include/usb_hal_pic24.h	376;"	d
+USBEnableInterrupts	include/usb_hal_pic24.h	378;"	d
+USBErrorIE	include/usb_hal_pic24.h	152;"	d
+USBErrorIF	include/usb_hal_pic24.h	153;"	d
+USBErrorIFBitNum	include/usb_hal_pic24.h	155;"	d
+USBErrorIFReg	include/usb_hal_pic24.h	154;"	d
+USBGEN_H	include/usb_function_generic.h	95;"	d
+USBGenRead	include/usb_function_generic.h	256;"	d
+USBGenWrite	include/usb_function_generic.h	217;"	d
+USBGetDeviceState	include/usb_device.h	422;"	d
+USBGetRemoteWakeupStatus	include/usb_device.h	365;"	d
+USBHALControlUsbResistors	include/usb_hal.h	169;"	d
+USBHALGetStalledEndpoints	include/usb_hal.h	436;"	d
+USBHALSetBusAddress	include/usb_hal.h	132;"	d
+USBHALStallPipe	include/usb_hal.h	365;"	d
+USBHALUnstallPipe	include/usb_hal.h	402;"	d
+USBHAL_BTO_ERR	include/usb_hal.h	290;"	d
+USBHAL_BTS_ERR	include/usb_hal.h	292;"	d
+USBHAL_CRC16	include/usb_hal.h	288;"	d
+USBHAL_CRC5	include/usb_hal.h	286;"	d
+USBHAL_DFN8	include/usb_hal.h	289;"	d
+USBHAL_DMA_ERR	include/usb_hal.h	291;"	d
+USBHAL_DMA_ERR2	include/usb_hal.h	295;"	d
+USBHAL_HOST_EOF	include/usb_hal.h	287;"	d
+USBHAL_NO_EP	include/usb_hal.h	294;"	d
+USBHAL_PID_ERR	include/usb_hal.h	285;"	d
+USBHAL_XFER_ID	include/usb_hal.h	293;"	d
+USBHandleBusy	include/usb_device.h	710;"	d
+USBHandleGetAddr	include/usb_device.h	776;"	d
+USBHandleGetLength	include/usb_device.h	744;"	d
+USBIDIE	include/usb_hal_pic24.h	167;"	d
+USBIDIF	include/usb_hal_pic24.h	168;"	d
+USBIDIFBitNum	include/usb_hal_pic24.h	170;"	d
+USBIDIFReg	include/usb_hal_pic24.h	169;"	d
+USBIdleIE	include/usb_hal_pic24.h	132;"	d
+USBIdleIF	include/usb_hal_pic24.h	133;"	d
+USBIdleIFBitNum	include/usb_hal_pic24.h	135;"	d
+USBIdleIFReg	include/usb_hal_pic24.h	134;"	d
+USBInData	src/usb_device.c	/^USB_VOLATILE BYTE *USBInData[USB_MAX_EP_NUMBER];$/;"	v
+USBInHandle	bootloader/usb/src/usb_appl_handler.c	/^USB_HANDLE USBInHandle = 0;$/;"	v
+USBInHandle	src/usb_hid_stream_driver.c	/^static USB_HANDLE USBInHandle  = 0;$/;"	v	file:
+USBInMaxPacketSize	src/usb_device.c	/^USB_VOLATILE WORD USBInMaxPacketSize[USB_MAX_EP_NUMBER];$/;"	v
+USBInitialize	include/usb_common.h	483;"	d
+USBInitialize	include/usb_common.h	488;"	d
+USBInitialize	include/usb_common.h	492;"	d
+USBIsDeviceSuspended	include/usb_device.h	555;"	d
+USBMaskInterrupts	include/usb_hal_pic24.h	355;"	d
+USBMaskInterrupts	include/usb_hal_pic24.h	358;"	d
+USBModuleDisable	include/usb_hal_pic24.h	271;"	d
+USBOutHandle	bootloader/usb/src/usb_appl_handler.c	/^USB_HANDLE USBOutHandle = 0;$/;"	v
+USBOutHandle	src/usb_hid_stream_driver.c	/^static USB_HANDLE USBOutHandle = 0;$/;"	v	file:
+USBPacketDisable	include/usb_hal_pic24.h	159;"	d
+USBPingPongBufferReset	include/usb_hal_pic24.h	120;"	d
+USBPowerModule	include/usb_hal_pic24.h	119;"	d
+USBPrepareForNextSetupTrf	src/usb_device.c	/^void USBPrepareForNextSetupTrf(void)$/;"	f
+USBResetIE	include/usb_hal_pic24.h	127;"	d
+USBResetIF	include/usb_hal_pic24.h	128;"	d
+USBResetIFBitNum	include/usb_hal_pic24.h	130;"	d
+USBResetIFReg	include/usb_hal_pic24.h	129;"	d
+USBResumeControl	include/usb_hal_pic24.h	160;"	d
+USBRxOnePacket	include/usb_device.h	952;"	d
+USBSE0Event	include/usb_hal_pic24.h	157;"	d
+USBSOFIE	include/usb_hal_pic24.h	142;"	d
+USBSOFIF	include/usb_hal_pic24.h	143;"	d
+USBSOFIFBitNum	include/usb_hal_pic24.h	145;"	d
+USBSOFIFReg	include/usb_hal_pic24.h	144;"	d
+USBSetBDTAddress	include/usb_hal_pic24.h	118;"	d
+USBSleepOnSuspend	src/usb_hal_pic24.c	/^BOOL USBSleepOnSuspend(void)$/;"	f
+USBSoftDetach	include/usb_device.h	581;"	d
+USBStallEndpoint	src/usb_device.c	/^void USBStallEndpoint(BYTE ep, BYTE dir)$/;"	f
+USBStallHandler	src/usb_device.c	/^void USBStallHandler(void)$/;"	f
+USBStallIE	include/usb_hal_pic24.h	147;"	d
+USBStallIF	include/usb_hal_pic24.h	148;"	d
+USBStallIFBitNum	include/usb_hal_pic24.h	150;"	d
+USBStallIFReg	include/usb_hal_pic24.h	149;"	d
+USBStdFeatureReqHandler	src/usb_device.c	/^void USBStdFeatureReqHandler(void)$/;"	f
+USBStdGetDscHandler	src/usb_device.c	/^void USBStdGetDscHandler(void)$/;"	f
+USBStdGetStatusHandler	src/usb_device.c	/^void USBStdGetStatusHandler(void)$/;"	f
+USBStdSetCfgHandler	src/usb_device.c	/^void USBStdSetCfgHandler(void)$/;"	f
+USBSuspend	src/usb_device.c	/^void USBSuspend(void)$/;"	f
+USBSuspendControl	include/usb_hal_pic24.h	158;"	d
+USBT1MSECIE	include/usb_hal_pic24.h	162;"	d
+USBT1MSECIF	include/usb_hal_pic24.h	163;"	d
+USBT1MSECIFBitNum	include/usb_hal_pic24.h	165;"	d
+USBT1MSECIFReg	include/usb_hal_pic24.h	164;"	d
+USBTasks	include/usb_common.h	532;"	d
+USBTasks	include/usb_common.h	535;"	d
+USBTasks	include/usb_common.h	539;"	d
+USBTransactionCompleteIE	include/usb_hal_pic24.h	122;"	d
+USBTransactionCompleteIF	include/usb_hal_pic24.h	123;"	d
+USBTransactionCompleteIFBitNum	include/usb_hal_pic24.h	125;"	d
+USBTransactionCompleteIFReg	include/usb_hal_pic24.h	124;"	d
+USBTransferOnePacket	src/usb_device.c	/^USB_HANDLE USBTransferOnePacket(BYTE ep,BYTE dir,BYTE* data,BYTE len)$/;"	f
+USBTxOnePacket	include/usb_device.h	925;"	d
+USBUnmaskInterrupts	include/usb_hal_pic24.h	356;"	d
+USBUnmaskInterrupts	include/usb_hal_pic24.h	359;"	d
+USBWakeFromSuspend	src/usb_device.c	/^void USBWakeFromSuspend(void)$/;"	f
+USB_ALLOW_SETUP	include/usb_hal_pic24.h	400;"	d
+USB_APPL_HANDLER_C	bootloader/usb/src/usb_appl_handler.c	40;"	d	file:
+USB_APPL_HANDLER_H	bootloader/usb/src/usb_appl_handler.h	50;"	d
+USB_APPL_HANDLER_H	include/usb_appl_handler.h	50;"	d
+USB_BUSY	include/usb_common.h	98;"	d
+USB_BUS_SENSE	bootloader/usb/src/usb_config.h	162;"	d
+USB_BUS_SENSE	src/usb_device.c	135;"	d	file:
+USB_BUS_SENSE	src/usb_device.c	136;"	d	file:
+USB_CANNOT_ENUMERATE	include/usb_common.h	103;"	d
+USB_CD_Ptr	bootloader/usb/src/usb_descriptors.c	/^ROM BYTE *ROM USB_CD_Ptr[]=$/;"	v
+USB_CFG_DSC_REM_WAKE	include/usb_ch9.h	157;"	d
+USB_CFG_DSC_REQUIRED	include/usb_ch9.h	155;"	d
+USB_CFG_DSC_SELF_PWR	include/usb_ch9.h	156;"	d
+USB_CONFIGURATION_DESCRIPTOR	include/usb_ch9.h	/^} USB_CONFIGURATION_DESCRIPTOR;$/;"	t	typeref:struct:_USB_CONFIGURATION_DESCRIPTOR
+USB_DATA0	include/usb_common.h	218;"	d
+USB_DATA1	include/usb_common.h	219;"	d
+USB_DESCRIPTOR_CONFIGURATION	include/usb_ch9.h	100;"	d
+USB_DESCRIPTOR_DEVICE	include/usb_ch9.h	99;"	d
+USB_DESCRIPTOR_DEVICE_QUALIFIER	include/usb_ch9.h	104;"	d
+USB_DESCRIPTOR_ENDPOINT	include/usb_ch9.h	103;"	d
+USB_DESCRIPTOR_INTERFACE	include/usb_ch9.h	102;"	d
+USB_DESCRIPTOR_INTERFACE_POWER	include/usb_ch9.h	106;"	d
+USB_DESCRIPTOR_OTG	include/usb_ch9.h	107;"	d
+USB_DESCRIPTOR_OTHER_SPEED	include/usb_ch9.h	105;"	d
+USB_DESCRIPTOR_STRING	include/usb_ch9.h	101;"	d
+USB_DEVICE_ATTACHED	include/usb_common.h	128;"	d
+USB_DEVICE_DESCRIPTOR	include/usb_ch9.h	/^} USB_DEVICE_DESCRIPTOR;$/;"	t	typeref:struct:_USB_DEVICE_DESCRIPTOR
+USB_DEVICE_DETACHED	include/usb_common.h	129;"	d
+USB_DEVICE_ENUMERATING	include/usb_common.h	130;"	d
+USB_DEVICE_QUALIFIER_DESCRIPTOR	include/usb_ch9.h	/^} USB_DEVICE_QUALIFIER_DESCRIPTOR;$/;"	t	typeref:struct:_USB_DEVICE_QUALIFIER_DESCRIPTOR
+USB_DEVICE_STACK_EVENTS	include/usb_device.h	/^} USB_DEVICE_STACK_EVENTS;$/;"	t	typeref:enum:__anon33
+USB_DEVICE_STATE	include/usb_device.h	/^} USB_DEVICE_STATE;$/;"	t	typeref:enum:__anon32
+USB_DEVICE_STATUS	include/usb_common.h	127;"	d
+USB_DEVICE_SUSPENDED	include/usb_common.h	138;"	d
+USB_DISABLE_NONSTANDARD_EP0_REQUEST_HANDLER	src/usb_device.c	563;"	d	file:
+USB_DISABLE_NONSTANDARD_EP0_REQUEST_HANDLER	src/usb_device.c	565;"	d	file:
+USB_DISALLOW_SETUP	include/usb_hal_pic24.h	401;"	d
+USB_DOT_VER	include/usb.h	140;"	d
+USB_DTS_MASK	include/usb_common.h	216;"	d
+USB_ENABLE_ALL_HANDLERS	bootloader/usb/src/usb_config.h	103;"	d
+USB_ENDPOINT_BUSY	include/usb_common.h	105;"	d
+USB_ENDPOINT_DESCRIPTOR	include/usb_ch9.h	/^} USB_ENDPOINT_DESCRIPTOR;$/;"	t	typeref:struct:_USB_ENDPOINT_DESCRIPTOR
+USB_ENDPOINT_ERROR	include/usb_common.h	107;"	d
+USB_ENDPOINT_ERROR_BIT_STUFF	include/usb_common.h	115;"	d
+USB_ENDPOINT_ERROR_BMX	include/usb_common.h	122;"	d
+USB_ENDPOINT_ERROR_CRC16	include/usb_common.h	119;"	d
+USB_ENDPOINT_ERROR_DATA_FIELD	include/usb_common.h	118;"	d
+USB_ENDPOINT_ERROR_DMA	include/usb_common.h	116;"	d
+USB_ENDPOINT_ERROR_END_OF_FRAME	include/usb_common.h	120;"	d
+USB_ENDPOINT_ERROR_ILLEGAL_PID	include/usb_common.h	108;"	d
+USB_ENDPOINT_ERROR_PID_CHECK	include/usb_common.h	121;"	d
+USB_ENDPOINT_ERROR_TIMEOUT	include/usb_common.h	117;"	d
+USB_ENDPOINT_ILLEGAL_DIRECTION	include/usb_common.h	110;"	d
+USB_ENDPOINT_ILLEGAL_TYPE	include/usb_common.h	113;"	d
+USB_ENDPOINT_NAK_TIMEOUT	include/usb_common.h	112;"	d
+USB_ENDPOINT_NOT_FOUND	include/usb_common.h	109;"	d
+USB_ENDPOINT_STALLED	include/usb_common.h	106;"	d
+USB_ENDPOINT_UNRESOLVED_STATE	include/usb_common.h	114;"	d
+USB_EP0	include/usb_common.h	190;"	d
+USB_EP0_BUFF_SIZE	bootloader/usb/src/usb_config.h	53;"	d
+USB_EP0_BUSY	include/usb_device.h	115;"	d
+USB_EP0_INCLUDE_ZERO	include/usb_device.h	116;"	d
+USB_EP0_NO_DATA	include/usb_device.h	117;"	d
+USB_EP0_NO_OPTIONS	include/usb_device.h	118;"	d
+USB_EP0_RAM	include/usb_device.h	114;"	d
+USB_EP0_ROM	include/usb_device.h	113;"	d
+USB_EP1	include/usb_common.h	191;"	d
+USB_EP10	include/usb_common.h	200;"	d
+USB_EP11	include/usb_common.h	201;"	d
+USB_EP12	include/usb_common.h	202;"	d
+USB_EP13	include/usb_common.h	203;"	d
+USB_EP14	include/usb_common.h	204;"	d
+USB_EP15	include/usb_common.h	205;"	d
+USB_EP2	include/usb_common.h	192;"	d
+USB_EP3	include/usb_common.h	193;"	d
+USB_EP4	include/usb_common.h	194;"	d
+USB_EP5	include/usb_common.h	195;"	d
+USB_EP6	include/usb_common.h	196;"	d
+USB_EP7	include/usb_common.h	197;"	d
+USB_EP8	include/usb_common.h	198;"	d
+USB_EP9	include/usb_common.h	199;"	d
+USB_EP_NUM_MASK	include/usb_common.h	223;"	d
+USB_ERROR_CLASS_DEFINED	include/usb_common.h	140;"	d
+USB_ERROR_HANDLER	src/usb_device.c	557;"	d	file:
+USB_ERROR_HANDLER	src/usb_device.c	559;"	d	file:
+USB_ERROR_INSUFFICIENT_POWER	include/usb_common.h	123;"	d
+USB_ERROR_INTERRUPT	include/usb_hal_pic24.h	369;"	d
+USB_ERROR_INTERRUPT	include/usb_hal_pic24.h	371;"	d
+USB_EVENT	include/usb_common.h	/^} USB_EVENT;$/;"	t	typeref:enum:__anon31
+USB_EVENT_HANDLER	include/usb_common.h	/^typedef BOOL (*USB_EVENT_HANDLER) ( USB_EVENT event, void *data, unsigned int size );$/;"	t
+USB_EVENT_QUEUE_FULL	include/usb_common.h	104;"	d
+USB_EXTERNAL_TRANSCEIVER	include/usb_hal_pic24.h	246;"	d
+USB_FEATURE_DEVICE_REMOTE_WAKEUP	include/usb_ch9.h	499;"	d
+USB_FEATURE_DEVICE_REMOTE_WAKEUP	include/usb_ch9.h	539;"	d
+USB_FEATURE_ENDPOINT_HALT	include/usb_ch9.h	498;"	d
+USB_FEATURE_ENDPOINT_STALL	include/usb_ch9.h	538;"	d
+USB_FEATURE_TEST_MODE	include/usb_ch9.h	500;"	d
+USB_FEATURE_TEST_MODE	include/usb_ch9.h	540;"	d
+USB_FORCE_DTS	include/usb_common.h	215;"	d
+USB_FULL_SPEED	include/usb_hal_pic24.h	248;"	d
+USB_FUNCTION_HID_C	src/usb_function_hid.c	90;"	d	file:
+USB_HAL_ALLOW_HUB	include/usb_hal.h	586;"	d
+USB_HAL_DEV_CONN_FULL_SPD	include/usb_hal.h	180;"	d
+USB_HAL_DEV_CONN_LOW_SPD	include/usb_hal.h	181;"	d
+USB_HAL_DEV_DISCONNECT	include/usb_hal.h	182;"	d
+USB_HAL_HANDSHAKE	include/usb_hal.h	580;"	d
+USB_HAL_NO_RETRY	include/usb_hal.h	587;"	d
+USB_HAL_PIC24F_C	src/usb_hal_pic24.c	100;"	d	file:
+USB_HAL_PIC24F_H	include/usb_hal_pic24.h	113;"	d
+USB_HAL_PULL_DN_D_MINUS	include/usb_hal.h	176;"	d
+USB_HAL_PULL_DN_D_PLUS	include/usb_hal.h	175;"	d
+USB_HAL_PULL_UP_D_MINUS	include/usb_hal.h	174;"	d
+USB_HAL_PULL_UP_D_PLUS	include/usb_hal.h	173;"	d
+USB_HAL_RECEIVE	include/usb_hal.h	579;"	d
+USB_HAL_TRANSMIT	include/usb_hal.h	578;"	d
+USB_HANDLE	include/usb_device.h	111;"	d
+USB_HANDSHAKE_DISABLED	include/usb_hal_pic24.h	392;"	d
+USB_HANDSHAKE_ENABLED	include/usb_hal_pic24.h	391;"	d
+USB_HID_DSC	include/usb_function_hid.h	/^} USB_HID_DSC;$/;"	t	typeref:struct:_USB_HID_DSC
+USB_HID_DSC_HEADER	include/usb_function_hid.h	/^} USB_HID_DSC_HEADER;$/;"	t	typeref:struct:_USB_HID_DSC_HEADER
+USB_HOLDING_CLIENT_INIT_ERROR	include/usb_common.h	137;"	d
+USB_HOLDING_INVALID_CONFIGURATION	include/usb_common.h	134;"	d
+USB_HOLDING_OUT_OF_MEMORY	include/usb_common.h	131;"	d
+USB_HOLDING_POWER_REQUIREMENT	include/usb_common.h	136;"	d
+USB_HOLDING_PROCESSING_CAPACITY	include/usb_common.h	135;"	d
+USB_HOLDING_UNSUPPORTED_DEVICE	include/usb_common.h	132;"	d
+USB_HOLDING_UNSUPPORTED_HUB	include/usb_common.h	133;"	d
+USB_HUB_CLASSCODE	include/usb_ch9.h	544;"	d
+USB_ILLEGAL_REQUEST	include/usb_common.h	99;"	d
+USB_INTERFACE_DESCRIPTOR	include/usb_ch9.h	/^} USB_INTERFACE_DESCRIPTOR;$/;"	t	typeref:struct:_USB_INTERFACE_DESCRIPTOR
+USB_INTERNAL_TRANSCEIVER	include/usb_hal_pic24.h	245;"	d
+USB_INVALID_CONFIGURATION	include/usb_common.h	100;"	d
+USB_INVALID_STATE	include/usb_common.h	97;"	d
+USB_IN_DISABLED	include/usb_hal_pic24.h	398;"	d
+USB_IN_ENABLED	include/usb_hal_pic24.h	397;"	d
+USB_IN_EP	include/usb_ch9.h	481;"	d
+USB_LOG	include/logger.h	122;"	d
+USB_LOG	include/logger.h	126;"	d
+USB_LOGDUMP	include/logger.h	123;"	d
+USB_LOGDUMP	include/logger.h	127;"	d
+USB_MAJOR_VER	include/usb.h	138;"	d
+USB_MAX_EP_NUMBER	bootloader/usb/src/usb_config.h	61;"	d
+USB_MAX_NUM_INT	bootloader/usb/src/usb_config.h	60;"	d
+USB_MEMORY_ALLOCATION_ERROR	include/usb_common.h	101;"	d
+USB_MINOR_VER	include/usb.h	139;"	d
+USB_NEXT_EP0_IN_PING_PONG	src/usb_device.c	152;"	d	file:
+USB_NEXT_EP0_IN_PING_PONG	src/usb_device.c	225;"	d	file:
+USB_NEXT_EP0_IN_PING_PONG	src/usb_device.c	297;"	d	file:
+USB_NEXT_EP0_IN_PING_PONG	src/usb_device.c	370;"	d	file:
+USB_NEXT_EP0_OUT_PING_PONG	src/usb_device.c	151;"	d	file:
+USB_NEXT_EP0_OUT_PING_PONG	src/usb_device.c	224;"	d	file:
+USB_NEXT_EP0_OUT_PING_PONG	src/usb_device.c	296;"	d	file:
+USB_NEXT_EP0_OUT_PING_PONG	src/usb_device.c	369;"	d	file:
+USB_NEXT_PING_PONG	src/usb_device.c	153;"	d	file:
+USB_NEXT_PING_PONG	src/usb_device.c	226;"	d	file:
+USB_NEXT_PING_PONG	src/usb_device.c	298;"	d	file:
+USB_NEXT_PING_PONG	src/usb_device.c	371;"	d	file:
+USB_NUM_STRING_DESCRIPTORS	bootloader/usb/src/usb_config.h	100;"	d
+USB_OTG_DESCRIPTOR	include/usb_ch9.h	/^} USB_OTG_DESCRIPTOR;$/;"	t	typeref:struct:_USB_OTG_DESCRIPTOR
+USB_OTG_DPLUS_ENABLE	include/usb_hal_pic24.h	243;"	d
+USB_OTG_ENABLE	include/usb_hal_pic24.h	242;"	d
+USB_OUT_DISABLED	include/usb_hal_pic24.h	395;"	d
+USB_OUT_ENABLED	include/usb_hal_pic24.h	394;"	d
+USB_OUT_EP	include/usb_ch9.h	482;"	d
+USB_PING_PONG_MODE	bootloader/usb/src/usb_config.h	77;"	d
+USB_PING_PONG__ALL_BUT_EP0	include/usb_common.h	549;"	d
+USB_PING_PONG__EP0_OUT_ONLY	include/usb_common.h	547;"	d
+USB_PING_PONG__FULL_PING_PONG	include/usb_common.h	548;"	d
+USB_PING_PONG__NO_PING_PONG	include/usb_common.h	546;"	d
+USB_POLLING	bootloader/usb/src/usb_config.h	82;"	d
+USB_PULLUP_ENABLE	include/usb_hal_pic24.h	239;"	d
+USB_PULLUP_OPTION	bootloader/usb/src/usb_config.h	86;"	d
+USB_RECEIVE	include/usb_common.h	214;"	d
+USB_REQUEST_CLEAR_FEATURE	include/usb_ch9.h	487;"	d
+USB_REQUEST_GET_CONFIGURATION	include/usb_ch9.h	492;"	d
+USB_REQUEST_GET_DESCRIPTOR	include/usb_ch9.h	490;"	d
+USB_REQUEST_GET_INTERFACE	include/usb_ch9.h	494;"	d
+USB_REQUEST_GET_STATUS	include/usb_ch9.h	486;"	d
+USB_REQUEST_SET_ADDRESS	include/usb_ch9.h	489;"	d
+USB_REQUEST_SET_CONFIGURATION	include/usb_ch9.h	493;"	d
+USB_REQUEST_SET_DESCRIPTOR	include/usb_ch9.h	491;"	d
+USB_REQUEST_SET_FEATURE	include/usb_ch9.h	488;"	d
+USB_REQUEST_SET_INTERFACE	include/usb_ch9.h	495;"	d
+USB_REQUEST_SYNCH_FRAME	include/usb_ch9.h	496;"	d
+USB_SD_Ptr	bootloader/usb/src/usb_descriptors.c	/^ROM BYTE *ROM USB_SD_Ptr[]=$/;"	v
+USB_SETUP_DATA	include/usb_common.h	221;"	d
+USB_SETUP_DEVICE_TO_HOST	include/usb_ch9.h	505;"	d
+USB_SETUP_DEVICE_TO_HOST_BITFIELD	include/usb_ch9.h	515;"	d
+USB_SETUP_HOST_TO_DEVICE	include/usb_ch9.h	504;"	d
+USB_SETUP_HOST_TO_DEVICE_BITFIELD	include/usb_ch9.h	514;"	d
+USB_SETUP_PKT	include/usb_common.h	220;"	d
+USB_SETUP_RECIPIENT_DEVICE	include/usb_ch9.h	509;"	d
+USB_SETUP_RECIPIENT_DEVICE_BITFIELD	include/usb_ch9.h	519;"	d
+USB_SETUP_RECIPIENT_ENDPOINT	include/usb_ch9.h	511;"	d
+USB_SETUP_RECIPIENT_ENDPOINT_BITFIELD	include/usb_ch9.h	521;"	d
+USB_SETUP_RECIPIENT_INTERFACE	include/usb_ch9.h	510;"	d
+USB_SETUP_RECIPIENT_INTERFACE_BITFIELD	include/usb_ch9.h	520;"	d
+USB_SETUP_RECIPIENT_OTHER	include/usb_ch9.h	512;"	d
+USB_SETUP_RECIPIENT_OTHER_BITFIELD	include/usb_ch9.h	522;"	d
+USB_SETUP_STATUS	include/usb_common.h	222;"	d
+USB_SETUP_TYPE_CLASS	include/usb_ch9.h	507;"	d
+USB_SETUP_TYPE_CLASS_BITFIELD	include/usb_ch9.h	517;"	d
+USB_SETUP_TYPE_STANDARD	include/usb_ch9.h	506;"	d
+USB_SETUP_TYPE_STANDARD_BITFIELD	include/usb_ch9.h	516;"	d
+USB_SETUP_TYPE_VENDOR	include/usb_ch9.h	508;"	d
+USB_SETUP_TYPE_VENDOR_BITFIELD	include/usb_ch9.h	518;"	d
+USB_SET_CONFIGURATION_HANDLER	src/usb_device.c	575;"	d	file:
+USB_SET_CONFIGURATION_HANDLER	src/usb_device.c	577;"	d	file:
+USB_SET_DESCRIPTOR_HANDLER	src/usb_device.c	569;"	d	file:
+USB_SET_DESCRIPTOR_HANDLER	src/usb_device.c	571;"	d	file:
+USB_SINGLE_DEVICE_ADDRESS	include/usb_common.h	142;"	d
+USB_SOF_HANDLER	src/usb_device.c	551;"	d	file:
+USB_SOF_HANDLER	src/usb_device.c	553;"	d	file:
+USB_SOF_INTERRUPT	include/usb_hal_pic24.h	364;"	d
+USB_SOF_INTERRUPT	include/usb_hal_pic24.h	366;"	d
+USB_SPEED_OPTION	bootloader/usb/src/usb_config.h	95;"	d
+USB_STALL_ENDPOINT	include/usb_hal_pic24.h	403;"	d
+USB_STRING_DESCRIPTOR	include/usb_ch9.h	/^} USB_STRING_DESCRIPTOR;$/;"	t	typeref:struct:_USB_STRING_DSC
+USB_SUCCESS	include/usb_common.h	96;"	d
+USB_SUPPORT_DEVICE	bootloader/usb/src/usb_config.h	98;"	d
+USB_SUSPEND_HANDLER	src/usb_device.c	535;"	d	file:
+USB_SUSPEND_HANDLER	src/usb_device.c	539;"	d	file:
+USB_TOKEN_IN	include/usb_ch9.h	470;"	d
+USB_TOKEN_OUT	include/usb_ch9.h	469;"	d
+USB_TOKEN_SETUP	include/usb_ch9.h	471;"	d
+USB_TRANSCEIVER_OPTION	bootloader/usb/src/usb_config.h	89;"	d
+USB_TRANSFER_EVENT_DATA	include/usb_common.h	/^} USB_TRANSFER_EVENT_DATA;$/;"	t	typeref:struct:_transfer_event_data
+USB_TRANSFER_TYPE_BULK	include/usb_ch9.h	534;"	d
+USB_TRANSFER_TYPE_CONTROL	include/usb_ch9.h	532;"	d
+USB_TRANSFER_TYPE_INTERRUPT	include/usb_ch9.h	535;"	d
+USB_TRANSFER_TYPE_ISOCHRONOUS	include/usb_ch9.h	533;"	d
+USB_TRANSMIT	include/usb_common.h	213;"	d
+USB_TRASFER_COMPLETE_HANDLER	src/usb_device.c	581;"	d	file:
+USB_TRASFER_COMPLETE_HANDLER	src/usb_device.c	583;"	d	file:
+USB_UNKNOWN_DEVICE	include/usb_common.h	102;"	d
+USB_USER_CONFIG_DESCRIPTOR	bootloader/usb/src/usb_config.h	71;"	d
+USB_USER_CONFIG_DESCRIPTOR_INCLUDE	bootloader/usb/src/usb_config.h	72;"	d
+USB_USER_DEVICE_DESCRIPTOR	bootloader/usb/src/usb_config.h	66;"	d
+USB_USER_DEVICE_DESCRIPTOR_INCLUDE	bootloader/usb/src/usb_config.h	67;"	d
+USB_USE_HID	bootloader/usb/src/usb_config.h	115;"	d
+USB_VBUS_CHARGE	include/usb_hal.h	243;"	d
+USB_VBUS_DISCHARGE	include/usb_hal.h	242;"	d
+USB_VBUS_POWER_EVENT_DATA	include/usb_common.h	/^} USB_VBUS_POWER_EVENT_DATA;$/;"	t	typeref:struct:_vbus_power_data
+USB_VBUS_POWER_OFF	include/usb_hal.h	245;"	d
+USB_VBUS_POWER_ON	include/usb_hal.h	244;"	d
+USB_VOLATILE	include/usb_device.h	1195;"	d
+USB_VOLATILE	include/usb_device.h	1197;"	d
+USB_WAKEUP_FROM_SUSPEND_HANDLER	src/usb_device.c	543;"	d	file:
+USB_WAKEUP_FROM_SUSPEND_HANDLER	src/usb_device.c	547;"	d	file:
+USB_ZERO_PKT	include/usb_common.h	217;"	d
+USER_PROG_RESET_ADDR	include/bootloadable.h	43;"	d
+USER_USB_CALLBACK_EVENT_HANDLER	bootloader/usb/src/usb_appl_handler.c	/^BOOL USER_USB_CALLBACK_EVENT_HANDLER(USB_EVENT event, void *pdata, WORD size)$/;"	f
+USER_USB_CALLBACK_EVENT_HANDLER	src/usb_hid_stream_driver.c	/^BOOL USER_USB_CALLBACK_EVENT_HANDLER(USB_EVENT event, void *pdata, WORD size)$/;"	f
+USE_AND_OR	bootloader/measure/src/main.c	45;"	d	file:
+USE_AND_OR	bootloader/test/main.c	45;"	d	file:
+USE_AND_OR	bootloader/usb/src/main.c	100;"	d	file:
+USE_AND_OR	src/debug.c	40;"	d	file:
+USE_AND_OR	src/i2c_driver.c	49;"	d	file:
+USE_AND_OR	src/spi_driver.c	40;"	d	file:
+USE_AND_OR	src/timer_driver.c	43;"	d	file:
+USE_I2C_LOGGER	include/logger.h	69;"	d
+USE_LOGGER	include/logger.h	89;"	d
+USE_LOGGER	include/logger.h	91;"	d
+USE_SPI_LOGGER	include/logger.h	74;"	d
+USE_STREAM_LOGGER	include/logger.h	79;"	d
+USE_USB_LOGGER	include/logger.h	64;"	d
+USTAT_EP0_IN	include/usb_hal_pic24.h	194;"	d
+USTAT_EP0_IN_EVEN	include/usb_hal_pic24.h	195;"	d
+USTAT_EP0_IN_ODD	include/usb_hal_pic24.h	196;"	d
+USTAT_EP0_OUT	include/usb_hal_pic24.h	190;"	d
+USTAT_EP0_OUT_EVEN	include/usb_hal_pic24.h	191;"	d
+USTAT_EP0_OUT_ODD	include/usb_hal_pic24.h	192;"	d
+USTAT_EP0_PP_MASK	include/usb_hal_pic24.h	188;"	d
+USTAT_EP_MASK	include/usb_hal_pic24.h	189;"	d
+USTATcopy	src/usb_device.c	/^USB_VOLATILE BYTE USTATcopy;$/;"	v
+UW	include/GenericTypeDefs.h	/^        UINT16 UW;$/;"	m	struct:__anon9::__PACKED
+UW	include/GenericTypeDefs.h	/^        WORD UW;$/;"	m	struct:__anon13::__PACKED
+VOID	include/GenericTypeDefs.h	/^typedef void                    VOID;$/;"	t
+Val	include/GenericTypeDefs.h	/^    BYTE Val;$/;"	m	union:__anon10
+Val	include/GenericTypeDefs.h	/^    DWORD Val;$/;"	m	union:__anon12
+Val	include/GenericTypeDefs.h	/^    QWORD Val;$/;"	m	union:__anon13
+Val	include/GenericTypeDefs.h	/^    UINT16 Val;$/;"	m	union:__anon7
+Val	include/GenericTypeDefs.h	/^    UINT32 Val;$/;"	m	union:__anon8
+Val	include/GenericTypeDefs.h	/^    UINT64 Val;$/;"	m	union:__anon9
+Val	include/GenericTypeDefs.h	/^    UINT8 Val;$/;"	m	union:__anon5
+Val	include/GenericTypeDefs.h	/^    WORD Val;$/;"	m	union:__anon11
+Val	include/usb_device.h	/^        BYTE Val;$/;"	m	union:__anon34::__anon36
+Val	include/usb_device.h	/^        BYTE Val;$/;"	m	union:__anon38::__anon40
+Val	include/usb_hal_pic24.h	/^    BYTE            Val;$/;"	m	union:_BD_STAT
+Val	include/usb_hal_pic24.h	/^    DWORD           Val;$/;"	m	union:__BDT
+WAIT_SETUP	src/usb_device.c	146;"	d	file:
+WEAK	include/Compiler.h	75;"	d
+WORD	include/GenericTypeDefs.h	/^typedef unsigned short int      WORD;                           \/* 16-bit unsigned *\/$/;"	t
+WORD_BITS	include/GenericTypeDefs.h	/^} WORD_VAL, WORD_BITS;$/;"	t	typeref:union:__anon11
+WORD_VAL	include/GenericTypeDefs.h	/^} WORD_VAL, WORD_BITS;$/;"	t	typeref:union:__anon11
+WT_CONFIG	bootloader/usb/src/bootloader.h	101;"	d
+WT_FLASH	bootloader/usb/src/bootloader.h	98;"	d
+W_Index	include/usb_ch9.h	/^        WORD_VAL W_Index; \/\/from table 9-2 of USB2.0 spec, allows byte\/bitwise access$/;"	m	struct:__anon16::__anon18
+W_Length	include/usb_ch9.h	/^        WORD_VAL W_Length; \/\/from table 9-2 of USB2.0 spec, allows byte\/bitwise access$/;"	m	struct:__anon16::__anon18
+W_Value	include/usb_ch9.h	/^        WORD_VAL W_Value; \/\/from table 9-2 of USB2.0 spec, allows byte\/bitwise access$/;"	m	struct:__anon16::__anon18
+WriteLatch	bootloader/usb/src/memory.c	/^void WriteLatch(WORD page, WORD addrLo, WORD dataHi, WORD dataLo)$/;"	f
+WriteMem	bootloader/usb/src/memory.c	/^void WriteMem(WORD cmd)$/;"	f
+XFLAGS	include/usb_common.h	232;"	d
+YES_WRITE_CONFIG	bootloader/usb/src/config.h	156;"	d
+_AD	include/usb_ch9.h	602;"	d
+_AS	include/usb_ch9.h	601;"	d
+_BD_STAT	include/usb_hal_pic24.h	/^typedef union _BD_STAT$/;"	u
+_BIT	include/GenericTypeDefs.h	/^typedef enum _BIT { CLEAR = 0, SET } BIT;$/;"	g
+_BOOL	include/GenericTypeDefs.h	/^typedef enum _BOOL { FALSE = 0, TRUE } BOOL;    \/* Undefined size *\/$/;"	g
+_BOOTLOADABLE_H_	include/bootloadable.h	39;"	d
+_BSTALL	include/usb_hal_pic24.h	178;"	d
+_BULK	include/usb_ch9.h	594;"	d
+_CTRL	include/usb_ch9.h	592;"	d
+_DAT0	include/usb_hal_pic24.h	180;"	d
+_DAT1	include/usb_hal_pic24.h	181;"	d
+_DE	include/usb_ch9.h	606;"	d
+_DEFAULT	include/usb_ch9.h	585;"	d
+_DTSEN	include/usb_hal_pic24.h	179;"	d
+_DTSMASK	include/usb_hal_pic24.h	182;"	d
+_EP01_IN	include/usb_ch9.h	554;"	d
+_EP01_OUT	include/usb_ch9.h	553;"	d
+_EP02_IN	include/usb_ch9.h	556;"	d
+_EP02_OUT	include/usb_ch9.h	555;"	d
+_EP03_IN	include/usb_ch9.h	558;"	d
+_EP03_OUT	include/usb_ch9.h	557;"	d
+_EP04_IN	include/usb_ch9.h	560;"	d
+_EP04_OUT	include/usb_ch9.h	559;"	d
+_EP05_IN	include/usb_ch9.h	562;"	d
+_EP05_OUT	include/usb_ch9.h	561;"	d
+_EP06_IN	include/usb_ch9.h	564;"	d
+_EP06_OUT	include/usb_ch9.h	563;"	d
+_EP07_IN	include/usb_ch9.h	566;"	d
+_EP07_OUT	include/usb_ch9.h	565;"	d
+_EP08_IN	include/usb_ch9.h	568;"	d
+_EP08_OUT	include/usb_ch9.h	567;"	d
+_EP09_IN	include/usb_ch9.h	570;"	d
+_EP09_OUT	include/usb_ch9.h	569;"	d
+_EP10_IN	include/usb_ch9.h	572;"	d
+_EP10_OUT	include/usb_ch9.h	571;"	d
+_EP11_IN	include/usb_ch9.h	574;"	d
+_EP11_OUT	include/usb_ch9.h	573;"	d
+_EP12_IN	include/usb_ch9.h	576;"	d
+_EP12_OUT	include/usb_ch9.h	575;"	d
+_EP13_IN	include/usb_ch9.h	578;"	d
+_EP13_OUT	include/usb_ch9.h	577;"	d
+_EP14_IN	include/usb_ch9.h	580;"	d
+_EP14_OUT	include/usb_ch9.h	579;"	d
+_EP15_IN	include/usb_ch9.h	582;"	d
+_EP15_OUT	include/usb_ch9.h	581;"	d
+_EP_IN	include/usb_ch9.h	551;"	d
+_EP_OUT	include/usb_ch9.h	552;"	d
+_FE	include/usb_ch9.h	607;"	d
+_FS	include/usb_hal_pic24.h	232;"	d
+_HNP	include/usb_ch9.h	588;"	d
+_IE	include/usb_ch9.h	608;"	d
+_INT	include/usb_ch9.h	597;"	d
+_INTERRUPT	include/usb_ch9.h	596;"	d
+_ISO	include/usb_ch9.h	593;"	d
+_LS	include/usb_hal_pic24.h	231;"	d
+_NS	include/usb_ch9.h	600;"	d
+_OEMON	include/usb_hal_pic24.h	236;"	d
+_POINTER	include/usb_hal_pic24.h	/^typedef union _POINTER$/;"	u
+_PUEN	include/usb_hal_pic24.h	235;"	d
+_RWU	include/usb_ch9.h	587;"	d
+_SELF	include/usb_ch9.h	586;"	d
+_SRP	include/usb_ch9.h	589;"	d
+_STAT_MASK	include/usb_hal_pic24.h	186;"	d
+_SY	include/usb_ch9.h	603;"	d
+_TREXT	include/usb_hal_pic24.h	234;"	d
+_TRINT	include/usb_hal_pic24.h	233;"	d
+_UART_STREAM_DRIVER_H	include/uart_stream_driver.h	44;"	d
+_UCPU	include/usb_hal_pic24.h	184;"	d
+_UEP	include/usb_hal_pic24.h	/^} _UEP;$/;"	t	typeref:union:__anon43
+_USB1Interrupt	src/usb_device.c	/^void __attribute__((interrupt,auto_psv)) _USB1Interrupt()$/;"	f
+_USB_CH9_H_	include/usb_ch9.h	89;"	d
+_USB_COMMON_H_	include/usb_common.h	83;"	d
+_USB_CONFIGURATION_DESCRIPTOR	include/usb_ch9.h	/^typedef struct __attribute__ ((packed)) _USB_CONFIGURATION_DESCRIPTOR$/;"	s
+_USB_DEVICE_DESCRIPTOR	include/usb_ch9.h	/^typedef struct __attribute__ ((packed)) _USB_DEVICE_DESCRIPTOR$/;"	s
+_USB_DEVICE_QUALIFIER_DESCRIPTOR	include/usb_ch9.h	/^typedef struct __attribute__ ((packed)) _USB_DEVICE_QUALIFIER_DESCRIPTOR$/;"	s
+_USB_ENDPOINT_DESCRIPTOR	include/usb_ch9.h	/^typedef struct __attribute__ ((packed)) _USB_ENDPOINT_DESCRIPTOR$/;"	s
+_USB_HAL_H_	include/usb_hal.h	88;"	d
+_USB_HID_DSC	include/usb_function_hid.h	/^typedef struct _USB_HID_DSC$/;"	s
+_USB_HID_DSC_HEADER	include/usb_function_hid.h	/^typedef struct _USB_HID_DSC_HEADER$/;"	s
+_USB_HID_STREAM_DRIVER_H	include/usb_hid_stream_driver.h	41;"	d
+_USB_H_	include/usb.h	100;"	d
+_USB_INTERFACE_DESCRIPTOR	include/usb_ch9.h	/^typedef struct __attribute__ ((packed)) _USB_INTERFACE_DESCRIPTOR$/;"	s
+_USB_OTG_DESCRIPTOR	include/usb_ch9.h	/^typedef struct __attribute__ ((packed)) _USB_OTG_DESCRIPTOR$/;"	s
+_USB_STRING_DSC	include/usb_ch9.h	/^typedef struct __attribute__ ((packed)) _USB_STRING_DSC$/;"	s
+_USIE	include/usb_hal_pic24.h	183;"	d
+__BDT	include/usb_hal_pic24.h	/^typedef union __BDT$/;"	u
+__COMPILER_H	include/Compiler.h	54;"	d
+__EXTENSION	include/GenericTypeDefs.h	490;"	d
+__EXTENSION	include/GenericTypeDefs.h	52;"	d
+__EXTENSION	include/GenericTypeDefs.h	54;"	d
+__GENERIC_TYPE_DEFS_H_	include/GenericTypeDefs.h	48;"	d
+__PACKED	include/GenericTypeDefs.h	/^    BYTE v[2] __PACKED;$/;"	m	union:__anon11
+__PACKED	include/GenericTypeDefs.h	/^    BYTE v[4] __PACKED;$/;"	m	union:__anon12
+__PACKED	include/GenericTypeDefs.h	/^    BYTE v[8] __PACKED;$/;"	m	union:__anon13
+__PACKED	include/GenericTypeDefs.h	/^    DWORD d[2] __PACKED;$/;"	m	union:__anon13
+__PACKED	include/GenericTypeDefs.h	/^    UINT16 w[2] __PACKED;$/;"	m	union:__anon8
+__PACKED	include/GenericTypeDefs.h	/^    UINT16 w[4] __PACKED;$/;"	m	union:__anon9
+__PACKED	include/GenericTypeDefs.h	/^    UINT32 d[2] __PACKED;$/;"	m	union:__anon9
+__PACKED	include/GenericTypeDefs.h	/^    UINT8  v[4] __PACKED;$/;"	m	union:__anon8
+__PACKED	include/GenericTypeDefs.h	/^    UINT8 v[2] __PACKED;$/;"	m	union:__anon7
+__PACKED	include/GenericTypeDefs.h	/^    UINT8 v[8]  __PACKED;$/;"	m	union:__anon9
+__PACKED	include/GenericTypeDefs.h	/^    WORD w[2] __PACKED;$/;"	m	union:__anon12
+__PACKED	include/GenericTypeDefs.h	/^    WORD w[4] __PACKED;$/;"	m	union:__anon13
+__PACKED	include/GenericTypeDefs.h	/^    struct __PACKED$/;"	s	union:__anon10
+__PACKED	include/GenericTypeDefs.h	/^    struct __PACKED$/;"	s	union:__anon11
+__PACKED	include/GenericTypeDefs.h	/^    struct __PACKED$/;"	s	union:__anon12
+__PACKED	include/GenericTypeDefs.h	/^    struct __PACKED$/;"	s	union:__anon13
+__PACKED	include/GenericTypeDefs.h	/^    struct __PACKED$/;"	s	union:__anon7
+__PACKED	include/GenericTypeDefs.h	/^    struct __PACKED$/;"	s	union:__anon8
+__PACKED	include/GenericTypeDefs.h	/^    struct __PACKED$/;"	s	union:__anon9
+__PACKED	include/GenericTypeDefs.h	58;"	d
+__USB_DESCRIPTORS_C	bootloader/usb/src/usb_descriptors.c	154;"	d	file:
+_transfer_event_data	include/usb_common.h	/^typedef struct _transfer_event_data$/;"	s
+_vbus_power_data	include/usb_common.h	/^typedef struct _vbus_power_data$/;"	s
+_word	include/usb_hal_pic24.h	/^    WORD _word;                         \/\/ bLow & bHigh$/;"	m	union:_POINTER
+actFrequency	src/spi_driver.c	/^    u32 actFrequency;$/;"	m	struct:__anon51	file:
+active_protocol	src/usb_function_hid.c	/^BYTE active_protocol;   \/\/ [0] Boot Protocol [1] Report Protocol$/;"	v
+allowWriteConfig	bootloader/usb/src/usb_appl_handler.c	/^static char allowWriteConfig; \/* if 0 -> config page is not written, if <>0 the config data can be re-programmed *\/$/;"	v	file:
+amsUsbInitialise	src/ams_usb.c	/^void amsUsbInitialise ( )$/;"	f
+amsUsbIsCableConnected	src/ams_usb.c	/^s8 amsUsbIsCableConnected ( )$/;"	f
+amsUsbIsNotReady	src/ams_usb.c	/^void amsUsbIsNotReady ( )$/;"	f
+amsUsbIsReady	src/ams_usb.c	/^s8 amsUsbIsReady ( )$/;"	f
+appId	src/bootloadable.c	/^const unsigned short appId __attribute__ ((space(psv),address(APP_ID_ADDR))) = APP_ID;$/;"	v
+applFirmwareInformation	src/weak_stream_functions.c	/^const char * WEAK applFirmwareInformation ( )$/;"	f
+applPeripheralReset	src/weak_stream_functions.c	/^u8 WEAK applPeripheralReset ( )$/;"	f
+applProcessCmd	src/weak_stream_functions.c	/^u8 WEAK applProcessCmd ( u8 protocol, u16 rxSize, const u8 * rxData, u16 * txSize, u8 * txData )$/;"	f
+applProcessCyclic	src/weak_stream_functions.c	/^u8 WEAK applProcessCyclic ( u8 * protocol, u16 * txSize, u8 * txData, u16 remainingSize )$/;"	f
+applReadReg	src/weak_stream_functions.c	/^u8 WEAK applReadReg ( u16 rxSize, const u8 * rxData, u16 * txSize, u8 * txData )$/;"	f
+applWriteReg	src/weak_stream_functions.c	/^u8 WEAK applWriteReg ( u16 rxSize, const u8 * rxData, u16 * txSize, u8 * txData )$/;"	f
+b0	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b0:1;$/;"	m	struct:__anon10::__PACKED
+b0	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b0:1;$/;"	m	struct:__anon11::__PACKED
+b0	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b0:1;$/;"	m	struct:__anon12::__PACKED
+b0	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b0:1;$/;"	m	struct:__anon13::__PACKED
+b0	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b0:1;$/;"	m	struct:__anon5::__anon6
+b0	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b0:1;$/;"	m	struct:__anon7::__PACKED
+b0	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b0:1;$/;"	m	struct:__anon8::__PACKED
+b0	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b0:1;$/;"	m	struct:__anon9::__PACKED
+b1	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b1:1;$/;"	m	struct:__anon10::__PACKED
+b1	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b1:1;$/;"	m	struct:__anon11::__PACKED
+b1	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b1:1;$/;"	m	struct:__anon12::__PACKED
+b1	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b1:1;$/;"	m	struct:__anon13::__PACKED
+b1	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b1:1;$/;"	m	struct:__anon5::__anon6
+b1	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b1:1;$/;"	m	struct:__anon7::__PACKED
+b1	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b1:1;$/;"	m	struct:__anon8::__PACKED
+b1	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b1:1;$/;"	m	struct:__anon9::__PACKED
+b10	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b10:1;$/;"	m	struct:__anon11::__PACKED
+b10	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b10:1;$/;"	m	struct:__anon12::__PACKED
+b10	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b10:1;$/;"	m	struct:__anon13::__PACKED
+b10	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b10:1;$/;"	m	struct:__anon7::__PACKED
+b10	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b10:1;$/;"	m	struct:__anon8::__PACKED
+b10	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b10:1;$/;"	m	struct:__anon9::__PACKED
+b11	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b11:1;$/;"	m	struct:__anon11::__PACKED
+b11	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b11:1;$/;"	m	struct:__anon12::__PACKED
+b11	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b11:1;$/;"	m	struct:__anon13::__PACKED
+b11	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b11:1;$/;"	m	struct:__anon7::__PACKED
+b11	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b11:1;$/;"	m	struct:__anon8::__PACKED
+b11	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b11:1;$/;"	m	struct:__anon9::__PACKED
+b12	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b12:1;$/;"	m	struct:__anon11::__PACKED
+b12	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b12:1;$/;"	m	struct:__anon12::__PACKED
+b12	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b12:1;$/;"	m	struct:__anon13::__PACKED
+b12	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b12:1;$/;"	m	struct:__anon7::__PACKED
+b12	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b12:1;$/;"	m	struct:__anon8::__PACKED
+b12	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b12:1;$/;"	m	struct:__anon9::__PACKED
+b13	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b13:1;$/;"	m	struct:__anon11::__PACKED
+b13	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b13:1;$/;"	m	struct:__anon12::__PACKED
+b13	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b13:1;$/;"	m	struct:__anon13::__PACKED
+b13	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b13:1;$/;"	m	struct:__anon7::__PACKED
+b13	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b13:1;$/;"	m	struct:__anon8::__PACKED
+b13	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b13:1;$/;"	m	struct:__anon9::__PACKED
+b14	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b14:1;$/;"	m	struct:__anon11::__PACKED
+b14	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b14:1;$/;"	m	struct:__anon12::__PACKED
+b14	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b14:1;$/;"	m	struct:__anon13::__PACKED
+b14	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b14:1;$/;"	m	struct:__anon7::__PACKED
+b14	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b14:1;$/;"	m	struct:__anon8::__PACKED
+b14	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b14:1;$/;"	m	struct:__anon9::__PACKED
+b15	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b15:1;$/;"	m	struct:__anon11::__PACKED
+b15	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b15:1;$/;"	m	struct:__anon12::__PACKED
+b15	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b15:1;$/;"	m	struct:__anon13::__PACKED
+b15	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b15:1;$/;"	m	struct:__anon7::__PACKED
+b15	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b15:1;$/;"	m	struct:__anon8::__PACKED
+b15	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b15:1;$/;"	m	struct:__anon9::__PACKED
+b16	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b16:1;$/;"	m	struct:__anon12::__PACKED
+b16	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b16:1;$/;"	m	struct:__anon13::__PACKED
+b16	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b16:1;$/;"	m	struct:__anon8::__PACKED
+b16	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b16:1;$/;"	m	struct:__anon9::__PACKED
+b17	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b17:1;$/;"	m	struct:__anon12::__PACKED
+b17	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b17:1;$/;"	m	struct:__anon13::__PACKED
+b17	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b17:1;$/;"	m	struct:__anon8::__PACKED
+b17	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b17:1;$/;"	m	struct:__anon9::__PACKED
+b18	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b18:1;$/;"	m	struct:__anon12::__PACKED
+b18	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b18:1;$/;"	m	struct:__anon13::__PACKED
+b18	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b18:1;$/;"	m	struct:__anon8::__PACKED
+b18	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b18:1;$/;"	m	struct:__anon9::__PACKED
+b19	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b19:1;$/;"	m	struct:__anon12::__PACKED
+b19	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b19:1;$/;"	m	struct:__anon13::__PACKED
+b19	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b19:1;$/;"	m	struct:__anon8::__PACKED
+b19	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b19:1;$/;"	m	struct:__anon9::__PACKED
+b2	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b2:1;$/;"	m	struct:__anon10::__PACKED
+b2	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b2:1;$/;"	m	struct:__anon11::__PACKED
+b2	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b2:1;$/;"	m	struct:__anon12::__PACKED
+b2	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b2:1;$/;"	m	struct:__anon13::__PACKED
+b2	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b2:1;$/;"	m	struct:__anon5::__anon6
+b2	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b2:1;$/;"	m	struct:__anon7::__PACKED
+b2	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b2:1;$/;"	m	struct:__anon8::__PACKED
+b2	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b2:1;$/;"	m	struct:__anon9::__PACKED
+b20	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b20:1;$/;"	m	struct:__anon12::__PACKED
+b20	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b20:1;$/;"	m	struct:__anon13::__PACKED
+b20	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b20:1;$/;"	m	struct:__anon8::__PACKED
+b20	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b20:1;$/;"	m	struct:__anon9::__PACKED
+b21	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b21:1;$/;"	m	struct:__anon12::__PACKED
+b21	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b21:1;$/;"	m	struct:__anon13::__PACKED
+b21	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b21:1;$/;"	m	struct:__anon8::__PACKED
+b21	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b21:1;$/;"	m	struct:__anon9::__PACKED
+b22	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b22:1;$/;"	m	struct:__anon12::__PACKED
+b22	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b22:1;$/;"	m	struct:__anon13::__PACKED
+b22	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b22:1;$/;"	m	struct:__anon8::__PACKED
+b22	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b22:1;$/;"	m	struct:__anon9::__PACKED
+b23	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b23:1;$/;"	m	struct:__anon12::__PACKED
+b23	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b23:1;$/;"	m	struct:__anon13::__PACKED
+b23	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b23:1;$/;"	m	struct:__anon8::__PACKED
+b23	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b23:1;$/;"	m	struct:__anon9::__PACKED
+b24	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b24:1;$/;"	m	struct:__anon12::__PACKED
+b24	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b24:1;$/;"	m	struct:__anon13::__PACKED
+b24	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b24:1;$/;"	m	struct:__anon8::__PACKED
+b24	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b24:1;$/;"	m	struct:__anon9::__PACKED
+b25	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b25:1;$/;"	m	struct:__anon12::__PACKED
+b25	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b25:1;$/;"	m	struct:__anon13::__PACKED
+b25	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b25:1;$/;"	m	struct:__anon8::__PACKED
+b25	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b25:1;$/;"	m	struct:__anon9::__PACKED
+b26	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b26:1;$/;"	m	struct:__anon12::__PACKED
+b26	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b26:1;$/;"	m	struct:__anon13::__PACKED
+b26	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b26:1;$/;"	m	struct:__anon8::__PACKED
+b26	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b26:1;$/;"	m	struct:__anon9::__PACKED
+b27	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b27:1;$/;"	m	struct:__anon12::__PACKED
+b27	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b27:1;$/;"	m	struct:__anon13::__PACKED
+b27	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b27:1;$/;"	m	struct:__anon8::__PACKED
+b27	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b27:1;$/;"	m	struct:__anon9::__PACKED
+b28	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b28:1;$/;"	m	struct:__anon12::__PACKED
+b28	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b28:1;$/;"	m	struct:__anon13::__PACKED
+b28	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b28:1;$/;"	m	struct:__anon8::__PACKED
+b28	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b28:1;$/;"	m	struct:__anon9::__PACKED
+b29	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b29:1;$/;"	m	struct:__anon12::__PACKED
+b29	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b29:1;$/;"	m	struct:__anon13::__PACKED
+b29	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b29:1;$/;"	m	struct:__anon8::__PACKED
+b29	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b29:1;$/;"	m	struct:__anon9::__PACKED
+b3	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b3:1;$/;"	m	struct:__anon10::__PACKED
+b3	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b3:1;$/;"	m	struct:__anon11::__PACKED
+b3	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b3:1;$/;"	m	struct:__anon12::__PACKED
+b3	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b3:1;$/;"	m	struct:__anon13::__PACKED
+b3	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b3:1;$/;"	m	struct:__anon5::__anon6
+b3	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b3:1;$/;"	m	struct:__anon7::__PACKED
+b3	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b3:1;$/;"	m	struct:__anon8::__PACKED
+b3	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b3:1;$/;"	m	struct:__anon9::__PACKED
+b30	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b30:1;$/;"	m	struct:__anon12::__PACKED
+b30	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b30:1;$/;"	m	struct:__anon13::__PACKED
+b30	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b30:1;$/;"	m	struct:__anon8::__PACKED
+b30	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b30:1;$/;"	m	struct:__anon9::__PACKED
+b31	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b31:1;$/;"	m	struct:__anon12::__PACKED
+b31	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b31:1;$/;"	m	struct:__anon13::__PACKED
+b31	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b31:1;$/;"	m	struct:__anon8::__PACKED
+b31	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b31:1;$/;"	m	struct:__anon9::__PACKED
+b32	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b32:1;$/;"	m	struct:__anon13::__PACKED
+b32	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b32:1;$/;"	m	struct:__anon9::__PACKED
+b33	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b33:1;$/;"	m	struct:__anon13::__PACKED
+b33	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b33:1;$/;"	m	struct:__anon9::__PACKED
+b34	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b34:1;$/;"	m	struct:__anon13::__PACKED
+b34	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b34:1;$/;"	m	struct:__anon9::__PACKED
+b35	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b35:1;$/;"	m	struct:__anon13::__PACKED
+b35	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b35:1;$/;"	m	struct:__anon9::__PACKED
+b36	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b36:1;$/;"	m	struct:__anon13::__PACKED
+b36	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b36:1;$/;"	m	struct:__anon9::__PACKED
+b37	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b37:1;$/;"	m	struct:__anon13::__PACKED
+b37	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b37:1;$/;"	m	struct:__anon9::__PACKED
+b38	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b38:1;$/;"	m	struct:__anon13::__PACKED
+b38	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b38:1;$/;"	m	struct:__anon9::__PACKED
+b39	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b39:1;$/;"	m	struct:__anon13::__PACKED
+b39	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b39:1;$/;"	m	struct:__anon9::__PACKED
+b4	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b4:1;$/;"	m	struct:__anon10::__PACKED
+b4	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b4:1;$/;"	m	struct:__anon11::__PACKED
+b4	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b4:1;$/;"	m	struct:__anon12::__PACKED
+b4	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b4:1;$/;"	m	struct:__anon13::__PACKED
+b4	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b4:1;$/;"	m	struct:__anon5::__anon6
+b4	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b4:1;$/;"	m	struct:__anon7::__PACKED
+b4	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b4:1;$/;"	m	struct:__anon8::__PACKED
+b4	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b4:1;$/;"	m	struct:__anon9::__PACKED
+b40	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b40:1;$/;"	m	struct:__anon13::__PACKED
+b40	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b40:1;$/;"	m	struct:__anon9::__PACKED
+b41	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b41:1;$/;"	m	struct:__anon13::__PACKED
+b41	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b41:1;$/;"	m	struct:__anon9::__PACKED
+b42	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b42:1;$/;"	m	struct:__anon13::__PACKED
+b42	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b42:1;$/;"	m	struct:__anon9::__PACKED
+b43	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b43:1;$/;"	m	struct:__anon13::__PACKED
+b43	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b43:1;$/;"	m	struct:__anon9::__PACKED
+b44	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b44:1;$/;"	m	struct:__anon13::__PACKED
+b44	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b44:1;$/;"	m	struct:__anon9::__PACKED
+b45	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b45:1;$/;"	m	struct:__anon13::__PACKED
+b45	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b45:1;$/;"	m	struct:__anon9::__PACKED
+b46	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b46:1;$/;"	m	struct:__anon13::__PACKED
+b46	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b46:1;$/;"	m	struct:__anon9::__PACKED
+b47	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b47:1;$/;"	m	struct:__anon13::__PACKED
+b47	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b47:1;$/;"	m	struct:__anon9::__PACKED
+b48	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b48:1;$/;"	m	struct:__anon13::__PACKED
+b48	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b48:1;$/;"	m	struct:__anon9::__PACKED
+b49	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b49:1;$/;"	m	struct:__anon13::__PACKED
+b49	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b49:1;$/;"	m	struct:__anon9::__PACKED
+b5	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b5:1;$/;"	m	struct:__anon10::__PACKED
+b5	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b5:1;$/;"	m	struct:__anon11::__PACKED
+b5	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b5:1;$/;"	m	struct:__anon12::__PACKED
+b5	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b5:1;$/;"	m	struct:__anon13::__PACKED
+b5	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b5:1;$/;"	m	struct:__anon5::__anon6
+b5	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b5:1;$/;"	m	struct:__anon7::__PACKED
+b5	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b5:1;$/;"	m	struct:__anon8::__PACKED
+b5	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b5:1;$/;"	m	struct:__anon9::__PACKED
+b50	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b50:1;$/;"	m	struct:__anon13::__PACKED
+b50	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b50:1;$/;"	m	struct:__anon9::__PACKED
+b51	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b51:1;$/;"	m	struct:__anon13::__PACKED
+b51	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b51:1;$/;"	m	struct:__anon9::__PACKED
+b52	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b52:1;$/;"	m	struct:__anon13::__PACKED
+b52	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b52:1;$/;"	m	struct:__anon9::__PACKED
+b53	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b53:1;$/;"	m	struct:__anon13::__PACKED
+b53	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b53:1;$/;"	m	struct:__anon9::__PACKED
+b54	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b54:1;$/;"	m	struct:__anon13::__PACKED
+b54	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b54:1;$/;"	m	struct:__anon9::__PACKED
+b55	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b55:1;$/;"	m	struct:__anon13::__PACKED
+b55	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b55:1;$/;"	m	struct:__anon9::__PACKED
+b56	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b56:1;$/;"	m	struct:__anon13::__PACKED
+b56	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b56:1;$/;"	m	struct:__anon9::__PACKED
+b57	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b57:1;$/;"	m	struct:__anon13::__PACKED
+b57	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b57:1;$/;"	m	struct:__anon9::__PACKED
+b58	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b58:1;$/;"	m	struct:__anon13::__PACKED
+b58	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b58:1;$/;"	m	struct:__anon9::__PACKED
+b59	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b59:1;$/;"	m	struct:__anon13::__PACKED
+b59	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b59:1;$/;"	m	struct:__anon9::__PACKED
+b6	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b6:1;$/;"	m	struct:__anon10::__PACKED
+b6	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b6:1;$/;"	m	struct:__anon11::__PACKED
+b6	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b6:1;$/;"	m	struct:__anon12::__PACKED
+b6	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b6:1;$/;"	m	struct:__anon13::__PACKED
+b6	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b6:1;$/;"	m	struct:__anon5::__anon6
+b6	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b6:1;$/;"	m	struct:__anon7::__PACKED
+b6	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b6:1;$/;"	m	struct:__anon8::__PACKED
+b6	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b6:1;$/;"	m	struct:__anon9::__PACKED
+b60	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b60:1;$/;"	m	struct:__anon13::__PACKED
+b60	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b60:1;$/;"	m	struct:__anon9::__PACKED
+b61	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b61:1;$/;"	m	struct:__anon13::__PACKED
+b61	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b61:1;$/;"	m	struct:__anon9::__PACKED
+b62	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b62:1;$/;"	m	struct:__anon13::__PACKED
+b62	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b62:1;$/;"	m	struct:__anon9::__PACKED
+b63	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b63:1;$/;"	m	struct:__anon13::__PACKED
+b63	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b63:1;$/;"	m	struct:__anon9::__PACKED
+b7	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b7:1;$/;"	m	struct:__anon10::__PACKED
+b7	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b7:1;$/;"	m	struct:__anon11::__PACKED
+b7	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b7:1;$/;"	m	struct:__anon12::__PACKED
+b7	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b7:1;$/;"	m	struct:__anon13::__PACKED
+b7	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b7:1;$/;"	m	struct:__anon5::__anon6
+b7	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b7:1;$/;"	m	struct:__anon7::__PACKED
+b7	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b7:1;$/;"	m	struct:__anon8::__PACKED
+b7	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b7:1;$/;"	m	struct:__anon9::__PACKED
+b8	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b8:1;$/;"	m	struct:__anon11::__PACKED
+b8	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b8:1;$/;"	m	struct:__anon12::__PACKED
+b8	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b8:1;$/;"	m	struct:__anon13::__PACKED
+b8	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b8:1;$/;"	m	struct:__anon7::__PACKED
+b8	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b8:1;$/;"	m	struct:__anon8::__PACKED
+b8	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b8:1;$/;"	m	struct:__anon9::__PACKED
+b9	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b9:1;$/;"	m	struct:__anon11::__PACKED
+b9	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b9:1;$/;"	m	struct:__anon12::__PACKED
+b9	include/GenericTypeDefs.h	/^        __EXTENSION BYTE b9:1;$/;"	m	struct:__anon13::__PACKED
+b9	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b9:1;$/;"	m	struct:__anon7::__PACKED
+b9	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b9:1;$/;"	m	struct:__anon8::__PACKED
+b9	include/GenericTypeDefs.h	/^        __EXTENSION UINT8 b9:1;$/;"	m	struct:__anon9::__PACKED
+bAltID	include/usb_ch9.h	/^        BYTE bAltID;            \/\/Alternate Setting Value 0-255$/;"	m	struct:__anon16::__anon26
+bAltID_H	include/usb_ch9.h	/^        BYTE bAltID_H;          \/\/Must equal zero$/;"	m	struct:__anon16::__anon26
+bAlternateSetting	include/usb_ch9.h	/^    BYTE bAlternateSetting;     \/\/ Value of this alternate interface setting.$/;"	m	struct:_USB_INTERFACE_DESCRIPTOR
+bCfgRSD	include/usb_ch9.h	/^        BYTE bCfgRSD;           \/\/Must equal zero (Reserved)$/;"	m	struct:__anon16::__anon25
+bConfigurationValue	include/usb_ch9.h	/^        BYTE bConfigurationValue;         \/\/Configuration Value 0-255$/;"	m	struct:__anon16::__anon25
+bConfigurationValue	include/usb_ch9.h	/^    BYTE bConfigurationValue;   \/\/ Value of this configuration (1 based).$/;"	m	struct:_USB_CONFIGURATION_DESCRIPTOR
+bCountryCode	include/usb_function_hid.h	/^    BYTE bCountryCode;		\/\/offset 4$/;"	m	struct:_USB_HID_DSC
+bDescriptorType	include/usb_ch9.h	/^        BYTE bDescriptorType;          \/\/Device,Configuration,String$/;"	m	struct:__anon16::__anon23
+bDescriptorType	include/usb_ch9.h	/^    BYTE   bDescriptorType;     \/\/ Type, USB_DSC_STRING$/;"	m	struct:_USB_STRING_DSC
+bDescriptorType	include/usb_ch9.h	/^    BYTE bDescriptorType;       \/\/ CONFIGURATION descriptor type (USB_DESCRIPTOR_CONFIGURATION).$/;"	m	struct:_USB_CONFIGURATION_DESCRIPTOR
+bDescriptorType	include/usb_ch9.h	/^    BYTE bDescriptorType;       \/\/ DEVICE descriptor type (USB_DESCRIPTOR_DEVICE).$/;"	m	struct:_USB_DEVICE_DESCRIPTOR
+bDescriptorType	include/usb_ch9.h	/^    BYTE bDescriptorType;       \/\/ ENDPOINT descriptor type (USB_DESCRIPTOR_ENDPOINT).$/;"	m	struct:_USB_ENDPOINT_DESCRIPTOR
+bDescriptorType	include/usb_ch9.h	/^    BYTE bDescriptorType;       \/\/ INTERFACE descriptor type (USB_DESCRIPTOR_INTERFACE).$/;"	m	struct:_USB_INTERFACE_DESCRIPTOR
+bDescriptorType	include/usb_ch9.h	/^    BYTE bDescriptorType;       \/\/ OTG descriptor type (USB_DESCRIPTOR_OTG).$/;"	m	struct:_USB_OTG_DESCRIPTOR
+bDescriptorType	include/usb_function_hid.h	/^    BYTE bDescriptorType;	\/\/offset 1$/;"	m	struct:_USB_HID_DSC
+bDescriptorType	include/usb_function_hid.h	/^    BYTE bDescriptorType;	\/\/offset 9$/;"	m	struct:_USB_HID_DSC_HEADER
+bDevADR	include/usb_ch9.h	/^        BYTE_VAL bDevADR;       \/\/Device Address 0-127$/;"	m	struct:__anon16::__anon24
+bDevADRH	include/usb_ch9.h	/^        BYTE bDevADRH;          \/\/Must equal zero$/;"	m	struct:__anon16::__anon24
+bDeviceClass	include/usb_ch9.h	/^    BYTE bDeviceClass;          \/\/ Class code (assigned by the USB-IF). 0xFF-Vendor specific.$/;"	m	struct:_USB_DEVICE_DESCRIPTOR
+bDeviceClass	include/usb_ch9.h	/^    BYTE bDeviceClass;          \/\/ Device class code$/;"	m	struct:_USB_DEVICE_QUALIFIER_DESCRIPTOR
+bDeviceProtocol	include/usb_ch9.h	/^    BYTE bDeviceProtocol;       \/\/ Device protocol$/;"	m	struct:_USB_DEVICE_QUALIFIER_DESCRIPTOR
+bDeviceProtocol	include/usb_ch9.h	/^    BYTE bDeviceProtocol;       \/\/ Protocol code (assigned by the USB-IF). 0xFF-Vendor specific.$/;"	m	struct:_USB_DEVICE_DESCRIPTOR
+bDeviceSubClass	include/usb_ch9.h	/^    BYTE bDeviceSubClass;       \/\/ Device sub-class code$/;"	m	struct:_USB_DEVICE_QUALIFIER_DESCRIPTOR
+bDeviceSubClass	include/usb_ch9.h	/^    BYTE bDeviceSubClass;       \/\/ Subclass code (assigned by the USB-IF).$/;"	m	struct:_USB_DEVICE_DESCRIPTOR
+bDscIndex	include/usb_ch9.h	/^        BYTE bDscIndex;         \/\/For Configuration and String DSC Only$/;"	m	struct:__anon16::__anon23
+bDscType	bootloader/usb/src/usb_descriptors.c	/^ROM struct{BYTE bLength;BYTE bDscType;WORD string[17];}sd002={$/;"	m	struct:__anon3	file:
+bDscType	bootloader/usb/src/usb_descriptors.c	/^ROM struct{BYTE bLength;BYTE bDscType;WORD string[1];}sd000={$/;"	m	struct:__anon1	file:
+bDscType	bootloader/usb/src/usb_descriptors.c	/^ROM struct{BYTE bLength;BYTE bDscType;WORD string[6];}sd001={sizeof(sd001),USB_DESCRIPTOR_STRING,{'a','m','s',' ','A','G'}};$/;"	m	struct:__anon2	file:
+bEPID	include/usb_ch9.h	/^        BYTE bEPID;             \/\/Endpoint ID (Number & Direction)$/;"	m	struct:__anon16::__anon27
+bEPID_H	include/usb_ch9.h	/^        BYTE bEPID_H;           \/\/Must equal zero$/;"	m	struct:__anon16::__anon27
+bEndpointAddress	include/usb_ch9.h	/^    BYTE bEndpointAddress;      \/\/ Endpoint address. Bit 7 indicates direction (0=OUT, 1=IN).$/;"	m	struct:_USB_ENDPOINT_DESCRIPTOR
+bFeature	include/usb_ch9.h	/^        BYTE bFeature;          \/\/DEVICE_REMOTE_WAKEUP,ENDPOINT_HALT$/;"	m	struct:__anon16::__anon19
+bHigh	include/usb_hal_pic24.h	/^        BYTE bHigh;$/;"	m	struct:_POINTER::__anon44
+bInterfaceClass	include/usb_ch9.h	/^    BYTE bInterfaceClass;       \/\/ Class code (assigned by the USB-IF).  0xFF-Vendor specific.$/;"	m	struct:_USB_INTERFACE_DESCRIPTOR
+bInterfaceNumber	include/usb_ch9.h	/^    BYTE bInterfaceNumber;      \/\/ Number of this interface (0 based).$/;"	m	struct:_USB_INTERFACE_DESCRIPTOR
+bInterfaceProtocol	include/usb_ch9.h	/^    BYTE bInterfaceProtocol;    \/\/ Protocol code (assigned by the USB-IF).  0xFF-Vendor specific.$/;"	m	struct:_USB_INTERFACE_DESCRIPTOR
+bInterfaceSubClass	include/usb_ch9.h	/^    BYTE bInterfaceSubClass;    \/\/ Subclass code (assigned by the USB-IF).$/;"	m	struct:_USB_INTERFACE_DESCRIPTOR
+bInterval	include/usb_ch9.h	/^    BYTE bInterval;             \/\/ Polling interval in frames.$/;"	m	struct:_USB_ENDPOINT_DESCRIPTOR
+bIntfID	include/usb_ch9.h	/^        BYTE bIntfID;           \/\/Interface Number Value 0-255$/;"	m	struct:__anon16::__anon26
+bIntfID_H	include/usb_ch9.h	/^        BYTE bIntfID_H;         \/\/Must equal zero$/;"	m	struct:__anon16::__anon26
+bLength	bootloader/usb/src/usb_descriptors.c	/^ROM struct{BYTE bLength;BYTE bDscType;WORD string[17];}sd002={$/;"	m	struct:__anon3	file:
+bLength	bootloader/usb/src/usb_descriptors.c	/^ROM struct{BYTE bLength;BYTE bDscType;WORD string[1];}sd000={$/;"	m	struct:__anon1	file:
+bLength	bootloader/usb/src/usb_descriptors.c	/^ROM struct{BYTE bLength;BYTE bDscType;WORD string[6];}sd001={sizeof(sd001),USB_DESCRIPTOR_STRING,{'a','m','s',' ','A','G'}};$/;"	m	struct:__anon2	file:
+bLength	include/usb_ch9.h	/^    BYTE   bLength;             \/\/ Size of this descriptor$/;"	m	struct:_USB_STRING_DSC
+bLength	include/usb_ch9.h	/^    BYTE bLength;               \/\/ Length of this descriptor.$/;"	m	struct:_USB_CONFIGURATION_DESCRIPTOR
+bLength	include/usb_ch9.h	/^    BYTE bLength;               \/\/ Length of this descriptor.$/;"	m	struct:_USB_DEVICE_DESCRIPTOR
+bLength	include/usb_ch9.h	/^    BYTE bLength;               \/\/ Length of this descriptor.$/;"	m	struct:_USB_ENDPOINT_DESCRIPTOR
+bLength	include/usb_ch9.h	/^    BYTE bLength;               \/\/ Length of this descriptor.$/;"	m	struct:_USB_INTERFACE_DESCRIPTOR
+bLength	include/usb_ch9.h	/^    BYTE bLength;               \/\/ Length of this descriptor.$/;"	m	struct:_USB_OTG_DESCRIPTOR
+bLength	include/usb_ch9.h	/^    BYTE bLength;               \/\/ Size of this descriptor$/;"	m	struct:_USB_DEVICE_QUALIFIER_DESCRIPTOR
+bLength	include/usb_function_hid.h	/^    BYTE bLength;			\/\/offset 0$/;"	m	struct:_USB_HID_DSC
+bLow	include/usb_hal_pic24.h	/^        BYTE bLow;$/;"	m	struct:_POINTER::__anon44
+bMaxPacketSize0	include/usb_ch9.h	/^    BYTE bMaxPacketSize0;       \/\/ EP0, max packet size$/;"	m	struct:_USB_DEVICE_QUALIFIER_DESCRIPTOR
+bMaxPacketSize0	include/usb_ch9.h	/^    BYTE bMaxPacketSize0;       \/\/ Maximum packet size for endpoint 0.$/;"	m	struct:_USB_DEVICE_DESCRIPTOR
+bMaxPower	include/usb_ch9.h	/^    BYTE bMaxPower;             \/\/ Maximum power consumed by this configuration.$/;"	m	struct:_USB_CONFIGURATION_DESCRIPTOR
+bNumConfigurations	include/usb_ch9.h	/^    BYTE bNumConfigurations;    \/\/ Number of "other-speed" configurations$/;"	m	struct:_USB_DEVICE_QUALIFIER_DESCRIPTOR
+bNumConfigurations	include/usb_ch9.h	/^    BYTE bNumConfigurations;    \/\/ Number of possible configurations.$/;"	m	struct:_USB_DEVICE_DESCRIPTOR
+bNumDsc	include/usb_function_hid.h	/^    BYTE bNumDsc;			\/\/offset 5$/;"	m	struct:_USB_HID_DSC
+bNumEndpoints	include/usb_ch9.h	/^    BYTE bNumEndpoints;         \/\/ Number of endpoints in this interface.$/;"	m	struct:_USB_INTERFACE_DESCRIPTOR
+bNumInterfaces	include/usb_ch9.h	/^    BYTE bNumInterfaces;        \/\/ Number of interfaces in this configuration.$/;"	m	struct:_USB_CONFIGURATION_DESCRIPTOR
+bRam	include/usb_device.h	/^        BYTE *bRam;$/;"	m	union:__anon34::__anon35
+bRam	include/usb_device.h	/^        BYTE *bRam;$/;"	m	union:__anon38::__anon39
+bRam	include/usb_hal_pic24.h	/^    BYTE* bRam;                         \/\/ Ram byte pointer: 2 bytes pointer pointing$/;"	m	union:_POINTER
+bRequest	include/usb_ch9.h	/^        BYTE bRequest; \/\/from table 9-2 of USB2.0 spec$/;"	m	struct:__anon16::__anon17
+bReserved	include/usb_ch9.h	/^    BYTE bReserved;             \/\/ Always zero (0)$/;"	m	struct:_USB_DEVICE_QUALIFIER_DESCRIPTOR
+bRom	include/usb_device.h	/^        ROM BYTE *bRom;$/;"	m	union:__anon34::__anon35
+bRom	include/usb_hal_pic24.h	/^    ROM BYTE* bRom;                     \/\/ Size depends on compiler setting$/;"	m	union:_POINTER
+bType	include/usb_ch9.h	/^    BYTE bType;                 \/\/ Type, always USB_DESCRIPTOR_DEVICE_QUALIFIER$/;"	m	struct:_USB_DEVICE_QUALIFIER_DESCRIPTOR
+bcdDevice	include/usb_ch9.h	/^    WORD bcdDevice;             \/\/ Device release number (BCD).$/;"	m	struct:_USB_DEVICE_DESCRIPTOR
+bcdHID	include/usb_function_hid.h	/^    WORD bcdHID;			\/\/offset 2$/;"	m	struct:_USB_HID_DSC
+bcdUSB	include/usb_ch9.h	/^    WORD bcdUSB;                \/\/ USB Spec Release Number (BCD).$/;"	m	struct:_USB_DEVICE_DESCRIPTOR
+bcdUSB	include/usb_ch9.h	/^    WORD bcdUSB;                \/\/ USB spec version, in BCD$/;"	m	struct:_USB_DEVICE_QUALIFIER_DESCRIPTOR
+bitmap	include/usb_common.h	/^    BYTE    bitmap;$/;"	m	union:__anon29
+bits	include/GenericTypeDefs.h	/^    } bits;$/;"	m	union:__anon10	typeref:struct:__anon10::__PACKED
+bits	include/GenericTypeDefs.h	/^    } bits;$/;"	m	union:__anon11	typeref:struct:__anon11::__PACKED
+bits	include/GenericTypeDefs.h	/^    } bits;$/;"	m	union:__anon12	typeref:struct:__anon12::__PACKED
+bits	include/GenericTypeDefs.h	/^    } bits;$/;"	m	union:__anon13	typeref:struct:__anon13::__PACKED
+bits	include/GenericTypeDefs.h	/^    } bits;$/;"	m	union:__anon5	typeref:struct:__anon5::__anon6
+bits	include/GenericTypeDefs.h	/^    } bits;$/;"	m	union:__anon7	typeref:struct:__anon7::__PACKED
+bits	include/GenericTypeDefs.h	/^    } bits;$/;"	m	union:__anon8	typeref:struct:__anon8::__PACKED
+bits	include/GenericTypeDefs.h	/^    } bits;$/;"	m	union:__anon9	typeref:struct:__anon9::__PACKED
+bits	include/usb_device.h	/^        } bits;$/;"	m	union:__anon34::__anon36	typeref:struct:__anon34::__anon36::__anon37
+bits	include/usb_device.h	/^        } bits;$/;"	m	union:__anon38::__anon40	typeref:struct:__anon38::__anon40::__anon41
+bmAttributes	include/usb_ch9.h	/^    BYTE bmAttributes;          \/\/ Configuration characteristics.$/;"	m	struct:_USB_CONFIGURATION_DESCRIPTOR
+bmAttributes	include/usb_ch9.h	/^    BYTE bmAttributes;          \/\/ Endpoint transfer type.$/;"	m	struct:_USB_ENDPOINT_DESCRIPTOR
+bmAttributes	include/usb_ch9.h	/^    BYTE bmAttributes;          \/\/ OTG attributes.$/;"	m	struct:_USB_OTG_DESCRIPTOR
+bmRequestType	include/usb_ch9.h	/^            BYTE bmRequestType;         \/\/   0      Bit-map of request type$/;"	m	union:__anon16::__anon20::__anon21
+bmRequestType	include/usb_ch9.h	/^        BYTE bmRequestType; \/\/from table 9-2 of USB2.0 spec$/;"	m	struct:__anon16::__anon17
+bool_t	include/ams_types.h	/^typedef BOOL bool_t;$/;"	t
+bootloaderCheckForValidAppId	bootloader/usb/src/main.c	/^static void bootloaderCheckForValidAppId()$/;"	f	file:
+bootloaderInit	bootloader/measure/src/main.c	/^static void bootloaderInit()$/;"	f	file:
+bootloaderInit	bootloader/usb/src/main.c	/^static void bootloaderInit()$/;"	f	file:
+bootloaderMainLoop	bootloader/usb/src/main.c	/^static void bootloaderMainLoop()$/;"	f	file:
+bootloaderShortcutDetected	bootloader/measure/src/main.c	/^static WORD bootloaderShortcutDetected()$/;"	f	file:
+bootloaderShortcutDetected	bootloader/usb/src/main.c	/^static WORD bootloaderShortcutDetected()$/;"	f	file:
+buf	src/spi_driver.c	/^    volatile unsigned int  *buf ;$/;"	m	struct:spiHw	file:
+busy	include/usb_device.h	/^            BYTE busy                  :1;$/;"	m	struct:__anon34::__anon36::__anon37
+busy	include/usb_device.h	/^            BYTE busy                  :1;$/;"	m	struct:__anon38::__anon40::__anon41
+byte	include/GenericTypeDefs.h	/^    } byte;$/;"	m	union:__anon11	typeref:struct:__anon11::__PACKED
+byte	include/GenericTypeDefs.h	/^    } byte;$/;"	m	union:__anon12	typeref:struct:__anon12::__PACKED
+byte	include/GenericTypeDefs.h	/^    } byte;$/;"	m	union:__anon7	typeref:struct:__anon7::__PACKED
+byte	include/GenericTypeDefs.h	/^    } byte;$/;"	m	union:__anon8	typeref:struct:__anon8::__PACKED
+c30dir	bootloader/measure/Makefile	/^c30dir= $(wildcard \/cygdrive\/c\/c30 \/cygdrive\/c\/Program\\ Files\/Microchip\/MPLAB\\ C30)$/;"	m
+c30dir	bootloader/test/Makefile	/^c30dir= $(wildcard \/cygdrive\/c\/c30 \/cygdrive\/c\/Program\\ Files\/Microchip\/MPLAB\\ C30)$/;"	m
+c30dir	bootloader/usb/Makefile	/^c30dir= $(wildcard \/cygdrive\/c\/c30 C:\\MPLABC30)$/;"	m
+checkArray	bootloader/test/main.c	/^static void checkArray( )$/;"	f	file:
+clearProgramBuffer	bootloader/usb/src/usb_appl_handler.c	/^static void clearProgramBuffer ( )$/;"	f	file:
+clkCyclesPerUSec	src/timer_driver.c	/^static u32 clkCyclesPerUSec[MAX_NR_OF_TIMERS];$/;"	v	file:
+clockPhase	include/spi_driver.h	/^    u8 clockPhase;      \/*!< 0 or 1 - data centered on first or second edge of SCK period *\/$/;"	m	struct:__anon14
+clockPolarity	include/spi_driver.h	/^    u8 clockPolarity;   \/*!< 0 or 1 - SCK low or high when idle *\/$/;"	m	struct:__anon14
+compatibilityAppId	bootloader/usb/src/usb_appl_handler.c	/^const WORD compatibilityAppId __attribute__ ((space(psv),address(0x2000))) = APP_ID;$/;"	v
+compatibilityUserReset	bootloader/usb/src/usb_appl_handler.c	/^const WORD compatibilityUserReset __attribute__ ((space(psv),address(0x2002))) = (WORD)_reset;$/;"	v
+con1	src/spi_driver.c	/^    volatile unsigned int  *con1;$/;"	m	struct:spiHw	file:
+con2	src/spi_driver.c	/^    volatile unsigned int  *con2;$/;"	m	struct:spiHw	file:
+configDescriptor1	bootloader/usb/src/usb_descriptors.c	/^ROM BYTE configDescriptor1[]={$/;"	v
+controlTransferState	src/usb_device.c	/^USB_VOLATILE BYTE controlTransferState;$/;"	v
+count	include/usb_hal_pic24.h	/^            WORD        count:10;   \/\/test$/;"	m	struct:__BDT::__anon48::__anon50
+counter	src/weak_stream_functions.c	/^static u32 counter = 0;$/;"	v	file:
+ctrl_trf_mem	include/usb_device.h	/^            BYTE ctrl_trf_mem          :1;$/;"	m	struct:__anon34::__anon36::__anon37
+current	include/usb_common.h	/^    BYTE            current;        \/\/ Current in 2mA units$/;"	m	struct:_vbus_power_data
+data	bootloader/measure/src/main.c	/^char data[ 16 ];$/;"	v
+dbgHexDump	src/logger.c	/^void dbgHexDump(const unsigned char *buffer, u16 length)$/;"	f
+dbgLog	src/logger.c	/^s8 dbgLog(const char* format, ...)$/;"	f
+debugByte	src/debug.c	/^void debugByte( u8 dat )$/;"	f
+debugByteAsNumber	src/debug.c	/^void debugByteAsNumber( u8 number )$/;"	f
+debugDeinitialize	src/debug.c	/^void debugDeinitialize()$/;"	f
+debugInitialize	src/debug.c	/^void debugInitialize( )$/;"	f
+debugNumber	src/debug.c	/^void debugNumber( u16 number )$/;"	f
+debugString	src/debug.c	/^void debugString( const char * text )$/;"	f
+debugWithTime	src/debug.c	/^void debugWithTime( const char * text )$/;"	f
+deviceId	include/spi_driver.h	/^    u8 deviceId;        \/*!< desired spi device id (selected with cs) *\/$/;"	m	struct:__anon14
+device_dsc	bootloader/usb/src/usb_descriptors.c	/^ROM USB_DEVICE_DESCRIPTOR device_dsc=$/;"	v
+direction	include/usb_ch9.h	/^                BYTE    direction:  1;  \/\/          Direction of data X-fer$/;"	m	struct:__anon16::__anon20::__anon21::__anon22
+direction	include/usb_common.h	/^        BYTE direction: 1;$/;"	m	struct:__anon29::__anon30
+dts	include/usb_common.h	/^        BYTE dts:       1;$/;"	m	struct:__anon29::__anon30
+dword	include/GenericTypeDefs.h	/^    } dword;$/;"	m	union:__anon13	typeref:struct:__anon13::__PACKED
+dword	include/GenericTypeDefs.h	/^    } dword;$/;"	m	union:__anon9	typeref:struct:__anon9::__PACKED
+enableBootloader	bootloader/usb/src/main.c	/^void __attribute__((space(prog),address(ENABLE_BOOTLOADER_ADDR))) enableBootloader()$/;"	f
+enableBootloader	src/bootloadable.c	/^void __attribute__((space(prog),address(ENABLE_BOOTLOADER_ADDR))) enableBootloader()$/;"	f
+ep_num	include/usb_common.h	/^        BYTE ep_num:    4;$/;"	m	struct:__anon29::__anon30
+erase	bootloader/measure/src/main.c	/^static void erase(WORD page, WORD addrLo)$/;"	f	file:
+eraseAndProgramPage	bootloader/usb/src/usb_appl_handler.c	/^static void eraseAndProgramPage( )$/;"	f	file:
+field	include/usb_common.h	/^    } field;$/;"	m	union:__anon29	typeref:struct:__anon29::__anon30
+fillPage	bootloader/measure/src/main.c	/^void fillPage( void)$/;"	f
+flags	include/usb_common.h	/^    TRANSFER_FLAGS  flags;          \/\/ Transfer flags (see above)$/;"	m	struct:_transfer_event_data
+flashErasePage	src/flash_access.c	/^void flashErasePage ( u32 wordAddress )$/;"	f
+flashProgram1Instruction	src/flash_access.c	/^void flashProgram1Instruction ( u32 * wordAddress, u32 instruction )$/;"	f
+flashProgram3Bytes	src/flash_access.c	/^void flashProgram3Bytes ( u32 * wordAddress, const u8 * data )$/;"	f
+flashProgramInstructionRow	src/flash_access.c	/^void flashProgramInstructionRow ( u32 * wordAddress, const u32 * instructions )$/;"	f
+flashRead1Instruction	src/flash_access.c	/^u32 flashRead1Instruction ( u32 * wordAddress )$/;"	f
+flashRead3Bytes	src/flash_access.c	/^void flashRead3Bytes ( u32 * wordAddress, u8 * data )$/;"	f
+force_dts	include/usb_common.h	/^        BYTE force_dts: 1;$/;"	m	struct:__anon29::__anon30
+frequency	include/spi_driver.h	/^    u32 frequency;      \/*!< desired spi frequency in Hz *\/$/;"	m	struct:__anon14
+frequency	src/spi_driver.c	/^    u32 frequency;$/;"	m	struct:__anon51	file:
+gLcdDriverAccess	src/lcd.c	/^static lcd_access_functions_t gLcdDriverAccess;$/;"	v	file:
+gLcdPages	src/lcd.c	/^u16 gLcdPages;$/;"	v
+gLcdPixelsHeight	src/lcd.c	/^u16 gLcdPixelsHeight;$/;"	v
+gLcdPixelsWidth	src/lcd.c	/^u16 gLcdPixelsWidth;$/;"	v
+gSpiInstance	src/lcd_NHD_A1Z.c	/^static u8 gSpiInstance;$/;"	v	file:
+getI2cBrgValue	src/i2c_driver.c	/^static u8 getI2cBrgValue (u8 clockMode)$/;"	f	file:
+getI2cBrgValueFromCustomSpeed	src/i2c_driver.c	/^static u16 getI2cBrgValueFromCustomSpeed (u32 customClockSpeed)$/;"	f	file:
+handleCommand	bootloader/usb/src/usb_appl_handler.c	/^static void handleCommand()$/;"	f	file:
+handleEnterBootloader	src/stream_dispatcher.c	/^static u8 handleEnterBootloader ( )$/;"	f	file:
+handleFirmwareInformation	src/stream_dispatcher.c	/^static u8 handleFirmwareInformation ( u16 * toTx, u8 * txData )$/;"	f	file:
+handleFirmwareNumber	src/stream_dispatcher.c	/^static u8 handleFirmwareNumber ( u16 * toTx, u8 * txData )$/;"	f	file:
+handleI2c	src/stream_dispatcher.c	/^static u8 handleI2c ( u16 rxed, u8 * rxData, u16 * toTx, u8 * txData )$/;"	f	file:
+handleI2cConfig	src/stream_dispatcher.c	/^static u8 handleI2cConfig ( u16 rxed, u8 * rxData )$/;"	f	file:
+handleReset	src/stream_dispatcher.c	/^static u8 handleReset ( u16 rxed, u8 * rxData )$/;"	f	file:
+handleSpi	src/stream_dispatcher.c	/^static u8 handleSpi ( u16 rxed, u8 * rxData, u16 * toTx, u8 * txData )$/;"	f	file:
+handleSpiConfig	src/stream_dispatcher.c	/^static u8 handleSpiConfig ( u16 rxed, u8 * rxData )$/;"	f	file:
+hid_report_in	src/usb_device.c	/^volatile unsigned char hid_report_in[HID_INT_IN_EP_SIZE];$/;"	v
+hid_report_out	src/usb_device.c	/^volatile unsigned char hid_report_out[HID_INT_OUT_EP_SIZE];$/;"	v
+hid_rpt01	bootloader/usb/src/usb_descriptors.c	/^ROM struct{BYTE report[HID_RPT01_SIZE];}hid_rpt01={$/;"	v	typeref:struct:__anon4
+high	include/GenericTypeDefs.h	/^        UINT16_VAL high;$/;"	m	struct:__anon8::__PACKED
+high	include/GenericTypeDefs.h	/^        WORD_VAL high;$/;"	m	struct:__anon12::__PACKED
+i	bootloader/measure/src/main.c	/^static short i;$/;"	v	file:
+i2cAddressMode	include/i2c_driver.h	/^    u8  i2cAddressMode;         \/** Specifies 7 or 10 bit mode. *\/$/;"	m	struct:i2cConfigData
+i2cClockMode	include/i2c_driver.h	/^    u8  i2cClockMode;           \/** Specifies the SCL frequency between 100kHz and 3.4MHz in 100kHz steps. *\/$/;"	m	struct:i2cConfigData
+i2cConfigData	include/i2c_driver.h	/^struct i2cConfigData$/;"	s
+i2cConfig_t	include/i2c_driver.h	/^typedef struct i2cConfigData i2cConfig_t;$/;"	t	typeref:struct:i2cConfigData
+i2cCustomClockSpeed	include/i2c_driver.h	/^    u32 i2cCustomClockSpeed;    \/** Specifies a custom clock speed (in kHz). *\/$/;"	m	struct:i2cConfigData
+i2cDeserialiseConfig	src/i2c_driver.c	/^void i2cDeserialiseConfig( i2cConfig_t * config, const u8 * data )$/;"	f
+i2cDeserialiseConfig	src/weak_stream_functions.c	/^void WEAK i2cDeserialiseConfig ( i2cConfig_t * config, const u8 * data )$/;"	f
+i2cIdle	src/i2c_driver.c	/^static void i2cIdle (void)$/;"	f	file:
+i2cInitialize	src/i2c_driver.c	/^s8 i2cInitialize (u32 sysClk, const i2cConfig_t* const cfgDataIn, i2cConfig_t *cfgDataOut)$/;"	f
+i2cInitialize	src/weak_stream_functions.c	/^s8 WEAK i2cInitialize ( u32 sysClk, const i2cConfig_t* cfgDataIn, i2cConfig_t *cfgDataOut )$/;"	f
+i2cModule	include/i2c_driver.h	/^    u8  i2cModule;              \/** Specifies the module ID. *\/$/;"	m	struct:i2cConfigData
+i2cReadNBytes	src/i2c_driver.c	/^static u16 i2cReadNBytes (u16 nRead, u8 *read)$/;"	f	file:
+i2cRestart	src/i2c_driver.c	/^static void i2cRestart (void)$/;"	f	file:
+i2cRx	src/i2c_driver.c	/^u16 i2cRx (u8 slaveAddr, const u8 * txData, u16 numberOfBytesToTx, u8 * rxData, u16 numberOfBytesToRx)$/;"	f
+i2cRxTx	src/i2c_driver.c	/^s8 i2cRxTx ( u16 numberOfBytesToTx, const u8 * txData, u16 numberOfBytesToRx, u8 * rxData, BOOL sendStartCond, BOOL sendStopCond )$/;"	f
+i2cRxTx	src/weak_stream_functions.c	/^s8 WEAK i2cRxTx ( u16 numberOfBytesToTx, const u8 * txData, u16 numberOfBytesToRx, u8 * rxData, BOOL sendStartCond, BOOL sendStopCond )$/;"	f
+i2cSerialiseConfig	src/i2c_driver.c	/^void i2cSerialiseConfig( const i2cConfig_t * config, u8 * data )$/;"	f
+i2cStart	src/i2c_driver.c	/^static void i2cStart (void)$/;"	f	file:
+i2cStop	src/i2c_driver.c	/^static void i2cStop (void)$/;"	f	file:
+i2cTx	src/i2c_driver.c	/^u16 i2cTx (u8 slaveAddr, const u8 * data, u16 numberOfBytesToTx)$/;"	f
+i2cTxAllButStopCondition	src/i2c_driver.c	/^static u16 i2cTxAllButStopCondition (u8 slaveAddr, const u8 * txData, u16 numberOfBytesToTx)$/;"	f	file:
+i2cWriteByte	src/i2c_driver.c	/^static u8 i2cWriteByte (u8 data)$/;"	f	file:
+iConfiguration	include/usb_ch9.h	/^    BYTE iConfiguration;        \/\/ Index of String Descriptor describing the configuration.$/;"	m	struct:_USB_CONFIGURATION_DESCRIPTOR
+iInterface	include/usb_ch9.h	/^    BYTE iInterface;            \/\/ Index of String Descriptor describing the interface.$/;"	m	struct:_USB_INTERFACE_DESCRIPTOR
+iManufacturer	include/usb_ch9.h	/^    BYTE iManufacturer;         \/\/ Index of String Descriptor describing the manufacturer.$/;"	m	struct:_USB_DEVICE_DESCRIPTOR
+iProduct	include/usb_ch9.h	/^    BYTE iProduct;              \/\/ Index of String Descriptor describing the product.$/;"	m	struct:_USB_DEVICE_DESCRIPTOR
+iSerialNumber	include/usb_ch9.h	/^    BYTE iSerialNumber;         \/\/ Index of String Descriptor with the device's serial number.$/;"	m	struct:_USB_DEVICE_DESCRIPTOR
+idProduct	include/usb_ch9.h	/^    WORD idProduct;             \/\/ Product ID (assigned by the manufacturer).$/;"	m	struct:_USB_DEVICE_DESCRIPTOR
+idVendor	include/usb_ch9.h	/^    WORD idVendor;              \/\/ Vendor ID (assigned by the USB-IF).$/;"	m	struct:_USB_DEVICE_DESCRIPTOR
+idle_rate	src/usb_function_hid.c	/^BYTE idle_rate;$/;"	v
+inPipes	src/usb_device.c	/^USB_VOLATILE IN_PIPE inPipes[1];$/;"	v
+includeZero	include/usb_device.h	/^            BYTE includeZero           :1;$/;"	m	struct:__anon34::__anon36::__anon37
+increment	bootloader/test/array.c	/^const unsigned short increment = 0x0001;$/;"	v
+index	include/usb_ch9.h	/^    BYTE    index;$/;"	m	struct:__anon15
+info	include/usb_device.h	/^    } info;$/;"	m	struct:__anon34	typeref:union:__anon34::__anon36
+info	include/usb_device.h	/^    } info;$/;"	m	struct:__anon38	typeref:union:__anon38::__anon40
+initUsbApplHandler	bootloader/usb/src/usb_appl_handler.c	/^void initUsbApplHandler(void)$/;"	f
+instance	include/spi_driver.h	/^    u8 instance;        \/*!< desired spi instance *\/$/;"	m	struct:__anon14
+ioLedOff	src/weak_stream_functions.c	/^void WEAK ioLedOff ( )$/;"	f
+ioLedOn	src/weak_stream_functions.c	/^void WEAK ioLedOn ( )$/;"	f
+language_id	include/usb_ch9.h	/^    UINT16  language_id;$/;"	m	struct:__anon15
+lastError	src/stream_dispatcher.c	/^static u8 lastError; \/* flag inicating different types of errors that cannot be reported in the protocol status field *\/$/;"	v	file:
+lcd_Clear	src/lcd.c	/^void lcd_Clear()$/;"	f
+lcd_Init	src/lcd.c	/^void lcd_Init(lcd_access_functions_t lcdDriverAccess)$/;"	f
+lcd_NHD_A1Z_CharPos	src/lcd_NHD_A1Z.c	/^void lcd_NHD_A1Z_CharPos(u8 x, u8 y)$/;"	f
+lcd_NHD_A1Z_Clear	src/lcd_NHD_A1Z.c	/^void lcd_NHD_A1Z_Clear(void)$/;"	f
+lcd_NHD_A1Z_GetAccessFunctions	src/lcd_NHD_A1Z.c	/^lcd_access_functions_t lcd_NHD_A1Z_GetAccessFunctions(void)$/;"	f
+lcd_NHD_A1Z_GetResolution	src/lcd_NHD_A1Z.c	/^void lcd_NHD_A1Z_GetResolution(u16 *pixelsWidth, u16 *pixelsHeight)$/;"	f
+lcd_NHD_A1Z_HardReset	src/lcd_NHD_A1Z.c	/^void lcd_NHD_A1Z_HardReset()$/;"	f
+lcd_NHD_A1Z_Init	src/lcd_NHD_A1Z.c	/^void lcd_NHD_A1Z_Init(u8 spiInstance)$/;"	f
+lcd_NHD_A1Z_InitializeSPI	src/lcd_NHD_A1Z.c	/^s8 lcd_NHD_A1Z_InitializeSPI()$/;"	f
+lcd_NHD_A1Z_InvertDisable	src/lcd_NHD_A1Z.c	/^void lcd_NHD_A1Z_InvertDisable()$/;"	f
+lcd_NHD_A1Z_InvertEnable	src/lcd_NHD_A1Z.c	/^void lcd_NHD_A1Z_InvertEnable()$/;"	f
+lcd_NHD_A1Z_Off	src/lcd_NHD_A1Z.c	/^void lcd_NHD_A1Z_Off(void)$/;"	f
+lcd_NHD_A1Z_On	src/lcd_NHD_A1Z.c	/^void lcd_NHD_A1Z_On(void)$/;"	f
+lcd_NHD_A1Z_SetAllPixels	src/lcd_NHD_A1Z.c	/^void lcd_NHD_A1Z_SetAllPixels(bool_t pixels_on)$/;"	f
+lcd_NHD_A1Z_SetColumnAddress	src/lcd_NHD_A1Z.c	/^void lcd_NHD_A1Z_SetColumnAddress(u8 column)$/;"	f
+lcd_NHD_A1Z_SetPageAddress	src/lcd_NHD_A1Z.c	/^void lcd_NHD_A1Z_SetPageAddress(u8 page)$/;"	f
+lcd_NHD_A1Z_SetStartLineAddress	src/lcd_NHD_A1Z.c	/^void lcd_NHD_A1Z_SetStartLineAddress(u8 line)    \/\/ Starts the already written RAM from a specific line$/;"	f
+lcd_NHD_A1Z_SleepDisable	src/lcd_NHD_A1Z.c	/^void lcd_NHD_A1Z_SleepDisable()$/;"	f
+lcd_NHD_A1Z_SleepEnable	src/lcd_NHD_A1Z.c	/^void lcd_NHD_A1Z_SleepEnable()$/;"	f
+lcd_NHD_A1Z_SoftReset	src/lcd_NHD_A1Z.c	/^void lcd_NHD_A1Z_SoftReset()$/;"	f
+lcd_NHD_A1Z_TestCharTable	src/lcd_NHD_A1Z.c	/^void lcd_NHD_A1Z_TestCharTable (void)$/;"	f
+lcd_NHD_A1Z_WriteChar	src/lcd_NHD_A1Z.c	/^void lcd_NHD_A1Z_WriteChar(u8 value)$/;"	f
+lcd_NHD_A1Z_WriteCharInverted	src/lcd_NHD_A1Z.c	/^void lcd_NHD_A1Z_WriteCharInverted(u8 value)$/;"	f
+lcd_NHD_A1Z_WriteCommand	src/lcd_NHD_A1Z.c	/^void lcd_NHD_A1Z_WriteCommand(u8 command)$/;"	f
+lcd_NHD_A1Z_WriteData	src/lcd_NHD_A1Z.c	/^void lcd_NHD_A1Z_WriteData(u8 value)$/;"	f
+lcd_WriteBitMap	src/lcd.c	/^void lcd_WriteBitMap (u8 const *bitmap)$/;"	f
+lcd_WriteNumRightAligned	src/lcd.c	/^void lcd_WriteNumRightAligned(u8 fontCol, u8 fontRow, s32 value, u8 nbdigit, u8 precision)$/;"	f
+lcd_WriteStr	src/lcd.c	/^void lcd_WriteStr(u8 fontCol, u8 fontRow, char* string)$/;"	f
+lcd_WriteStrInverted	src/lcd.c	/^void lcd_WriteStrInverted(u8 fontCol, u8 fontRow, char* string)$/;"	f
+lcd_access_functions	include/lcd_common.h	/^typedef struct lcd_access_functions$/;"	s
+lcd_access_functions_t	include/lcd_common.h	/^} lcd_access_functions_t;$/;"	t	typeref:struct:lcd_access_functions
+lcd_font_5x7_ASCII_Ext_Chars	src/lcd_font_5x7_ASCII.c	/^u8 const lcd_font_5x7_ASCII_Ext_Chars[] = {$/;"	v
+lcd_font_5x7_ASCII_Std_Chars	src/lcd_font_5x7_ASCII.c	/^u8 const lcd_font_5x7_ASCII_Std_Chars[] = {$/;"	v
+low	include/GenericTypeDefs.h	/^        UINT16_VAL low;$/;"	m	struct:__anon8::__PACKED
+low	include/GenericTypeDefs.h	/^        WORD_VAL low;$/;"	m	struct:__anon12::__PACKED
+main	bootloader/measure/src/main.c	/^int main()$/;"	f
+main	bootloader/test/genarray.c	/^int main( int argc, char * * argv )$/;"	f
+main	bootloader/test/main.c	/^int main()$/;"	f
+main	bootloader/usb/src/main.c	/^int main()$/;"	f
+msd_buffer	src/usb_device.c	/^volatile char msd_buffer[512];$/;"	v
+msd_cbw	src/usb_device.c	/^volatile USB_MSD_CBW msd_cbw;$/;"	v
+msd_csw	src/usb_device.c	/^volatile USB_MSD_CSW msd_csw;$/;"	v
+myCfgData	src/i2c_driver.c	/^static i2cConfig_t myCfgData;$/;"	v	file:
+myCfgData	src/spi_driver.c	/^static spiConfig_t myCfgData;$/;"	v	file:
+mySystemClock	src/i2c_driver.c	/^static u32 mySystemClock;$/;"	v	file:
+offset	bootloader/usb/src/usb_appl_handler.c	/^static SHORT offset;$/;"	v	file:
+oldRequestFormat	src/uart_stream_driver.c	/^static u8 oldRequestFormat; \/* check if host is using stream v1 version *\/$/;"	v	file:
+outPipes	src/usb_device.c	/^USB_VOLATILE OUT_PIPE outPipes[1];$/;"	v
+pBDTEntryEP0OutCurrent	src/usb_device.c	/^volatile BDT_ENTRY *pBDTEntryEP0OutCurrent;$/;"	v
+pBDTEntryEP0OutNext	src/usb_device.c	/^volatile BDT_ENTRY *pBDTEntryEP0OutNext;$/;"	v
+pBDTEntryIn	src/usb_device.c	/^volatile BDT_ENTRY *pBDTEntryIn[USB_MAX_EP_NUMBER+1];$/;"	v
+pBDTEntryOut	src/usb_device.c	/^volatile BDT_ENTRY *pBDTEntryOut[USB_MAX_EP_NUMBER+1];$/;"	v
+pCbFunc	include/timer_driver.h	/^typedef void (*pCbFunc)();$/;"	t
+pCbFuncArray	src/timer_driver.c	/^static pCbFunc pCbFuncArray[MAX_NR_OF_TIMERS] = {NULL};$/;"	v	file:
+pDst	include/usb_device.h	/^    } pDst;$/;"	m	struct:__anon38	typeref:union:__anon38::__anon39
+pDst	src/usb_device.c	/^USB_VOLATILE BYTE *pDst;$/;"	v
+pFunc	include/usb_device.h	/^    CTRL_TRF_RETURN (*pFunc)(CTRL_TRF_PARAMS);$/;"	m	struct:__anon38
+pSrc	include/usb_device.h	/^    } pSrc;$/;"	m	struct:__anon34	typeref:union:__anon34::__anon35
+pid	include/usb_common.h	/^    BYTE            pid;            \/\/ Packet ID$/;"	m	struct:_transfer_event_data
+port	include/usb_common.h	/^    BYTE            port;           \/\/ Physical port number$/;"	m	struct:_vbus_power_data
+priPreScalerReg	src/spi_driver.c	/^    u8 priPreScalerReg;$/;"	m	struct:__anon51	file:
+processCyclic	src/stream_dispatcher.c	/^static u16 processCyclic ( )$/;"	f	file:
+processReceivedPackets	src/stream_dispatcher.c	/^static u16 processReceivedPackets ( )$/;"	f	file:
+programBuffer	bootloader/measure/src/main.c	/^static unsigned char programBuffer[ PM_PAGE_SIZE ]; \/* buffer containing a complete page to be programmed *\/$/;"	v	file:
+programBuffer	bootloader/usb/src/usb_appl_handler.c	/^static unsigned char programBuffer[ PM_PAGE_SIZE ]; \/* buffer containing a complete page to be programmed *\/$/;"	v	file:
+programPage	bootloader/measure/src/main.c	/^static DWORD_VAL programPage; \/* the page number for which we fill the programBuffer *\/$/;"	v	file:
+programPage	bootloader/usb/src/usb_appl_handler.c	/^static DWORD_VAL programPage; \/* the page number for which we fill the programBuffer *\/$/;"	v	file:
+ptLcd_Clear	include/lcd_common.h	/^    void (*ptLcd_Clear)( void );$/;"	m	struct:lcd_access_functions
+ptLcd_GetResolution	include/lcd_common.h	/^    void (*ptLcd_GetResolution) ( u16 *width, u16 *height );$/;"	m	struct:lcd_access_functions
+ptLcd_SetColumnAddress	include/lcd_common.h	/^    void (*ptLcd_SetColumnAddress)( u8 column );$/;"	m	struct:lcd_access_functions
+ptLcd_SetCursor	include/lcd_common.h	/^    void (*ptLcd_SetCursor)( u8 column, u8 line );$/;"	m	struct:lcd_access_functions
+ptLcd_SetPageAddress	include/lcd_common.h	/^    void (*ptLcd_SetPageAddress)( u8 page );$/;"	m	struct:lcd_access_functions
+ptLcd_WriteChar	include/lcd_common.h	/^    void (*ptLcd_WriteChar)( u8 value );$/;"	m	struct:lcd_access_functions
+ptLcd_WriteCharInverted	include/lcd_common.h	/^    void (*ptLcd_WriteCharInverted)( u8 value );$/;"	m	struct:lcd_access_functions
+ptLcd_WriteData	include/lcd_common.h	/^    void (*ptLcd_WriteData)( u8 value );$/;"	m	struct:lcd_access_functions
+recipient	include/usb_ch9.h	/^                BYTE    recipient:  5;  \/\/          Recipient of the request$/;"	m	struct:__anon16::__anon20::__anon21::__anon22
+report	bootloader/usb/src/usb_descriptors.c	/^ROM struct{BYTE report[HID_RPT01_SIZE];}hid_rpt01={$/;"	m	struct:__anon4	file:
+report	include/usb_function_hid.h	/^    BYTE report[HID_RPT01_SIZE];$/;"	m	struct:__anon42
+requestInfo	include/usb_ch9.h	/^        } requestInfo;$/;"	m	struct:__anon16::__anon20	typeref:union:__anon16::__anon20::__anon21
+reserved	include/usb_device.h	/^            BYTE reserved              :5;$/;"	m	struct:__anon34::__anon36::__anon37
+reserved	include/usb_device.h	/^            BYTE reserved              :7;$/;"	m	struct:__anon38::__anon40::__anon41
+rowWrite	bootloader/measure/src/main.c	/^void rowWrite( )$/;"	f
+rxBuffer	src/stream_dispatcher.c	/^static u8 rxBuffer[ AMS_STREAM_BUFFER_SIZE ]; \/*! buffer to store protocol packets received from the Host *\/$/;"	v	file:
+rxBuffer	src/uart_driver.c	/^static u8 rxBuffer[UART_RX_BUFFER_SIZE];$/;"	v	file:
+rxBuffer	src/uart_stream_driver.c	/^static u8 * rxBuffer;   \/* hook to rx buffer provided by uartStreamInitialize *\/$/;"	v	file:
+rxBuffer	src/usb_hid_stream_driver.c	/^static u8 * rxBuffer;   \/\/buffer location is set in StreamInitialize$/;"	v	file:
+rxCount	src/uart_driver.c	/^static u16 rxCount;$/;"	v	file:
+rxEnd	src/uart_stream_driver.c	/^static u8 * rxEnd; \/* pointer to next position where to copy the received data *\/$/;"	v	file:
+rxEnd	src/usb_hid_stream_driver.c	/^static u8 * rxEnd; \/* pointer to next position where to copy the received data *\/$/;"	v	file:
+rxError	src/uart_driver.c	/^static u8 rxError;$/;"	v	file:
+rxPayloadSize	src/uart_stream_driver.c	/^static u16 rxPayloadSize; \/* the payload size read out from the rx- uart header *\/$/;"	v	file:
+rxSize	src/uart_stream_driver.c	/^static u16 rxSize;          \/* so far received payload bytes *\/$/;"	v	file:
+rxSize	src/usb_hid_stream_driver.c	/^static u16 rxSize;$/;"	v	file:
+rxTid	src/uart_stream_driver.c	/^static u8 rxTid;   \/* tid received *\/$/;"	v	file:
+rxTid	src/usb_hid_stream_driver.c	/^static u8 rxTid;$/;"	v	file:
+rxUartHeaderBuffer	src/uart_stream_driver.c	/^static u8 rxUartHeaderBuffer[ UART_HEADER_SIZE ]; \/* small buffer to hold the rxed uart header *\/$/;"	v	file:
+rxUartHeaderSize	src/uart_stream_driver.c	/^static u8 rxUartHeaderSize;    \/* number of so far received bytes of the uart header *\/$/;"	v	file:
+s16	include/ams_types.h	/^typedef signed int s16;     \/*!< represents a signed 16bit-wide type *\/$/;"	t
+s32	include/ams_types.h	/^typedef signed long s32;      \/*!< represents a signed 32bit-wide type *\/$/;"	t
+s64	include/ams_types.h	/^typedef signed long long s64;  \/*!< represents n signed 64bit-wide type *\/$/;"	t
+s8	include/ams_types.h	/^typedef signed char s8;     \/*!< represents a signed 8bit-wide type *\/$/;"	t
+sd000	bootloader/usb/src/usb_descriptors.c	/^ROM struct{BYTE bLength;BYTE bDscType;WORD string[1];}sd000={$/;"	v	typeref:struct:__anon1
+sd001	bootloader/usb/src/usb_descriptors.c	/^ROM struct{BYTE bLength;BYTE bDscType;WORD string[6];}sd001={sizeof(sd001),USB_DESCRIPTOR_STRING,{'a','m','s',' ','A','G'}};$/;"	v	typeref:struct:__anon2
+sd002	bootloader/usb/src/usb_descriptors.c	/^ROM struct{BYTE bLength;BYTE bDscType;WORD string[17];}sd002={$/;"	v	typeref:struct:__anon3
+secPreScaler	src/spi_driver.c	/^    u16 secPreScaler;$/;"	m	struct:__anon51	file:
+self_power	bootloader/usb/src/usb_config.h	158;"	d
+shortPacketStatus	src/usb_device.c	/^USB_VOLATILE BYTE shortPacketStatus;$/;"	v
+singleWordWrite	bootloader/measure/src/main.c	/^void singleWordWrite( )$/;"	f
+sint	include/ams_types.h	/^typedef signed int sint; \/*!< type for integer types,$/;"	t
+size	include/usb_common.h	/^    UINT32          size;           \/\/ Actual number of bytes transferred$/;"	m	struct:_transfer_event_data
+sizeOfTestArray	bootloader/test/array.c	/^const unsigned short sizeOfTestArray = 0x0400;$/;"	v
+smword	include/ams_types.h	/^typedef s16 smword; \/*!< USE WITH CARE!!! signed machine word:$/;"	t
+spiActivateSEN	src/spi_driver.c	/^void spiActivateSEN()$/;"	f
+spiConfig_t	include/spi_driver.h	/^} spiConfig_t;$/;"	t	typeref:struct:__anon14
+spiController	src/spi_driver.c	/^static const struct spiHw spiController[2] =$/;"	v	typeref:struct:spiHw	file:
+spiDeactivateSEN	src/spi_driver.c	/^void spiDeactivateSEN()$/;"	f
+spiDeinitialize	src/spi_driver.c	/^s8 spiDeinitialize()$/;"	f
+spiDeserialiseConfig	src/spi_driver.c	/^void spiDeserialiseConfig( spiConfig_t * config, const u8 * data )$/;"	f
+spiDeserialiseConfig	src/weak_stream_functions.c	/^void WEAK spiDeserialiseConfig ( spiConfig_t * config, const u8 * data )$/;"	f
+spiFreqConfTable	src/spi_driver.c	/^static spiFrequencyConfiguration_t spiFreqConfTable[SPI_MAX_FREQ_CONF_TABLE_ENTRIES];$/;"	v	file:
+spiFrequencyConfiguration_t	src/spi_driver.c	/^} spiFrequencyConfiguration_t;$/;"	t	typeref:struct:__anon51	file:
+spiHw	src/spi_driver.c	/^struct spiHw$/;"	s	file:
+spiInitialize	src/spi_driver.c	/^s8 spiInitialize(u32 sysClk, const spiConfig_t* const spiConfigIn, spiConfig_t *spiConfigOut)$/;"	f
+spiInitialize	src/weak_stream_functions.c	/^s8 WEAK spiInitialize ( u32 sysClk, const spiConfig_t* spiConfigIn, spiConfig_t* spiConfigOut )$/;"	f
+spiReadBuf	src/spi_driver.c	62;"	d	file:
+spiReadCon1	src/spi_driver.c	60;"	d	file:
+spiReadCon2	src/spi_driver.c	61;"	d	file:
+spiReadStat	src/spi_driver.c	59;"	d	file:
+spiSerialiseConfig	src/spi_driver.c	/^void spiSerialiseConfig( const spiConfig_t * config, u8 * data )$/;"	f
+spiTableIndex	src/spi_driver.c	/^static umword spiTableIndex = 0;$/;"	v	file:
+spiTxRx	src/spi_driver.c	/^s8 spiTxRx(const u8* txData, u8* rxData, u16 length)$/;"	f
+spiTxRx	src/weak_stream_functions.c	/^s8 WEAK spiTxRx ( const u8 * txData, u8 * rxData, u16 numberOfBytes )$/;"	f
+spiWriteBuf	src/spi_driver.c	67;"	d	file:
+spiWriteCon1	src/spi_driver.c	65;"	d	file:
+spiWriteCon2	src/spi_driver.c	66;"	d	file:
+spiWriteStat	src/spi_driver.c	64;"	d	file:
+startValue	bootloader/test/array.c	/^const unsigned short startValue = 0x0000;$/;"	v
+stat	src/spi_driver.c	/^    volatile unsigned int  *stat;$/;"	m	struct:spiHw	file:
+string	bootloader/usb/src/usb_descriptors.c	/^ROM struct{BYTE bLength;BYTE bDscType;WORD string[17];}sd002={$/;"	m	struct:__anon3	file:
+string	bootloader/usb/src/usb_descriptors.c	/^ROM struct{BYTE bLength;BYTE bDscType;WORD string[1];}sd000={$/;"	m	struct:__anon1	file:
+string	bootloader/usb/src/usb_descriptors.c	/^ROM struct{BYTE bLength;BYTE bDscType;WORD string[6];}sd001={sizeof(sd001),USB_DESCRIPTOR_STRING,{'a','m','s',' ','A','G'}};$/;"	m	struct:__anon2	file:
+systemClock	src/stream_dispatcher.c	/^static u32 systemClock;$/;"	v	file:
+systemClockChangeClockSource	src/system_clock.c	/^u32 systemClockChangeClockSource ( u16 source, u32 newFcy )$/;"	f
+systemClockConfigure	src/system_clock.c	/^void systemClockConfigure( s8 poscEnableDuringSleep, s8 soscEnable )$/;"	f
+systemClockFindFrcPostscaler	src/system_clock.c	/^static void systemClockFindFrcPostscaler ( u32 frequency )$/;"	f	file:
+systemClockFindPllPrescaler	src/system_clock.c	/^static void systemClockFindPllPrescaler ( u32 frequency )$/;"	f	file:
+systemClockFromFrcPostscaler	src/system_clock.c	/^static u32 systemClockFromFrcPostscaler ( )$/;"	f	file:
+systemClockFromPllPrescaler	src/system_clock.c	/^static u32 systemClockFromPllPrescaler ( )$/;"	f	file:
+systemClockGetClockSource	src/system_clock.c	/^u8 systemClockGetClockSource ( )$/;"	f
+systemClockGetFcy	src/system_clock.c	/^u32 systemClockGetFcy ( )$/;"	f
+systemClockInitialise	src/system_clock.c	/^u32 systemClockInitialise ( )$/;"	f
+systemFrequency	src/spi_driver.c	/^    u32 systemFrequency;$/;"	m	struct:__anon51	file:
+systemTickOverflows	src/debug.c	/^static u32 systemTickOverflows;$/;"	v	file:
+systemTicks	src/debug.c	/^u32 systemTicks( )$/;"	f
+systemTicksInitialize	src/debug.c	/^void systemTicksInitialize( )$/;"	f
+temp	bootloader/measure/src/main.c	/^static WORD temp;$/;"	v	file:
+testArray	bootloader/test/array.c	/^const unsigned short testArray[ 0x0400 ] = {$/;"	v
+testData	bootloader/measure/src/main.c	/^const char * testData = { "Hello World" };$/;"	v
+testFlashAccess	bootloader/measure/src/main.c	/^static u16 testFlashAccess ( )$/;"	f	file:
+theSystemClock	src/system_clock.c	/^u32 theSystemClock = 0;$/;"	v
+timer1Isr	include/timer_driver.h	59;"	d
+timer1Isr	src/timer_driver.c	/^void __attribute__((interrupt, no_auto_psv)) timer1Isr ( void )$/;"	f
+timer2Isr	include/timer_driver.h	63;"	d
+timer2Isr	src/timer_driver.c	/^void __attribute__((interrupt, no_auto_psv)) timer2Isr ( void )$/;"	f
+timer3Isr	include/timer_driver.h	65;"	d
+timer3Isr	src/timer_driver.c	/^void __attribute__((interrupt, no_auto_psv)) timer3Isr ( void )$/;"	f
+timer4Isr	include/timer_driver.h	69;"	d
+timer4Isr	src/timer_driver.c	/^void __attribute__((interrupt, no_auto_psv)) timer4Isr ( void )$/;"	f
+timer5Isr	include/timer_driver.h	74;"	d
+timer5Isr	src/timer_driver.c	/^void __attribute__((interrupt, no_auto_psv)) timer5Isr ( void )$/;"	f
+timerInitialize	src/timer_driver.c	/^void timerInitialize(u8 timerModule, u32 systemFrequency )$/;"	f
+timerIsRunning	src/timer_driver.c	/^BOOL timerIsRunning( u8 timerModule )$/;"	f
+timerIsr	src/timer_driver.c	/^static void timerIsr( u8 timerModule )$/;"	f	file:
+timerMaxValueUSec	src/timer_driver.c	/^static u32 timerMaxValueUSec;$/;"	v	file:
+timerRunning	src/timer_driver.c	/^static volatile s8 timerRunning[MAX_NR_OF_TIMERS];$/;"	v	file:
+timerSetTimeBasisAndStart	src/timer_driver.c	/^void timerSetTimeBasisAndStart(u32 fcy, u8 timerModule, u32 uSec, void(*cbFunc)() )$/;"	f
+timerStart	src/timer_driver.c	/^void timerStart(u8 timerModule, u32 uSec, void(*cbFunc)() )$/;"	f
+timerStop	src/timer_driver.c	/^void timerStop( u8 timerModule )$/;"	f
+timerStopSequence	src/timer_driver.c	/^static void timerStopSequence( u8 timerModule )$/;"	f	file:
+timerStopWithCb	src/timer_driver.c	/^void timerStopWithCb( u8 timerModule )$/;"	f
+timerValue	src/timer_driver.c	/^static volatile u32 timerValue[MAX_NR_OF_TIMERS];$/;"	v	file:
+toggle	bootloader/measure/src/main.c	/^static short toggle;$/;"	v	file:
+togglePin	bootloader/measure/src/main.c	/^void togglePin( )$/;"	f
+tris_self_power	bootloader/usb/src/usb_config.h	157;"	d
+tris_usb_bus_sense	bootloader/usb/src/usb_config.h	161;"	d
+txBuffer	src/stream_dispatcher.c	/^static u8 txBuffer[ AMS_STREAM_BUFFER_SIZE ]; \/*! buffer to store protocol packets which are transmitted to the Host *\/$/;"	v	file:
+txBuffer	src/uart_stream_driver.c	/^static u8 * txBuffer;   \/* hook to tx buffer provided by uartStreamInitialize *\/$/;"	v	file:
+txBuffer	src/usb_hid_stream_driver.c	/^static u8 * txBuffer;   \/\/buffer location is set in StreamInitialize$/;"	v	file:
+txTid	src/uart_stream_driver.c	/^static u8 txTid;   \/* tid for transmit *\/$/;"	v	file:
+txTid	src/usb_hid_stream_driver.c	/^static u8 txTid;$/;"	v	file:
+txUartHeaderBuffer	src/uart_stream_driver.c	/^static u8 txUartHeaderBuffer[ UART_HEADER_SIZE ]; \/* small buffer to hold the transmit uart header *\/$/;"	v	file:
+type	include/usb_ch9.h	/^                BYTE    type:       2;  \/\/          Type of request$/;"	m	struct:__anon16::__anon20::__anon21::__anon22
+type	include/usb_ch9.h	/^    BYTE    type;$/;"	m	struct:__anon15
+u16	include/ams_types.h	/^typedef unsigned int u16;   \/*!< represents an unsigned 16bit-wide type *\/$/;"	t
+u32	include/ams_types.h	/^typedef unsigned long u32;  \/*!< represents an unsigned 32bit-wide type *\/$/;"	t
+u64	include/ams_types.h	/^typedef unsigned long long u64;\/*!< represents an unsigned 64bit-wide type *\/$/;"	t
+u8	include/ams_types.h	/^typedef unsigned char u8;   \/*!< represents an unsigned 8bit-wide type *\/$/;"	t
+uart1RxIsr	src/uart_driver.c	/^void INTERRUPT uart1RxIsr (void)$/;"	f
+uart1RxIsr	src/uart_driver.c	55;"	d	file:
+uartDeinitialize	src/uart_driver.c	/^s8 uartDeinitialize ()$/;"	f
+uartInitialize	src/uart_driver.c	/^s8 uartInitialize (u32 sysclk, u32 baudrate, u32* actbaudrate)$/;"	f
+uartRxInitialize	src/uart_driver.c	/^s8 uartRxInitialize ()$/;"	f
+uartRxNBytes	src/uart_driver.c	/^s8 uartRxNBytes ( u8 * buffer, u16 * numBytes )$/;"	f
+uartRxNumBytesAvailable	src/uart_driver.c	/^u16 uartRxNumBytesAvailable ()$/;"	f
+uartStreamConnect	src/uart_stream_driver.c	/^void uartStreamConnect (void)$/;"	f
+uartStreamDisconnect	src/uart_stream_driver.c	/^void uartStreamDisconnect (void)$/;"	f
+uartStreamHasAnotherPacket	src/uart_stream_driver.c	/^s8 uartStreamHasAnotherPacket ( )$/;"	f
+uartStreamInitialize	src/uart_stream_driver.c	/^void uartStreamInitialize ( u8 * rxBuf, u8 * txBuf )$/;"	f
+uartStreamOldFormatRequest	src/uart_stream_driver.c	/^u16 uartStreamOldFormatRequest ( )$/;"	f
+uartStreamPacketProcessed	src/uart_stream_driver.c	/^void uartStreamPacketProcessed ( u8 rxed )$/;"	f
+uartStreamReady	src/uart_stream_driver.c	/^u8 uartStreamReady (void)$/;"	f
+uartStreamReceive	src/uart_stream_driver.c	/^u16 uartStreamReceive ( )$/;"	f
+uartStreamTransmit	src/uart_stream_driver.c	/^void uartStreamTransmit ( u16 totalTxSize )$/;"	f
+uartTx	include/uart_driver.h	228;"	d
+uartTxByte	src/uart_driver.c	/^s8 uartTxByte ( u8 dat )$/;"	f
+uartTxDeinitialize	src/uart_driver.c	/^s8 uartTxDeinitialize ()$/;"	f
+uartTxInitialize	src/uart_driver.c	/^s8 uartTxInitialize (u32 sysclk, u32 baudrate, u32* actbaudrate)$/;"	f
+uartTxNBytes	src/uart_driver.c	/^s8 uartTxNBytes ( const u8 * buffer, u16 length )$/;"	f
+uartTxString	src/uart_driver.c	/^s8 uartTxString ( const char * text )$/;"	f
+uint	include/ams_types.h	/^typedef unsigned int uint; \/*!< type for unsigned integer types,$/;"	t
+umword	include/ams_types.h	/^typedef u16 umword; \/*!< USE WITH CARE!!! unsigned machine word:$/;"	t
+usbRxBuffer	src/usb_hid_stream_driver.c	/^static u8 usbRxBuffer[USB_HID_REPORT_SIZE];     \/\/buffer for usb stack$/;"	v	file:
+usbStreamConnect	src/usb_hid_stream_driver.c	/^void usbStreamConnect (void)$/;"	f
+usbStreamDisconnect	src/usb_hid_stream_driver.c	/^void usbStreamDisconnect (void)$/;"	f
+usbStreamHasAnotherPacket	src/usb_hid_stream_driver.c	/^s8 usbStreamHasAnotherPacket ( )$/;"	f
+usbStreamInitialize	src/usb_hid_stream_driver.c	/^void usbStreamInitialize (u8 * rxBuf, u8 * txBuf)$/;"	f
+usbStreamOldFormatRequest	src/usb_hid_stream_driver.c	/^u16 usbStreamOldFormatRequest ( )$/;"	f
+usbStreamPacketProcessed	src/usb_hid_stream_driver.c	/^void usbStreamPacketProcessed ( u16 rxed )$/;"	f
+usbStreamReady	src/usb_hid_stream_driver.c	/^u8 usbStreamReady (void)$/;"	f
+usbStreamReceive	src/usb_hid_stream_driver.c	/^u16 usbStreamReceive ( )$/;"	f
+usbStreamTransmit	src/usb_hid_stream_driver.c	/^void usbStreamTransmit ( u16 totalTxSize )$/;"	f
+usbTxBuffer	src/usb_hid_stream_driver.c	/^static u8 usbTxBuffer[USB_HID_REPORT_SIZE];     \/\/buffer for usb stack$/;"	v	file:
+userReset	src/bootloadable.c	/^const unsigned short userReset __attribute__ ((space(psv),address(USER_PROG_RESET_ADDR))) = (unsigned short)_reset;$/;"	v
+v	include/usb_hal_pic24.h	/^    WORD            v[2];$/;"	m	union:__BDT
+wCount	include/usb_device.h	/^    WORD_VAL wCount;$/;"	m	struct:__anon34
+wCount	include/usb_device.h	/^    WORD_VAL wCount;$/;"	m	struct:__anon38
+wDscLength	include/usb_function_hid.h	/^    WORD wDscLength;		\/\/offset 10$/;"	m	struct:_USB_HID_DSC_HEADER
+wIndex	include/usb_ch9.h	/^        WORD wIndex; \/\/from table 9-2 of USB2.0 spec$/;"	m	struct:__anon16::__anon17
+wLangID	include/usb_ch9.h	/^        WORD wLangID;           \/\/Language ID$/;"	m	struct:__anon16::__anon23
+wLength	include/usb_ch9.h	/^        WORD wLength; \/\/from table 9-2 of USB2.0 spec$/;"	m	struct:__anon16::__anon17
+wMaxPacketSize	include/usb_ch9.h	/^    WORD wMaxPacketSize;        \/\/ Maximum packet size.$/;"	m	struct:_USB_ENDPOINT_DESCRIPTOR
+wRam	include/usb_device.h	/^        WORD *wRam;$/;"	m	union:__anon34::__anon35
+wRam	include/usb_device.h	/^        WORD *wRam;$/;"	m	union:__anon38::__anon39
+wRam	include/usb_hal_pic24.h	/^    WORD* wRam;                         \/\/ Ram word poitner: 2 bytes poitner pointing$/;"	m	union:_POINTER
+wRom	include/usb_device.h	/^        ROM WORD *wRom;$/;"	m	union:__anon34::__anon35
+wRom	include/usb_hal_pic24.h	/^    ROM WORD* wRom;$/;"	m	union:_POINTER
+wTotalLength	include/usb_ch9.h	/^    WORD wTotalLength;          \/\/ Total length of all descriptors for this configuration.$/;"	m	struct:_USB_CONFIGURATION_DESCRIPTOR
+wValue	include/usb_ch9.h	/^        WORD wValue; \/\/from table 9-2 of USB2.0 spec$/;"	m	struct:__anon16::__anon17
+word	include/GenericTypeDefs.h	/^    } word;$/;"	m	union:__anon12	typeref:struct:__anon12::__PACKED
+word	include/GenericTypeDefs.h	/^    } word;$/;"	m	union:__anon13	typeref:struct:__anon13::__PACKED
+word	include/GenericTypeDefs.h	/^    } word;$/;"	m	union:__anon8	typeref:struct:__anon8::__PACKED
+word	include/GenericTypeDefs.h	/^    } word;$/;"	m	union:__anon9	typeref:struct:__anon9::__PACKED
+wordUnion	include/GenericTypeDefs.h	/^    } wordUnion;$/;"	m	union:__anon12	typeref:struct:__anon12::__PACKED
+wordUnion	include/GenericTypeDefs.h	/^    } wordUnion;$/;"	m	union:__anon8	typeref:struct:__anon8::__PACKED
+writeData	bootloader/usb/src/usb_appl_handler.c	/^static void writeData(  )$/;"	f	file:
+writeVal	bootloader/measure/src/main.c	/^static DWORD_VAL * writeVal;$/;"	v	file:
+zero_pkt	include/usb_common.h	/^        BYTE zero_pkt:  1;$/;"	m	struct:__anon29::__anon30

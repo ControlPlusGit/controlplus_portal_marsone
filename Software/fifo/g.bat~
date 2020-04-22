@@ -1,0 +1,1 @@
+gcc -g -o fifo.exe main.c

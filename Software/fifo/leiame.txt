@@ -1,0 +1,13 @@
+	Para realizar os testes da comunicacao tem que seguir esses passos:
+
+1 - Rodar o avalidorDeJuizDeForaGuiv4.py
+2 - Rodar o coletor.py
+3 - Rodar o gerenciadorDePacotes.exe
+4 - Acompanhar os eventos registrados em todos os softwares
+
+	Tenho rotinas para similar a passagem de pessoa, a unica coisa que ficou
+pendente nesses teste foi ter diversos portais operando ao mesmo tempo, creio
+que nao preciso partir para isso, uma vez que esse algoritmo de janela de
+tempo ja deu certo em outros contextos que fiz.
+	Para implementar agora eh apenas colocas as rotinas no firmware e
+atualizar todos os portais.

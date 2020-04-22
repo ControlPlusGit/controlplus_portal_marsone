@@ -1,0 +1,1371 @@
+MPASM 5.62                            MAIN.C   1-27-2020  17:03:14         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+Error[108]  : Illegal character (/)
+                      00001 /*
+Error[108]  : Illegal character (*)
+                      00002  *****************************************************************************
+Error[108]  : Illegal character (*)
+                      00003  * Copyright by ams AG                                                       *
+Error[108]  : Illegal character (*)
+                      00004  * All rights are reserved.                                                  *
+Error[108]  : Illegal character (*)
+                      00005  *                                                                           *
+Error[108]  : Illegal character (*)
+                      00006  * IMPORTANT - PLEASE READ CAREFULLY BEFORE COPYING, INSTALLING OR USING     *
+Error[108]  : Illegal character (*)
+                      00007  * THE SOFTWARE.                                                             *
+Error[108]  : Illegal character (*)
+                      00008  *                                                                           *
+Error[108]  : Illegal character (*)
+                      00009  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS       *
+Error[108]  : Illegal character (*)
+                      00010  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT         *
+Error[108]  : Illegal character (*)
+                      00011  * LIMITED TO, T
+Error[108]  : Illegal character (*)
+                      00012  * HE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS         *
+Error[108]  : Illegal character (*)
+                      00013  * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT  *
+Error[108]  : Illegal character (*)
+                      00014  * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,     *
+Error[108]  : Illegal character (*)
+                      00015  * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT          *
+Error[108]  : Illegal character (*)
+                      00016  * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,     *
+Error[108]  : Illegal character (*)
+                      00017  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY     *
+Error[108]  : Illegal character (*)
+                      00018  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT       *
+Error[108]  : Illegal character (*)
+                      00019  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE     *
+Error[108]  : Illegal character (*)
+                      00020  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.      *
+Error[108]  : Illegal character (*)
+                      00021  *****************************************************************************
+Error[108]  : Illegal character (*)
+                      00022  */
+Error[108]  : Illegal character (/)
+                      00023 /** @file
+Error[108]  : Illegal character (*)
+                      00024  * @brief System initialization and main loop.
+Error[108]  : Illegal character (*)
+                      00025  *
+Error[108]  : Illegal character (*)
+                      00026  * @author Ulrich Herrmann
+Error[108]  : Illegal character (*)
+MPASM 5.62                            MAIN.C   1-27-2020  17:03:14         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00027  * @author Bernhard Breinbauer
+Error[108]  : Illegal character (*)
+                      00028  */
+                      00029 
+Error[108]  : Illegal character (/)
+                      00030 /*
+Error[108]  : Illegal character (*)
+                      00031  * TODO: FERMI: use external oscillator, check configuration
+Error[108]  : Illegal character (*)
+                      00032  * TODO: feature request (bhi): save and loadable reader configuration (all reader settings)
+Error[108]  : Illegal character (*)
+                      00033  * NOTE: pic30-gcc (Gcc: 4.0.3; pic: 3.30) produces non-working (no epc reads) binary for AS3980 with -O
+                            2, changed to -O1
+Error[108]  : Illegal character (*)
+                      00034  */
+Error[108]  : Illegal character (/)
+                      00035 //#include "uart.h"
+Error[105]  : Cannot open file (Include File "stdio.h" not found)
+                      00036 #include <stdio.h>
+Error[105]  : Cannot open file (Include File "string.h" not found)
+                      00037 #include <string.h>
+                      00038 #include "lcd.h"
+Error[108]  : Illegal character (/)
+                      00001 /*
+Error[108]  : Illegal character (*)
+                      00002  *   Notes:
+Error[108]  : Illegal character (*)
+                      00003  *      - These libraries routines are written to support the
+Error[108]  : Illegal character (*)
+                      00004  *        Hitachi HD44780 LCD controller.
+Error[108]  : Illegal character (*)
+                      00005  *      - The user must define the following items:
+Error[108]  : Illegal character (*)
+                      00006  *          - The LCD interface type (4- or 8-bits)
+Error[108]  : Illegal character (*)
+                      00007  *          - If 4-bit mode
+Error[108]  : Illegal character (*)
+                      00008  *              - whether using the upper or lower nibble
+Error[108]  : Illegal character (*)
+                      00009  *          - The data port
+Error[108]  : Illegal character (*)
+                      00010  *              - The tris register for data port
+Error[108]  : Illegal character (*)
+                      00011  *              - The control signal ports and pins
+Error[108]  : Illegal character (*)
+                      00012  *              - The control signal port tris and pins
+Error[108]  : Illegal character (*)
+                      00013  *          - The user must provide three delay routines:
+Error[108]  : Illegal character (*)
+                      00014  *              - DelayFor18TCY() provides a 18 Tcy delay
+Error[108]  : Illegal character (*)
+                      00015  *              - DelayPORXLCD() provides at least 15ms delay
+Error[108]  : Illegal character (*)
+MPASM 5.62                            MAIN.C   1-27-2020  17:03:14         PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00016  *              - DelayXLCD() provides at least 5ms delay
+Error[108]  : Illegal character (*)
+                      00017  */
+                      00018 
+Error[108]  : Illegal character (/)
+                      00019 /* Interface type 8-bit or 4-bit
+Error[108]  : Illegal character (*)
+                      00020  * For 8-bit operation uncomment the #define BIT8
+Error[108]  : Illegal character (*)
+                      00021  */
+Error[108]  : Illegal character (/)
+                      00022 /* #define BIT8 */
+                      00023 
+Error[108]  : Illegal character (/)
+                      00024 /* When in 4-bit interface define if the data is in the upper
+Error[108]  : Illegal character (*)
+                      00025  * or lower nibble.  For lower nibble, comment the #define UPPER
+Error[108]  : Illegal character (*)
+                      00026  */
+Error[121]  : Illegal label (UPPER)
+                      00027 #define UPPER 
+                      00028 
+Error[108]  : Illegal character (/)
+                      00029 /* DATA_PORT defines the port to which the LCD data lines are connected */
+Error[108]  : Illegal character (/)
+                      00030 //#define DATA_PORT      PORTD
+Error[108]  : Illegal character (/)
+                      00031 //#define TRIS_DATA_PORT TRISD
+                      00032 
+Error[108]  : Illegal character (/)
+                      00033 /* CTRL_PORT defines the port where the control lines are connected.
+Error[108]  : Illegal character (*)
+                      00034  * These are just samples, change to match your application.
+Error[108]  : Illegal character (*)
+                      00035  */
+Error[108]  : Illegal character (/)
+                      00036 //#define RW_PIN   LATAbits.LATA2   /* PORT for RW */
+Error[108]  : Illegal character (/)
+                      00037 //#define TRIS_RW  TRISAbits.TRISA2    /* TRIS for RW */
+Error[108]  : Illegal character (/)
+                      00038 //#define RS_PIN   LATAbits.LATA3   /* PORT for RS */
+Error[108]  : Illegal character (/)
+                      00039 //#define TRIS_RS  TRISAbits.TRISA3    /* TRIS for RS */
+Error[108]  : Illegal character (/)
+                      00040 //#define E_PIN    LATAbits.LATA1   /* PORT for D  */
+Error[108]  : Illegal character (/)
+                      00041 //#define TRIS_E   TRISAbits.TRISA1    /* TRIS for E  */
+                      00042 
+Error[108]  : Illegal character (/)
+                      00043 /* Display ON/OFF Control defines */
+                      00044 #define DON         0b00001111  /* Display on      */
+                      00045 #define DOFF        0b00001011  /* Display off     */
+                      00046 #define CURSOR_ON   0b00001111  /* Cursor on       */
+MPASM 5.62                            MAIN.C   1-27-2020  17:03:14         PAGE  4
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00047 #define CURSOR_OFF  0b00001101  /* Cursor off      */
+                      00048 #define BLINK_ON    0b00001111  /* Cursor Blink    */
+                      00049 #define BLINK_OFF   0b00001110  /* Cursor No Blink */
+                      00050 
+Error[108]  : Illegal character (/)
+                      00051 /* Cursor or Display Shift defines */
+                      00052 #define SHIFT_CUR_LEFT    0b00000100  /* Cursor shifts to the left   */
+                      00053 #define SHIFT_CUR_RIGHT   0b00000101  /* Cursor shifts to the right  */
+                      00054 #define SHIFT_DISP_LEFT   0b00000110  /* Display shifts to the left  */
+                      00055 #define SHIFT_DISP_RIGHT  0b00000111  /* Display shifts to the right */
+                      00056 
+Error[108]  : Illegal character (/)
+                      00057 /* Function Set defines */
+                      00058 #define FOUR_BIT   0b00101100  /* 4-bit Interface               */
+                      00059 #define EIGHT_BIT  0b00111100  /* 8-bit Interface               */
+                      00060 #define LINE_5X7   0b00110000  /* 5x7 characters, single line   */
+                      00061 #define LINE_5X10  0b00110100  /* 5x10 characters               */
+                      00062 #define LINES_5X7  0b00111000  /* 5x7 characters, multiple line */
+                      00063 
+Error[108]  : Illegal character (/)
+                      00064 //#define PARAM_SCLASS auto
+Error[108]  : Illegal character (/)
+                      00065 //#define MEM_MODEL far  /* Change this to near for small memory model */
+                      00066 
+Error[122]  : Illegal opcode (poe_dado_display)
+                      00067 void poe_dado_display (unsigned char);;
+                      00068 
+Error[108]  : Illegal character (/)
+                      00069 /* OpenXLCD
+Error[108]  : Illegal character (*)
+                      00070  * Configures I/O pins for external LCD
+Error[108]  : Illegal character (*)
+                      00071  */
+Error[108]  : Illegal character (/)
+                      00072 //void OpenXLCD(unsigned char);;
+                      00073 
+Error[108]  : Illegal character (/)
+                      00074 /* SetCGRamAddr
+Error[108]  : Illegal character (*)
+                      00075  * Sets the character generator address
+Error[108]  : Illegal character (*)
+                      00076  */
+Error[122]  : Illegal opcode (SetCGRamAddr)
+                      00077 void SetCGRamAddr(unsigned char);;
+                      00078 
+Error[108]  : Illegal character (/)
+                      00079 /* SetDDRamAddr
+Error[108]  : Illegal character (*)
+                      00080  * Sets the display data address
+Error[108]  : Illegal character (*)
+                      00081  */
+Error[122]  : Illegal opcode (SetDDRamAddr)
+                      00082 void SetDDRamAddr(unsigned char);;
+MPASM 5.62                            MAIN.C   1-27-2020  17:03:14         PAGE  5
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00083 
+Error[108]  : Illegal character (/)
+                      00084 /* BusyXLCD
+Error[108]  : Illegal character (*)
+                      00085  * Returns the busy status of the LCD
+Error[108]  : Illegal character (*)
+                      00086  */
+Error[122]  : Illegal opcode (char)
+                      00087 unsigned char BusyXLCD(void);;
+                      00088 
+Error[108]  : Illegal character (/)
+                      00089 /* ReadAddrXLCD
+Error[108]  : Illegal character (*)
+                      00090  * Reads the current address
+Error[108]  : Illegal character (*)
+                      00091  */
+Error[122]  : Illegal opcode (char)
+                      00092 unsigned char ReadAddrXLCD(void);;
+                      00093 
+Error[108]  : Illegal character (/)
+                      00094 /* ReadDataXLCD
+Error[108]  : Illegal character (*)
+                      00095  * Reads a byte of data
+Error[108]  : Illegal character (*)
+                      00096  */
+Error[122]  : Illegal opcode (ReadDataXLCD)
+                      00097 char ReadDataXLCD(void);;
+                      00098 
+Error[108]  : Illegal character (/)
+                      00099 /* WriteCmdXLCD
+Error[108]  : Illegal character (*)
+                      00100  * Writes a command to the LCD
+Error[108]  : Illegal character (*)
+                      00101  */
+Error[122]  : Illegal opcode (WriteCmdXLCD)
+                      00102 void WriteCmdXLCD(unsigned char);;
+                      00103 
+Error[108]  : Illegal character (/)
+                      00104 /* WriteDataXLCD
+Error[108]  : Illegal character (*)
+                      00105  * Writes a data byte to the LCD
+Error[108]  : Illegal character (*)
+                      00106  */
+Error[122]  : Illegal opcode (WriteDataXLCD)
+                      00107 void WriteDataXLCD(unsigned char);;
+                      00108 
+Error[108]  : Illegal character (/)
+                      00109 /* putcXLCD
+Error[108]  : Illegal character (*)
+                      00110  * A putc is a write
+Error[108]  : Illegal character (*)
+                      00111  */
+Error[108]  : Illegal character (/)
+MPASM 5.62                            MAIN.C   1-27-2020  17:03:14         PAGE  6
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00112 //#define putcXLCD WriteDataXLCD
+                      00113 
+Error[108]  : Illegal character (/)
+                      00114 /* putsXLCD
+Error[108]  : Illegal character (*)
+                      00115  * Writes a string of characters to the LCD
+Error[108]  : Illegal character (*)
+                      00116  */
+Error[122]  : Illegal opcode (putsXLCD)
+                      00117 void putsXLCD(char *);;
+                      00118 
+Error[108]  : Illegal character (/)
+                      00119 /* putrsXLCD
+Error[108]  : Illegal character (*)
+                      00120  * Writes a string of characters in ROM to the LCD
+Error[108]  : Illegal character (*)
+                      00121  */
+Error[108]  : Illegal character (/)
+                      00122 //void putrsXLCD(char *);;
+                      00123 
+Error[122]  : Illegal opcode (niblle_dado_display)
+                      00124 void niblle_dado_display (unsigned char);;
+                      00125 
+Error[122]  : Illegal opcode (niblle_com_display)
+                      00126 void niblle_com_display (unsigned char);;
+                      00127 
+Error[122]  : Illegal opcode (minha_inicia_display)
+                      00128 void minha_inicia_display (void);;
+                      00129 
+Error[122]  : Illegal opcode (inicia_display)
+                      00130 void inicia_display (void);;
+                      00131 
+Error[122]  : Illegal opcode (poe_dado_XY)
+                      00132 void poe_dado_XY (unsigned char, unsigned char,long int);;
+                      00133 
+Error[122]  : Illegal opcode (poe_texto_XY)
+                      00134 void poe_texto_XY (unsigned char, unsigned char, char *);;
+                      00135 
+Error[122]  : Illegal opcode (poe_cursor_XY)
+                      00136 void poe_cursor_XY (unsigned char, unsigned char);;
+                      00137 
+Error[122]  : Illegal opcode (mostra_tags_display)
+                      00138 void mostra_tags_display(void);;
+                      00139 
+Error[122]  : Illegal opcode (limpa_display)
+                      00140 void limpa_display (void);;
+                      00141 
+Error[122]  : Illegal opcode (retorna_display)
+                      00142 void retorna_display (void);;
+                      00143 
+Error[108]  : Illegal character (/)
+                      00144 //#endif
+                      00039 #include "as3993_config.h"
+MPASM 5.62                            MAIN.C   1-27-2020  17:03:14         PAGE  7
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+Error[108]  : Illegal character (/)
+                      00001 /*
+Error[108]  : Illegal character (*)
+                      00002  *****************************************************************************
+Error[108]  : Illegal character (*)
+                      00003  * Copyright by ams AG                                                       *
+Error[108]  : Illegal character (*)
+                      00004  * All rights are reserved.                                                  *
+Error[108]  : Illegal character (*)
+                      00005  *                                                                           *
+Error[108]  : Illegal character (*)
+                      00006  * IMPORTANT - PLEASE READ CAREFULLY BEFORE COPYING, INSTALLING OR USING     *
+Error[108]  : Illegal character (*)
+                      00007  * THE SOFTWARE.                                                             *
+Error[108]  : Illegal character (*)
+                      00008  *                                                                           *
+Error[108]  : Illegal character (*)
+                      00009  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS       *
+Error[108]  : Illegal character (*)
+                      00010  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT         *
+Error[108]  : Illegal character (*)
+                      00011  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS         *
+Error[108]  : Illegal character (*)
+                      00012  * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT  *
+Error[108]  : Illegal character (*)
+                      00013  * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,     *
+Error[108]  : Illegal character (*)
+                      00014  * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT          *
+Error[108]  : Illegal character (*)
+                      00015  * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,     *
+Error[108]  : Illegal character (*)
+                      00016  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY     *
+Error[108]  : Illegal character (*)
+                      00017  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT       *
+Error[108]  : Illegal character (*)
+                      00018  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE     *
+Error[108]  : Illegal character (*)
+                      00019  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.      *
+Error[108]  : Illegal character (*)
+                      00020  *****************************************************************************
+Error[108]  : Illegal character (*)
+                      00021  */
+Error[108]  : Illegal character (/)
+                      00022 /*! \file
+Error[108]  : Illegal character (*)
+                      00023  *
+Error[108]  : Illegal character (*)
+                      00024  *  \author U.Herrmann ( based on work by E.Grubmueller )
+Error[108]  : Illegal character (*)
+                      00025  *  \author T. Luecker (Substitute)
+Error[108]  : Illegal character (*)
+                      00026  *  \author B. Bernhard
+Error[108]  : Illegal character (*)
+MPASM 5.62                            MAIN.C   1-27-2020  17:03:14         PAGE  8
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00027  *
+Error[108]  : Illegal character (*)
+                      00028  *   \brief Configuration file for all AS99x firmware
+Error[108]  : Illegal character (*)
+                      00029  *
+Error[108]  : Illegal character (*)
+                      00030  *   Do configuration of the driver in here.
+Error[108]  : Illegal character (*)
+                      00031  */
+                      00032 #include "global.h"
+Error[108]  : Illegal character (/)
+                      00001 /*
+Error[108]  : Illegal character (*)
+                      00002  *****************************************************************************
+Error[108]  : Illegal character (*)
+                      00003  * Copyright by ams AG                                                       *
+Error[108]  : Illegal character (*)
+                      00004  * All rights are reserved.                                                  *
+Error[108]  : Illegal character (*)
+                      00005  *                                                                           *
+Error[108]  : Illegal character (*)
+                      00006  * IMPORTANT - PLEASE READ CAREFULLY BEFORE COPYING, INSTALLING OR USING     *
+Error[108]  : Illegal character (*)
+                      00007  * THE SOFTWARE.                                                             *
+Error[108]  : Illegal character (*)
+                      00008  *                                                                           *
+Error[108]  : Illegal character (*)
+                      00009  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS       *
+Error[108]  : Illegal character (*)
+                      00010  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT         *
+Error[108]  : Illegal character (*)
+                      00011  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS         *
+Error[108]  : Illegal character (*)
+                      00012  * FOR A PARTICULAR 
+Error[108]  : Illegal character (*)
+                      00013  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT  *
+Error[108]  : Illegal character (*)
+                      00014  * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,     *
+Error[108]  : Illegal character (*)
+                      00015  * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT          *
+Error[108]  : Illegal character (*)
+                      00016  * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,     *
+Error[108]  : Illegal character (*)
+                      00017  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY     *
+Error[108]  : Illegal character (*)
+                      00018  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT       *
+Error[108]  : Illegal character (*)
+                      00019  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE     *
+Error[108]  : Illegal character (*)
+                      00020  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.      *
+Error[108]  : Illegal character (*)
+                      00021  *****************************************************************************
+Error[108]  : Illegal character (*)
+MPASM 5.62                            MAIN.C   1-27-2020  17:03:14         PAGE  9
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00022  */
+Error[108]  : Illegal character (/)
+                      00023 /** @file
+Error[108]  : Illegal character (*)
+                      00024   * @brief This file provides declarations for global helper functions.
+Error[108]  : Illegal character (*)
+                      00025   *
+Error[108]  : Illegal character (*)
+                      00026   * @author Ulrich Herrmann
+Error[108]  : Illegal character (*)
+                      00027   */
+                      00028 
+                      00029 
+                      00030 #define PODE_SER_ALPHA 1
+                      00031 
+Error[108]  : Illegal character (/)
+                      00032 //#define SANKYU 1//CLIENTE
+                      00033 #define ARCELOR 1//CLIENTE
+Error[108]  : Illegal character (/)
+                      00034 //#define BRUNAUER 1//CLIENTE
+Error[108]  : Illegal character (/)
+                      00035 //#define CONTROL_PLUS 1//CLIENTE 
+Error[108]  : Illegal character (/)
+                      00036 //#define KALUNGA
+Error[108]  : Illegal character (/)
+                      00037 //#define RF_IDEIAS 1
+                      00038 
+                      00039 #ifdef KALUNGA
+                      00040 #define PORTAL 1
+                      00041 #define ARCELOR_JUIZ_DE_FORA_PORTAL_DUAS_ANTENAS 1
+                      00042 #endif 
+                      00043 
+                      00044 #ifdef RF_IDEIAS
+                      00045 #define PORTAL 1
+                      00046 #define ARCELOR_JUIZ_DE_FORA_PORTAL_DUAS_ANTENAS 1
+                      00047 #define INTERFACE_DE_AJUSTES 1 //Para ajustes com o software AjustesMaisPortalMI.py
+                      00048 #endif
+                      00049 
+                      00050 #ifdef SANKYU
+                      00051 
+                      00052 //#define SANKYU_SAO_PAULO 1//LUGAR
+                      00053 #define SANKYU_JOAO_MONLEVADE 1//LUGAR
+                      00054 
+                      00055 #ifdef SANKYU_JOAO_MONLEVADE
+                      00056 // **** DEFINE A SER USADO **** //
+                      00057 //#define SANKYU_JOAO_MONLEVADE_EMPILHADEIRA_7_5_TONS 1
+                      00058 #define SANKYU_JOAO_MONLEVADE_TESTADOR_DE_CAPACETE 1
+                      00059 //#define SANKYU_JOAO_MONLEVADE_VELOCIDADE_EM_FUNCAO_DE_GPS
+                      00060 #elif SANKYU_SAO_PAULO
+                      00061 // **** DEFINE A SER USADO **** //
+                      00062 #define SANKYU_SAO_PAULO_EMPILHADEIRA_2_5_TONS 1
+                      00063 #endif
+                      00064 
+MPASM 5.62                            MAIN.C   1-27-2020  17:03:14         PAGE 10
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00065 
+                      00066 #elif ARCELOR //CLIENTE
+                      00067 
+                      00068 #define JUIZ_DE_FORA  1//LUGAR
+                      00069 #ifdef JUIZ_DE_FORA
+                      00070 
+                      00071 #define PORTAL 1//PRODUTO
+                      00072 //#define EMPILHADEIRA 1//PRODUTO
+                      00073 
+                      00074 #ifdef PORTAL
+                      00075 //Configuracoes extras
+                      00076 #define PORTAL_COM_ETH 1
+                      00077 #define WIFI 1
+                      00078 //#define INTERFACE_DE_AJUSTES 1
+                      00079 
+                      00080 //#define DUAS_ANTENAS 1//CONFIGURACAO
+                      00081 #define QUATRO_ANTENAS 1//CONFIGURACAO
+                      00082 #ifdef DUAS_ANTENAS
+                      00083 // **** DEFINE A SER USADO **** //
+                      00084 #define ARCELOR_JUIZ_DE_FORA_PORTAL_DUAS_ANTENAS 1
+                      00085 #elif QUATRO_ANTENAS
+                      00086 // **** DEFINE A SER USADO **** //
+                      00087 #define ARCELOR_JUIZ_DE_FORA_PORTAL_QUATRO_ANTENAS 1
+                      00088 #endif
+                      00089 
+                      00090 #elif EMPILHADEIRA
+                      00091 //ConfiguraÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â
+                            §ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â�
+                      00092 #define WIFI 1
+                      00093 #define INTERFACE_DE_AJUSTES 1
+                      00094 // **** DEFINE A SER USADO **** //
+                      00095 #define ARCELOR_JUIZ_DE_FORA_EMPILHADEIRA_TRADMAQ_3_5_TONS 1
+                      00096 #endif
+                      00097 
+                      00098 #endif
+                      00099 
+                      00100 #elif BRUNAUER //CLIENTE
+                      00101 #define JOAO_MONLEVADE 1 //LUGAR 
+                      00102 #ifdef JOAO_MONLEVADE
+                      00103 // **** DEFINE A SER USADO **** //
+                      00104 #define BRUNAUER_JOAO_MONLEVADE_EMPILHADEIRA_2_5_TONS 1
+                      00105 #endif 
+                      00106 
+                      00107 #elif CONTROL_PLUS
+                      00108 #define CONTROL_PLUS_AUTOTESTE
+                      00109 #define PORTAL_WIEGAND
+                      00110 #define PORTAO_RFID
+                      00111 #endif 
+                      00112 
+Error[108]  : Illegal character (/)
+                      00113 //#define EMPILHADEIRA
+                      00114 
+Error[108]  : Illegal character (/)
+MPASM 5.62                            MAIN.C   1-27-2020  17:03:14         PAGE 11
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00115 //#define BARBACENA 1
+                      00116 
+                      00117 
+                      00118 #ifndef __GLOBAL_H__
+                      00119 #define __GLOBAL_H__
+                      00120 
+Error[108]  : Illegal character (/)
+                      00121 /** Defines uC used clock frequency */
+                      00122 #define SYSCLK_16MHZ                16000000ULL
+                      00123 #define SYSCLK_12MHZ                12000000ULL
+                      00124 #define SYSCLK_8MHZ                 8000000ULL
+                      00125 #define SYSCLK_4MHZ                 4000000ULL
+                      00126 #if 1
+                      00127 #define SYSCLK    SYSCLK_16MHZ
+                      00128 #else
+                      00129 #define SYSCLK    tbd
+                      00130 #endif
+                      00131 #define FCY    (SYSCLK)
+                      00132 
+                      00133 #include "as3993_config.h"
+Error[108]  : Illegal character (/)
+                      00033 /*
+Error[108]  : Illegal character (*)
+                      00034  *****************************************************************************
+Error[108]  : Illegal character (*)
+                      00035  * Copyright by ams AG                                                       *
+Error[108]  : Illegal character (*)
+                      00036  * All rights are reserved.                                                  *
+Error[108]  : Illegal character (*)
+                      00037  *                                                                           *
+Error[108]  : Illegal character (*)
+                      00038  * IMPORTANT - PLEASE READ CAREFULLY BEFORE COPYING, INSTALLING OR USING     *
+Error[108]  : Illegal character (*)
+                      00039  * THE SOFTWARE.                                                             *
+Error[108]  : Illegal character (*)
+                      00040  *                                                                           *
+Error[108]  : Illegal character (*)
+                      00041  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS       *
+Error[108]  : Illegal character (*)
+                      00042  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT         *
+Error[108]  : Illegal character (*)
+                      00043  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS         *
+Error[108]  : Illegal character (*)
+                      00044  * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT  *
+Error[108]  : Illegal character (*)
+                      00045  * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,     *
+Error[108]  : Illegal character (*)
+                      00046  * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT          *
+Error[108]  : Illegal character (*)
+                      00047  * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,     *
+Error[108]  : Illegal character (*)
+                      00048  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY     *
+Error[108]  : Illegal character (*)
+MPASM 5.62                            MAIN.C   1-27-2020  17:03:14         PAGE 12
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00049  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT       *
+Error[108]  : Illegal character (*)
+                      00050  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE     *
+Error[108]  : Illegal character (*)
+                      00051  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.      *
+Error[108]  : Illegal character (*)
+                      00052  *****************************************************************************
+Error[108]  : Illegal character (*)
+                      00053  */
+Error[108]  : Illegal character (/)
+                      00054 /*! \file
+Error[108]  : Illegal character (*)
+                      00055  *
+Error[108]  : Illegal character (*)
+                      00056  *  \author U.Herrmann ( based on work by E.Grubmueller )
+Error[108]  : Illegal character (*)
+                      00057  *  \author T. Luecker (Substitute)
+Error[108]  : Illegal character (*)
+                      00058  *  \author B. Bernhard
+Error[108]  : Illegal character (*)
+                      00059  *
+Error[108]  : Illegal character (*)
+                      00060  *   \brief Configuration file for all AS99x firmware
+Error[108]  : Illegal character (*)
+                      00061  *
+Error[108]  : Illegal character (*)
+                      00062  *   Do configuration of the driver in here.
+Error[108]  : Illegal character (*)
+                      00063  */
+                      00064 #include "global.h"
+Error[108]  : Illegal character (/)
+                      00134 /*
+Error[108]  : Illegal character (*)
+                      00135  *****************************************************************************
+Error[108]  : Illegal character (*)
+                      00136  * Copyright by ams AG                                                       *
+Error[108]  : Illegal character (*)
+                      00137  * All rights are reserved.                                                  *
+Error[108]  : Illegal character (*)
+                      00138  *                                                                           *
+Error[108]  : Illegal character (*)
+                      00139  * IMPORTANT - PLEASE READ CAREFULLY BEFORE COPYING, INSTALLING OR USING     *
+Error[108]  : Illegal character (*)
+                      00140  * THE SOFTWARE.                                                             *
+Error[108]  : Illegal character (*)
+                      00141  *                                                                           *
+Error[108]  : Illegal character (*)
+                      00142  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS       *
+Error[108]  : Illegal character (*)
+                      00143  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT         *
+Error[108]  : Illegal character (*)
+                      00144  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS         *
+Error[108]  : Illegal character (*)
+MPASM 5.62                            MAIN.C   1-27-2020  17:03:14         PAGE 13
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00145  * FOR A PARTICULAR 
+Error[108]  : Illegal character (*)
+                      00146  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT  *
+Error[108]  : Illegal character (*)
+                      00147  * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,     *
+Error[108]  : Illegal character (*)
+                      00148  * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT          *
+Error[108]  : Illegal character (*)
+                      00149  * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,     *
+Error[108]  : Illegal character (*)
+                      00150  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY     *
+Error[108]  : Illegal character (*)
+                      00151  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT       *
+Error[108]  : Illegal character (*)
+                      00152  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE     *
+Error[108]  : Illegal character (*)
+                      00153  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.      *
+Error[108]  : Illegal character (*)
+                      00154  *****************************************************************************
+Error[108]  : Illegal character (*)
+                      00155  */
+Error[108]  : Illegal character (/)
+                      00156 /** @file
+Error[108]  : Illegal character (*)
+                      00157   * @brief This file provides declarations for global helper functions.
+Error[108]  : Illegal character (*)
+                      00158   *
+Error[108]  : Illegal character (*)
+                      00159   * @author Ulrich Herrmann
+Error[108]  : Illegal character (*)
+                      00160   */
+                      00161 
+                      00162 
+Error[115]  : Duplicate label ("PODE_SER_ALPHA" or redefining symbol that cannot be redefined)
+                      00163 #define PODE_SER_ALPHA 1
+                      00164 
+Error[108]  : Illegal character (/)
+                      00165 //#define SANKYU 1//CLIENTE
+Error[115]  : Duplicate label ("ARCELOR" or redefining symbol that cannot be redefined)
+                      00166 #define ARCELOR 1//CLIENTE
+Error[108]  : Illegal character (/)
+                      00167 //#define BRUNAUER 1//CLIENTE
+Error[108]  : Illegal character (/)
+                      00168 //#define CONTROL_PLUS 1//CLIENTE 
+Error[108]  : Illegal character (/)
+                      00169 //#define KALUNGA
+Error[108]  : Illegal character (/)
+                      00170 //#define RF_IDEIAS 1
+                      00171 
+                      00172 #ifdef KALUNGA
+                      00173 #define PORTAL 1
+                      00174 #define ARCELOR_JUIZ_DE_FORA_PORTAL_DUAS_ANTENAS 1
+                      00175 #endif 
+MPASM 5.62                            MAIN.C   1-27-2020  17:03:14         PAGE 14
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00176 
+                      00177 #ifdef RF_IDEIAS
+                      00178 #define PORTAL 1
+                      00179 #define ARCELOR_JUIZ_DE_FORA_PORTAL_DUAS_ANTENAS 1
+                      00180 #define INTERFACE_DE_AJUSTES 1 //Para ajustes com o software AjustesMaisPortalMI.py
+                      00181 #endif
+                      00182 
+                      00183 #ifdef SANKYU
+                      00184 
+                      00185 //#define SANKYU_SAO_PAULO 1//LUGAR
+                      00186 #define SANKYU_JOAO_MONLEVADE 1//LUGAR
+                      00187 
+                      00188 #ifdef SANKYU_JOAO_MONLEVADE
+                      00189 // **** DEFINE A SER USADO **** //
+                      00190 //#define SANKYU_JOAO_MONLEVADE_EMPILHADEIRA_7_5_TONS 1
+                      00191 #define SANKYU_JOAO_MONLEVADE_TESTADOR_DE_CAPACETE 1
+                      00192 //#define SANKYU_JOAO_MONLEVADE_VELOCIDADE_EM_FUNCAO_DE_GPS
+                      00193 #elif SANKYU_SAO_PAULO
+                      00194 // **** DEFINE A SER USADO **** //
+                      00195 #define SANKYU_SAO_PAULO_EMPILHADEIRA_2_5_TONS 1
+                      00196 #endif
+                      00197 
+                      00198 
+                      00199 #elif ARCELOR //CLIENTE
+                      00200 
+                      00201 #define JUIZ_DE_FORA  1//LUGAR
+                      00202 #ifdef JUIZ_DE_FORA
+                      00203 
+                      00204 #define PORTAL 1//PRODUTO
+                      00205 //#define EMPILHADEIRA 1//PRODUTO
+                      00206 
+                      00207 #ifdef PORTAL
+                      00208 //Configuracoes extras
+                      00209 #define PORTAL_COM_ETH 1
+                      00210 #define WIFI 1
+                      00211 //#define INTERFACE_DE_AJUSTES 1
+                      00212 
+                      00213 //#define DUAS_ANTENAS 1//CONFIGURACAO
+                      00214 #define QUATRO_ANTENAS 1//CONFIGURACAO
+                      00215 #ifdef DUAS_ANTENAS
+                      00216 // **** DEFINE A SER USADO **** //
+                      00217 #define ARCELOR_JUIZ_DE_FORA_PORTAL_DUAS_ANTENAS 1
+                      00218 #elif QUATRO_ANTENAS
+                      00219 // **** DEFINE A SER USADO **** //
+                      00220 #define ARCELOR_JUIZ_DE_FORA_PORTAL_QUATRO_ANTENAS 1
+                      00221 #endif
+                      00222 
+                      00223 #elif EMPILHADEIRA
+                      00224 //ConfiguraÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â
+                            §ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â�
+                      00225 #define WIFI 1
+                      00226 #define INTERFACE_DE_AJUSTES 1
+                      00227 // **** DEFINE A SER USADO **** //
+MPASM 5.62                            MAIN.C   1-27-2020  17:03:14         PAGE 15
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00228 #define ARCELOR_JUIZ_DE_FORA_EMPILHADEIRA_TRADMAQ_3_5_TONS 1
+                      00229 #endif
+                      00230 
+                      00231 #endif
+                      00232 
+                      00233 #elif BRUNAUER //CLIENTE
+                      00234 #define JOAO_MONLEVADE 1 //LUGAR 
+                      00235 #ifdef JOAO_MONLEVADE
+                      00236 // **** DEFINE A SER USADO **** //
+                      00237 #define BRUNAUER_JOAO_MONLEVADE_EMPILHADEIRA_2_5_TONS 1
+                      00238 #endif 
+                      00239 
+                      00240 #elif CONTROL_PLUS
+                      00241 #define CONTROL_PLUS_AUTOTESTE
+                      00242 #define PORTAL_WIEGAND
+                      00243 #define PORTAO_RFID
+                      00244 #endif 
+                      00245 
+Error[108]  : Illegal character (/)
+                      00246 //#define EMPILHADEIRA
+                      00247 
+Error[108]  : Illegal character (/)
+                      00248 //#define BARBACENA 1
+                      00249 
+                      00250 
+                      00251 #ifndef __GLOBAL_H__
+                      00252 #define __GLOBAL_H__
+                      00253 
+                      00254 /** Defines uC used clock frequency */
+                      00255 #define SYSCLK_16MHZ                16000000ULL
+                      00256 #define SYSCLK_12MHZ                12000000ULL
+                      00257 #define SYSCLK_8MHZ                 8000000ULL
+                      00258 #define SYSCLK_4MHZ                 4000000ULL
+                      00259 #if 1
+                      00260 #define SYSCLK    SYSCLK_16MHZ
+                      00261 #else
+                      00262 #define SYSCLK    tbd
+                      00263 #endif
+                      00264 #define FCY    (SYSCLK)
+                      00265 
+                      00266 #include "as3993_config.h"
+                      00267 #include "ams_types.h"
+                      00268 
+                      00269 /** Definition high */
+                      00270 #define HIGH                      1
+                      00271 
+                      00272 /** Definition all bits low */
+                      00273 #define LOW                       0
+                      00274 
+                      00275 #define BIT0    0x01
+                      00276 #define BIT1    0x02
+                      00277 #define BIT2    0x04
+                      00278 #define BIT3    0x08
+MPASM 5.62                            MAIN.C   1-27-2020  17:03:14         PAGE 16
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00279 #define BIT4    0x10
+                      00280 #define BIT5    0x20
+                      00281 #define BIT6    0x40
+                      00282 #define BIT7    0x80
+                      00283 
+                      00284 void bin2Chars(int value, unsigned char *destbuf);;
+                      00285 void bin2Hex(char value, unsigned char *destbuf);;
+                      00286 void u32ToEbv(u32 value, u8 *ebv, u8 *len);;
+                      00287 void insertBitStream(u8 *dest, u8 const *source, u8 len, u8 bitpos);;
+                      00288 u32 readU32FromLittleEndianBuffer(u8 const *buffer);;
+                      00289 void recebeOperador (u8 dado);;
+                      00290 //void resetContadores (void);;
+                      00291 void bloqueia_frente(void);;
+                      00292 void bloqueia_reh(void);;
+                      00293 void ld_saidas(int saida, int status);;
+                      00294 void sel_led(int led, int status);;
+                      00295 //void escolhe_antena(void);;
+                      00296 
+                      00297 extern volatile int operador_atual_outro;
+                      00298 
+                      00299 
+                      00300 /** Definition for the maximal EPC length */
+                      00301 #define EPCLENGTH              12 //32  // number of bytes for EPC, standard allows up to 62 bytes
+                      00302 /** Definition for the PC length */
+                      00303 #define PCLENGTH                2
+                      00304 /** Definition for the CRC length */
+                      00305 #define CRCLENGTH               2
+                      00306 /** Definition of the maximum frequencies for the hopping */
+                      00307 #define MAXFREQ                 53
+                      00308 /** Definition of the maximum tune entries in tuning table */
+                      00309 #define MAXTUNE                 52
+                      00310 /** Definition of the maximum number of tags, which can be read in 1 round */
+                      00311 //#define MAXTAG 255
+                      00312 #define MAXTAG 12//20//120
+                      00313 
+                      00314 #endif
+                      00065 
+                      00066 #ifndef _AS3993_CONFIG_H
+                      00067 #define _AS3993_CONFIG_H
+                      00068 
+Error[108]  : Illegal character (/)
+                      00069 /***************************************************************************/
+Error[108]  : Illegal character (/)
+                      00070 /********************** configuration area *********************************/
+Error[108]  : Illegal character (/)
+                      00071 /***************************************************************************/
+                      00072 
+Error[108]  : Illegal character (/)
+                      00073 /** Define this to 1 if you have a FERMI board */
+                      00074 #define FERMI 1
+                      00075 
+Error[108]  : Illegal character (/)
+                      00076 /** Define this to 1 if you have an (ams internal) eval board */
+MPASM 5.62                            MAIN.C   1-27-2020  17:03:14         PAGE 17
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00077 #define EVALBOARD 0
+                      00078 
+Error[108]  : Illegal character (/)
+                      00079 /** Define this to 1 if you have a FEMTO v2 board */
+Error[108]  : Illegal character (/)
+                      00080 //#define FEMTO2 0
+                      00081 
+Error[108]  : Illegal character (/)
+                      00082 /** Define this to 1 if you have a FEMTO v2.1 board */
+                      00083 #define FEMTO2_1 0
+                      00084 
+Error[108]  : Illegal character (/)
+                      00085 /** Define this to 1 if you have a MEGA board */
+                      00086 #define MEGA 0
+                      00087 
+Error[108]  : Illegal character (/)
+                      00088 /** Define this to 1 if you have a RADON board */
+                      00089 #define RADON 0
+                      00090 
+Error[108]  : Illegal character (/)
+                      00091 /** Define this to 1 to enable AS3993 support. */
+                      00092 #define RUN_ON_AS3993 1
+                      00093 
+Error[108]  : Illegal character (/)
+                      00094 /** Define this to 1 to enable AS3994 support. */
+                      00095 #define RUN_ON_AS3994 0
+                      00096 
+Error[108]  : Illegal character (/)
+                      00097 /** Define this to 1 to enable AS3980 support. */
+                      00098 #define RUN_ON_AS3980 0
+                      00099 
+Error[108]  : Illegal character (/)
+                      00100 /** Define this to 1 to enable AS3980 support. */
+                      00101 #define RUN_ON_AS3981 0
+                      00102 
+Error[108]  : Illegal character (/)
+                      00103 /** Define this to 1 if as3993Initialize() should perform a proper selftest,
+Warning[207]: Found label after column 1. (testing)
+Error[122]  : Illegal opcode (connection)
+                      00104   testing connection AS3993, crystal, pll, antenna */
+                      00105 #define AS3993_DO_SELFTEST 1
+                      00106 
+Error[108]  : Illegal character (/)
+                      00107 /** Define this to 1 if you want debug messages in as3993.c or want to have
+Warning[207]: Found label after column 1. (bebug)
+Error[122]  : Illegal opcode (output)
+                      00108  bebug output on OAD pins*/
+                      00109 #define AS3993DEBUG 0
+                      00110 
+Error[108]  : Illegal character (/)
+                      00111 /** If set to 1 reader intialization will be more verbose. */
+                      00112 #define VERBOSE_INIT 0
+                      00113 
+MPASM 5.62                            MAIN.C   1-27-2020  17:03:14         PAGE 18
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+Error[108]  : Illegal character (/)
+                      00114 /** Set this to 1 to enable iso6b support. Not supported atm. */
+                      00115 #define ISO6B 0
+                      00116 
+Error[108]  : Illegal character (/)
+                      00117 /** Baudrate used if uart communication is enabled at compile time. */
+                      00118 #define BAUDRATE 115200UL
+                      00119 
+Error[108]  : Illegal character (/)
+                      00120 /***************************************************************************/
+Error[108]  : Illegal character (/)
+                      00121 /******************** private definitions, not to be changed ***************/
+Error[108]  : Illegal character (/)
+                      00122 /***************************************************************************/
+                      00123 #define EVAL_HW_ID          1
+                      00124 #define FERMI_HW_ID         2
+                      00125 #define FERMI_BIG_HW_ID     3
+                      00126 #define FEMTO_1V0_HW_ID     4
+                      00127 #define FEMTO_1V1_HW_ID     5
+                      00128 #define FEMTO_2V0_HW_ID     6
+                      00129 #define MEGA_HW_ID          7
+                      00130 #define RADON_HW_ID         8
+                      00131 #define FEMTO_2V1_HW_ID     9
+                      00132 
+                      00133 #if RUN_ON_AS3993
+                      00134 #define CHIP                "AS3993"
+Error[108]  : Illegal character (0)
+                      00135 #elif RUN_ON_AS3994
+Error[115]  : Duplicate label ("CHIP" or redefining symbol that cannot be redefined)
+                      00136 #define CHIP                "AS3994"
+Error[108]  : Illegal character (0)
+                      00137 #elif RUN_ON_AS3980
+Error[115]  : Duplicate label ("CHIP" or redefining symbol that cannot be redefined)
+                      00138 #define CHIP                "AS3980"
+Error[108]  : Illegal character (0)
+                      00139 #elif RUN_ON_AS3981
+Error[115]  : Duplicate label ("CHIP" or redefining symbol that cannot be redefined)
+                      00140 #define CHIP                "AS3981"
+                      00141 #endif
+                      00142 
+                      00143 #define FIRMWARE_ID         CHIP" Reader Firmware"
+                      00144 #define FIRMWARE_VERSION    0x020208UL;
+                      00145 
+                      00146 #if FERMI
+                      00147 #define HARDWARE_ID         CHIP" FERMI Reader Hardware 1.0"
+                      00148 #define HARDWARE_ID_NUM     FERMI_HW_ID
+                      00149 #endif
+                      00150 
+                      00151 #if EVALBOARD
+                      00152 #define HARDWARE_ID         CHIP" EVAL Reader Hardware 1.0"
+                      00153 #define HARDWARE_ID_NUM     EVAL_HW_ID
+                      00154 #endif
+                      00155 
+MPASM 5.62                            MAIN.C   1-27-2020  17:03:14         PAGE 19
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+Error[113]  : Symbol not previously defined (FEMTO2)
+                      00156 #if FEMTO2
+                      00157 #define HARDWARE_ID         CHIP" FEMTO Reader Hardware 2.0"
+                      00158 #define HARDWARE_ID_NUM     FEMTO_2V0_HW_ID
+                      00159 #endif
+                      00160 
+                      00161 
+                      00162 #if FEMTO2_1
+                      00163 #define HARDWARE_ID         CHIP" FEMTO Reader Hardware 2.1"
+                      00164 #define HARDWARE_ID_NUM     FEMTO_2V1_HW_ID
+                      00165 #endif
+                      00166 
+                      00167 #if MEGA
+                      00168 #define HARDWARE_ID         CHIP" MEGA Reader Hardware 1.0"
+                      00169 #define HARDWARE_ID_NUM     MEGA_HW_ID
+                      00170 #endif
+                      00171 
+                      00172 #if RADON
+                      00173 #define HARDWARE_ID         CHIP" RADON Reader Hardware 1.0"
+                      00174 #define HARDWARE_ID_NUM     RADON_HW_ID
+                      00175 #endif
+                      00176 
+                      00177 #define WRONG_CHIP_ID       "caution wrong chip"
+                      00178 
+Error[108]  : Illegal character (/)
+                      00179 /** define to identify Cin cap of tuner. */
+                      00180 #define TUNER_CIN       0x01
+Error[108]  : Illegal character (/)
+                      00181 /** define to identify Clen cap of tuner. */
+                      00182 #define TUNER_CLEN      0x02
+Error[108]  : Illegal character (/)
+                      00183 /** define to identify Cout cap of tuner. */
+                      00184 #define TUNER_COUT      0x04
+                      00185 
+Error[108]  : Illegal character (/)
+                      00186 /* Set the following configuration switches depending on the board setup:
+Error[108]  : Illegal character (*)
+                      00187  * INTVCO or EXTVCO
+Error[108]  : Illegal character (*)
+                      00188  * INTPA or EXTPA
+Error[108]  : Illegal character (*)
+                      00189  * SINGLEINP or BALANCEDINP
+Error[108]  : Illegal character (*)
+                      00190  * ANTENNA_SWITCH if 2 antenna ports are available
+Error[108]  : Illegal character (*)
+                      00191  * TUNER if antenna tuning is available
+Error[108]  : Illegal character (*)
+                      00192  * TUNER_CONFIG configures which tuner caps are available (bitmask)
+Error[108]  : Illegal character (*)
+                      00193 */
+Error[113]  : Symbol not previously defined (PLACA_TECBAN)
+                      00194 #if PLACA_TECBAN
+                      00195 #define INTVCO
+MPASM 5.62                            MAIN.C   1-27-2020  17:03:14         PAGE 20
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00196 #define INTPA
+                      00197 #define SINGLEINP
+                      00198 //#define ANTENNA_SWITCH
+                      00199 #define TUNER
+                      00200 #define TUNER_CONFIG (TUNER_CIN | TUNER_CLEN | TUNER_COUT)
+                      00201 #elif FERMI
+                      00202 #define INTVCO
+                      00203 #define EXTPA
+                      00204 #define BALANCEDINP
+                      00205 //#define ANTENNA_SWITCH
+                      00206 #define TUNER
+                      00207 #define TUNER_CONFIG (TUNER_CIN | TUNER_CLEN | TUNER_COUT)
+                      00208 #elif EVALBOARD
+                      00209 #define INTVCO
+                      00210 #define EXTPA
+                      00211 #define BALANCEDINP
+                      00212 #elif FEMTO2 || FEMTO2_1
+                      00213 #define INTVCO
+                      00214 #define INTPA
+                      00215 #define SINGLEINP
+                      00216 #define ANTENNA_SWITCH
+                      00217 #define TUNER
+                      00218 #define TUNER_CONFIG (TUNER_CIN | TUNER_COUT)
+                      00219 
+                      00220 #elif MEGA
+                      00221 #define INTVCO
+                      00222 #define EXTPA
+                      00223 #define SINGLEINP
+                      00224 #elif RADON
+                      00225 #define INTVCO
+                      00226 #define EXTPA
+                      00227 #define BALANCEDINP
+                      00228 #define ANTENNA_SWITCH
+                      00229 #define TUNER
+                      00230 #define TUNER_CONFIG (TUNER_CIN | TUNER_CLEN | TUNER_COUT)
+                      00231 #endif
+                      00232 
+Error[108]  : Illegal character (/)
+                      00233 /***************************************************************************/
+Error[108]  : Illegal character (/)
+                      00234 /******************** check for configuration errors ***********************/
+Error[108]  : Illegal character (/)
+                      00235 /***************************************************************************/
+Error[113]  : Symbol not previously defined (FEMTO2)
+                      00236 #if (FERMI + EVALBOARD + FEMTO2 + FEMTO2_1 + MEGA + RADON) > 1
+                      00237 #error "FW is configured for more than 1 board at the same time"
+                      00238 #endif
+Error[113]  : Symbol not previously defined (FEMTO2)
+                      00239 #if !FERMI && !EVALBOARD && !FEMTO2 && !FEMTO2_1 && !MEGA && !RADON
+                      00240 #error unknown board
+                      00241 #endif
+                      00242 
+                      00243 #if (RUN_ON_AS3993 + RUN_ON_AS3980 + RUN_ON_AS3994 + RUN_ON_AS3981) > 1
+MPASM 5.62                            MAIN.C   1-27-2020  17:03:14         PAGE 21
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00244 #error "FW is configured for more than 1 chip at the same time"
+                      00245 #endif
+                      00246 #if !RUN_ON_AS3993 && !RUN_ON_AS3980 && !RUN_ON_AS3994 && !RUN_ON_AS3981
+                      00247 #error "unknown device"
+                      00248 #endif
+                      00249 
+                      00250 #if RUN_ON_AS3981
+                      00251 #ifdef EXTPA
+                      00252 #error "AS3981 does not support EXTPA configuration"
+                      00253 #endif
+                      00254 #endif
+                      00255 
+Error[108]  : Illegal character (/)
+                      00256 /*!
+Error[108]  : Illegal character (\)
+                      00257   \mainpage
+Error[108]  : Illegal character (\)
+                      00258   \section Layering
+Warning[207]: Found label after column 1. (This)
+Error[122]  : Illegal opcode (software)
+                      00259   This software is layered as follows:
+                      00260 
+Error[108]  : Illegal character (<)
+                      00261   <table cellpadding=20 cellspacing=10 rules="none">
+Error[108]  : Illegal character (<)
+                      00262   <tr>
+Error[108]  : Illegal character (<)
+                      00263       <td align="center" colspan=3 bgcolor="#FCCE9C">\link appl_commands.c application code\endlink</td>
+Error[108]  : Illegal character (<)
+                      00264       <td>Upper layer in which the application run. In reference implementation it is
+Error[108]  : Illegal character (\)
+                      00265       \link appl_commands.c appl_commands.c\endlink which handles communication with PC.
+Warning[207]: Found label after column 1. (All)
+Error[122]  : Illegal opcode (commands)
+                      00266             All commands available are detailed in there.</td>
+Error[108]  : Illegal character (<)
+                      00267   </tr>
+Error[108]  : Illegal character (<)
+                      00268   <tr>
+Error[108]  : Illegal character (<)
+                      00269       <td align="center" bgcolor="#04FEFC">\link gen2.h gen2\endlink</td>
+Error[108]  : Illegal character (<)
+                      00270       <td align="center" bgcolor="89C2FC">\link iso6b.h iso6b*) \endlink</td>
+Error[108]  : Illegal character (<)
+                      00271       <td align="center" bgcolor="CCFECC">\link as3993_public.h as3993_public\endlink</td>
+Error[108]  : Illegal character (<)
+                      00272       <td>Protocol layer in which the protocol handling is performed</td>
+Error[108]  : Illegal character (<)
+                      00273   </tr>
+Error[108]  : Illegal character (<)
+                      00274   <tr>
+Error[108]  : Illegal character (<)
+                      00275       <td align="center" colspan=3 bgcolor="CCFECC">\link as3993.h as3993\endlink</td>
+MPASM 5.62                            MAIN.C   1-27-2020  17:03:14         PAGE 22
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+Error[108]  : Illegal character (<)
+                      00276       <td>Device specific procedures of UHF Reader</td>
+Error[108]  : Illegal character (<)
+                      00277   </tr>
+Error[108]  : Illegal character (<)
+                      00278   <tr>
+Error[108]  : Illegal character (<)
+                      00279       <td  align="center" bgcolor="FCFE9C" colspan=3>\link platform.h platform\endlink</td>
+Error[108]  : Illegal character (<)
+                      00280       <td>Platform layer for communication with UHF Reader, handling CPU specifics, ...</td>
+Error[108]  : Illegal character (<)
+                      00281   </tr>
+Error[108]  : Illegal character (<)
+                      00282   </table>
+                      00283 
+Warning[207]: Found label after column 1. (The)
+Error[122]  : Illegal opcode (files)
+                      00284   The files gen2.h and iso6b.h*) contain the interface provided to the
+Warning[207]: Found label after column 1. (user)
+Error[122]  : Illegal opcode (for)
+                      00285   user for the two supported protocols. They rely on the interface provide
+Warning[207]: Found label after column 1. (by)
+Error[122]  : Illegal opcode (as3993.h.)
+                      00286   by as3993.h. This in turn relies on the actual hardware communication
+Warning[207]: Found label after column 1. (interface)
+Error[122]  : Illegal opcode (provided)
+                      00287   interface provided by platform.h, spi_driver.h, timer.h, ...
+                      00288 
+Error[108]  : Illegal character (\)
+                      00289   \section Applicaton
+Warning[207]: Found label after column 1. (The)
+Error[122]  : Illegal opcode (application)
+                      00290   The application layer in this reference implementation is implemented as
+Warning[207]: Found label after column 1. (a)
+Error[122]  : Illegal opcode (dispatcher)
+                      00291   a dispatcher which waits for commands from the host (either via USB or UART)
+Warning[207]: Found label after column 1. (and)
+Error[122]  : Illegal opcode (processes)
+                      00292   and processes commands accordingly. Documentation of the protocol is available
+Warning[207]: Found label after column 1. (in)
+Error[122]  : Illegal opcode (appl_commands.c.)
+                      00293   in appl_commands.c.
+                      00294 
+Error[108]  : Illegal character (\)
+                      00295   \section Configuration
+Warning[207]: Found label after column 1. (Configuration)
+Error[122]  : Illegal opcode (of)
+                      00296   Configuration of this software is done in as3993_config.h and by defines
+Warning[207]: Found label after column 1. (in)
+Error[122]  : Illegal opcode (the)
+                      00297   in the build environment. The currenlty supported defines in the build
+Warning[207]: Found label after column 1. (environment)
+Error[122]  : Illegal opcode (are)
+MPASM 5.62                            MAIN.C   1-27-2020  17:03:14         PAGE 23
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00298   environment are:
+Error[108]  : Illegal character (-)
+                      00299    - USE_LOGGER: enables UART logging functionality
+Error[108]  : Illegal character (-)
+                      00300    - USE_UART_STREAM_DRIVER: uses UART instead of USB for commands rx/tx
+Error[108]  : Illegal character (-)
+                      00301    - CPU: defaults to 24FJ64GB002
+Error[108]  : Illegal character (-)
+                      00302    - ENABLE_BOOTLOADER: defaults to enabled.
+                      00303  
+Warning[207]: Found label after column 1. (A)
+Error[122]  : Illegal opcode (detailed)
+                      00304   A detailed explanation of the build environment is included in 
+Error[108]  : Illegal character (\)
+                      00305   \ref buildconf "HowtoBuild.txt".
+                      00306 
+Error[108]  : Illegal character (\)
+                      00307   \section Using
+Warning[207]: Found label after column 1. (Before)
+Error[122]  : Illegal opcode (using)
+                      00308   Before using any other functions the AS3993 needs to be initialized
+Warning[207]: Found label after column 1. (using)
+Error[122]  : Illegal opcode (as3993Initialize)
+                      00309   using as3993Initialize(). If initialization of AS3993 fails the return value
+Warning[207]: Found label after column 1. (of)
+Error[122]  : Illegal opcode (as3993Initialize)
+                      00310   of as3993Initialize() is not zero.\n
+Warning[207]: Found label after column 1. (After)
+Error[122]  : Illegal opcode (successful)
+                      00311   After successful initialization functions from gen2.h and iso6b.h*) can
+Warning[207]: Found label after column 1. (be)
+Error[122]  : Illegal opcode (called.)
+                      00312   be called.
+                      00313 
+Error[108]  : Illegal character (\)
+                      00314   \section Porting
+Warning[207]: Found label after column 1. (The)
+Error[122]  : Illegal opcode (developer)
+                      00315   The developer which needs to port this firmware to another hardware will need
+Warning[207]: Found label after column 1. (to)
+Error[122]  : Illegal opcode (change)
+                      00316   to change platform.c, spi_driver.c, timer.c + related .h files and adapt
+Warning[207]: Found label after column 1. (the)
+Error[122]  : Illegal opcode (host)
+                      00317   the host-communication related files (UART/USB). Additionally
+Warning[207]: Found label after column 1. (he)
+Error[122]  : Illegal opcode (should)
+                      00318   he should also provide a proper interrupt service routine (currently
+Warning[207]: Found label after column 1. (as3993Isr)
+Error[108]  : Illegal character (()
+                      00319   as3993Isr() in as3993.c).
+                      00320 
+Error[108]  : Illegal character (\)
+MPASM 5.62                            MAIN.C   1-27-2020  17:03:14         PAGE 24
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00321  \note ISO 6B protocol is not supported, but is shown as hint where the implementation
+Warning[207]: Found label after column 1. (fits)
+Error[122]  : Illegal opcode (into)
+                      00322  fits into the FW structure.\n\n
+Error[108]  : Illegal character (\)
+                      00323  \note *) ISO 6B not supported.
+                      00324 
+Error[108]  : Illegal cha

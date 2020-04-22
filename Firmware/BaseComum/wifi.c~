@@ -1,0 +1,30 @@
+#define TIMEOUT_WIFI_PORTAIS 10
+#define TAMANHO_BUFFER_WIFI_PORTAIS 100
+
+int TimeOutWifiPortal;
+char BufferWifiPortais[TAMANHO_BUFFER_WIFI_PORTAIS];
+int ContadorBufferWifiPortais;
+
+
+void recebeDadosDeWifiPortal(char Dado){
+	TimeOutWifiPortal = 0;
+	BufferWifiPortais[ContadorBufferWifiPortais] = Dado;
+	ContadorBufferWifiPortais = ContadorBufferWifiPortais + 1;
+}
+
+int estouDoTimeOutDoBufferDoWifiDosPortais(char *BufferDeSaida){
+	if (TimeOutWifiPortal >= TIMEOUT_WIFI_PORTAIS){
+		if (ContadorBufferWifiPortais > 0){
+			(void)memcpy(BufferDeSaida, BufferWifiPortais, ContadorBufferWifiPortais);
+			memset(BufferWifiPortais, 0, TAMANHO_BUFFER_WIFI_PORTAIS);
+			ContadorBufferWifiPortais = 0;
+			return 0;
+		}
+	}
+	return -1;
+}
+
+
+void trataTimeOutWifiPortais(void){
+	TimeOutWifiPortal = TimeOutWifiPortal + 1;
+}
