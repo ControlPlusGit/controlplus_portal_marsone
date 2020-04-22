@@ -48,10 +48,10 @@ unsigned char rssiMinAntena6;
 unsigned char rssiMinAntena7;
 unsigned char rssiMinAntena8;
 
-char ipRemotoPrincipal[16];
-char ipRemotoSecundario[16];
-int  portaRemotaPrincipal;
-int  portaRemotaSecundaria;
+extern char ipRemotoPrincipal[16];
+extern char ipRemotoSecundario[16];
+extern int  portaRemotaPrincipal;
+extern int  portaRemotaSecundaria;
 
 //unsigned char ipRemotoPrincipal[15];
 //unsigned char ipRemotoSecundario[15];
