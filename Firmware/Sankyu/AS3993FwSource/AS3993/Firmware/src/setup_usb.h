@@ -11,6 +11,7 @@
 #include "ajuste_cap.h"
 
 
+#define FIRMWARE "FWEMP_V01R00"
 
 #define TAMANHO_ENDERECO_IP 15
 #define TAMANHO_BUFFER_COMANDOS_USB 100
@@ -97,9 +98,34 @@
 #define END_SENHA_WIFI_10                               73 // xxxxxxxxxx0xxxxx
 #define END_SENHA_WIFI_11                               74 // xxxxxxxxxxx0xxxx
 #define END_SENHA_WIFI_12                               75 // xxxxxxxxxxxx0xxx
-#define END_SENHA_WIFI_13                               76// xxxxxxxxxxxxx0xx
+#define END_SENHA_WIFI_13                               76 // xxxxxxxxxxxxx0xx
 #define END_SENHA_WIFI_14                               77 // xxxxxxxxxxxxxx0x
 #define END_SENHA_WIFI_15                               78 // xxxxxxxxxxxxxxx0
+#define END_SENSIBILIDADE_DA_ANTENA_1                   79 // 00 
+#define END_SENSIBILIDADE_DA_ANTENA_2                   80 // 00
+#define END_SENSIBILIDADE_DA_ANTENA_3                   81 // 00 
+#define END_SENSIBILIDADE_DA_ANTENA_4                   82 // 00 
+#define END_SENSIBILIDADE_DA_ANTENA_5                   83 // 00 
+#define END_SENSIBILIDADE_DA_ANTENA_6                   84 // 00 
+#define END_SENSIBILIDADE_DA_ANTENA_7                   85 // 00 
+#define END_SENSIBILIDADE_DA_ANTENA_8                   86 // 00
+#define END_INTENSIDADE_REFLEXAO_ANTENA_1_MSB           87 // 00xx
+#define END_INTENSIDADE_REFLEXAO_ANTENA_1_LSB           88 // xx00
+#define END_INTENSIDADE_REFLEXAO_ANTENA_2_MSB           89 // 00xx
+#define END_INTENSIDADE_REFLEXAO_ANTENA_2_LSB           90 // xx00
+#define END_INTENSIDADE_REFLEXAO_ANTENA_3_MSB           91 // 00xx
+#define END_INTENSIDADE_REFLEXAO_ANTENA_3_LSB           92 // xx00
+#define END_INTENSIDADE_REFLEXAO_ANTENA_4_MSB           93 // 00xx
+#define END_INTENSIDADE_REFLEXAO_ANTENA_4_LSB           94 // xx00
+#define END_INTENSIDADE_REFLEXAO_ANTENA_5_MSB           95 // 00xx
+#define END_INTENSIDADE_REFLEXAO_ANTENA_5_LSB           96 // xx00
+#define END_INTENSIDADE_REFLEXAO_ANTENA_6_MSB           97 // 00xx
+#define END_INTENSIDADE_REFLEXAO_ANTENA_6_LSB           98 // xx00
+#define END_INTENSIDADE_REFLEXAO_ANTENA_7_MSB           99 // 00xx
+#define END_INTENSIDADE_REFLEXAO_ANTENA_7_LSB          100 // xx00
+#define END_INTENSIDADE_REFLEXAO_ANTENA_8_MSB          101 // 00xx
+#define END_INTENSIDADE_REFLEXAO_ANTENA_8_LSB          102 // xx00
+
 
 enum ComandosInterfaceAjustes{
     CMD_MODO_DE_OPERACAO = 1,                
@@ -127,6 +153,15 @@ enum ComandosInterfaceAjustes{
     CMD_SENHA_WIFI,
     CMD_OBTER_FIRMWARE,
     CMD_OBTER_PARAMETROS,
+    CMD_CALIBRACAO_AUTOMATICA,
+    CMD_SENSIBILIDADE_ANTENA_1,
+    CMD_SENSIBILIDADE_ANTENA_2,
+    CMD_SENSIBILIDADE_ANTENA_3,
+    CMD_SENSIBILIDADE_ANTENA_4,
+    CMD_SENSIBILIDADE_ANTENA_5,
+    CMD_SENSIBILIDADE_ANTENA_6,
+    CMD_SENSIBILIDADE_ANTENA_7,
+    CMD_SENSIBILIDADE_ANTENA_8,
 };
 
 /*
@@ -153,13 +188,34 @@ extern unsigned char capAntena5[3];
 extern unsigned char capAntena6[3];
 extern unsigned char capAntena7[3];
 extern unsigned char capAntena8[3];
+extern unsigned int  reflexaoAntena1;
+extern unsigned int  reflexaoAntena2;
+extern unsigned int  reflexaoAntena3;
+extern unsigned int  reflexaoAntena4;
+extern unsigned int  reflexaoAntena5;
+extern unsigned int  reflexaoAntena6;
+extern unsigned int  reflexaoAntena7;
+extern unsigned int  reflexaoAntena8;
 extern unsigned char frequenciaDeOperacao;
 extern unsigned char idDoLeitor[4];
+extern unsigned char rssiMinAntena1;
+extern unsigned char rssiMinAntena2;
+extern unsigned char rssiMinAntena3;
+extern unsigned char rssiMinAntena4;
+extern unsigned char rssiMinAntena5;
+extern unsigned char rssiMinAntena6;
+extern unsigned char rssiMinAntena7;
+extern unsigned char rssiMinAntena8;
 
 //extern unsigned char ipRemotoPrincipal[15];
 //extern unsigned char ipRemotoSecundario[15];
 //extern unsigned int portaRemotaPrincipal;
 //extern unsigned int portaRemotaSecundaria;
+
+extern char ipRemotoPrincipal[16];
+extern char ipRemotoSecundario[16];
+extern int  portaRemotaPrincipal;
+extern int  portaRemotaSecundaria;
 
 extern unsigned char ssidWifi[17];
 extern unsigned char senhaWifi[17];
@@ -168,6 +224,8 @@ extern unsigned char senhaWifi[17];
 
 void commandHandlerPortaUSB(void);
 void limpaBufferRxUSB(void);
+
+void realizarCalibracaoAutomatica(void);
 
 //Seta parametros do leitor
 void setaModoDeOperacao(void);
@@ -193,6 +251,15 @@ void setaPortaRemotaPrincipal(void);
 void setaPortaRemotaSecundaria(void);
 void setaSsidWifi(void);
 void setaSenhaWifi(void);
+void setarssiMinAntena1(void);
+void setarssiMinAntena2(void);
+void setaSensibilidadeAntena3(void);
+void setaSensibilidadeAntena4(void);
+void setaSensibilidadeAntena5(void);
+void setaSensibilidadeAntena6(void);
+void setaSensibilidadeAntena7(void);
+void setaSensibilidadeAntena8(void);
+
 
 //Obtem parametros do leitor
 void obtemModoDeOperacao(void);
@@ -219,6 +286,15 @@ void obtemPortaRemotaSecundaria(void);
 void obtemSsidWifi(void);
 void obtemSenhaWifi(void);
 void obtemFimware(void);
+void obtemSensibilidadeDaAntena1(void);
+void obtemSensibilidadeDaAntena2(void);
+void obtemSensibilidadeDaAntena3(void);
+void obtemSensibilidadeDaAntena4(void);
+void obtemSensibilidadeDaAntena5(void);
+void obtemSensibilidadeDaAntena6(void);
+void obtemSensibilidadeDaAntena7(void);
+void obtemSensibilidadeDaAntena8(void);
+
 
 
 void retornaOk(void);

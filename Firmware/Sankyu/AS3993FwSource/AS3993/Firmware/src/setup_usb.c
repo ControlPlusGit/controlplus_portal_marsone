@@ -1,8 +1,13 @@
 
 #include "setup_usb.h"
-#include "stddef.h"
+#include "i2c.h"
+#include <stddef.h>
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "uart_driver.h"
 
-
+void realizaAutoSintoniaDosCapacitores(int Metodo);
 
 char bufferRxUSB[TAMANHO_BUFFER_COMANDOS_USB];
 
@@ -20,13 +25,33 @@ unsigned char capAntena5[3];
 unsigned char capAntena6[3];
 unsigned char capAntena7[3];
 unsigned char capAntena8[3];
+
+unsigned int  reflexaoAntena1;
+unsigned int  reflexaoAntena2;
+unsigned int  reflexaoAntena3;
+unsigned int  reflexaoAntena4;
+unsigned int  reflexaoAntena5;
+unsigned int  reflexaoAntena6;
+unsigned int  reflexaoAntena7;
+unsigned int  reflexaoAntena8;
+
 unsigned char frequenciaDeOperacao;
 unsigned char idDoLeitor[4];
+unsigned char firmware[20] = FIRMWARE;
 
-extern char ipRemotoPrincipal[16];
-extern char ipRemotoSecundario[16];
-extern int  portaRemotaPrincipal;
-extern int  portaRemotaSecundaria;
+unsigned char rssiMinAntena1;
+unsigned char rssiMinAntena2;
+unsigned char rssiMinAntena3;
+unsigned char rssiMinAntena4;
+unsigned char rssiMinAntena5;
+unsigned char rssiMinAntena6;
+unsigned char rssiMinAntena7;
+unsigned char rssiMinAntena8;
+
+char ipRemotoPrincipal[16];
+char ipRemotoSecundario[16];
+int  portaRemotaPrincipal;
+int  portaRemotaSecundaria;
 
 //unsigned char ipRemotoPrincipal[15];
 //unsigned char ipRemotoSecundario[15];
@@ -37,8 +62,6 @@ unsigned char ssidWifi[17];
 unsigned char senhaWifi[17];
 
 unsigned char ipTemp[4];
-
-
 
 void commandHandlerPortaUSB(void){
     char strCMD[10];
@@ -145,6 +168,42 @@ void commandHandlerPortaUSB(void){
                 case CMD_SENHA_WIFI:
                     setaSenhaWifi();
                     break;
+                    
+                case CMD_CALIBRACAO_AUTOMATICA: 
+                    realizarCalibracaoAutomatica();
+                    break;
+                    
+                case CMD_SENSIBILIDADE_ANTENA_1:
+                    setarssiMinAntena1();
+                    break;
+                    
+                case CMD_SENSIBILIDADE_ANTENA_2:
+                    setarssiMinAntena2();
+                    break;
+                    
+                case CMD_SENSIBILIDADE_ANTENA_3:
+                    setaSensibilidadeAntena3();
+                    break;
+                    
+                case CMD_SENSIBILIDADE_ANTENA_4:
+                    setaSensibilidadeAntena4();
+                    break;
+                    
+                case CMD_SENSIBILIDADE_ANTENA_5:
+                    setaSensibilidadeAntena5();
+                    break;
+                    
+                case CMD_SENSIBILIDADE_ANTENA_6:
+                    setaSensibilidadeAntena6();
+                    break;
+                    
+                case CMD_SENSIBILIDADE_ANTENA_7:
+                    setaSensibilidadeAntena7();
+                    break;
+                    
+                case CMD_SENSIBILIDADE_ANTENA_8:
+                    setaSensibilidadeAntena8();
+                    break;                
             }   
         }
         
@@ -250,6 +309,38 @@ void commandHandlerPortaUSB(void){
                     obtemParametrosDaMemoria();
                     exibirParametrosObtidos();
                     break;
+                    
+                case CMD_SENSIBILIDADE_ANTENA_1:
+                    obtemSensibilidadeDaAntena1();
+                    break;
+                    
+                case CMD_SENSIBILIDADE_ANTENA_2:
+                    obtemSensibilidadeDaAntena2();
+                    break;
+                    
+                case CMD_SENSIBILIDADE_ANTENA_3:
+                    obtemSensibilidadeDaAntena3();
+                    break;
+                    
+                case CMD_SENSIBILIDADE_ANTENA_4:
+                    obtemSensibilidadeDaAntena4();
+                    break;
+                    
+                case CMD_SENSIBILIDADE_ANTENA_5:
+                    obtemSensibilidadeDaAntena5();
+                    break;
+                    
+                case CMD_SENSIBILIDADE_ANTENA_6:
+                    obtemSensibilidadeDaAntena6();
+                    break;
+                    
+                case CMD_SENSIBILIDADE_ANTENA_7:
+                    obtemSensibilidadeDaAntena7();
+                    break;
+                    
+                case CMD_SENSIBILIDADE_ANTENA_8:
+                    obtemSensibilidadeDaAntena8();
+                    break;
             }   
         }
         limpaBufferRxUSB();
@@ -258,14 +349,15 @@ void commandHandlerPortaUSB(void){
 
 
 void setaModoDeOperacao(void){
-    unsigned char num[10];
-    unsigned int valor;
+    char num[10];
+    int valor;
     
     if(bufferRxUSB[10] == '\r' && bufferRxUSB[11] == '\n'){
         memset(num, NULL, 10);
         num[0] = bufferRxUSB[7];
         num[1] = bufferRxUSB[8];
         num[2] = bufferRxUSB[9];
+        num[3] = '\0';
         valor = atoi(num);
         if(valor > 0 && valor <= 3){ //RANGE
             EscreverNaEEprom(END_MODO_DE_OPERACAO, valor);
@@ -276,10 +368,18 @@ void setaModoDeOperacao(void){
     retornaNok();
 }
 
+void realizarCalibracaoAutomatica(void){
+    if(bufferRxUSB[8] == '\r' && bufferRxUSB[9] == '\n'){
+        realizaAutoSintoniaDosCapacitores(bufferRxUSB[7]-'0'); 
+        retornaOk();
+        return;
+    }
+    retornaNok();    
+}
 
 void setaAtrasoParaDegradarLeitura(void){
-    unsigned char num[10];
-    unsigned int valor;
+    char num[10];
+    int valor;
     
     if(bufferRxUSB[10] == '\r' && bufferRxUSB[11] == '\n'){
         memset(num, NULL, 10);
@@ -298,8 +398,8 @@ void setaAtrasoParaDegradarLeitura(void){
 
 
 void setaRepeticaoNaLeitura(void){
-    unsigned char num[10];
-    unsigned int valor;
+    char num[10];
+    int valor;
     
     if(bufferRxUSB[10] == '\r' && bufferRxUSB[11] == '\n'){
         memset(num, NULL, 10);
@@ -318,8 +418,8 @@ void setaRepeticaoNaLeitura(void){
 
 
 void setaSensibilidadeDaAntena(void){
-    unsigned char num[10];
-    unsigned int valor;
+    char num[10];
+    int valor;
     
     if(bufferRxUSB[10] == '\r' && bufferRxUSB[11] == '\n'){
         memset(num, NULL, 10);
@@ -336,10 +436,161 @@ void setaSensibilidadeDaAntena(void){
     retornaNok();
 }
 
+void setarssiMinAntena1(void){
+    char num[10];
+    int valor;
+    
+    if(bufferRxUSB[10] == '\r' && bufferRxUSB[11] == '\n'){
+        memset(num, NULL, 10);
+        num[0] = bufferRxUSB[7];
+        num[1] = bufferRxUSB[8];
+        num[2] = bufferRxUSB[9];
+        valor = atoi(num);
+        if(valor >= 0 && valor <= 127){ //RANGE
+            EscreverNaEEprom(END_SENSIBILIDADE_DA_ANTENA_1, valor);
+            retornaOk();
+            return;        
+        }
+    }
+    retornaNok();
+}
+
+void setarssiMinAntena2(void){
+    char num[10];
+    int valor;
+    
+    if(bufferRxUSB[10] == '\r' && bufferRxUSB[11] == '\n'){
+        memset(num, NULL, 10);
+        num[0] = bufferRxUSB[7];
+        num[1] = bufferRxUSB[8];
+        num[2] = bufferRxUSB[9];
+        valor = atoi(num);
+        if(valor >= 0 && valor <= 127){ //RANGE
+            EscreverNaEEprom(END_SENSIBILIDADE_DA_ANTENA_2, valor);
+            retornaOk();
+            return;        
+        }
+    }
+    retornaNok();
+}
+
+void setaSensibilidadeAntena3(void){
+    char num[10];
+    int valor;
+    
+    if(bufferRxUSB[10] == '\r' && bufferRxUSB[11] == '\n'){
+        memset(num, NULL, 10);
+        num[0] = bufferRxUSB[7];
+        num[1] = bufferRxUSB[8];
+        num[2] = bufferRxUSB[9];
+        valor = atoi(num);
+        if(valor >= 0 && valor <= 127){ //RANGE
+            EscreverNaEEprom(END_SENSIBILIDADE_DA_ANTENA_3, valor);
+            retornaOk();
+            return;        
+        }
+    }
+    retornaNok();
+}
+
+void setaSensibilidadeAntena4(void){
+    char num[10];
+    int valor;
+    
+    if(bufferRxUSB[10] == '\r' && bufferRxUSB[11] == '\n'){
+        memset(num, NULL, 10);
+        num[0] = bufferRxUSB[7];
+        num[1] = bufferRxUSB[8];
+        num[2] = bufferRxUSB[9];
+        valor = atoi(num);
+        if(valor >= 0 && valor <= 127){ //RANGE
+            EscreverNaEEprom(END_SENSIBILIDADE_DA_ANTENA_4, valor);
+            retornaOk();
+            return;        
+        }
+    }
+    retornaNok();
+}
+
+void setaSensibilidadeAntena5(void){
+    char num[10];
+    int valor;
+    
+    if(bufferRxUSB[10] == '\r' && bufferRxUSB[11] == '\n'){
+        memset(num, NULL, 10);
+        num[0] = bufferRxUSB[7];
+        num[1] = bufferRxUSB[8];
+        num[2] = bufferRxUSB[9];
+        valor = atoi(num);
+        if(valor >= 0 && valor <= 127){ //RANGE
+            EscreverNaEEprom(END_SENSIBILIDADE_DA_ANTENA_5, valor);
+            retornaOk();
+            return;        
+        }
+    }
+    retornaNok();
+}
+
+void setaSensibilidadeAntena6(void){
+    char num[10];
+    int valor;
+    
+    if(bufferRxUSB[10] == '\r' && bufferRxUSB[11] == '\n'){
+        memset(num, NULL, 10);
+        num[0] = bufferRxUSB[7];
+        num[1] = bufferRxUSB[8];
+        num[2] = bufferRxUSB[9];
+        valor = atoi(num);
+        if(valor >= 0 && valor <= 127){ //RANGE
+            EscreverNaEEprom(END_SENSIBILIDADE_DA_ANTENA_6, valor);
+            retornaOk();
+            return;        
+        }
+    }
+    retornaNok();
+}
+
+void setaSensibilidadeAntena7(void){
+    char num[10];
+    int valor;
+    
+    if(bufferRxUSB[10] == '\r' && bufferRxUSB[11] == '\n'){
+        memset(num, NULL, 10);
+        num[0] = bufferRxUSB[7];
+        num[1] = bufferRxUSB[8];
+        num[2] = bufferRxUSB[9];
+        valor = atoi(num);
+        if(valor >= 0 && valor <= 127){ //RANGE
+            EscreverNaEEprom(END_SENSIBILIDADE_DA_ANTENA_7, valor);
+            retornaOk();
+            return;        
+        }
+    }
+    retornaNok();
+}
+
+void setaSensibilidadeAntena8(void){
+    char num[10];
+    int valor;
+    
+    if(bufferRxUSB[10] == '\r' && bufferRxUSB[11] == '\n'){
+        memset(num, NULL, 10);
+        num[0] = bufferRxUSB[7];
+        num[1] = bufferRxUSB[8];
+        num[2] = bufferRxUSB[9];
+        valor = atoi(num);
+        if(valor >= 0 && valor <= 127){ //RANGE
+            EscreverNaEEprom(END_SENSIBILIDADE_DA_ANTENA_8, valor);
+            retornaOk();
+            return;        
+        }
+    }
+    retornaNok();
+}
 
 void setaTempoParaInatividadeDaTagMonitorada(void){
-    unsigned char num[10];
-    unsigned int valor;
+    char num[10];
+    int valor;
     
     if(bufferRxUSB[10] == '\r' && bufferRxUSB[11] == '\n'){
         memset(num, NULL, 10);
@@ -358,8 +609,8 @@ void setaTempoParaInatividadeDaTagMonitorada(void){
 
 
 void setaNumeroDeAntenasAtivas(void){
-    unsigned char num[10];
-    unsigned int valor;
+    char num[10];
+    int valor;
     
     if(bufferRxUSB[10] == '\r' && bufferRxUSB[11] == '\n'){
         memset(num, NULL, 10);
@@ -376,7 +627,6 @@ void setaNumeroDeAntenasAtivas(void){
     retornaNok();
 }
 
-
 void setaAjusteDeCapacitoresAntena1(void){
     if(bufferRxUSB[10] == ';' && bufferRxUSB[14] == ';' && bufferRxUSB[18] == '\r'){
         gravaAjusteDeCapacitoresNaMemoria(END_AJUSTE_CAP0_ANTENA_1);
@@ -385,7 +635,6 @@ void setaAjusteDeCapacitoresAntena1(void){
     }
     retornaNok();
 }
-
 
 void setaAjusteDeCapacitoresAntena2(void){
     if(bufferRxUSB[10] == ';' && bufferRxUSB[14] == ';' && bufferRxUSB[18] == '\r'){
@@ -458,8 +707,8 @@ void setaAjusteDeCapacitoresAntena8(void){
 
 
 void setaFrequenciaDeOperacao(void){
-    unsigned char num[10];
-    unsigned int valor;
+    char num[10];
+    int valor;
     
     if(bufferRxUSB[10] == '\r' && bufferRxUSB[11] == '\n'){
         memset(num, NULL, 10);
@@ -534,8 +783,8 @@ void setaIpRemotoSecundario(void){
 
 
 void setaPortaRemotaPrincipal(void){
-    unsigned char num[10];
-    unsigned int valor;
+    char num[10];
+    int valor;
     
     if(bufferRxUSB[12] == '\r' && bufferRxUSB[13] == '\n'){
         memset(num, NULL, 10);
@@ -557,8 +806,8 @@ void setaPortaRemotaPrincipal(void){
 
 
 void setaPortaRemotaSecundaria(void){
-    unsigned char num[10];
-    unsigned int valor;
+    char num[10];
+    int valor;
     
     if(bufferRxUSB[12] == '\r' && bufferRxUSB[13] == '\n'){
         memset(num, NULL, 10);
@@ -586,8 +835,8 @@ void setaSsidWifi(void){
     ponteiro = 7;
     endereco = END_SSID_WIFI_0;
     
-    if(bufferRxUSB[17] == '\r' && bufferRxUSB[18] == '\n'){
-        for(ponteiro = 7; ponteiro < 17; ponteiro = ponteiro + 1){
+    if(bufferRxUSB[23] == '\r' && bufferRxUSB[24] == '\n'){
+        for(ponteiro = 7; ponteiro < 23; ponteiro = ponteiro + 1){
             EscreverNaEEprom(endereco, bufferRxUSB[ponteiro]);
             endereco = endereco + 1;
         }
@@ -605,8 +854,8 @@ void setaSenhaWifi(void){
     ponteiro = 7;
     endereco = END_SENHA_WIFI_0;
     
-    if(bufferRxUSB[17] == '\r' && bufferRxUSB[18] == '\n'){
-        for(ponteiro = 7; ponteiro < 17; ponteiro = ponteiro + 1){
+    if(bufferRxUSB[23] == '\r' && bufferRxUSB[24] == '\n'){
+        for(ponteiro = 7; ponteiro < 23; ponteiro = ponteiro + 1){
             EscreverNaEEprom(endereco, bufferRxUSB[ponteiro]);
             endereco = endereco + 1;
         }
@@ -662,6 +911,85 @@ void obtemSensibilidadeDaAntena(void){
     enviaRespostaAosComandosDeSetupUSB(mensagem, strlen(mensagem)); 
 }
 
+void obtemSensibilidadeDaAntena1(void){
+    char mensagem[50];
+    unsigned char valor;
+    
+    memset(mensagem, NULL, 50);
+    LerDadosDaEEprom(END_SENSIBILIDADE_DA_ANTENA_1, &valor);
+    sprintf(mensagem, "#OK,%d\r\n", valor);
+    enviaRespostaAosComandosDeSetupUSB(mensagem, strlen(mensagem)); 
+}
+
+void obtemSensibilidadeDaAntena2(void){
+    char mensagem[50];
+    unsigned char valor;
+    
+    memset(mensagem, NULL, 50);
+    LerDadosDaEEprom(END_SENSIBILIDADE_DA_ANTENA_2, &valor);
+    sprintf(mensagem, "#OK,%d\r\n", valor);
+    enviaRespostaAosComandosDeSetupUSB(mensagem, strlen(mensagem)); 
+}
+
+void obtemSensibilidadeDaAntena3(void){
+    char mensagem[50];
+    unsigned char valor;
+    
+    memset(mensagem, NULL, 50);
+    LerDadosDaEEprom(END_SENSIBILIDADE_DA_ANTENA_3, &valor);
+    sprintf(mensagem, "#OK,%d\r\n", valor);
+    enviaRespostaAosComandosDeSetupUSB(mensagem, strlen(mensagem)); 
+}
+
+void obtemSensibilidadeDaAntena4(void){
+    char mensagem[50];
+    unsigned char valor;
+    
+    memset(mensagem, NULL, 50);
+    LerDadosDaEEprom(END_SENSIBILIDADE_DA_ANTENA_4, &valor);
+    sprintf(mensagem, "#OK,%d\r\n", valor);
+    enviaRespostaAosComandosDeSetupUSB(mensagem, strlen(mensagem)); 
+}
+
+void obtemSensibilidadeDaAntena5(void){
+    char mensagem[50];
+    unsigned char valor;
+    
+    memset(mensagem, NULL, 50);
+    LerDadosDaEEprom(END_SENSIBILIDADE_DA_ANTENA_5, &valor);
+    sprintf(mensagem, "#OK,%d\r\n", valor);
+    enviaRespostaAosComandosDeSetupUSB(mensagem, strlen(mensagem)); 
+}
+
+void obtemSensibilidadeDaAntena6(void){
+    char mensagem[50];
+    unsigned char valor;
+    
+    memset(mensagem, NULL, 50);
+    LerDadosDaEEprom(END_SENSIBILIDADE_DA_ANTENA_6, &valor);
+    sprintf(mensagem, "#OK,%d\r\n", valor);
+    enviaRespostaAosComandosDeSetupUSB(mensagem, strlen(mensagem)); 
+}
+
+void obtemSensibilidadeDaAntena7(void){
+    char mensagem[50];
+    unsigned char valor;
+    
+    memset(mensagem, NULL, 50);
+    LerDadosDaEEprom(END_SENSIBILIDADE_DA_ANTENA_7, &valor);
+    sprintf(mensagem, "#OK,%d\r\n", valor);
+    enviaRespostaAosComandosDeSetupUSB(mensagem, strlen(mensagem)); 
+}
+
+void obtemSensibilidadeDaAntena8(void){
+    char mensagem[50];
+    unsigned char valor;
+    
+    memset(mensagem, NULL, 50);
+    LerDadosDaEEprom(END_SENSIBILIDADE_DA_ANTENA_8, &valor);
+    sprintf(mensagem, "#OK,%d\r\n", valor);
+    enviaRespostaAosComandosDeSetupUSB(mensagem, strlen(mensagem)); 
+}
 
 void obtemTempoParaInatividadeDaTagMonitorada(void){
     char mensagem[50];
@@ -738,12 +1066,17 @@ void obtemFrequenciaDeOperacao(void){
 
 void obtemIdDoLeitor(void){
     char mensagem[50];
+    unsigned char aux;
     
     memset(mensagem, NULL, 50);
-    LerDadosDaEEprom(END_ID_DO_LEITOR_0, &mensagem[0]);
-    LerDadosDaEEprom(END_ID_DO_LEITOR_1, &mensagem[1]);
-    LerDadosDaEEprom(END_ID_DO_LEITOR_2, &mensagem[2]);
-    LerDadosDaEEprom(END_ID_DO_LEITOR_3, &mensagem[3]);
+    LerDadosDaEEprom(END_ID_DO_LEITOR_0, &aux);
+    mensagem[0] = (char)aux;
+    LerDadosDaEEprom(END_ID_DO_LEITOR_1, &aux);
+    mensagem[1] = (char)aux;
+    LerDadosDaEEprom(END_ID_DO_LEITOR_2, &aux);
+    mensagem[2] = (char)aux;
+    LerDadosDaEEprom(END_ID_DO_LEITOR_3, &aux);
+    mensagem[3] = (char)aux;
     mensagem[4] = '\r';
     mensagem[5] = '\n';
     enviaRespostaAosComandosDeSetupUSB(mensagem, strlen(mensagem));    
@@ -782,7 +1115,7 @@ void obtemPortaRemotaPrincipal(void){
 
 void obtemPortaRemotaSecundaria(void){
     char mensagem[50];
-    unsigned int valor;
+    unsigned char valor;
     unsigned int numPorta;
     
     memset(mensagem, NULL, 50);
@@ -799,7 +1132,7 @@ void obtemPortaRemotaSecundaria(void){
 
 void obtemSsidWifi(void){
     char mensagem[50];
-    char str[16];
+    unsigned char str[16];
     unsigned int ponteiro;
     unsigned int endereco;
     
@@ -817,7 +1150,7 @@ void obtemSsidWifi(void){
 
 void obtemSenhaWifi(void){
     char mensagem[50];
-    char str[16];
+    unsigned char str[16];
     unsigned int ponteiro;
     unsigned int endereco;
     
@@ -835,7 +1168,7 @@ void obtemSenhaWifi(void){
 
 void obtemFimware(void){
     char mensagem[50];
-    sprintf(mensagem, "Firmware CTRP-PTL-ETH_1.0\r\n");
+    sprintf(mensagem, "Firmware %s\r\n",firmware);
     enviaRespostaAosComandosDeSetupUSB(mensagem, strlen(mensagem));
 }
 
@@ -871,12 +1204,9 @@ void enviaRespostaAosComandosDeSetupUSB(char dados[TAMANHO_BUFFER_COMANDOS_USB],
 
 
 void gravaAjusteDeCapacitoresNaMemoria(unsigned char endereco){
-    unsigned char num[10];
-    unsigned int valor;
-    unsigned char enderecoMemoria;
-    
-    //enderecoMemoria = endereco;
-        
+    char num[10];
+    int valor;
+            
     memset(num, NULL, 10);
     num[0] = bufferRxUSB[7];
     num[1] = bufferRxUSB[8];
@@ -922,8 +1252,8 @@ void limpaBufferRxUSB(void){
 
 
 char escreveIpNaMemoria(unsigned int endereco, unsigned char dado0, unsigned char dado1, unsigned char dado2){
-    unsigned char num[10];
-    unsigned int valor;
+    char num[10];
+    int valor;
     
     memset(num, NULL, 10);
     num[0] = dado0;
@@ -971,8 +1301,9 @@ void obtemIpRemoto(unsigned char endereco){
 }
 
 void obtemParametrosDaMemoria(void){
-    int endereco;
-    char vetor;
+    unsigned int endereco;
+    unsigned char vetor;
+    unsigned char aux;
     
     LerDadosDaEEprom(END_MODO_DE_OPERACAO, &modoDeOperacao);
     LerDadosDaEEprom(END_ATRASO_PARA_DEGRADAR_LEITURA, &atrasoParaDegradarLeitura);
@@ -984,7 +1315,7 @@ void obtemParametrosDaMemoria(void){
     LerDadosDaEEprom(END_AJUSTE_CAP0_ANTENA_1, &capAntena1[0]);
     LerDadosDaEEprom(END_AJUSTE_CAP1_ANTENA_1, &capAntena1[1]);
     LerDadosDaEEprom(END_AJUSTE_CAP2_ANTENA_1, &capAntena1[2]);
-    
+        
     LerDadosDaEEprom(END_AJUSTE_CAP0_ANTENA_2, &capAntena2[0]);
     LerDadosDaEEprom(END_AJUSTE_CAP1_ANTENA_2, &capAntena2[1]);
     LerDadosDaEEprom(END_AJUSTE_CAP2_ANTENA_2, &capAntena2[2]);
@@ -1013,14 +1344,69 @@ void obtemParametrosDaMemoria(void){
     LerDadosDaEEprom(END_AJUSTE_CAP1_ANTENA_8, &capAntena8[1]);
     LerDadosDaEEprom(END_AJUSTE_CAP2_ANTENA_8, &capAntena8[2]);
     
+    aux = 0;    
+    LerDadosDaEEprom(END_INTENSIDADE_REFLEXAO_ANTENA_1_MSB, &aux);
+    reflexaoAntena1 = (unsigned int)aux<<8;
+    aux = 0;  
+    LerDadosDaEEprom(END_INTENSIDADE_REFLEXAO_ANTENA_1_LSB, &aux);
+    reflexaoAntena1 |= (unsigned int)aux;
+    
+    aux = 0;
+    LerDadosDaEEprom(END_INTENSIDADE_REFLEXAO_ANTENA_2_MSB, &aux);
+    reflexaoAntena2 = (unsigned int)aux<<8;
+    aux = 0;  
+    LerDadosDaEEprom(END_INTENSIDADE_REFLEXAO_ANTENA_2_LSB, &aux);
+    reflexaoAntena2 |= (unsigned int)aux;
+    
+    aux = 0;
+    LerDadosDaEEprom(END_INTENSIDADE_REFLEXAO_ANTENA_3_MSB, &aux);
+    reflexaoAntena3 = (unsigned int)aux<<8;
+    aux = 0;  
+    LerDadosDaEEprom(END_INTENSIDADE_REFLEXAO_ANTENA_3_LSB, &aux);
+    reflexaoAntena3 |= (unsigned int)aux;
+    
+    aux = 0;
+    LerDadosDaEEprom(END_INTENSIDADE_REFLEXAO_ANTENA_4_MSB, &aux);
+    reflexaoAntena4 = (unsigned int)aux<<8;
+    aux = 0;  
+    LerDadosDaEEprom(END_INTENSIDADE_REFLEXAO_ANTENA_4_LSB, &aux);
+    reflexaoAntena4 |= (unsigned int)aux;
+    
+    aux = 0;
+    LerDadosDaEEprom(END_INTENSIDADE_REFLEXAO_ANTENA_5_MSB, &aux);
+    reflexaoAntena5 = (unsigned int)aux<<8;
+    aux = 0;  
+    LerDadosDaEEprom(END_INTENSIDADE_REFLEXAO_ANTENA_5_LSB, &aux);
+    reflexaoAntena5 |= (unsigned int)aux;
+    
+    aux = 0;
+    LerDadosDaEEprom(END_INTENSIDADE_REFLEXAO_ANTENA_6_MSB, &aux);
+    reflexaoAntena6 = (unsigned int)aux<<8;
+    aux = 0;  
+    LerDadosDaEEprom(END_INTENSIDADE_REFLEXAO_ANTENA_6_LSB, &aux);
+    reflexaoAntena6 |= (unsigned int)aux;
+    
+    aux = 0;
+    LerDadosDaEEprom(END_INTENSIDADE_REFLEXAO_ANTENA_7_MSB, &aux);
+    reflexaoAntena7 = (unsigned int)aux<<8;
+    aux = 0;  
+    LerDadosDaEEprom(END_INTENSIDADE_REFLEXAO_ANTENA_7_LSB, &aux);
+    reflexaoAntena7 |= (unsigned int)aux;
+    
+    aux = 0;
+    LerDadosDaEEprom(END_INTENSIDADE_REFLEXAO_ANTENA_8_MSB, &aux);
+    reflexaoAntena8 = (unsigned int)aux<<8;
+    aux = 0;  
+    LerDadosDaEEprom(END_INTENSIDADE_REFLEXAO_ANTENA_8_LSB, &aux);
+    reflexaoAntena8 |= (unsigned int)aux;
+        
     LerDadosDaEEprom(END_FREQUENCIA, &frequenciaDeOperacao);
     
     LerDadosDaEEprom(END_ID_DO_LEITOR_0, &idDoLeitor[0]);
     LerDadosDaEEprom(END_ID_DO_LEITOR_1, &idDoLeitor[1]);
     LerDadosDaEEprom(END_ID_DO_LEITOR_2, &idDoLeitor[2]);
     LerDadosDaEEprom(END_ID_DO_LEITOR_3, &idDoLeitor[3]);
-    
-    
+        
     LerDadosDaEEprom(END_IP_REMOTO_PRINCIPAL_0, &ipTemp[0]);
     LerDadosDaEEprom(END_IP_REMOTO_PRINCIPAL_1, &ipTemp[1]);
     LerDadosDaEEprom(END_IP_REMOTO_PRINCIPAL_2, &ipTemp[2]);
@@ -1033,14 +1419,16 @@ void obtemParametrosDaMemoria(void){
     LerDadosDaEEprom(END_IP_REMOTO_SECUNDARIO_3, &ipTemp[3]);
     sprintf(ipRemotoSecundario, "%d.%d.%d.%d", ipTemp[0], ipTemp[1], ipTemp[2], ipTemp[3]);
     
-    LerDadosDaEEprom(END_PORTA_REMOTA_PRINCIPAL_0, &portaRemotaPrincipal);
-    portaRemotaPrincipal = portaRemotaPrincipal << 8;
-    LerDadosDaEEprom(END_PORTA_REMOTA_PRINCIPAL_1, &portaRemotaPrincipal);
     
-    LerDadosDaEEprom(END_PORTA_REMOTA_SECUNDARIA_0, &portaRemotaSecundaria);
-    portaRemotaSecundaria = portaRemotaSecundaria << 8;
-    LerDadosDaEEprom(END_PORTA_REMOTA_SECUNDARIA_1, &portaRemotaSecundaria);
+    LerDadosDaEEprom(END_PORTA_REMOTA_PRINCIPAL_0, &aux);    
+    portaRemotaPrincipal = (int)aux << 8;
+    LerDadosDaEEprom(END_PORTA_REMOTA_PRINCIPAL_1, &aux);
+    portaRemotaPrincipal |= (int)aux;
     
+    LerDadosDaEEprom(END_PORTA_REMOTA_SECUNDARIA_0, &aux);
+    portaRemotaSecundaria = (int)aux << 8;
+    LerDadosDaEEprom(END_PORTA_REMOTA_SECUNDARIA_1, &aux);
+    portaRemotaSecundaria |= (int)aux;    
     
     memset(ssidWifi, 17, NULL);
     endereco = END_SSID_WIFI_0;
@@ -1055,11 +1443,23 @@ void obtemParametrosDaMemoria(void){
         LerDadosDaEEprom(endereco, &senhaWifi[vetor]);
         endereco = endereco + 1;
     }    
+    
+    LerDadosDaEEprom(END_SENSIBILIDADE_DA_ANTENA_1, &rssiMinAntena1);
+    LerDadosDaEEprom(END_SENSIBILIDADE_DA_ANTENA_2, &rssiMinAntena2);
+    LerDadosDaEEprom(END_SENSIBILIDADE_DA_ANTENA_3, &rssiMinAntena3);
+    LerDadosDaEEprom(END_SENSIBILIDADE_DA_ANTENA_4, &rssiMinAntena4);
+    LerDadosDaEEprom(END_SENSIBILIDADE_DA_ANTENA_5, &rssiMinAntena5);
+    LerDadosDaEEprom(END_SENSIBILIDADE_DA_ANTENA_6, &rssiMinAntena6);
+    LerDadosDaEEprom(END_SENSIBILIDADE_DA_ANTENA_7, &rssiMinAntena7);
+    LerDadosDaEEprom(END_SENSIBILIDADE_DA_ANTENA_8, &rssiMinAntena8);
 }
 
 
 void exibirParametrosObtidos(void){
     char mensagem[100];
+    
+    sprintf(mensagem, "INICIO\r\n");
+    enviaDadosParaUSBserial(mensagem, strlen(mensagem));
     
     sprintf(mensagem, "MODO DE OPERACAO:    %03d\r\n", modoDeOperacao);
     enviaDadosParaUSBserial(mensagem, strlen(mensagem));
@@ -1079,36 +1479,35 @@ void exibirParametrosObtidos(void){
     sprintf(mensagem, "NUM ANTENAS ATIVAS:  %03d\r\n", numeroDeAntenasAtivas);
     enviaDadosParaUSBserial(mensagem, strlen(mensagem));
     
-    sprintf(mensagem, "SINTONIA CAP ANT 1:  %03d, %03d, %03d\r\n", capAntena1[0], capAntena1[1], capAntena1[2]);
+    sprintf(mensagem, "SINTONIA CAP ANT 1:  %03d, %03d, %03d, %05u\r\n", capAntena1[0], capAntena1[1], capAntena1[2], reflexaoAntena1);
     enviaDadosParaUSBserial(mensagem, strlen(mensagem));
     
-    sprintf(mensagem, "SINTONIA CAP ANT 2:  %03d, %03d, %03d\r\n", capAntena2[0], capAntena2[1], capAntena2[2]);
+    sprintf(mensagem, "SINTONIA CAP ANT 2:  %03d, %03d, %03d, %05u\r\n", capAntena2[0], capAntena2[1], capAntena2[2], reflexaoAntena2);
     enviaDadosParaUSBserial(mensagem, strlen(mensagem));
     
-    sprintf(mensagem, "SINTONIA CAP ANT 3:  %03d, %03d, %03d\r\n", capAntena3[0], capAntena3[1], capAntena3[2]);
+    sprintf(mensagem, "SINTONIA CAP ANT 3:  %03d, %03d, %03d, %05u\r\n", capAntena3[0], capAntena3[1], capAntena3[2], reflexaoAntena3);
+    enviaDadosParaUSBserial(mensagem, strlen(mensagem));
+   
+    sprintf(mensagem, "SINTONIA CAP ANT 4:  %03d, %03d, %03d, %05u\r\n", capAntena4[0], capAntena4[1], capAntena4[2], reflexaoAntena4);
     enviaDadosParaUSBserial(mensagem, strlen(mensagem));
     
-    sprintf(mensagem, "SINTONIA CAP ANT 4:  %03d, %03d, %03d\r\n", capAntena4[0], capAntena4[1], capAntena4[2]);
+    sprintf(mensagem, "SINTONIA CAP ANT 5:  %03d, %03d, %03d, %05u\r\n", capAntena5[0], capAntena5[1], capAntena5[2], reflexaoAntena5);
     enviaDadosParaUSBserial(mensagem, strlen(mensagem));
     
-    sprintf(mensagem, "SINTONIA CAP ANT 5:  %03d, %03d, %03d\r\n", capAntena5[0], capAntena5[1], capAntena5[2]);
+    sprintf(mensagem, "SINTONIA CAP ANT 6:  %03d, %03d, %03d, %05u\r\n", capAntena6[0], capAntena6[1], capAntena6[2], reflexaoAntena6);
     enviaDadosParaUSBserial(mensagem, strlen(mensagem));
     
-    sprintf(mensagem, "SINTONIA CAP ANT 6:  %03d, %03d, %03d\r\n", capAntena6[0], capAntena6[1], capAntena6[2]);
+    sprintf(mensagem, "SINTONIA CAP ANT 7:  %03d, %03d, %03d, %05u\r\n", capAntena7[0], capAntena7[1], capAntena7[2], reflexaoAntena7);
     enviaDadosParaUSBserial(mensagem, strlen(mensagem));
     
-    sprintf(mensagem, "SINTONIA CAP ANT 7:  %03d, %03d, %03d\r\n", capAntena7[0], capAntena7[1], capAntena7[2]);
-    enviaDadosParaUSBserial(mensagem, strlen(mensagem));
-    
-    sprintf(mensagem, "SINTONIA CAP ANT 8:  %03d, %03d, %03d\r\n", capAntena8[0], capAntena8[1], capAntena8[2]);
+    sprintf(mensagem, "SINTONIA CAP ANT 8:  %03d, %03d, %03d, %05u\r\n", capAntena8[0], capAntena8[1], capAntena8[2], reflexaoAntena8);
     enviaDadosParaUSBserial(mensagem, strlen(mensagem));
     
     sprintf(mensagem, "FREQUENCIA OPERACAO: %02d\r\n", frequenciaDeOperacao);
     enviaDadosParaUSBserial(mensagem, strlen(mensagem));
     
     sprintf(mensagem, "ID DO LEITOR:        %c%c%c%c\r\n", idDoLeitor[0], idDoLeitor[1], idDoLeitor[2], idDoLeitor[3]);
-    enviaDadosParaUSBserial(mensagem, strlen(mensagem));
-    
+    enviaDadosParaUSBserial(mensagem, strlen(mensagem));    
     
     sprintf(mensagem, "IP REMOTO PRINC.:    %s\r\n", ipRemotoPrincipal);
     enviaDadosParaUSBserial(mensagem, strlen(mensagem));
@@ -1120,8 +1519,7 @@ void exibirParametrosObtidos(void){
     enviaDadosParaUSBserial(mensagem, strlen(mensagem));
     
     sprintf(mensagem, "PORTA REMOTA SEC.:   %05d\r\n", portaRemotaSecundaria);
-    enviaDadosParaUSBserial(mensagem, strlen(mensagem));
-    
+    enviaDadosParaUSBserial(mensagem, strlen(mensagem));    
     
     memset(mensagem, 100, NULL);
     sprintf(mensagem, "SSID WIFI:           %s\r\n", ssidWifi);
@@ -1131,6 +1529,35 @@ void exibirParametrosObtidos(void){
     sprintf(mensagem, "SENHA WIFI:          %s\r\n", senhaWifi);
     enviaDadosParaUSBserial(mensagem, strlen(mensagem));
     
+    sprintf(mensagem, "SENSIBILIDADE ANTENA 1:       %03d\r\n", rssiMinAntena1);
+    enviaDadosParaUSBserial(mensagem, strlen(mensagem));
+    
+    sprintf(mensagem, "SENSIBILIDADE ANTENA 2:       %03d\r\n", rssiMinAntena2);
+    enviaDadosParaUSBserial(mensagem, strlen(mensagem));
+    
+    sprintf(mensagem, "SENSIBILIDADE ANTENA 3:       %03d\r\n", rssiMinAntena3);
+    enviaDadosParaUSBserial(mensagem, strlen(mensagem));
+    
+    sprintf(mensagem, "SENSIBILIDADE ANTENA 4:       %03d\r\n", rssiMinAntena4);
+    enviaDadosParaUSBserial(mensagem, strlen(mensagem));
+    
+    sprintf(mensagem, "SENSIBILIDADE ANTENA 5:       %03d\r\n", rssiMinAntena5);
+    enviaDadosParaUSBserial(mensagem, strlen(mensagem));
+    
+    sprintf(mensagem, "SENSIBILIDADE ANTENA 6:       %03d\r\n", rssiMinAntena6);
+    enviaDadosParaUSBserial(mensagem, strlen(mensagem));
+    
+    sprintf(mensagem, "SENSIBILIDADE ANTENA 7:       %03d\r\n", rssiMinAntena7);
+    enviaDadosParaUSBserial(mensagem, strlen(mensagem));
+    
+    sprintf(mensagem, "SENSIBILIDADE ANTENA 8:       %03d\r\n", rssiMinAntena8);
+    enviaDadosParaUSBserial(mensagem, strlen(mensagem));
+    
+    sprintf(mensagem, "FIRMWARE:     %s\r\n", firmware);
+    enviaDadosParaUSBserial(mensagem, strlen(mensagem));    
+    
+    sprintf(mensagem, "FIM\r\n");
+    enviaDadosParaUSBserial(mensagem, strlen(mensagem));
 }
 
 
