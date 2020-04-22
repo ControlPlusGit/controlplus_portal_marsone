@@ -1411,7 +1411,7 @@ int main(void){
         //buscaTagPorVarreduraDeCapacitores();
         //enviaDadosParaUSBserial(char mensagem[100], int tamanho);
         
-        initAutoSintoniaPorReflexao();
+        //initAutoSintoniaPorReflexao();
         
         char mensagem[50];
         
