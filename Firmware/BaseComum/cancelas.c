@@ -5,9 +5,11 @@
 
 
 int ContadorDeTempoDasCancelas;
+int ContadorDeTempoParaManterCancelaDestravada;
 
 void iniciaCancelas(void){
     ContadorDeTempoDasCancelas = 0;
+    ContadorDeTempoParaManterCancelaDestravada = 0;
 }
 
 void operacoesEmTickParaCancelas(void){
@@ -20,6 +22,9 @@ void operacoesEmTickParaCancelas(void){
         if (ContadorDeTempoDasCancelas == 0){
             destravaCancelaDoPortal();
         }
+    }
+    if(ContadorDeTempoParaManterCancelaDestravada > 0){
+        ContadorDeTempoParaManterCancelaDestravada = ContadorDeTempoParaManterCancelaDestravada - 1;
     }
 }
 
@@ -49,6 +54,7 @@ void destravaCancelaDoPortal(void){
     liga_rele_externo1();
     liga_rele_externo2();
     ContadorDeTempoDasCancelas = 0;
+    ContadorDeTempoParaManterCancelaDestravada = 3000;
 }
 
 void travaCancelaDoPortalSemTemporizacao(void){

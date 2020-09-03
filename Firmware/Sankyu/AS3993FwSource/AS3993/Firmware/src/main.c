@@ -168,9 +168,7 @@ int ContadorParaRemocaoDeTabelaDeExclusao;
 extern int timeoutRespostaKeepAlive;
 extern unsigned char statusDeConexaoTCP;
 
-//extern char ipRemotoPrincipal[15];
-//extern char ipRemotoSecundario[15];
-
+extern int ContadorDeTempoParaManterCancelaDestravada;
 
 void systemInit(void);
 int trataOEnvioDaTabelaDeExclusaoEmCodigoCorrente(int QuantiaDeDados);
@@ -1608,6 +1606,9 @@ int main(void){
                     //as3993SetSensitivity(SensibilidadeDaAntena);
                     if (total_parcial) {
                         setaSinaleiro(SINALEIRO_AMARELO);
+                        if(ContadorDeTempoParaManterCancelaDestravada == 0){
+                            travaCancelaDoPortal();
+                        }
                         liga_led_tag();
                         liga_buzzer();
                         //liga_rele3();
