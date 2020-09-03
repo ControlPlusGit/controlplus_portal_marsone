@@ -454,6 +454,9 @@ void uart1Tx (u8 dado){
 }
 
 void uart2Tx (u8 dado){
+    if(debugInterfaceEthernet_Silent || debugInterfaceEthernet){
+        //uart3Tx(dado);
+    }
     U2TXREG = dado;
     //while( (U2STA & 0x0100) );
     while( (U2STA & 0x0200) );
@@ -888,11 +891,16 @@ void INTERRUPT _U2RXInterrupt (void){ // Porta usada para receber dados de ETH
             EsperaChegadaDeDados = 0;
         }
     }
+    //bufferRxEthernet[posicao] = '\0';
     zeraPonteiroDoBufferNaMaquinaDeEstados_DataHora();
     //enviaDadosParaEthPortais(bufferRxEthernet, strlen(bufferRxEthernet));
     //memset(bufferRxEthernet, NULL, 20);
-    
-    
+    int posicaoAux = 0;
+    if(debugInterfaceEthernet || debugInterfaceEthernet_Silent){
+        while(posicaoAux < posicao){
+            uart3Tx(bufferRxEthernet[posicaoAux++]);         
+        }        
+    }    
     
     IEC0bits.T1IE = 1;
     IEC0bits.T2IE = 1;
@@ -970,7 +978,9 @@ void INTERRUPT _U3RXInterrupt (void){ //Porta usada para receber dados da USB
             EsperaChegadaDeDados = 0;
         }
     }
-        
+    if(posicao > 0){
+        bufferRxUSB[posicao] = 0;
+    }
     IEC0bits.T1IE = 1;
     IEC0bits.T2IE = 1;
     IEC0bits.T3IE = 1;

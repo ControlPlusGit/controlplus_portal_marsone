@@ -1413,7 +1413,7 @@ int main(void){
         
         //initAutoSintoniaPorReflexao();
         
-        char mensagem[50];
+        char mensagem[100];
         
         
         //obtemParametrosSalvosNaEeprom();

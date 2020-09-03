@@ -1,4 +1,4 @@
-
+ 
 #include "setup_usb.h"
 #include "i2c.h"
 #include <stddef.h>
@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "uart_driver.h"
+#include <timer.h>
 
 void realizaAutoSintoniaDosCapacitores(int Metodo);
 
@@ -203,10 +204,46 @@ void commandHandlerPortaUSB(void){
                     
                 case CMD_SENSIBILIDADE_ANTENA_8:
                     setaSensibilidadeAntena8();
-                    break;                
+                    break;    
+                case CMD_HABILITA_DEBUG_WIFI:
+                    retornaNok();
+                    break;
+                case CMD_DESABILITA_DEBUG_WIFI:
+                    retornaNok();
+                    break;
+                case CMD_ENVIA_MSG_INTERFACE_WIFI:
+                    retornaNok();
+                    break;       
+                case CMD_HABILITA_DEBUG_WIFI_SILENT:
+                    retornaNok();
+                    break;
+                case CMD_DESABILITA_DEBUG_WIFI_SILENT:
+                    retornaNok();
+                    break;
+                case CMD_HABILITA_LOG_CONECTIVIDADE_WIFI:
+                    retornaNok();
+                    break;
+                case CMD_DESABILITA_LOG_CONECTIVIDADE_WIFI:
+                    retornaNok();
+                    break;  
+                case CMD_HABILITA_DEBUG_ETHERNET:
+                    habilitaDebugInterfaceEthernetViaUSB();
+                    break; 
+                case CMD_DESABILITA_DEBUG_ETHERNET:
+                    desabilitaDebugInterfaceEthernetViaUSB();
+                    break; 
+                case CMD_ENVIA_MSG_INTERFACE_ETHERNET:
+                    enviaComandoParaInterfaceEthernet();
+                    break; 
+                case CMD_HABILITA_DEBUG_ETHERNET_SILENT:
+                    habilitaDebugInterfaceEthernetSilentViaUSB();
+                    break; 
+                case CMD_DESABILITA_DEBUG_ETHERNET_SILENT:
+                    desabilitaDebugInterfaceEthernetSilentViaUSB();
+                    break; 
             }   
         }
-        
+
         // VERIFICA SE É COMANDO PARA OBTER PARAMETROS SALVOS (QUERY)
         if(bufferRxUSB[6] == '?'){
             switch(comando){
@@ -347,6 +384,39 @@ void commandHandlerPortaUSB(void){
     } 
 }
 
+unsigned int debugInterfaceEthernet = 0;
+unsigned int debugInterfaceEthernet_Silent = 0;
+
+void habilitaDebugInterfaceEthernetViaUSB(void){
+    debugInterfaceEthernet = 1;
+    bloqueiaMaquinaDeEstados_DataHora();   
+    retornaOk();
+}
+void desabilitaDebugInterfaceEthernetViaUSB(void){
+    debugInterfaceEthernet = 0;
+    habilitaMaquinaDeEstados_DataHora();     
+    retornaOk();
+}
+
+void habilitaDebugInterfaceEthernetSilentViaUSB(void){
+    debugInterfaceEthernet_Silent = 1;
+    retornaOk();
+}
+void desabilitaDebugInterfaceEthernetSilentViaUSB(void){
+    debugInterfaceEthernet_Silent = 0;    
+    retornaOk();
+}
+
+void enviaComandoParaInterfaceEthernet(void){
+    int i=7; // primeira posição após #CMDXX;
+    if(debugInterfaceEthernet){        
+        while(bufferRxUSB[i] != 0){
+            uart2Tx(bufferRxUSB[i]);
+            i++;
+        }          
+    }
+    //retornaOk();
+}
 
 void setaModoDeOperacao(void){
     char num[10];

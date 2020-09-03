@@ -43,6 +43,7 @@
 #include "C:\projetos\control-plus\Firmware\Sankyu\AS3993FwSource\AS3993\Firmware\src\global.h"
 //#include "C:\Projetos\control-plus\Firmware\BaseComum\cancelas.h"
 #include "as3993.h"
+#include "setup_usb.h"
 
 extern TunerConfiguration mainTuner;
 
@@ -119,12 +120,14 @@ void buscaTagPorVarreduraDeCapacitores(void){
 }
 
 void enviaDadosParaUSBserial(char mensagem[100], int tamanho){
-    int contador;
-    for (contador = 0; contador < tamanho; contador = contador + 1){
-        //uart4Tx(Mensagem[SubContador]);
-        uart3Tx(mensagem[contador]); //Porta USB Serial
-        //uart2Tx(Mensagem[SubContador]); // Porta Ethernet
-        //uart1Tx(Mensagem[SubContador]);
+    int contador;   
+    if(!debugInterfaceEthernet){
+        for (contador = 0; contador < tamanho; contador = contador + 1){
+            //uart4Tx(Mensagem[SubContador]);
+            uart3Tx(mensagem[contador]); //Porta USB Serial
+            //uart2Tx(Mensagem[SubContador]); // Porta Ethernet
+            //uart1Tx(Mensagem[SubContador]);
+        }  
     }
 }
 

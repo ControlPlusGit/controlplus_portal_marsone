@@ -11,7 +11,7 @@
 #include "ajuste_cap.h"
 
 
-#define FIRMWARE "FWPORTAL_V01R00"
+#define FIRMWARE "FWPORTAL_V01R01"
 
 #define TAMANHO_ENDERECO_IP 15
 #define TAMANHO_BUFFER_COMANDOS_USB 100
@@ -162,6 +162,18 @@ enum ComandosInterfaceAjustes{
     CMD_SENSIBILIDADE_ANTENA_6,
     CMD_SENSIBILIDADE_ANTENA_7,
     CMD_SENSIBILIDADE_ANTENA_8,
+    CMD_HABILITA_DEBUG_WIFI,
+    CMD_DESABILITA_DEBUG_WIFI,
+    CMD_ENVIA_MSG_INTERFACE_WIFI,              // #CMD37
+    CMD_HABILITA_DEBUG_WIFI_SILENT,            // #CMD38
+    CMD_DESABILITA_DEBUG_WIFI_SILENT,          // #CMD39
+    CMD_HABILITA_LOG_CONECTIVIDADE_WIFI,       // #CMD40
+    CMD_DESABILITA_LOG_CONECTIVIDADE_WIFI,     // #CMD41
+    CMD_HABILITA_DEBUG_ETHERNET,               // #CMD42
+    CMD_DESABILITA_DEBUG_ETHERNET,             // #CMD43
+    CMD_ENVIA_MSG_INTERFACE_ETHERNET,          // #CMD44
+    CMD_HABILITA_DEBUG_ETHERNET_SILENT,        // #CMD45
+    CMD_DESABILITA_DEBUG_ETHERNET_SILENT,      // #CMD46
 };
 
 /*
@@ -171,7 +183,10 @@ typedef struct // Cria uma STRUCT para armazenar os dados de endereço de memori
 } Memoria; // Define o nome do novo tipo criado
 */
 
+extern unsigned int debugInterfaceEthernet;
+extern unsigned int debugInterfaceEthernet_Silent;
 
+extern char bufferDebugUSB[TAMANHO_BUFFER_COMANDOS_USB];
 extern char bufferRxUSB[TAMANHO_BUFFER_COMANDOS_USB];
 
 extern unsigned char modoDeOperacao;
