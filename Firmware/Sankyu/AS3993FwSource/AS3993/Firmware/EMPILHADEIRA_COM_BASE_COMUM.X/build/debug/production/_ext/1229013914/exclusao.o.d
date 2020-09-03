@@ -20,4 +20,5 @@ build/debug/production/_ext/1229013914/exclusao.o:  \
  C:/Projetos/control-plus/Firmware/BaseComum//eth.h  \
  C:/Projetos/control-plus/Firmware/BaseComum/../../../control-plus/Firmware/Sankyu/AS3993FwSource/AS3993/Firmware/src/global.h  \
  ../src/platform.h  \
-../src/Compiler.h 
+../src/Compiler.h  \
+

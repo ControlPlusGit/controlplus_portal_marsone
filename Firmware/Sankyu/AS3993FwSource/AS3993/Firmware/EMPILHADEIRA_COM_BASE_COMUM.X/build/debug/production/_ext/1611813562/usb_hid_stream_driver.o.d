@@ -21,4 +21,5 @@ build/debug/production/_ext/1611813562/usb_hid_stream_driver.o:  \
 ../src/usb.h  \
 ../src/usb_function_hid.h  \
  ../src/ams_types.h  \
-../src/logger.h 
+../src/logger.h  \
+

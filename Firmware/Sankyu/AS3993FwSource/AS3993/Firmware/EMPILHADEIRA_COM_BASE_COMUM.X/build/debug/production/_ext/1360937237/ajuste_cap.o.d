@@ -38,4 +38,5 @@ build/debug/production/_ext/1360937237/ajuste_cap.o:  \
  C:/Projetos/control-plus/Firmware/BaseComum/portal.h  \
  C:/projetos/control-plus/Firmware/Sankyu/AS3993FwSource/AS3993/Firmware/src/global.h  \
  ../src/setup_usb.h  \
-../src/ajuste_cap.h 
+../src/ajuste_cap.h  \
+

@@ -2044,13 +2044,14 @@ void geraStringDoRegistroDeMovimento (TipoRegistroDeTagEmPortal Tag){
 #endif 
             }
         }
+       
         enviaMovimentoParaWiegand(Tag.Epc, Tag.estado, Tag.AntenaDaUltimaLeitura);
         
         setaSinaleiro(SINALEIRO_VERMELHO);
         //setaSinaleiro(SINALEIRO_CANCELADO);
         
         
-        if (Tag.LeuOutroAntena != SEM_REGISTRO_DE_ANTENA){
+        if (Tag.LeuOutroAntena != SEM_REGISTRO_DE_ANTENA || GerouEvento == 0){
             acionaBeepDeCancelamento();
             travaCancelaDoPortal();
         }

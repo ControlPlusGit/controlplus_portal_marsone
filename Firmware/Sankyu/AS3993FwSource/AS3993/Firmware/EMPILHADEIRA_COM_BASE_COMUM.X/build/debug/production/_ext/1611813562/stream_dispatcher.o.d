@@ -23,4 +23,5 @@ build/debug/production/_ext/1611813562/stream_dispatcher.o:  \
  ../src/ams_types.h  \
 ../src/i2c_driver.h  \
 ../src/spi_driver.h  \
- ../src/logger.h 
+ ../src/logger.h  \
+

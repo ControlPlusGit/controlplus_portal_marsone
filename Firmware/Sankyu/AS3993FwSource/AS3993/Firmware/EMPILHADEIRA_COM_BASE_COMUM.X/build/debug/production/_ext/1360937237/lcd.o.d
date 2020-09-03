@@ -8,4 +8,5 @@ build/debug/production/_ext/1360937237/lcd.o:  \
  ../src/GenericTypeDefs.h  \
 ../src/p24FJ256DA210.h  \
 ../src/platform.h  \
- ../src/Compiler.h 
+ ../src/Compiler.h  \
+

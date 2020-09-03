@@ -12,4 +12,5 @@ build/debug/production/_ext/1360937237/platform.o:  \
 ../src/spi_driver.h  \
  ../src/PPS.h  \
 ../src/PIC24F_periph_features.h  \
-../src/GenericTypeDefs.h 
+../src/GenericTypeDefs.h  \
+

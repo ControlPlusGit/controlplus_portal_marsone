@@ -8,4 +8,5 @@ build/debug/production/_ext/1360937237/onewire.o:  \
 ../src/as3993_config.h  \
  ../src/ams_types.h  \
 ../src/timer.h  \
-../src/onewire.h 
+../src/onewire.h  \
+

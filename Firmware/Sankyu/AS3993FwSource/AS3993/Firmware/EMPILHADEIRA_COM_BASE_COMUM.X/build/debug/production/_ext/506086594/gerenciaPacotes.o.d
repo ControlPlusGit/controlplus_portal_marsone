@@ -9,4 +9,5 @@ build/debug/production/_ext/506086594/gerenciaPacotes.o:  \
  ../src/GenericTypeDefs.h  \
 ../src/p24FJ256DA210.h  \
 ../src/uart_driver.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/eth.h 
+ C:/Projetos/control-plus/Firmware/BaseComum/eth.h  \
+

@@ -21,4 +21,5 @@ build/debug/production/_ext/1657780921/eth.o:  \
 ../src/ajuste_cap.h  \
  ../src/setup_usb.h  \
 ../src/ajuste_cap.h  \
- ../../../../../../../BaseComum/cancelas.h 
+ ../../../../../../../BaseComum/cancelas.h  \
+

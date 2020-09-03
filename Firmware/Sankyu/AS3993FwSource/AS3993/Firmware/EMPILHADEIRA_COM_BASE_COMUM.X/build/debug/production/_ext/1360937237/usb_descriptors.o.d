@@ -9,4 +9,5 @@ build/debug/production/_ext/1360937237/usb_descriptors.o:  \
 ../src/usb_device.h  \
 ../src/usb_hal.h  \
  ../src/usb_hal_pic24.h  \
-../src/usb_function_hid.h 
+../src/usb_function_hid.h  \
+

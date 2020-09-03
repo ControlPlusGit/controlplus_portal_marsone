@@ -32,4 +32,5 @@ build/debug/production/_ext/1360937237/empilhadeira.o:  \
  C:/Projetos/control-plus/Firmware/BaseComum/wifi.h  \
  C:/Projetos/control-plus/Firmware/BaseComum//eth.h  \
 ../src/setup_usb.h  \
- ../src/ajuste_cap.h 
+ ../src/ajuste_cap.h  \
+

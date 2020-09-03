@@ -10,4 +10,5 @@ build/debug/production/_ext/1229013914/rtc.o:  \
  ../src/ams_types.h  \
 ../src/GenericTypeDefs.h  \
  C:/Projetos/control-plus/Firmware/BaseComum/gprs.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/i2c.h 
+ C:/Projetos/control-plus/Firmware/BaseComum/i2c.h  \
+

@@ -12,4 +12,5 @@ build/debug/production/_ext/1360937237/lista.o:  \
  ../src/Compiler.h  \
 ../src/lcd.h  \
 ../src/auto_teste.h  \
-../src/lista.h 
+../src/lista.h  \
+

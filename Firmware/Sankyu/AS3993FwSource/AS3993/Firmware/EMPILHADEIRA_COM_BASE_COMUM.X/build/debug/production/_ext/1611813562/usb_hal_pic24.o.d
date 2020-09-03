@@ -8,4 +8,5 @@ build/debug/production/_ext/1611813562/usb_hal_pic24.o:  \
 ../src/usb_ch9.h  \
 ../src/usb_device.h  \
  ../src/usb_hal.h  \
-../src/usb_hal_pic24.h 
+../src/usb_hal_pic24.h  \
+

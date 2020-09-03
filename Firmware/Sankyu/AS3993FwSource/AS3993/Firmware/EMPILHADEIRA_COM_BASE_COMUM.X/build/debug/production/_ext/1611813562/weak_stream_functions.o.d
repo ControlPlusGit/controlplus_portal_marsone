@@ -10,4 +10,5 @@ build/debug/production/_ext/1611813562/weak_stream_functions.o:  \
 ../src/Compiler.h  \
  ../src/stream_driver.h  \
 ../src/stream_dispatcher.h  \
-../src/stream_driver.h 
+../src/stream_driver.h  \
+

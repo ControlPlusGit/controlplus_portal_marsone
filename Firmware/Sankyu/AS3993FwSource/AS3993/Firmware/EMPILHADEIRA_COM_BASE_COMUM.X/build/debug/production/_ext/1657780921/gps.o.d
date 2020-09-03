@@ -14,4 +14,5 @@ build/debug/production/_ext/1657780921/gps.o:  \
  ../../../../../../../BaseComum/gprs.h  \
  ../../../../../../../BaseComum/i2c.h  \
  ../../../../../../../BaseComum/rtc.h  \
- ../../../../../../../BaseComum/perifericos.h 
+ ../../../../../../../BaseComum/perifericos.h  \
+

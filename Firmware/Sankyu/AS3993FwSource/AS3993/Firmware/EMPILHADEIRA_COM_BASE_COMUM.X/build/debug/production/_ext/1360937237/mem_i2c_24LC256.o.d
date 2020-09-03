@@ -7,4 +7,5 @@ build/debug/production/_ext/1360937237/mem_i2c_24LC256.o:  \
 ../src/timer.h  \
  ../src/p24FJ256DA210.h  \
 ../src/config_i2c3.h  \
-../src/mem_i2c_24LC256.h 
+../src/mem_i2c_24LC256.h  \
+

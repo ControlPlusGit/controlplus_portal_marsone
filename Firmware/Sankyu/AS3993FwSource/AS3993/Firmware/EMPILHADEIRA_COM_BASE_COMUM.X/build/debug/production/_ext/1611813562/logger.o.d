@@ -5,4 +5,5 @@ build/debug/production/_ext/1611813562/logger.o:  \
 ../src/GenericTypeDefs.h  \
 ../src/uart_driver.h  \
  ../src/errno.h  \
-../src/p24FJ256DA210.h 
+../src/p24FJ256DA210.h  \
+

@@ -15,4 +15,5 @@ build/debug/production/_ext/1360937237/tuner.o:  \
 ../src/timer.h  \
  ../src/spi_driver.h  \
 ../src/appl_commands.h  \
-../src/as3993.h 
+../src/as3993.h  \
+
