@@ -25,5 +25,4 @@ build/debug/production/_ext/1657780921/wifi.o:  \
 ../src/p24FJ256DA210.h  \
 ../src/Compiler.h  \
  ../src/global.h  \
-../src/as3993_config.h  \
-
+../src/as3993_config.h 

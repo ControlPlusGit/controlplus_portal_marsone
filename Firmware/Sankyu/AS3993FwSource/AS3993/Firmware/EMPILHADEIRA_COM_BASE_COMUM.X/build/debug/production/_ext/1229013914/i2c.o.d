@@ -21,5 +21,4 @@ build/debug/production/_ext/1229013914/i2c.o:  \
 ../src/tuner.h  \
  C:/Projetos/control-plus/Firmware/BaseComum/i2c.h  \
  C:/Projetos/control-plus/Firmware/BaseComum/perifericos.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/rtc.h  \
-
+ C:/Projetos/control-plus/Firmware/BaseComum/rtc.h 

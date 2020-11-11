@@ -19,5 +19,4 @@ build/debug/production/_ext/1229013914/autoteste.o:  \
  C:/Projetos/control-plus/Firmware/BaseComum/gps.h  \
  C:/Projetos/control-plus/Firmware/BaseComum/i2c.h  \
  C:/Projetos/control-plus/Firmware/BaseComum/onewire.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/rtc.h  \
-
+ C:/Projetos/control-plus/Firmware/BaseComum/rtc.h 

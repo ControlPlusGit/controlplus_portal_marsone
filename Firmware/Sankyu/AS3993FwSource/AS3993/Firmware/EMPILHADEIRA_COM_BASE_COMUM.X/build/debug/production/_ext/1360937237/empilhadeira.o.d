@@ -29,8 +29,5 @@ build/debug/production/_ext/1360937237/empilhadeira.o:  \
  C:/Projetos/control-plus/Firmware/BaseComum/portal.h  \
  C:/Projetos/control-plus/Firmware/Sankyu/AS3993FwSource/AS3993/Firmware/src/tuner.h  \
  C:/Projetos/control-plus/Firmware/BaseComum/i2c.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/wifi.h  \
- C:/Projetos/control-plus/Firmware/BaseComum//eth.h  \
 ../src/setup_usb.h  \
- ../src/ajuste_cap.h  \
-
+ ../src/ajuste_cap.h 

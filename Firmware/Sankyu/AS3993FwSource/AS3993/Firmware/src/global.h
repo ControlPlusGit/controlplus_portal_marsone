@@ -69,12 +69,13 @@
 #ifdef JUIZ_DE_FORA
 
 #define PORTAL 1//PRODUTO
+
 //#define EMPILHADEIRA 1//PRODUTO
 
 #ifdef PORTAL
 //Configuracoes extras
 #define PORTAL_COM_ETH 1
-#define WIFI 1
+//#define WIFI 1
 //#define INTERFACE_DE_AJUSTES 1
 
 //#define DUAS_ANTENAS 1//CONFIGURACAO

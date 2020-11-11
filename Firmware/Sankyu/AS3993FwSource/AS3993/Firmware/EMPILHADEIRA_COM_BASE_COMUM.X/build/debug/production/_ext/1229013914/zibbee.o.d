@@ -21,5 +21,4 @@ build/debug/production/_ext/1229013914/zibbee.o:  \
  C:/Projetos/control-plus/Firmware/BaseComum/mem_i2c_24LC256.h  \
  C:/Projetos/control-plus/Firmware/BaseComum/rtc.h  \
  C:/Projetos/control-plus/Firmware/BaseComum/portal.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/exclusao.h  \
-
+ C:/Projetos/control-plus/Firmware/BaseComum/exclusao.h 

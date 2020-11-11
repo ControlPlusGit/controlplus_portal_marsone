@@ -16,5 +16,4 @@ build/debug/production/_ext/1360937237/FSM_DataHora.o:  \
 ../src/rtc.h  \
 ../src/ajuste_cap.h  \
  ../../../common/include/../../../../../../BaseComum/portal.h  \
- ../src/setup_usb.h  \
-
+ ../src/setup_usb.h 

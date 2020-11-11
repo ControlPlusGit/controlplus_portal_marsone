@@ -31,5 +31,4 @@ build/debug/production/_ext/1229013914/portal.o:  \
  ../src/appl_commands.h  \
  C:/Projetos/control-plus/Firmware/BaseComum/cancelas.h  \
  C:/Projetos/control-plus/Firmware/Sankyu/AS3993FwSource/AS3993/Firmware/src/setup_usb.h  \
- C:/Projetos/control-plus/Firmware/Sankyu/AS3993FwSource/AS3993/Firmware/src//ajuste_cap.h  \
-
+ C:/Projetos/control-plus/Firmware/Sankyu/AS3993FwSource/AS3993/Firmware/src//ajuste_cap.h 

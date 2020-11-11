@@ -17,5 +17,4 @@ build/debug/production/_ext/1229013914/wiegand.o:  \
  ../src/global.h  \
 ../src/timer.h  \
 ../src/appl_commands.h  \
-../src/tuner.h  \
-
+../src/tuner.h 

@@ -54,5 +54,4 @@ build/debug/production/_ext/1360937237/main.o:  \
  C:/projetos/control-plus/Firmware/Sankyu/AS3993FwSource/AS3993/Firmware/src/global.h  \
  C:/Projetos/control-plus/Firmware/BaseComum/cancelas.h  \
  ../src/ajuste_cap.h  \
-../src/setup_usb.h  \
-
+../src/setup_usb.h 

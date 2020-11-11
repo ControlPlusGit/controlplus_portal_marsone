@@ -9,5 +9,4 @@ build/debug/production/_ext/1360937237/setup_usb.o:  \
 ../src/timer.h  \
  ../src/global.h  \
 ../src/as3993_config.h  \
-../src/p24FJ256DA210.h  \
-
+../src/p24FJ256DA210.h 

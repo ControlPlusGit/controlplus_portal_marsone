@@ -1435,7 +1435,11 @@ int main(void){
                 
         atualizaHoraEData();
 
-        comecaInvetorio();
+        //comecaInvetorio();
+        Frequencia = frequenciaDeOperacao;
+        SetaFrequencias();
+        //setaSensibilidade(sensibilidade);
+        //comecaInvetorio();
         
         //NumeroDeAntenasLidas = 8;
         
@@ -1464,7 +1468,7 @@ int main(void){
             acoesEmCodigoCorrentePortalFrango();
             
             //CommandHandleModuloEthernet();
-            enviaKeepAliveParaEthernet(1);
+            //enviaKeepAliveParaEthernet(1);
             checaNecessidadeDeTrocaDeIPRemoto();
             
             //sprintf(mensagem, "Gerando Eventos de Passagem\r\n");
@@ -1587,21 +1591,31 @@ int main(void){
             };
             int Antena;
 
+            comecaInvetorio();
+            
             for (antena_atual = 1; antena_atual < (NumeroDeAntenasLidas + 1); antena_atual = antena_atual + 1) {
-                for (contador = 1; contador < (RepeticaoNaLeitura + 1); contador = contador + 1) {
+                
+                sel_led(0, 0);
+                Antena = TABELA_DE_ANTEAS[antena_atual];                  
+                sel_led(Antena, 1);
+                sel_antena(Antena);
+                ajustaSintoniaEmFuncaoDaAntenaEmPortal(antena_atual);
+                setaSensibilidade(sensibilidade);
+                
+                for (contador = 1; contador < (repeticaoNaLeitura + 1); contador = contador + 1) {
                     sel_led(0, 0);
                     
                     //Antena = antena_atual;
-                    Antena = TABELA_DE_ANTEAS[antena_atual];
+                    //Antena = TABELA_DE_ANTEAS[antena_atual];
                     
                     sel_led(Antena, 1);
                     sel_antena(Antena);
                     //ajustaFrequenciaEmFuncaoDaAntena(Antena);
-                    if (ModoDeOperacao == OPERACAO_COM_MULTIPLAS_LEITURAS)
+                    if (modoDeOperacao == OPERACAO_COM_MULTIPLAS_LEITURAS)
                         total_parcial = inventorioSimplificadoComPausa();
-                    if (ModoDeOperacao == OPERACAO_LEITURAS_INITERRUPTAS)
+                    if (modoDeOperacao == OPERACAO_LEITURAS_INITERRUPTAS)
                         total_parcial = inventorioSimplificado();
-                    if (ModoDeOperacao == OPERACAO_COM_LEITURA_UNICA)
+                    if (modoDeOperacao == OPERACAO_COM_LEITURA_UNICA)
                         total_parcial = inventoryGen2();
                     //as3993SetSensitivity(SensibilidadeDaAntena);
                     if (total_parcial) {
@@ -1626,11 +1640,11 @@ int main(void){
                     }
                 }
                 sel_led(0, 0);
-                if (ModoDeOperacao == OPERACAO_COM_LEITURA_UNICA)TerminaInvetorio();
+                if (modoDeOperacao == OPERACAO_COM_LEITURA_UNICA)TerminaInvetorio();
                 //TerminaInvetorio();
             }
-            if (AtrasoParaDegradarLeitura != 0) {
-                delay_ms(AtrasoParaDegradarLeitura);
+            if (atrasoParaDegradarLeitura != 0) {
+                delay_ms(atrasoParaDegradarLeitura);
             }
             realizaBeepDeComandoFrango();
         }
@@ -2146,8 +2160,9 @@ void tick(void) {
     ContadorParaUmSegundo = ContadorParaUmSegundo + 1;
     if (ContadorParaUmSegundo > 1000){
         ContadorParaUmSegundo = 0;
+        enviaKeepAliveParaEthernet(1);
         contaIntervaloDeKeepAlive();
-        contaIntevaloEntreTrocaDeRemoteIP();
+        contaIntevaloEntreTrocaDeRemoteIP();        
         //alertaSemConexaoComEthernet();
     }
     

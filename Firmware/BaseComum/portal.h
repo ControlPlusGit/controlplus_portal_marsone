@@ -13,7 +13,6 @@
 #include <string.h>
 #include <time.h>
 
-
 #ifdef	__cplusplus
 extern "C" {
 #endif
@@ -47,9 +46,9 @@ extern "C" {
 
     
     
-#define OPERACAO_COM_LEITURA_UNICA          0
-#define OPERACAO_COM_MULTIPLAS_LEITURAS     1
-#define OPERACAO_LEITURAS_INITERRUPTAS      2
+#define OPERACAO_COM_LEITURA_UNICA          1
+#define OPERACAO_COM_MULTIPLAS_LEITURAS     2
+#define OPERACAO_LEITURAS_INITERRUPTAS      3
     
     
 #define LIMITE_PARA_ATRASO_PARA_DEGRADAR_LEITURA 100
@@ -187,7 +186,7 @@ void obtemParametrosSalvosNaEeprom(void);
 void enviaNovosjustesDeWifi (void);
 void ajustesDoLeitor (unsigned char Dado, int Interface);
 void ajustaFrequenciaEmFuncaoDaAntena (int Antena);
-
+void ajustaSintoniaEmFuncaoDaAntenaEmPortal(int antena);
 
 #define TEMPO_PARA_REENVIO_DA_LISTA_DE_SAIDA 100
 

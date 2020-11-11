@@ -2953,6 +2953,8 @@ void logicaDeEmpilhadeiraV2 (void){
             trataMeiosDeComunicacao();
             operacoesParaRtcEmCodigoCorrente();
             
+            comecaInvetorio();
+            
             QuantiaDePedestresLidos = obterPedestres(AntenaASerLida);
             if (QuantiaDePedestresLidos > 0){
                 QuantiaDePedestresLidos = filtraOsPedestresObtidos();

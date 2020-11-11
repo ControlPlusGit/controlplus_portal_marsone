@@ -14,5 +14,4 @@ build/debug/production/_ext/1611813562/spi_driver.o:  \
 ../src/timer.h  \
 ../src/global.h  \
 ../src/as3993_config.h  \
- ../src/p24FJ256DA210.h  \
-
+ ../src/p24FJ256DA210.h 

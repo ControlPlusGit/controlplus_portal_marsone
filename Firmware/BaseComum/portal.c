@@ -1017,18 +1017,18 @@ void obtemParamentrosSalvosFrango (void){
     
     
     
-    ModoDeOperacao = OPERACAO_LEITURAS_INITERRUPTAS;
-    
-
-    Capacitores[0] = 0; 
-    Capacitores[1] = 4;
-    Capacitores[2] = 3;
-    tunerInit(&mainTuner);
-    
-    ModoDeOperacao = OPERACAO_LEITURAS_INITERRUPTAS;
-    
-    TempoParaInatividadeDeTagMonitorada = 10; //7
-
+//    ModoDeOperacao = OPERACAO_LEITURAS_INITERRUPTAS;
+//    
+//
+//    Capacitores[0] = 0; 
+//    Capacitores[1] = 4;
+//    Capacitores[2] = 3;
+//    tunerInit(&mainTuner);
+//    
+//    ModoDeOperacao = OPERACAO_LEITURAS_INITERRUPTAS;
+//    
+//    TempoParaInatividadeDeTagMonitorada = 10; //7
+      TempoParaInatividadeDeTagMonitorada = 3000;
     
     //goto SEM_AJUSTES_FIXOS;
     
@@ -1080,9 +1080,9 @@ void obtemParamentrosSalvosFrango (void){
     //Capacitores[2] = 4;
 
     //Ajuste 2
-    Capacitores[0] = 0; 
-    Capacitores[1] = 4;
-    Capacitores[2] = 3;
+//    Capacitores[0] = 0; 
+//    Capacitores[1] = 4;
+//    Capacitores[2] = 3;
 
     //Ajuste 3
     //Capacitores[0] = 0; 
@@ -1091,7 +1091,7 @@ void obtemParamentrosSalvosFrango (void){
      
     //10 para portal alpha com rede de JF em 15/11/19
     //2 para operacao normal
-    RepeticaoNaLeitura = 5;//2
+//    RepeticaoNaLeitura = 5;//2
     
     //salvaParametrosFrango();
 
@@ -1132,13 +1132,21 @@ void obtemParamentrosSalvosFrango (void){
     Capacitores[0] = 0; 
     Capacitores[1] = 4;
     Capacitores[2] = 3;
-
+    */
+    
+    Capacitores[0] = 15; 
+    Capacitores[1] = 7;
+    Capacitores[2] = 9;
+    
+    /*
     //Ajuste 3
     //Capacitores[0] = 0; 
     //Capacitores[1] = 9;
     //Capacitores[2] = 7;
-
-
+     */
+    RepeticaoNaLeitura = 10;
+    
+    /*
     RepeticaoNaLeitura = 2;
     //RepeticaoNaLeitura = 1;
     */
@@ -1796,7 +1804,8 @@ void registraTagDePortal (unsigned char *Tag, int Posicao, int Antena, int Anten
     RegistroDeTagEmPortal[Posicao].AntenaDaPrimeiraLeitura = Antena;
     RegistroDeTagEmPortal[Posicao].AntenaDaUltimaLeitura = SEM_REGISTRO_DE_ANTENA;
     //RegistroDeTagEmPortal[Posicao].TempoParaInatividade = TEMPO_PARA_INATIVIDADE_DE_TAG_MONITORADA;
-    RegistroDeTagEmPortal[Posicao].TempoParaInatividade = TempoParaInatividadeDeTagMonitorada;
+    //RegistroDeTagEmPortal[Posicao].TempoParaInatividade = TempoParaInatividadeDeTagMonitorada;
+    RegistroDeTagEmPortal[Posicao].TempoParaInatividade = tempoParaInatividadeDaTagMonitorada;
     RegistroDeTagEmPortal[Posicao].MarcaDePosicaoOcupada = 1;
     ContadorDeTagMonitoradas = ContadorDeTagMonitoradas + 1;
     
@@ -1855,7 +1864,8 @@ void registraAUltimaAntenaQueATagFoiLida(int Posicao, int Antena, int AntenaReal
     }
     
     //RegistroDeTagEmPortal[Posicao].TempoParaInatividade = TEMPO_PARA_INATIVIDADE_DE_TAG_MONITORADA;
-    RegistroDeTagEmPortal[Posicao].TempoParaInatividade = TempoParaInatividadeDeTagMonitorada;
+    //RegistroDeTagEmPortal[Posicao].TempoParaInatividade = TempoParaInatividadeDeTagMonitorada;
+    RegistroDeTagEmPortal[Posicao].TempoParaInatividade = tempoParaInatividadeDaTagMonitorada;
 
     AtualizaEstadoDaTag(Posicao, Antena);
 
@@ -2375,7 +2385,7 @@ void lidaComComandoDOPCPrototipo(unsigned char Dado, int Interface){
             
             if ((Dado == 5) || (Dado == 15) || (Dado == 30)/* || (dado == 60)*/){
                 TempoParaInatividadeDeTagMonitorada = Dado;
-                //TempoParaInatividadeDeTagMonitorada = TempoParaInatividadeDeTagMonitorada * 1000;
+                TempoParaInatividadeDeTagMonitorada = TempoParaInatividadeDeTagMonitorada * 1000;
                 salvaParametrosFrango();
                 acionaBeepDeComandoFrango(1);
             }
@@ -3121,6 +3131,38 @@ void ajustaFrequenciaEmFuncaoDaAntena (int Antena){
     }*/
 }
 
+void ajustaSintoniaEmFuncaoDaAntenaEmPortal(int antena){
+    
+    switch(antena){
+        case 1:
+            sintonizaCapacitores(&mainTuner, capAntena1[0], capAntena1[1], capAntena1[2]);
+            break;
+        case 2:
+            sintonizaCapacitores(&mainTuner, capAntena2[0], capAntena2[1], capAntena2[2]);
+            break;
+        case 3:
+            sintonizaCapacitores(&mainTuner, capAntena3[0], capAntena3[1], capAntena3[2]);
+            break;
+        case 4:
+            sintonizaCapacitores(&mainTuner, capAntena4[0], capAntena4[1], capAntena4[2]);
+            break;
+        case 5:
+            sintonizaCapacitores(&mainTuner, capAntena5[0], capAntena5[1], capAntena5[2]);
+            break;
+        case 6:
+            sintonizaCapacitores(&mainTuner, capAntena6[0], capAntena6[1], capAntena6[2]);
+            break;
+        case 7:
+            sintonizaCapacitores(&mainTuner, capAntena7[0], capAntena7[1], capAntena7[2]);
+            break;
+        case 8:
+            sintonizaCapacitores(&mainTuner, capAntena8[0], capAntena8[1], capAntena8[2]);
+            break;
+        default:
+            sintonizaCapacitores(&mainTuner, 0, 0, 0);
+            break;
+    }
+}
 
 void testaEnvio(void){
     (void)sprintf((char *)RegistroDeTagEmPortal[0].Epc, "123");
