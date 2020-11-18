@@ -1,1 +1,0 @@
-gdb gerenciaDePacotes.exe

@@ -1,6 +1,0 @@
-Para realizar os testes da comunicacao tem que seguir esses passos:
-
-1 - Rodar o avalidorDeJuizDeForaGuiv4.py
-2 - Rodar o coletor.py
-3 - Rodar o gerenciadorDePacotes.exe
-4 - Acompanhar os eventos registrados em todos os softwares
