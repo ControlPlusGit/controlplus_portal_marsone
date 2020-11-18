@@ -1,47 +1,4 @@
 /*
- *****************************************************************************
- * Copyright by ams AG                                                       *
- * All rights are reserved.                                                  *
- *                                                                           *
- * IMPORTANT - PLEASE READ CAREFULLY BEFORE COPYING, INSTALLING OR USING     *
- * THE SOFTWARE.                                                             *
- *                                                                           *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS       *
- * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT         *
- * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS         *
- * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT  *
- * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,     *
- * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT          *
- * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,     *
- * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY     *
- * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT       *
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE     *
- * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.      *
- *****************************************************************************
- */
-
-/** @file
- * @brief Functions which handle commands received via USB or UART.
- *
- * This file contains all functions for processing commands received via either USB or UART.
- * It implements the parsing of reports data, executing the requested command
- * and sending data back.
- *
- * A description of the protocol between host and FW is included in the
- * documentation for commands().
- * The documentation of the various appl command functions (call*) will only discuss the
- * payload of the command data and will not include the header information for
- * every transmitted packet, as this is already described for commands().
- *
- * \n
- * The frequency hopping is also done in this file before calling protocol/device
- * specific functions.
- *
- * @author Ulrich Herrmann
- * @author Bernhard Breinbauer
- */
-
-/*
  ******************************************************************************
  * INCLUDES
  ******************************************************************************

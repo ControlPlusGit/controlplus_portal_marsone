@@ -1,4 +1,3 @@
-
 #include "cancelas.h"
 
 int ContadorDeTempoDasCancelas;

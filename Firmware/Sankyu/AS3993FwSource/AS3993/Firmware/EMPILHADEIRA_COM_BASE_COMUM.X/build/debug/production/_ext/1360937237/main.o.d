@@ -46,12 +46,10 @@ build/debug/production/_ext/1360937237/main.o:  \
  C:/Projetos/control-plus/Firmware/BaseComum/rtc.h  \
  C:/Projetos/control-plus/Firmware/BaseComum/exclusao.h  \
 ../src/global.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/autoteste.h  \
-../src/wifi.h  \
- C:/Projetos/control-plus/software/fifo/gerenciaPacotes.h  \
+ ../src/wifi.h  \
+C:/Projetos/control-plus/software/fifo/gerenciaPacotes.h  \
  C:/Projetos/control-plus/Firmware/BaseComum/portal.h  \
- C:/projetos/control-plus/Firmware/Sankyu/AS3993FwSource/AS3993/Firmware/src/global.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/cancelas.h  \
+../src/cancelas.h  \
  ../src/ajuste_cap.h  \
 ../src/setup_usb.h  \
 ../src/i2c.h  \

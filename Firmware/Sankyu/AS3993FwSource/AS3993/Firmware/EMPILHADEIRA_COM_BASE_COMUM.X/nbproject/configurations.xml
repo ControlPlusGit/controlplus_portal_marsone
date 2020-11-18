@@ -67,7 +67,6 @@
       <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/i2c.h</itemPath>
       <itemPath>C:/Projetos/control-plus/software/fifo/fifo.h</itemPath>
       <itemPath>C:/Projetos/control-plus/software/fifo/gerenciaPacotes.h</itemPath>
-      <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/autoteste.H</itemPath>
       <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/rtc.h</itemPath>
       <itemPath>../src/ajuste_cap.h</itemPath>
       <itemPath>../src/FSM_DataHora.h</itemPath>
@@ -126,7 +125,6 @@
         <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/config_i2c3.c</itemPath>
         <itemPath>C:/Projetos/control-plus/software/fifo/fifo.c</itemPath>
         <itemPath>C:/Projetos/control-plus/software/fifo/gerenciaPacotes.c</itemPath>
-        <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/autoteste.c</itemPath>
         <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/rtc.c</itemPath>
         <itemPath>../src/eth.c</itemPath>
         <itemPath>../src/cancelas.c</itemPath>
