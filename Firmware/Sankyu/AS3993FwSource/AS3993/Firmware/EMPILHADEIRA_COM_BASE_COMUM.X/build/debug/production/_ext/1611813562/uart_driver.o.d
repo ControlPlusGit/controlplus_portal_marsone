@@ -17,8 +17,8 @@ build/debug/production/_ext/1611813562/uart_driver.o:  \
  C:/Projetos/control-plus/Firmware/BaseComum/zigbee.h  \
 ../src/timer.h  \
  ../src/p24FJ256DA210.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/wifi.h  \
- C:/Projetos/control-plus/Firmware/BaseComum//eth.h  \
+ C:/projetos/control-plus/Firmware/Sankyu/AS3993FwSource/AS3993/Firmware/src/wifi.h  \
+ C:/projetos/control-plus/Firmware/Sankyu/AS3993FwSource/AS3993/Firmware/src//eth.h  \
  C:/Projetos/control-plus/Firmware/BaseComum/eth.h  \
  C:/Projetos/control-plus/software/fifo/gerenciaPacotes.h  \
  C:/Projetos/control-plus/Firmware/BaseComum/portal.h  \

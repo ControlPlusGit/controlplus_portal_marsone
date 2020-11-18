@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "C:\Projetos\BaseComum\eth.h"
+#include "eth.h"
 #include "lcd.h"
 #include "as3993_config.h"
 #include "platform.h"
@@ -32,7 +32,7 @@
 #include "C:\Projetos\control-plus\Firmware\BaseComum\rtc.h"
 #include "C:\Projetos\control-plus\Firmware\BaseComum\exclusao.h"
 #include "C:\Projetos\control-plus\Firmware\BaseComum\autoteste.h"
-#include "C:\Projetos\control-plus\Firmware\BaseComum\wifi.h"
+#include "wifi.h"
 //#include "C:\Projetos\control-plus\Firmware\BaseComum\eth.h"
 #include "C:\Projetos\control-plus\software\fifo\gerenciaPacotes.h" 
 #include "C:\Projetos\control-plus\Firmware\BaseComum\portal.h"
@@ -600,7 +600,7 @@ char ReservaDeEventos[TAMANHO_DA_RESERVA_DE_EVENTO];
 int ContadorDaReservaDeEventos;
 
 void repassaAsMensagensDeMovimentoDosPortaisParaOSars(void) {
-    int Contador;
+    /*int Contador;
     if (TimeOutEthPortal >= TIMEOUT_ETH_PORTAIS) {
         if (ContadorDaReservaDeEventos > 0) {
             //(void)memcpy(BufferDeSaida, ReservaEthPortais, ContadorReservaEthPortais);
@@ -612,7 +612,7 @@ void repassaAsMensagensDeMovimentoDosPortaisParaOSars(void) {
             }
             //resetNaReservaDeDadosDaEth();
         }
-    }
+    }*/
 }
 
 void coletaEventosDaEth(void){
@@ -647,10 +647,10 @@ void coletaEventosDaEth(void){
 }
 
 void repasseDeEventoParaOSars(void){
-    if (ContadorDaReservaDeEventos > 0){
+    /*if (ContadorDaReservaDeEventos > 0){
         //enviaFluxoDeDadosPorWifi("192.168.1.200", 8000, ReservaDeEventos, ContadorDaReservaDeEventos);
         enviaFluxoDeDadosPorWifi("10.159.158.10", 8000, ReservaDeEventos, ContadorDaReservaDeEventos);
-    }
+    }*/
 }
 
 void repasseDeEventoParaOOutroLeitorAlfa(void){
@@ -689,17 +689,17 @@ void descartaEventoColetado(void){
 }
 
 int enviaTabelaDeExclusaoParaUmaEmpilhadeira(int Indice){
-    extern const char TABELA_COM_OS_IPS_DAS_EMPILHADEIRAS[QUANTIA_MAXIMA_DE_IPS_CADASTRADOS][TAMANHO_MAXIMO_STRING_IP];
-    extern char __attribute__((far)) ReservaDeEnvioDaUartDeWifi[TAMANHO_DA_RESERVA];
-    extern int QuantiaDeDadosParaEnviarPorWifiPorInterrupcao;
+    /*extern const char TABELA_COM_OS_IPS_DAS_EMPILHADEIRAS[QUANTIA_MAXIMA_DE_IPS_CADASTRADOS][TAMANHO_MAXIMO_STRING_IP];
+    //extern char __attribute__((far)) ReservaDeEnvioDaUartDeWifi[TAMANHO_DA_RESERVA];
+    //extern int QuantiaDeDadosParaEnviarPorWifiPorInterrupcao;
 
 
     if (strlen(TABELA_COM_OS_IPS_DAS_EMPILHADEIRAS[Indice]) > 0){
         atualizaTabelaDeExclusaoParaEnvioPorWifi();
-        /*
+        
         disparaOEnvioDeFLuxoDeDadosPorWifi((char *)TABELA_COM_OS_IPS_DAS_EMPILHADEIRAS[Indice]
                 , 9000, QuantiaDeDadosParaEnviarPorWifiPorInterrupcao);
-        */
+        
         disparaOEnvioDeFLuxoDeDadosPorWifi((char *)TABELA_COM_OS_IPS_DAS_EMPILHADEIRAS[Indice]
                 , 8000, QuantiaDeDadosParaEnviarPorWifiPorInterrupcao);
 
@@ -711,10 +711,12 @@ int enviaTabelaDeExclusaoParaUmaEmpilhadeira(int Indice){
         return 0;
     }
     return -1;
+     */ 
+    return 0;
 }
 
 int trataOEnvioDaTabelaDeExclusaoEmCodigoCorrente(int QuantiaDeDados){
-    static int ContadorDeEnvio;
+    /*static int ContadorDeEnvio;
     static int QuantiaDeDadosHaEnviar;
     int ContadorDePassadasDeEnvio;
     extern char __attribute__((far)) ReservaDeEnvioDaUartDeWifi[TAMANHO_DA_RESERVA];
@@ -743,11 +745,12 @@ int trataOEnvioDaTabelaDeExclusaoEmCodigoCorrente(int QuantiaDeDados){
             }
         }
     }
-    return -1;
+    return -1;*/
+    return 0;
 }
 
 void maquinaDeEnvioDeDadosPorWifi2(void) {
-    lidaComATrocaDePortalAlpha();
+    /*lidaComATrocaDePortalAlpha();
     trataRecepcaoDeDadosDeZigBee(0);
     confereAConexaoDoWifi();
 #ifdef PODE_SER_ALPHA    
@@ -759,15 +762,15 @@ void maquinaDeEnvioDeDadosPorWifi2(void) {
     
     //lidaComATrocaDePortalAlpha();
 
-    /*
+    
     coletaEventosDaEth();
     if (disponivelParaSerOAlpha() < 1){
         //coletaEventosDaEth();
         repasseDeEventoParaOSars();
         // repasseDeEventoParaOOutroLeitorAlfa();
     }
-    descartaEventoColetado();
-    */
+    descaraEventoColetado();
+    
     
     //if (pacoteSendoEnviadoPelaUartDeWifi() == 0){
     //if (trataOEnvioDaTabelaDeExclusaoEmCodigoCorrente(0) == 0){
@@ -847,7 +850,8 @@ SAIDA:
         if (EstadoDeTarefa >= 4)EstadoDeTarefa = 0;
         if (EstadoDeTarefa < 0)EstadoDeTarefa = 0;
     }
-#endif 
+#endif
+     */  
 }
 
 //******************************************************************************

@@ -17,7 +17,7 @@
 #include "C:\Projetos\control-plus\Firmware\BaseComum\exclusao.h"
 #include "C:\Projetos\control-plus\software\fifo\fifo.h"
 #include "portal.h"
-#include "C:\Projetos\control-plus\Firmware\BaseComum\wifi.h"
+#include "../Sankyu/AS3993FwSource/AS3993/Firmware/src/wifi.h"
 #include "../../../control-plus/Firmware/Sankyu/AS3993FwSource/AS3993/Firmware/src/global.h"
 #include "platform.h"
 
@@ -183,7 +183,7 @@ int envioDeTabelaDeExclusao (void){
 }
 
 int atualizaTabelaDeExclusaoParaEnvioPorWifi (void){
-    unsigned int CheckSum;
+    /*unsigned int CheckSum;
     int Tamanho;
     int Contador;
     int Rascunho;
@@ -192,11 +192,11 @@ int atualizaTabelaDeExclusaoParaEnvioPorWifi (void){
     TabelaDeExclusaoOcupadoPorEnvio = 1;
     resetaELimpaAReservaDeEnvioPorWifi();
     
-    /*
+    
     if (tempoDeSilencioNoZigBee() < TEMPO_MAXIMO_DE_SILENCIO_DO_ZIGBEE){
         return -1;
     }
-    */
+    
     
     EuSouOAlphaDosPortais = 1;
     retornaComCheckSumDaTabelaDeExclusao(&CheckSum, &Tamanho);
@@ -236,7 +236,7 @@ int atualizaTabelaDeExclusaoParaEnvioPorWifi (void){
    
     desliga_led_zig();
     TabelaDeExclusaoOcupadoPorEnvio = 0;
-    
+    */
     return 0;
 }
 

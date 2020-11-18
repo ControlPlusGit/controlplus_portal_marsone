@@ -15,6 +15,6 @@ build/debug/production/_ext/1360937237/FSM_DataHora.o:  \
 ../src/i2c.h  \
 ../src/rtc.h  \
 ../src/ajuste_cap.h  \
- ../../../common/include/../../../../../../BaseComum/portal.h  \
+ ../../../common/firmware/microchip/include/../../../../../../BaseComum/portal.h  \
  ../src/../../../../../BaseComum/eth.h  \
 ../src/setup_usb.h 

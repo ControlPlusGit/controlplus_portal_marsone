@@ -1,4 +1,6 @@
+
 #include "as3993_public.h"
+#include "../Sankyu/AS3993FwSource/AS3993/Firmware/src/wifi.h"
 //#include "varal.h"
 #include "timer.h"
 //#include "i2c.h"
@@ -24,10 +26,10 @@
 #include "perifericos.h"
 #include "C:\Projetos\control-plus\Firmware\BaseComum\varal.h"
 #include "C:\Projetos\control-plus\Firmware\BaseComum\eth.h"
-#include "C:\Projetos\control-plus\Firmware\BaseComum\wifi.h"
+
 #include "appl_commands.h"
 //#include "C:\projetos\control-plus\Firmware\Sankyu\080116\Sankyu\AS3993FwSource\AS3993\Firmware\src\empilhadeira.h"
-#include "C:\Projetos\control-plus\Firmware\BaseComum\cancelas.h"
+#include "C:\Projetos\control-plus\Firmware\\Sankyu\AS3993FwSource\AS3993\Firmware\src\cancelas.h"
 #include "C:\Projetos\control-plus\Firmware\Sankyu\AS3993FwSource\AS3993\Firmware\src\setup_usb.h"
 
 
@@ -156,9 +158,9 @@ void limpaComandoObtidoDoPC(void){
 }
 
 void trataComandoRecebidoDoPCEmCodigoCorrente(void){
-    char Rascunho[50];
+    /*char Rascunho[50];
     
-    confereSeTemUmModuloPresente();
+    confereSeTemUmModuloPresentef();
     
     if (ComandoObtidoPorUmPC.PodeTratar == 0){
         if (ComandoObtidoPorUmPC.Comando == 0xB0){
@@ -208,6 +210,7 @@ void trataComandoRecebidoDoPCEmCodigoCorrente(void){
         
         limpaComandoObtidoDoPC();
     }
+     */ 
 }
 
 
@@ -699,7 +702,7 @@ void salvaParametrosFrango (void){
 
 
 void enviaNovosjustesDeWifi (void){
-    int Tamanho = 0;
+    /*int Tamanho = 0;
     
     Tamanho = strlen(SsidWifi);
     if (Tamanho > 0){
@@ -707,30 +710,30 @@ void enviaNovosjustesDeWifi (void){
         enviaFluxoDeDadosParaUartWifi(SsidWifi, strlen(SsidWifi));
         memset(SsidWifi, 0, TAMANHO_MAXIMO_DO_TEXT_SSID);
         delay_ms(1000);
-    }
+    }*/
 }
 
 void salvaSSIDDoWifi (char *Texto){
-    char Comando[50];
+    /*char Comando[50];
     //enviaPacoteParaOEsp8266('AT+CWJAP_DEF="controlup1","controlup"')
     sprintf(Comando, "AT+CWJAP_DEF=%s\r\n", Texto);
     //enviaFluxoDadosPorInterrupcaoDeTX(Comando, strlen(Comando));
     enviaFluxoDeDadosPorPolling(Comando, strlen(Comando));
     //EscreveArray(13, Texto, (strlen(Texto) + 1));
     //sprintf(SsidWifi, "%s", Texto);
-    //mudaOSSIDESenha();
+    //mudaOSSIDESenha();*/
 }
 
 void resetNoWifi (void){
-    char Comando[50];
+    /*char Comando[50];
     sprintf(Comando, "\r\nAT+RST\r\n");
-    enviaFluxoDeDadosPorPolling(Comando, strlen(Comando));
+    enviaFluxoDeDadosPorPolling(Comando, strlen(Comando));*/
 }
 
 void salvaSenhaDoWifi (char *Texto){
-    EscreveArray(POSICAO_SENHA_WIFI, Texto, strlen(Texto));
+    /*EscreveArray(POSICAO_SENHA_WIFI, Texto, strlen(Texto));
     sprintf(SenhaWifi, "%s",  Texto);
-    mudaOSSIDESenha();
+    mudaOSSIDESenha();*/
 }
 
 void leOSSIDESenhaDoWifi(void){
@@ -2062,7 +2065,7 @@ void lidaComComandoDOPCPrototipo(unsigned char Dado, int Interface){
             if (Dado == 0xAF){
                 //ComandoDaSerial = Dado;
                 //estadoSerialFrango = ESPERANDO_PRIMEIRO_PARAMENTRO_SERIAL_FRANGO;
-                enviaFluxoPorPortaSelecionada(MeuIpWifi, strlen(MeuIpWifi), Interface);
+                //enviaFluxoPorPortaSelecionada(MeuIpWifi, strlen(MeuIpWifi), Interface);
                 acionaBeepDeComandoFrango(1);
             }
             

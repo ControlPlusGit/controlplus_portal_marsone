@@ -28,10 +28,6 @@
 #include "C:\Projetos\control-plus\Firmware\Sankyu\AS3993FwSource\AS3993\Firmware\src\tuner.h"
 #include "C:\Projetos\control-plus\Firmware\BaseComum\i2c.h"
 
-#ifdef WIFI 
-#include "C:\Projetos\control-plus\Firmware\BaseComum\wifi.h"
-#endif
-
 #include "tuner.h"
 #include "appl_commands.h"
 

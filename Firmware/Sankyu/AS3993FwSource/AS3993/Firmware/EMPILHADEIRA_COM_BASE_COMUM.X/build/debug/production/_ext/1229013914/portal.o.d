@@ -10,8 +10,10 @@ build/debug/production/_ext/1229013914/portal.o:  \
 ../src/platform.h  \
 ../src/p24FJ256DA210.h  \
  ../src/Compiler.h  \
-../src/timer.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/i2c.h  \
+ C:/Projetos/control-plus/Firmware/BaseComum/../Sankyu/AS3993FwSource/AS3993/Firmware/src/wifi.h  \
+ C:/Projetos/control-plus/Firmware/BaseComum/../Sankyu/AS3993FwSource/AS3993/Firmware/src/eth.h  \
+ ../src/timer.h  \
+C:/Projetos/control-plus/Firmware/BaseComum/i2c.h  \
  C:/Projetos/control-plus/Firmware/BaseComum/wiegand.h  \
  C:/Projetos/control-plus/Firmware/BaseComum/onewire.h  \
  ../src/uart_driver.h  \
@@ -26,9 +28,9 @@ build/debug/production/_ext/1229013914/portal.o:  \
  C:/Projetos/control-plus/Firmware/BaseComum/perifericos.h  \
  C:/Projetos/control-plus/Firmware/BaseComum/varal.h  \
  C:/Projetos/control-plus/Firmware/BaseComum/eth.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/wifi.h  \
- C:/Projetos/control-plus/Firmware/BaseComum//eth.h  \
- ../src/appl_commands.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/cancelas.h  \
+../src/appl_commands.h  \
+ C:/Projetos/control-plus/Firmware//Sankyu/AS3993FwSource/AS3993/Firmware/src/cancelas.h  \
+ C:/Projetos/control-plus/Firmware//Sankyu/AS3993FwSource/AS3993/Firmware/src//perifericos.h  \
+ C:/Projetos/control-plus/Firmware//Sankyu/AS3993FwSource/AS3993/Firmware/src//eth.h  \
  C:/Projetos/control-plus/Firmware/Sankyu/AS3993FwSource/AS3993/Firmware/src/setup_usb.h  \
  C:/Projetos/control-plus/Firmware/Sankyu/AS3993FwSource/AS3993/Firmware/src//ajuste_cap.h 

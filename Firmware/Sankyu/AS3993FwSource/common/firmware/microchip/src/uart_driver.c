@@ -54,7 +54,7 @@
 #include "empilhadeira.h"
 #include "C:\Projetos\control-plus\Firmware\BaseComum\zigbee.h"
 #include "timer.h"
-#include "C:\Projetos\control-plus\Firmware\BaseComum\wifi.h"
+#include "C:\projetos\control-plus\Firmware\Sankyu\AS3993FwSource\AS3993\Firmware\src\wifi.h"
 #include "C:\Projetos\control-plus\Firmware\BaseComum\eth.h"
 #include "C:\Projetos\control-plus\software\fifo\gerenciaPacotes.h"
 #include "C:\Projetos\control-plus\Firmware\BaseComum\portal.h"

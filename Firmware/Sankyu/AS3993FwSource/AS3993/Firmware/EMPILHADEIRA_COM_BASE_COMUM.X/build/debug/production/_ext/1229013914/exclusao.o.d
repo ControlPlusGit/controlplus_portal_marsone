@@ -16,8 +16,8 @@ build/debug/production/_ext/1229013914/exclusao.o:  \
  C:/Projetos/control-plus/Firmware/BaseComum/exclusao.h  \
 ../src/global.h  \
  C:/Projetos/control-plus/software/fifo/fifo.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/wifi.h  \
- C:/Projetos/control-plus/Firmware/BaseComum//eth.h  \
+ C:/Projetos/control-plus/Firmware/BaseComum/../Sankyu/AS3993FwSource/AS3993/Firmware/src/wifi.h  \
+ C:/Projetos/control-plus/Firmware/BaseComum/../Sankyu/AS3993FwSource/AS3993/Firmware/src/eth.h  \
  C:/Projetos/control-plus/Firmware/BaseComum/../../../control-plus/Firmware/Sankyu/AS3993FwSource/AS3993/Firmware/src/global.h  \
  ../src/platform.h  \
 ../src/Compiler.h 

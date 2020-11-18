@@ -69,14 +69,14 @@
       <itemPath>C:/Projetos/control-plus/software/fifo/gerenciaPacotes.h</itemPath>
       <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/autoteste.H</itemPath>
       <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/rtc.h</itemPath>
-      <itemPath>../../../../../../../BaseComum/gps.h</itemPath>
-      <itemPath>../../../../../../../BaseComum/wifi.h</itemPath>
-      <itemPath>../../../../../../../BaseComum/eth.h</itemPath>
-      <itemPath>../../../../../../../BaseComum/cancelas.h</itemPath>
       <itemPath>../src/ajuste_cap.h</itemPath>
       <itemPath>../src/FSM_DataHora.h</itemPath>
       <itemPath>../src/setup_usb.h</itemPath>
       <itemPath>../src/empilhadeira.h</itemPath>
+      <itemPath>../src/eth.h</itemPath>
+      <itemPath>../src/gps.h</itemPath>
+      <itemPath>../src/wifi.h</itemPath>
+      <itemPath>../src/cancelas.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LibraryFiles"
                    displayName="Library Files"
@@ -128,10 +128,8 @@
         <itemPath>C:/Projetos/control-plus/software/fifo/gerenciaPacotes.c</itemPath>
         <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/autoteste.c</itemPath>
         <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/rtc.c</itemPath>
-        <itemPath>../../../../../../../BaseComum/gps.c</itemPath>
-        <itemPath>../../../../../../../BaseComum/wifi.c</itemPath>
-        <itemPath>../../../../../../../BaseComum/eth.c</itemPath>
-        <itemPath>../../../../../../../BaseComum/cancelas.c</itemPath>
+        <itemPath>../src/eth.c</itemPath>
+        <itemPath>../src/cancelas.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="Especifico" projectFiles="true">
         <itemPath>../src/lcd.c</itemPath>
@@ -361,6 +359,7 @@
         <property key="UART 3" value="true"/>
         <property key="UART 4" value="true"/>
         <property key="UCNFG1" value="true"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>
