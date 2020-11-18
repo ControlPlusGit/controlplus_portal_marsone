@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "eth.h"
-#include "lcd.h"
+//#include "lcd.h"
 #include "as3993_config.h"
 #include "platform.h"
 #include "perifericos.h"
@@ -18,10 +18,10 @@
 #include "timer.h"
 #include "appl_commands.h"
 #include "tuner.h"
-#include "gprs.h"
-#include "sankyu.h"
+//#include "gprs.h"
+//#include "sankyu.h"
 #include "onewire.h"
-#include "lista.h"
+//#include "lista.h"
 #include "config_i2c3.h"
 #include "mem_i2c_24LC256.h"
 #include "tags.h"

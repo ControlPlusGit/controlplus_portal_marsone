@@ -67,6 +67,7 @@
       <itemPath>../src/exclusao.h</itemPath>
       <itemPath>../src/i2c.h</itemPath>
       <itemPath>../src/rtc.h</itemPath>
+      <itemPath>../src/ams_stream.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LibraryFiles"
                    displayName="Library Files"

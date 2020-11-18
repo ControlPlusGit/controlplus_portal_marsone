@@ -4,7 +4,7 @@
 #include <time.h>
 #include "GenericTypeDefs.h"
 #include "platform.h"
-#include "gprs.h"
+//#include "gprs.h"
 #include "i2c.h"
 
 

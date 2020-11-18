@@ -14,7 +14,7 @@
 #include "global.h"
 #include "Compiler.h"
 #include "string.h"
-#include "auto_teste.h"
+//#include "auto_teste.h"
 #include "empilhadeira.h"
 #include "timer.h"
 #include "eth.h"

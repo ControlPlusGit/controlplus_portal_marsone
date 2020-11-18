@@ -10,9 +10,9 @@ CND_CONF=debug
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/EMPILHADEIRA_COM_BASE_COMUM.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=EMPILHADEIRA_COM_BASE_COMUM.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=empilhadeiracombasecomum.x/
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/FWPORTAL.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=FWPORTAL.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=fwportal.x/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/empilhadeiracombasecomum.x/bin
+makeDirectory ${TMPDIR}/fwportal.x/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/empilhadeiracombasecomum.x.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/fwportal.x.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/empilhadeiracombasecomum.x.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/fwportal.x.tar *
 checkReturnCode
 
 # Cleanup

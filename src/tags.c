@@ -16,7 +16,7 @@
 /*                 ---+++>>> Includes <<<+++---	                      */
 /*--------------------------------------------------------------------*/
 
-#include "lcd.h"
+//#include "lcd.h"
 #include "timer.h"
 #include "uart.h"
 #include "string.h"

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "lcd.h"
+//#include "lcd.h"
 #include "as3993_config.h"
 #include "platform.h"
 #include "perifericos.h"

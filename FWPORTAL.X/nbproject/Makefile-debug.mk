@@ -30,12 +30,12 @@ ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 IMAGE_TYPE=debug
 OUTPUT_SUFFIX=elf
 DEBUGGABLE_SUFFIX=elf
-FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/EMPILHADEIRA_COM_BASE_COMUM.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/FWPORTAL.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 else
 IMAGE_TYPE=production
 OUTPUT_SUFFIX=hex
 DEBUGGABLE_SUFFIX=elf
-FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/EMPILHADEIRA_COM_BASE_COMUM.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/FWPORTAL.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 endif
 
 # Object Directory
@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=../src/appl_commands.c ../src/appl_commands_table.c ../src/as3993.c ../src/gen2.c ../src/global.c ../src/platform.c ../src/timer.c ../src/tuner.c ../src/usb_descriptors.c ../src/mem_i2c_24LC256.c ../src/onewire.c ../src/perifericos.c ../src/eth.c ../src/cancelas.c ../src/portal.c ../src/exclusao.c ../src/config_i2c3.c ../src/i2c.c ../src/rtc.c ../src/main.c ../src/tags.c ../src/ajuste_cap.c ../src/FSM_DataHora.c ../src/setup_usb.c ../src/empilhadeira.c ../src/bootloadable.c ../src/spi_driver.c ../src/stream_dispatcher.c ../src/system_clock.c ../src/usb_device.c ../src/usb_function_hid.c ../src/usb_hal_pic24.c ../src/usb_hid_stream_driver.c ../src/weak_stream_functions.c ../src/logger.c ../src/uart_driver.c
+SOURCEFILES_QUOTED_IF_SPACED=../src/appl_commands.c ../src/appl_commands_table.c ../src/as3993.c ../src/gen2.c ../src/global.c ../src/platform.c ../src/timer.c ../src/tuner.c ../src/usb_descriptors.c ../src/bootloadable.c ../src/spi_driver.c ../src/stream_dispatcher.c ../src/system_clock.c ../src/usb_device.c ../src/usb_function_hid.c ../src/usb_hal_pic24.c ../src/usb_hid_stream_driver.c ../src/weak_stream_functions.c ../src/mem_i2c_24LC256.c ../src/onewire.c ../src/perifericos.c ../src/eth.c ../src/cancelas.c ../src/portal.c ../src/exclusao.c ../src/config_i2c3.c ../src/i2c.c ../src/rtc.c ../src/main.c ../src/tags.c ../src/ajuste_cap.c ../src/FSM_DataHora.c ../src/setup_usb.c ../src/empilhadeira.c ../src/logger.c ../src/uart_driver.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1360937237/appl_commands.o ${OBJECTDIR}/_ext/1360937237/appl_commands_table.o ${OBJECTDIR}/_ext/1360937237/as3993.o ${OBJECTDIR}/_ext/1360937237/gen2.o ${OBJECTDIR}/_ext/1360937237/global.o ${OBJECTDIR}/_ext/1360937237/platform.o ${OBJECTDIR}/_ext/1360937237/timer.o ${OBJECTDIR}/_ext/1360937237/tuner.o ${OBJECTDIR}/_ext/1360937237/usb_descriptors.o ${OBJECTDIR}/_ext/1360937237/mem_i2c_24LC256.o ${OBJECTDIR}/_ext/1360937237/onewire.o ${OBJECTDIR}/_ext/1360937237/perifericos.o ${OBJECTDIR}/_ext/1360937237/eth.o ${OBJECTDIR}/_ext/1360937237/cancelas.o ${OBJECTDIR}/_ext/1360937237/portal.o ${OBJECTDIR}/_ext/1360937237/exclusao.o ${OBJECTDIR}/_ext/1360937237/config_i2c3.o ${OBJECTDIR}/_ext/1360937237/i2c.o ${OBJECTDIR}/_ext/1360937237/rtc.o ${OBJECTDIR}/_ext/1360937237/main.o ${OBJECTDIR}/_ext/1360937237/tags.o ${OBJECTDIR}/_ext/1360937237/ajuste_cap.o ${OBJECTDIR}/_ext/1360937237/FSM_DataHora.o ${OBJECTDIR}/_ext/1360937237/setup_usb.o ${OBJECTDIR}/_ext/1360937237/empilhadeira.o ${OBJECTDIR}/_ext/1360937237/bootloadable.o ${OBJECTDIR}/_ext/1360937237/spi_driver.o ${OBJECTDIR}/_ext/1360937237/stream_dispatcher.o ${OBJECTDIR}/_ext/1360937237/system_clock.o ${OBJECTDIR}/_ext/1360937237/usb_device.o ${OBJECTDIR}/_ext/1360937237/usb_function_hid.o ${OBJECTDIR}/_ext/1360937237/usb_hal_pic24.o ${OBJECTDIR}/_ext/1360937237/usb_hid_stream_driver.o ${OBJECTDIR}/_ext/1360937237/weak_stream_functions.o ${OBJECTDIR}/_ext/1360937237/logger.o ${OBJECTDIR}/_ext/1360937237/uart_driver.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1360937237/appl_commands.o.d ${OBJECTDIR}/_ext/1360937237/appl_commands_table.o.d ${OBJECTDIR}/_ext/1360937237/as3993.o.d ${OBJECTDIR}/_ext/1360937237/gen2.o.d ${OBJECTDIR}/_ext/1360937237/global.o.d ${OBJECTDIR}/_ext/1360937237/platform.o.d ${OBJECTDIR}/_ext/1360937237/timer.o.d ${OBJECTDIR}/_ext/1360937237/tuner.o.d ${OBJECTDIR}/_ext/1360937237/usb_descriptors.o.d ${OBJECTDIR}/_ext/1360937237/mem_i2c_24LC256.o.d ${OBJECTDIR}/_ext/1360937237/onewire.o.d ${OBJECTDIR}/_ext/1360937237/perifericos.o.d ${OBJECTDIR}/_ext/1360937237/eth.o.d ${OBJECTDIR}/_ext/1360937237/cancelas.o.d ${OBJECTDIR}/_ext/1360937237/portal.o.d ${OBJECTDIR}/_ext/1360937237/exclusao.o.d ${OBJECTDIR}/_ext/1360937237/config_i2c3.o.d ${OBJECTDIR}/_ext/1360937237/i2c.o.d ${OBJECTDIR}/_ext/1360937237/rtc.o.d ${OBJECTDIR}/_ext/1360937237/main.o.d ${OBJECTDIR}/_ext/1360937237/tags.o.d ${OBJECTDIR}/_ext/1360937237/ajuste_cap.o.d ${OBJECTDIR}/_ext/1360937237/FSM_DataHora.o.d ${OBJECTDIR}/_ext/1360937237/setup_usb.o.d ${OBJECTDIR}/_ext/1360937237/empilhadeira.o.d ${OBJECTDIR}/_ext/1360937237/bootloadable.o.d ${OBJECTDIR}/_ext/1360937237/spi_driver.o.d ${OBJECTDIR}/_ext/1360937237/stream_dispatcher.o.d ${OBJECTDIR}/_ext/1360937237/system_clock.o.d ${OBJECTDIR}/_ext/1360937237/usb_device.o.d ${OBJECTDIR}/_ext/1360937237/usb_function_hid.o.d ${OBJECTDIR}/_ext/1360937237/usb_hal_pic24.o.d ${OBJECTDIR}/_ext/1360937237/usb_hid_stream_driver.o.d ${OBJECTDIR}/_ext/1360937237/weak_stream_functions.o.d ${OBJECTDIR}/_ext/1360937237/logger.o.d ${OBJECTDIR}/_ext/1360937237/uart_driver.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1360937237/appl_commands.o ${OBJECTDIR}/_ext/1360937237/appl_commands_table.o ${OBJECTDIR}/_ext/1360937237/as3993.o ${OBJECTDIR}/_ext/1360937237/gen2.o ${OBJECTDIR}/_ext/1360937237/global.o ${OBJECTDIR}/_ext/1360937237/platform.o ${OBJECTDIR}/_ext/1360937237/timer.o ${OBJECTDIR}/_ext/1360937237/tuner.o ${OBJECTDIR}/_ext/1360937237/usb_descriptors.o ${OBJECTDIR}/_ext/1360937237/bootloadable.o ${OBJECTDIR}/_ext/1360937237/spi_driver.o ${OBJECTDIR}/_ext/1360937237/stream_dispatcher.o ${OBJECTDIR}/_ext/1360937237/system_clock.o ${OBJECTDIR}/_ext/1360937237/usb_device.o ${OBJECTDIR}/_ext/1360937237/usb_function_hid.o ${OBJECTDIR}/_ext/1360937237/usb_hal_pic24.o ${OBJECTDIR}/_ext/1360937237/usb_hid_stream_driver.o ${OBJECTDIR}/_ext/1360937237/weak_stream_functions.o ${OBJECTDIR}/_ext/1360937237/mem_i2c_24LC256.o ${OBJECTDIR}/_ext/1360937237/onewire.o ${OBJECTDIR}/_ext/1360937237/perifericos.o ${OBJECTDIR}/_ext/1360937237/eth.o ${OBJECTDIR}/_ext/1360937237/cancelas.o ${OBJECTDIR}/_ext/1360937237/portal.o ${OBJECTDIR}/_ext/1360937237/exclusao.o ${OBJECTDIR}/_ext/1360937237/config_i2c3.o ${OBJECTDIR}/_ext/1360937237/i2c.o ${OBJECTDIR}/_ext/1360937237/rtc.o ${OBJECTDIR}/_ext/1360937237/main.o ${OBJECTDIR}/_ext/1360937237/tags.o ${OBJECTDIR}/_ext/1360937237/ajuste_cap.o ${OBJECTDIR}/_ext/1360937237/FSM_DataHora.o ${OBJECTDIR}/_ext/1360937237/setup_usb.o ${OBJECTDIR}/_ext/1360937237/empilhadeira.o ${OBJECTDIR}/_ext/1360937237/logger.o ${OBJECTDIR}/_ext/1360937237/uart_driver.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1360937237/appl_commands.o.d ${OBJECTDIR}/_ext/1360937237/appl_commands_table.o.d ${OBJECTDIR}/_ext/1360937237/as3993.o.d ${OBJECTDIR}/_ext/1360937237/gen2.o.d ${OBJECTDIR}/_ext/1360937237/global.o.d ${OBJECTDIR}/_ext/1360937237/platform.o.d ${OBJECTDIR}/_ext/1360937237/timer.o.d ${OBJECTDIR}/_ext/1360937237/tuner.o.d ${OBJECTDIR}/_ext/1360937237/usb_descriptors.o.d ${OBJECTDIR}/_ext/1360937237/bootloadable.o.d ${OBJECTDIR}/_ext/1360937237/spi_driver.o.d ${OBJECTDIR}/_ext/1360937237/stream_dispatcher.o.d ${OBJECTDIR}/_ext/1360937237/system_clock.o.d ${OBJECTDIR}/_ext/1360937237/usb_device.o.d ${OBJECTDIR}/_ext/1360937237/usb_function_hid.o.d ${OBJECTDIR}/_ext/1360937237/usb_hal_pic24.o.d ${OBJECTDIR}/_ext/1360937237/usb_hid_stream_driver.o.d ${OBJECTDIR}/_ext/1360937237/weak_stream_functions.o.d ${OBJECTDIR}/_ext/1360937237/mem_i2c_24LC256.o.d ${OBJECTDIR}/_ext/1360937237/onewire.o.d ${OBJECTDIR}/_ext/1360937237/perifericos.o.d ${OBJECTDIR}/_ext/1360937237/eth.o.d ${OBJECTDIR}/_ext/1360937237/cancelas.o.d ${OBJECTDIR}/_ext/1360937237/portal.o.d ${OBJECTDIR}/_ext/1360937237/exclusao.o.d ${OBJECTDIR}/_ext/1360937237/config_i2c3.o.d ${OBJECTDIR}/_ext/1360937237/i2c.o.d ${OBJECTDIR}/_ext/1360937237/rtc.o.d ${OBJECTDIR}/_ext/1360937237/main.o.d ${OBJECTDIR}/_ext/1360937237/tags.o.d ${OBJECTDIR}/_ext/1360937237/ajuste_cap.o.d ${OBJECTDIR}/_ext/1360937237/FSM_DataHora.o.d ${OBJECTDIR}/_ext/1360937237/setup_usb.o.d ${OBJECTDIR}/_ext/1360937237/empilhadeira.o.d ${OBJECTDIR}/_ext/1360937237/logger.o.d ${OBJECTDIR}/_ext/1360937237/uart_driver.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/1360937237/appl_commands.o ${OBJECTDIR}/_ext/1360937237/appl_commands_table.o ${OBJECTDIR}/_ext/1360937237/as3993.o ${OBJECTDIR}/_ext/1360937237/gen2.o ${OBJECTDIR}/_ext/1360937237/global.o ${OBJECTDIR}/_ext/1360937237/platform.o ${OBJECTDIR}/_ext/1360937237/timer.o ${OBJECTDIR}/_ext/1360937237/tuner.o ${OBJECTDIR}/_ext/1360937237/usb_descriptors.o ${OBJECTDIR}/_ext/1360937237/mem_i2c_24LC256.o ${OBJECTDIR}/_ext/1360937237/onewire.o ${OBJECTDIR}/_ext/1360937237/perifericos.o ${OBJECTDIR}/_ext/1360937237/eth.o ${OBJECTDIR}/_ext/1360937237/cancelas.o ${OBJECTDIR}/_ext/1360937237/portal.o ${OBJECTDIR}/_ext/1360937237/exclusao.o ${OBJECTDIR}/_ext/1360937237/config_i2c3.o ${OBJECTDIR}/_ext/1360937237/i2c.o ${OBJECTDIR}/_ext/1360937237/rtc.o ${OBJECTDIR}/_ext/1360937237/main.o ${OBJECTDIR}/_ext/1360937237/tags.o ${OBJECTDIR}/_ext/1360937237/ajuste_cap.o ${OBJECTDIR}/_ext/1360937237/FSM_DataHora.o ${OBJECTDIR}/_ext/1360937237/setup_usb.o ${OBJECTDIR}/_ext/1360937237/empilhadeira.o ${OBJECTDIR}/_ext/1360937237/bootloadable.o ${OBJECTDIR}/_ext/1360937237/spi_driver.o ${OBJECTDIR}/_ext/1360937237/stream_dispatcher.o ${OBJECTDIR}/_ext/1360937237/system_clock.o ${OBJECTDIR}/_ext/1360937237/usb_device.o ${OBJECTDIR}/_ext/1360937237/usb_function_hid.o ${OBJECTDIR}/_ext/1360937237/usb_hal_pic24.o ${OBJECTDIR}/_ext/1360937237/usb_hid_stream_driver.o ${OBJECTDIR}/_ext/1360937237/weak_stream_functions.o ${OBJECTDIR}/_ext/1360937237/logger.o ${OBJECTDIR}/_ext/1360937237/uart_driver.o
+OBJECTFILES=${OBJECTDIR}/_ext/1360937237/appl_commands.o ${OBJECTDIR}/_ext/1360937237/appl_commands_table.o ${OBJECTDIR}/_ext/1360937237/as3993.o ${OBJECTDIR}/_ext/1360937237/gen2.o ${OBJECTDIR}/_ext/1360937237/global.o ${OBJECTDIR}/_ext/1360937237/platform.o ${OBJECTDIR}/_ext/1360937237/timer.o ${OBJECTDIR}/_ext/1360937237/tuner.o ${OBJECTDIR}/_ext/1360937237/usb_descriptors.o ${OBJECTDIR}/_ext/1360937237/bootloadable.o ${OBJECTDIR}/_ext/1360937237/spi_driver.o ${OBJECTDIR}/_ext/1360937237/stream_dispatcher.o ${OBJECTDIR}/_ext/1360937237/system_clock.o ${OBJECTDIR}/_ext/1360937237/usb_device.o ${OBJECTDIR}/_ext/1360937237/usb_function_hid.o ${OBJECTDIR}/_ext/1360937237/usb_hal_pic24.o ${OBJECTDIR}/_ext/1360937237/usb_hid_stream_driver.o ${OBJECTDIR}/_ext/1360937237/weak_stream_functions.o ${OBJECTDIR}/_ext/1360937237/mem_i2c_24LC256.o ${OBJECTDIR}/_ext/1360937237/onewire.o ${OBJECTDIR}/_ext/1360937237/perifericos.o ${OBJECTDIR}/_ext/1360937237/eth.o ${OBJECTDIR}/_ext/1360937237/cancelas.o ${OBJECTDIR}/_ext/1360937237/portal.o ${OBJECTDIR}/_ext/1360937237/exclusao.o ${OBJECTDIR}/_ext/1360937237/config_i2c3.o ${OBJECTDIR}/_ext/1360937237/i2c.o ${OBJECTDIR}/_ext/1360937237/rtc.o ${OBJECTDIR}/_ext/1360937237/main.o ${OBJECTDIR}/_ext/1360937237/tags.o ${OBJECTDIR}/_ext/1360937237/ajuste_cap.o ${OBJECTDIR}/_ext/1360937237/FSM_DataHora.o ${OBJECTDIR}/_ext/1360937237/setup_usb.o ${OBJECTDIR}/_ext/1360937237/empilhadeira.o ${OBJECTDIR}/_ext/1360937237/logger.o ${OBJECTDIR}/_ext/1360937237/uart_driver.o
 
 # Source Files
-SOURCEFILES=../src/appl_commands.c ../src/appl_commands_table.c ../src/as3993.c ../src/gen2.c ../src/global.c ../src/platform.c ../src/timer.c ../src/tuner.c ../src/usb_descriptors.c ../src/mem_i2c_24LC256.c ../src/onewire.c ../src/perifericos.c ../src/eth.c ../src/cancelas.c ../src/portal.c ../src/exclusao.c ../src/config_i2c3.c ../src/i2c.c ../src/rtc.c ../src/main.c ../src/tags.c ../src/ajuste_cap.c ../src/FSM_DataHora.c ../src/setup_usb.c ../src/empilhadeira.c ../src/bootloadable.c ../src/spi_driver.c ../src/stream_dispatcher.c ../src/system_clock.c ../src/usb_device.c ../src/usb_function_hid.c ../src/usb_hal_pic24.c ../src/usb_hid_stream_driver.c ../src/weak_stream_functions.c ../src/logger.c ../src/uart_driver.c
+SOURCEFILES=../src/appl_commands.c ../src/appl_commands_table.c ../src/as3993.c ../src/gen2.c ../src/global.c ../src/platform.c ../src/timer.c ../src/tuner.c ../src/usb_descriptors.c ../src/bootloadable.c ../src/spi_driver.c ../src/stream_dispatcher.c ../src/system_clock.c ../src/usb_device.c ../src/usb_function_hid.c ../src/usb_hal_pic24.c ../src/usb_hid_stream_driver.c ../src/weak_stream_functions.c ../src/mem_i2c_24LC256.c ../src/onewire.c ../src/perifericos.c ../src/eth.c ../src/cancelas.c ../src/portal.c ../src/exclusao.c ../src/config_i2c3.c ../src/i2c.c ../src/rtc.c ../src/main.c ../src/tags.c ../src/ajuste_cap.c ../src/FSM_DataHora.c ../src/setup_usb.c ../src/empilhadeira.c ../src/logger.c ../src/uart_driver.c
 
 
 CFLAGS=
@@ -75,7 +75,7 @@ FIXDEPS=fixDeps
 ifneq ($(INFORMATION_MESSAGE), )
 	@echo $(INFORMATION_MESSAGE)
 endif
-	${MAKE}  -f nbproject/Makefile-debug.mk dist/${CND_CONF}/${IMAGE_TYPE}/EMPILHADEIRA_COM_BASE_COMUM.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+	${MAKE}  -f nbproject/Makefile-debug.mk dist/${CND_CONF}/${IMAGE_TYPE}/FWPORTAL.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 
 MP_PROCESSOR_OPTION=24FJ256DA210
 MP_LINKER_FILE_OPTION=,--script=../src/p24FJ256DA210.gld
@@ -144,6 +144,69 @@ ${OBJECTDIR}/_ext/1360937237/usb_descriptors.o: ../src/usb_descriptors.c  nbproj
 	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_descriptors.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/usb_descriptors.c  -o ${OBJECTDIR}/_ext/1360937237/usb_descriptors.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/usb_descriptors.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/usb_descriptors.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1360937237/bootloadable.o: ../src/bootloadable.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/bootloadable.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/bootloadable.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/bootloadable.c  -o ${OBJECTDIR}/_ext/1360937237/bootloadable.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/bootloadable.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/bootloadable.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1360937237/spi_driver.o: ../src/spi_driver.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/spi_driver.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/spi_driver.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/spi_driver.c  -o ${OBJECTDIR}/_ext/1360937237/spi_driver.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/spi_driver.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/spi_driver.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1360937237/stream_dispatcher.o: ../src/stream_dispatcher.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/stream_dispatcher.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/stream_dispatcher.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/stream_dispatcher.c  -o ${OBJECTDIR}/_ext/1360937237/stream_dispatcher.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/stream_dispatcher.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/stream_dispatcher.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1360937237/system_clock.o: ../src/system_clock.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/system_clock.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/system_clock.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/system_clock.c  -o ${OBJECTDIR}/_ext/1360937237/system_clock.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/system_clock.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/system_clock.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1360937237/usb_device.o: ../src/usb_device.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_device.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_device.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/usb_device.c  -o ${OBJECTDIR}/_ext/1360937237/usb_device.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/usb_device.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/usb_device.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1360937237/usb_function_hid.o: ../src/usb_function_hid.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_function_hid.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_function_hid.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/usb_function_hid.c  -o ${OBJECTDIR}/_ext/1360937237/usb_function_hid.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/usb_function_hid.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/usb_function_hid.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1360937237/usb_hal_pic24.o: ../src/usb_hal_pic24.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_hal_pic24.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_hal_pic24.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/usb_hal_pic24.c  -o ${OBJECTDIR}/_ext/1360937237/usb_hal_pic24.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/usb_hal_pic24.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/usb_hal_pic24.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1360937237/usb_hid_stream_driver.o: ../src/usb_hid_stream_driver.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_hid_stream_driver.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_hid_stream_driver.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/usb_hid_stream_driver.c  -o ${OBJECTDIR}/_ext/1360937237/usb_hid_stream_driver.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/usb_hid_stream_driver.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/usb_hid_stream_driver.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1360937237/weak_stream_functions.o: ../src/weak_stream_functions.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/weak_stream_functions.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/weak_stream_functions.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/weak_stream_functions.c  -o ${OBJECTDIR}/_ext/1360937237/weak_stream_functions.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/weak_stream_functions.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/weak_stream_functions.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/1360937237/mem_i2c_24LC256.o: ../src/mem_i2c_24LC256.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
@@ -257,69 +320,6 @@ ${OBJECTDIR}/_ext/1360937237/empilhadeira.o: ../src/empilhadeira.c  nbproject/Ma
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/empilhadeira.c  -o ${OBJECTDIR}/_ext/1360937237/empilhadeira.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/empilhadeira.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/empilhadeira.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/_ext/1360937237/bootloadable.o: ../src/bootloadable.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/bootloadable.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/bootloadable.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/bootloadable.c  -o ${OBJECTDIR}/_ext/1360937237/bootloadable.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/bootloadable.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/bootloadable.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/_ext/1360937237/spi_driver.o: ../src/spi_driver.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/spi_driver.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/spi_driver.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/spi_driver.c  -o ${OBJECTDIR}/_ext/1360937237/spi_driver.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/spi_driver.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/spi_driver.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/_ext/1360937237/stream_dispatcher.o: ../src/stream_dispatcher.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/stream_dispatcher.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/stream_dispatcher.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/stream_dispatcher.c  -o ${OBJECTDIR}/_ext/1360937237/stream_dispatcher.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/stream_dispatcher.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/stream_dispatcher.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/_ext/1360937237/system_clock.o: ../src/system_clock.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/system_clock.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/system_clock.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/system_clock.c  -o ${OBJECTDIR}/_ext/1360937237/system_clock.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/system_clock.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/system_clock.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/_ext/1360937237/usb_device.o: ../src/usb_device.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_device.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_device.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/usb_device.c  -o ${OBJECTDIR}/_ext/1360937237/usb_device.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/usb_device.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/usb_device.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/_ext/1360937237/usb_function_hid.o: ../src/usb_function_hid.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_function_hid.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_function_hid.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/usb_function_hid.c  -o ${OBJECTDIR}/_ext/1360937237/usb_function_hid.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/usb_function_hid.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/usb_function_hid.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/_ext/1360937237/usb_hal_pic24.o: ../src/usb_hal_pic24.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_hal_pic24.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_hal_pic24.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/usb_hal_pic24.c  -o ${OBJECTDIR}/_ext/1360937237/usb_hal_pic24.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/usb_hal_pic24.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/usb_hal_pic24.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/_ext/1360937237/usb_hid_stream_driver.o: ../src/usb_hid_stream_driver.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_hid_stream_driver.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_hid_stream_driver.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/usb_hid_stream_driver.c  -o ${OBJECTDIR}/_ext/1360937237/usb_hid_stream_driver.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/usb_hid_stream_driver.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/usb_hid_stream_driver.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/_ext/1360937237/weak_stream_functions.o: ../src/weak_stream_functions.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/weak_stream_functions.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/weak_stream_functions.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/weak_stream_functions.c  -o ${OBJECTDIR}/_ext/1360937237/weak_stream_functions.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/weak_stream_functions.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/weak_stream_functions.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
 ${OBJECTDIR}/_ext/1360937237/logger.o: ../src/logger.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
 	@${RM} ${OBJECTDIR}/_ext/1360937237/logger.o.d 
@@ -397,6 +397,69 @@ ${OBJECTDIR}/_ext/1360937237/usb_descriptors.o: ../src/usb_descriptors.c  nbproj
 	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_descriptors.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/usb_descriptors.c  -o ${OBJECTDIR}/_ext/1360937237/usb_descriptors.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/usb_descriptors.o.d"      -mno-eds-warn  -g -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/usb_descriptors.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1360937237/bootloadable.o: ../src/bootloadable.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/bootloadable.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/bootloadable.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/bootloadable.c  -o ${OBJECTDIR}/_ext/1360937237/bootloadable.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/bootloadable.o.d"      -mno-eds-warn  -g -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/bootloadable.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1360937237/spi_driver.o: ../src/spi_driver.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/spi_driver.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/spi_driver.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/spi_driver.c  -o ${OBJECTDIR}/_ext/1360937237/spi_driver.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/spi_driver.o.d"      -mno-eds-warn  -g -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/spi_driver.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1360937237/stream_dispatcher.o: ../src/stream_dispatcher.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/stream_dispatcher.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/stream_dispatcher.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/stream_dispatcher.c  -o ${OBJECTDIR}/_ext/1360937237/stream_dispatcher.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/stream_dispatcher.o.d"      -mno-eds-warn  -g -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/stream_dispatcher.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1360937237/system_clock.o: ../src/system_clock.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/system_clock.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/system_clock.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/system_clock.c  -o ${OBJECTDIR}/_ext/1360937237/system_clock.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/system_clock.o.d"      -mno-eds-warn  -g -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/system_clock.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1360937237/usb_device.o: ../src/usb_device.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_device.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_device.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/usb_device.c  -o ${OBJECTDIR}/_ext/1360937237/usb_device.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/usb_device.o.d"      -mno-eds-warn  -g -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/usb_device.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1360937237/usb_function_hid.o: ../src/usb_function_hid.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_function_hid.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_function_hid.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/usb_function_hid.c  -o ${OBJECTDIR}/_ext/1360937237/usb_function_hid.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/usb_function_hid.o.d"      -mno-eds-warn  -g -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/usb_function_hid.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1360937237/usb_hal_pic24.o: ../src/usb_hal_pic24.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_hal_pic24.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_hal_pic24.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/usb_hal_pic24.c  -o ${OBJECTDIR}/_ext/1360937237/usb_hal_pic24.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/usb_hal_pic24.o.d"      -mno-eds-warn  -g -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/usb_hal_pic24.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1360937237/usb_hid_stream_driver.o: ../src/usb_hid_stream_driver.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_hid_stream_driver.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_hid_stream_driver.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/usb_hid_stream_driver.c  -o ${OBJECTDIR}/_ext/1360937237/usb_hid_stream_driver.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/usb_hid_stream_driver.o.d"      -mno-eds-warn  -g -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/usb_hid_stream_driver.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1360937237/weak_stream_functions.o: ../src/weak_stream_functions.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/weak_stream_functions.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/weak_stream_functions.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/weak_stream_functions.c  -o ${OBJECTDIR}/_ext/1360937237/weak_stream_functions.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/weak_stream_functions.o.d"      -mno-eds-warn  -g -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/weak_stream_functions.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/1360937237/mem_i2c_24LC256.o: ../src/mem_i2c_24LC256.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
@@ -510,69 +573,6 @@ ${OBJECTDIR}/_ext/1360937237/empilhadeira.o: ../src/empilhadeira.c  nbproject/Ma
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/empilhadeira.c  -o ${OBJECTDIR}/_ext/1360937237/empilhadeira.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/empilhadeira.o.d"      -mno-eds-warn  -g -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/empilhadeira.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/_ext/1360937237/bootloadable.o: ../src/bootloadable.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/bootloadable.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/bootloadable.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/bootloadable.c  -o ${OBJECTDIR}/_ext/1360937237/bootloadable.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/bootloadable.o.d"      -mno-eds-warn  -g -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/bootloadable.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/_ext/1360937237/spi_driver.o: ../src/spi_driver.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/spi_driver.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/spi_driver.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/spi_driver.c  -o ${OBJECTDIR}/_ext/1360937237/spi_driver.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/spi_driver.o.d"      -mno-eds-warn  -g -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/spi_driver.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/_ext/1360937237/stream_dispatcher.o: ../src/stream_dispatcher.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/stream_dispatcher.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/stream_dispatcher.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/stream_dispatcher.c  -o ${OBJECTDIR}/_ext/1360937237/stream_dispatcher.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/stream_dispatcher.o.d"      -mno-eds-warn  -g -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/stream_dispatcher.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/_ext/1360937237/system_clock.o: ../src/system_clock.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/system_clock.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/system_clock.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/system_clock.c  -o ${OBJECTDIR}/_ext/1360937237/system_clock.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/system_clock.o.d"      -mno-eds-warn  -g -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/system_clock.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/_ext/1360937237/usb_device.o: ../src/usb_device.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_device.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_device.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/usb_device.c  -o ${OBJECTDIR}/_ext/1360937237/usb_device.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/usb_device.o.d"      -mno-eds-warn  -g -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/usb_device.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/_ext/1360937237/usb_function_hid.o: ../src/usb_function_hid.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_function_hid.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_function_hid.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/usb_function_hid.c  -o ${OBJECTDIR}/_ext/1360937237/usb_function_hid.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/usb_function_hid.o.d"      -mno-eds-warn  -g -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/usb_function_hid.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/_ext/1360937237/usb_hal_pic24.o: ../src/usb_hal_pic24.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_hal_pic24.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_hal_pic24.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/usb_hal_pic24.c  -o ${OBJECTDIR}/_ext/1360937237/usb_hal_pic24.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/usb_hal_pic24.o.d"      -mno-eds-warn  -g -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/usb_hal_pic24.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/_ext/1360937237/usb_hid_stream_driver.o: ../src/usb_hid_stream_driver.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_hid_stream_driver.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/usb_hid_stream_driver.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/usb_hid_stream_driver.c  -o ${OBJECTDIR}/_ext/1360937237/usb_hid_stream_driver.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/usb_hid_stream_driver.o.d"      -mno-eds-warn  -g -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/usb_hid_stream_driver.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/_ext/1360937237/weak_stream_functions.o: ../src/weak_stream_functions.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/weak_stream_functions.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1360937237/weak_stream_functions.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../src/weak_stream_functions.c  -o ${OBJECTDIR}/_ext/1360937237/weak_stream_functions.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360937237/weak_stream_functions.o.d"      -mno-eds-warn  -g -omf=elf -fno-short-double -mlarge-code -mlarge-data -mlarge-scalar -mconst-in-code -O0 -I"../src" -I"../../../common/include" -I"../../../common/firmware/microchip/include" -I"%c30dir%/support/PIC24F/h" -I"%c30dir%/support/peripheral_24F" -I"%c30dir%/include" -DUSE_LOGGER -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/weak_stream_functions.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
 ${OBJECTDIR}/_ext/1360937237/logger.o: ../src/logger.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
 	@${RM} ${OBJECTDIR}/_ext/1360937237/logger.o.d 
@@ -604,15 +604,15 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: link
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-dist/${CND_CONF}/${IMAGE_TYPE}/EMPILHADEIRA_COM_BASE_COMUM.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    ../src/p24FJ256DA210.gld
+dist/${CND_CONF}/${IMAGE_TYPE}/FWPORTAL.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    ../src/p24FJ256DA210.gld
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE)  -o dist/${CND_CONF}/${IMAGE_TYPE}/EMPILHADEIRA_COM_BASE_COMUM.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}      -mcpu=$(MP_PROCESSOR_OPTION)        -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf  -mreserve=data@0x800:0x81B -mreserve=data@0x81C:0x81D -mreserve=data@0x81E:0x81F -mreserve=data@0x820:0x821 -mreserve=data@0x822:0x823 -mreserve=data@0x824:0x827 -mreserve=data@0x82A:0x84F   -Wl,--local-stack,--defsym=__MPLAB_BUILD=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1,$(MP_LINKER_FILE_OPTION),--heap=1950,--no-check-sections,--data-init,--pack-data,--handles,--isr,--gc-sections,--fill-upper=0,--stackguard=16,--library-path="..",--no-force-link,--smart-io,-Map="$(BINDIR_)$(TARGETBASE).map",--report-mem$(MP_EXTRA_LD_POST) 
+	${MP_CC} $(MP_EXTRA_LD_PRE)  -o dist/${CND_CONF}/${IMAGE_TYPE}/FWPORTAL.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}      -mcpu=$(MP_PROCESSOR_OPTION)        -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf  -mreserve=data@0x800:0x81B -mreserve=data@0x81C:0x81D -mreserve=data@0x81E:0x81F -mreserve=data@0x820:0x821 -mreserve=data@0x822:0x823 -mreserve=data@0x824:0x827 -mreserve=data@0x82A:0x84F   -Wl,--local-stack,--defsym=__MPLAB_BUILD=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1,$(MP_LINKER_FILE_OPTION),--heap=1950,--no-check-sections,--data-init,--pack-data,--handles,--isr,--gc-sections,--fill-upper=0,--stackguard=16,--library-path="..",--no-force-link,--smart-io,-Map="$(BINDIR_)$(TARGETBASE).map",--report-mem$(MP_EXTRA_LD_POST) 
 	
 else
-dist/${CND_CONF}/${IMAGE_TYPE}/EMPILHADEIRA_COM_BASE_COMUM.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   ../src/p24FJ256DA210.gld
+dist/${CND_CONF}/${IMAGE_TYPE}/FWPORTAL.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   ../src/p24FJ256DA210.gld
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE)  -o dist/${CND_CONF}/${IMAGE_TYPE}/EMPILHADEIRA_COM_BASE_COMUM.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}      -mcpu=$(MP_PROCESSOR_OPTION)        -omf=elf -Wl,--local-stack,--defsym=__MPLAB_BUILD=1,$(MP_LINKER_FILE_OPTION),--heap=1950,--no-check-sections,--data-init,--pack-data,--handles,--isr,--gc-sections,--fill-upper=0,--stackguard=16,--library-path="..",--no-force-link,--smart-io,-Map="$(BINDIR_)$(TARGETBASE).map",--report-mem$(MP_EXTRA_LD_POST) 
-	${MP_CC_DIR}\\xc16-bin2hex dist/${CND_CONF}/${IMAGE_TYPE}/EMPILHADEIRA_COM_BASE_COMUM.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} -a  -omf=elf  
+	${MP_CC} $(MP_EXTRA_LD_PRE)  -o dist/${CND_CONF}/${IMAGE_TYPE}/FWPORTAL.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}      -mcpu=$(MP_PROCESSOR_OPTION)        -omf=elf -Wl,--local-stack,--defsym=__MPLAB_BUILD=1,$(MP_LINKER_FILE_OPTION),--heap=1950,--no-check-sections,--data-init,--pack-data,--handles,--isr,--gc-sections,--fill-upper=0,--stackguard=16,--library-path="..",--no-force-link,--smart-io,-Map="$(BINDIR_)$(TARGETBASE).map",--report-mem$(MP_EXTRA_LD_POST) 
+	${MP_CC_DIR}\\xc16-bin2hex dist/${CND_CONF}/${IMAGE_TYPE}/FWPORTAL.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} -a  -omf=elf  
 	
 endif
 

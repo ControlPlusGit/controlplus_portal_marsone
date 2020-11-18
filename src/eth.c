@@ -5,7 +5,6 @@
 #include "uart_driver.h"
 #include <timer.h>
 #include <time.h>
-#include "wifi.h"
 #include <ctype.h>
 #include <uart.h>
 #include "global.h"
