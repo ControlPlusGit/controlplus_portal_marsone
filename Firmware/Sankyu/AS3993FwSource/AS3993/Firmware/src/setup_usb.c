@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include "uart_driver.h"
 #include <timer.h>
+#include "FSM_DataHora.h"
 
 void realizaAutoSintoniaDosCapacitores(int Metodo);
 
@@ -402,6 +403,7 @@ void habilitaDebugInterfaceEthernetSilentViaUSB(void){
     debugInterfaceEthernet_Silent = 1;
     retornaOk();
 }
+
 void desabilitaDebugInterfaceEthernetSilentViaUSB(void){
     debugInterfaceEthernet_Silent = 0;    
     retornaOk();

@@ -311,8 +311,6 @@ void obtemSensibilidadeDaAntena6(void);
 void obtemSensibilidadeDaAntena7(void);
 void obtemSensibilidadeDaAntena8(void);
 
-
-
 void retornaOk(void);
 void retornaNok(void);
 void enviaRespostaAosComandosDeSetupUSB(char dados[TAMANHO_BUFFER_COMANDOS_USB], int tamanho);
@@ -325,14 +323,12 @@ void obtemIpRemoto(unsigned char endereco);
 void obtemParametrosDaMemoria(void);
 void exibirParametrosObtidos(void);
 
-
-
-
-
-
-
-
-
+void habilitaDebugInterfaceEthernetViaUSB(void);
+void desabilitaDebugInterfaceEthernetViaUSB(void);
+void habilitaDebugInterfaceEthernetSilentViaUSB(void);
+void desabilitaDebugInterfaceEthernetSilentViaUSB(void);
+void enviaComandoParaInterfaceEthernet(void);
+void enviaComandoParaInterfaceEthernet(void);
 
 #endif	/* SETUP_USB_H */
 

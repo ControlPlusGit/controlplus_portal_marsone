@@ -35,6 +35,7 @@ build/debug/production/_ext/1360937237/ajuste_cap.o:  \
  C:/Projetos/control-plus/Firmware/BaseComum/mem_i2c_24LC256.h  \
  ../src/tags.h  \
 ../src/empilhadeira.h  \
+../src/i2c.h  \
  C:/Projetos/control-plus/Firmware/BaseComum/portal.h  \
  C:/projetos/control-plus/Firmware/Sankyu/AS3993FwSource/AS3993/Firmware/src/global.h  \
  ../src/setup_usb.h  \

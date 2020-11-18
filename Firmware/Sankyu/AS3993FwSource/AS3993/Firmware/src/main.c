@@ -1,39 +1,6 @@
-/*
- *****************************************************************************
- * Copyright by ams AG                                                       *
- * All rights are reserved.                                                  *
- *                                                                           *
- * IMPORTANT - PLEASE READ CAREFULLY BEFORE COPYING, INSTALLING OR USING     *
- * THE SOFTWARE.                                                             *
- *                                                                           *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS       *
- * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT         *
- * LIMITED TO, T
- * HE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS         *
- * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT  *
- * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,     *
- * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT          *
- * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,     *
- * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY     *
- * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT       *
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE     *
- * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.      *
- *****************************************************************************
- */
-/** @file
- * @brief System initialization and main loop.
- *
- * @author Ulrich Herrmann
- * @author Bernhard Breinbauer
- */
-/*
- * TODO: FERMI: use external oscillator, check configuration
- * TODO: feature request (bhi): save and loadable reader configuration (all reader settings)
- * NOTE: pic30-gcc (Gcc: 4.0.3; pic: 3.30) produces non-working (no epc reads) binary for AS3980 with -O2, changed to -O1
- */
-//#include "uart.h"
 #include <stdio.h>
 #include <string.h>
+#include "C:\Projetos\BaseComum\eth.h"
 #include "lcd.h"
 #include "as3993_config.h"
 #include "platform.h"
@@ -52,7 +19,6 @@
 #include "appl_commands.h"
 #include "tuner.h"
 #include "gprs.h"
-//#include "varal.h"
 #include "sankyu.h"
 #include "C:\Projetos\control-plus\Firmware\BaseComum\onewire.h"
 #include "lista.h"
@@ -61,24 +27,15 @@
 #include "C:\Projetos\control-plus\Firmware\BaseComum\mem_i2c_24LC256.h"
 #include "tags.h"
 #include "empilhadeira.h"
-//#include "zigbee.h"
 #include "C:\Projetos\control-plus\Firmware\BaseComum\zigbee.h"
 #include "gps.h"
 #include "C:\Projetos\control-plus\Firmware\BaseComum\rtc.h"
 #include "C:\Projetos\control-plus\Firmware\BaseComum\exclusao.h"
 #include "C:\Projetos\control-plus\Firmware\BaseComum\autoteste.h"
 #include "C:\Projetos\control-plus\Firmware\BaseComum\wifi.h"
-#include "C:\Projetos\control-plus\Firmware\BaseComum\eth.h"
-#ifdef PORTAL
+//#include "C:\Projetos\control-plus\Firmware\BaseComum\eth.h"
 #include "C:\Projetos\control-plus\software\fifo\gerenciaPacotes.h" 
-//#include "C:\Projetos\control-plus\Firmware\BaseComum\portal.h"
-#endif
-#ifdef SANKYU_JOAO_MONLEVADE_TESTADOR_DE_CAPACETE
 #include "C:\Projetos\control-plus\Firmware\BaseComum\portal.h"
-#endif
-
-#include "C:\Projetos\control-plus\Firmware\BaseComum\portal.h"
-
 #include "C:\projetos\control-plus\Firmware\Sankyu\AS3993FwSource\AS3993\Firmware\src\global.h"
 #include "C:\Projetos\control-plus\Firmware\BaseComum\cancelas.h"
 #include "as3993.h"
@@ -86,46 +43,34 @@
 #include "setup_usb.h"
 #include "i2c.h"
 
+#include "FSM_DataHora.h"
 
-//#if (SYSCLK == SYSCLK_16MHZ)
-#if (FEMTO2 || FEMTO2_1)
-_CONFIG1(WDTPS_PS1 & FWPSA_PR32 & WINDIS_OFF & FWDTEN_OFF & ICS_PGx1 & GWRP_OFF & GCP_OFF & JTAGEN_OFF)
-_CONFIG2(POSCMOD_HS & I2C1SEL_PRI & IOL1WAY_OFF & OSCIOFNC_OFF & FCKSM_CSDCMD & FNOSC_PRIPLL & PLL96MHZ_ON & PLLDIV_DIV3 & IESO_ON)
-_CONFIG3(WPFP_WPFP0 & WPDIS_WPDIS & WPCFG_WPCFGDIS & WPEND_WPENDMEM & SOSCSEL_IO) // SOSCSEL_IO: get RA4 and RB4 as digital I/O
-_CONFIG4(DSWDTPS_DSWDTPS3 & DSWDTOSC_LPRC & RTCOSC_SOSC & DSBOREN_OFF & DSWDTEN_OFF)
+#ifdef __PIC24FJ256DA210__
 
-/*
-#elif FERMI || RADON
-_CONFIG1(WDTPS_PS1 & FWPSA_PR32 & WINDIS_OFF & FWDTEN_OFF & ICS_PGx1 & GWRP_OFF & GCP_OFF & JTAGEN_OFF)
-_CONFIG2(POSCMOD_NONE & I2C1SEL_PRI & IOL1WAY_OFF & OSCIOFNC_ON & FCKSM_CSDCMD & FNOSC_FRCPLL & PLLDIV_NODIV & IESO_OFF)
-_CONFIG3(WPFP_WPFP0 & WPDIS_WPDIS & WPCFG_WPCFGDIS & WPEND_WPENDMEM & SOSCSEL_IO)      // SOSCSEL_IO: get RA4 and RB4 as digital I/O
-_CONFIG4(DSWDTPS_DSWDTPS3 & DSWDTOSC_LPRC & RTCOSC_SOSC & DSBOREN_OFF & DSWDTEN_OFF)*/
+    _CONFIG1( WDTPS_PS1 & FWPSA_PR32 & ALTVREF_ALTVREDIS & WINDIS_OFF & 
+              FWDTEN_OFF & ICS_PGx1 & GWRP_OFF & GCP_ON & JTAGEN_OFF )
 
-//#elif (__PIC24FJ256GB110__) //MEGA
-#elif (__PIC24FJ256DA210__)
-_CONFIG1(WDTPS_PS1 & FWPSA_PR32 & ALTVREF_ALTVREDIS & WINDIS_OFF & FWDTEN_OFF & ICS_PGx1 & GWRP_OFF & GCP_ON & JTAGEN_OFF)
-_CONFIG2(POSCMOD_HS & IOL1WAY_OFF & OSCIOFNC_OFF & FCKSM_CSDCMD & FNOSC_PRIPLL & PLL96MHZ_ON & PLLDIV_DIV3 & IESO_OFF)
-_CONFIG3(WPFP_WPFP0 & SOSCSEL_LPSOSC & WUTSEL_LEG & ALTPMP_ALPMPDIS & WPDIS_WPDIS & WPCFG_WPCFGDIS & WPEND_WPENDMEM)
-/*
-_CONFIG1( WDTPS_PS32768 & FWPSA_PR128 & ALTVREF_ALTVREDIS & WINDIS_OFF & FWDTEN_OFF & ICS_PGx2 & GWRP_OFF & GCP_OFF & JTAGEN_OFF)
-_CONFIG2( POSCMOD_HS & IOL1WAY_OFF & OSCIOFNC_OFF & OSCIOFNC_OFF & FCKSM_CSDCMD & FNOSC_PRIPLL & PLL96MHZ_ON & PLLDIV_DIV2 & IESO_OFF)
-_CONFIG3( WPFP_WPFP255 & SOSCSEL_SOSC & WUTSEL_LEG & ALTPMP_ALTPMPEN & WPDIS_WPDIS & WPCFG_WPCFGDIS & WPEND_WPENDMEM)
- */
+    _CONFIG2( POSCMOD_HS & IOL1WAY_OFF & OSCIOFNC_OFF & FCKSM_CSDCMD & 
+              FNOSC_PRIPLL & PLL96MHZ_ON & PLLDIV_DIV3 & IESO_OFF )
+
+    _CONFIG3( WPFP_WPFP0 & SOSCSEL_LPSOSC & WUTSEL_LEG & ALTPMP_ALPMPDIS & 
+              WPDIS_WPDIS & WPCFG_WPCFGDIS & WPEND_WPENDMEM )
+        
 #endif
 
-//u32 counter;
-char num_serie[20];
-char empilhadeira[20];
-
+char num_serie[ 20 ];
+    
+char empilhadeira[ 20 ];
 
 int dbm_tag_real;
 
-extern void tick(void);
-extern void ObtemID(char*);
+extern void tick( void );
+
+extern void ObtemID( char * );
+
 extern Freq Frequencies;
 
-extern Tag __attribute__((far)) tags_[MAXTAG];
-
+extern Tag __attribute__( ( far ) ) tags_[ MAXTAG ];
 
 int total_parcial = 0;
 
@@ -133,71 +78,59 @@ u8 cin, clen, cout = 0;
 
 unsigned int total_tags = 0;
 
-void lista_freq_anatel(void);
+void lista_freq_anatel( void );
 
-extern u8 inventoryGen2(void);
+extern u8 inventoryGen2( void );
 
+void ligaTimer2( void );
 
-void ligaTimer2(void);
-extern void uart4Tx(u8);
+extern void uart4Tx( u8 );
 
 extern u16 readerInitStatus;
+
 /** FW information which will be reported to host. */
-static const char gAS3993FwInfo[] = FIRMWARE_ID"||"HARDWARE_ID;
+
+static const char gAS3993FwInfo[] = FIRMWARE_ID "||" HARDWARE_ID;
+
 /** FW information which will be logged on startup. Version information is included in logger. */
+
 static const char gLogStartup[] = FIRMWARE_ID" %hhx.%hhx.%hhx on "HARDWARE_ID"\n";
+
 /** FW version which will be reported to host */
+
 const u32 firmwareNumber = FIRMWARE_VERSION;
+
 //static u8 usedAntenna = 8;
+
 int tem_ze_na_area;
 
-#ifdef PORTAL
 int TempoParaDesligarBuzzer;
+
 #define  TEMPO_PARA_DESLIGAR_BUZZER 100
+
 int antena_atual;
-#endif 
 
 int ContadorParaUmSegundo;
+
 int ContadorPara500ms;
+
 int ContadorPara100ms;
+
 char ContadorParaUmCentessimo;
 
 int ContadorParaEnviarArrayXbee;
+
 int ContadorParaRemocaoDeTabelaDeExclusao;
 
-
 extern int timeoutRespostaKeepAlive;
+
 extern unsigned char statusDeConexaoTCP;
 
 extern int ContadorDeTempoParaManterCancelaDestravada;
 
-void systemInit(void);
-int trataOEnvioDaTabelaDeExclusaoEmCodigoCorrente(int QuantiaDeDados);
+void systemInit( void );
 
-#if 0
-
-static void calcBestSlotSize(void) {
-    u8 round;
-    u8 powSlot;
-    u8 numTags;
-
-    for (powSlot = 0; powSlot < 15; powSlot++) {
-        u8 maxTags = 0;
-        u16 tagsFound = 0;
-        for (round = 0; round < 255; round++) {
-            numTags = gen2SearchForTags(tags_, 16, 0, 0, powSlot, continueAlways, 0, 1);
-            tagsFound += numTags;
-            if (numTags > maxTags) maxTags = numTags;
-        }
-        LOG("found with powSlot=%hhx %x tags, max %hhx\n",
-                powSlot, tagsFound, maxTags);
-    }
-}
-#endif
-
-
-
-#ifdef TUNER
+int trataOEnvioDaTabelaDeExclusaoEmCodigoCorrente( int QuantiaDeDados );
 
 void mainSenCIN(int select) {
     if (select)
@@ -222,93 +155,54 @@ void mainSenCOUT(int select) {
         SEN_TUNER_COUT(0);
 
 }
-#if RADON
-
-void ant1SenCIN(int select) {
-    if (select)
-        SEN_ANT1_CINPIN(1);
-    else
-        SEN_ANT1_CINPIN(0);
-
-}
-
-void ant1SenCOUT(int select) {
-    if (select)
-        SEN_ANT1_COUTPIN(1);
-    else
-        SEN_ANT1_COUTPIN(0);
-
-}
-#endif
 
 TunerConfiguration mainTuner = {
-#if TUNER_CONFIG_CIN
+
     mainSenCIN,
-#else
-    NULL,
-#endif
-#if TUNER_CONFIG_CLEN
+
     mainSenCLEN,
-#else
-    NULL,
-#endif
-#if TUNER_CONFIG_COUT
+    
     mainSenCOUT
-#else
-    NULL,
-#endif
+            
 };
 
-#if RADON
-TunerConfiguration ant1Tuner = {
-    ant1SenCIN,
-    NULL,
-    ant1SenCOUT
-};
-#endif
-#endif
-
-/** main function
- * Initializes board, cpu, reader, host communication, ...\n
- * After intialization a loop which waits for commands from host
- * and performs cyclic inventory rounds is entered.
- */
-
-/*
-void setaSensibilidade (unsigned char valor){
-    signed char rascunho = 0;
-    rascunho = rascunho - valor;
-    as3993SetSensitivity(rascunho);
-}
- */
-
-
-void trataTagsParaAKalunga(int Antena) {
+void trataTagsParaAKalunga( int Antena ) {
+    
     int Contador;
+    
     int SubContador;
+    
     int Indice;
-    char Mensagem[100];
+    
+    char Mensagem[ 100 ];
 
-    for (Contador = 0; Contador < MAXTAG; Contador = Contador + 1) {
-        if (tags_[Contador].epclen != 0) { // Tem tag na posicao?
-            Indice = sprintf(Mensagem, "ID=1059,Antena=%d,Etiqueta=", Antena);
-            for (SubContador = 0; SubContador < 12; SubContador = SubContador + 1) {
-                Indice = Indice + sprintf(&Mensagem[Indice], "%02X", tags_[Contador].epc[SubContador]);
+    for ( Contador = 0; Contador < MAXTAG; Contador = Contador + 1 ) {
+    
+        if ( tags_[Contador].epclen != 0 ) { // Tem tag na posicao?
+        
+            Indice = sprintf( Mensagem, "ID=1059,Antena=%d,Etiqueta=", Antena );
+            
+            for ( SubContador = 0; SubContador < 12; SubContador = SubContador + 1 ) {
+                            
+                Indice = Indice + sprintf( &Mensagem[ Indice ], "%02X", tags_[ Contador ].epc[ SubContador ] );
+            
             }
-            Mensagem[Indice] = 0x0A;
+            
+            Mensagem[ Indice ] = 0x0A;
+            
             Indice = Indice + 1;
-            for (SubContador = 0; SubContador < Indice; SubContador = SubContador + 1) {
-                //uart4Tx(Mensagem[SubContador]);
-                uart3Tx(Mensagem[SubContador]);
-                //uart2Tx(Mensagem[SubContador]);
-                //uart1Tx(Mensagem[SubContador]);
+            
+            for ( SubContador = 0; SubContador < Indice; SubContador = SubContador + 1 ) {
+            
+                uart3Tx( Mensagem[ SubContador ] );
+            
             }
+            
         }
+        
     }
+    
 }
-
-
-#ifdef PORTAL
 
 void PreTratamentoDeTagsParaOPortalFrango(int Antena, int AntenaReal) {
     int Contador;
@@ -330,7 +224,6 @@ void PreTratamentoDeTagsParaOPortalFrango(int Antena, int AntenaReal) {
         }
     }
 }
-#endif 
 
 int leUmaEtiquetaParaTesteDeCapacete(int TempoDeLeitura, char *EpcCapturado) {
     int Resultado;
@@ -1346,91 +1239,7 @@ void enableBootloader() {
 }
 #endif
 
-void realizaAutoSintoniaDosCapacitores(int Metodo){
-    //extern  TunerParameters tunerParams;
-    static TunerParameters tunerParams = {2, 12, 12};
-    extern TunerConfiguration mainTuner;
-    TunerConfiguration *tuner = NULL;
-    TunerParameters *params = NULL;
-//    int Resultados[3];
-    
-    int endereco = 0;
-    char enderecoRefl_MSB = 0;
-    char enderecoRefl_LSB = 0;
-    unsigned char aux1,aux2;
-    
-    char Mensagem[100];
-    int Contador;
-    
-    tuner = &mainTuner;
-    params = &tunerParams;
-    
-    int _AntenaASerLida;
-    _AntenaASerLida = 1;
-    sel_led(0,0);
-    for(_AntenaASerLida=1;_AntenaASerLida<=4;_AntenaASerLida++){
-        sel_led(_AntenaASerLida, 1);
-        sel_antena(_AntenaASerLida);
-        delay_ms(300);
-        switch(Metodo){
-            case (0):
-                as3993AntennaPower(1);
-                tunerOneHillClimb(tuner, params, 100);
-                as3993AntennaPower(0);
-                break;
-            case (1): /* advanced: hill climb from more points */
-                as3993AntennaPower(1);
-                tunerMultiHillClimb(tuner, params);
-                as3993AntennaPower(0);
-                break;
-            case (2):
-                as3993AntennaPower(1);
-                tunerTraversal(tuner, params);
-                as3993AntennaPower(0);
-        }
 
-        sprintf(Mensagem, "Antena %d -> Cin: %d, Clen: %d, Cout: %d, Reflexao: %d\n", _AntenaASerLida,params->cin, params->clen, params->cout,params->reflectedPower);
-        
-        switch(_AntenaASerLida){
-            case 1:
-                endereco = END_AJUSTE_CAP0_ANTENA_1;
-                enderecoRefl_MSB = END_INTENSIDADE_REFLEXAO_ANTENA_1_MSB;
-                enderecoRefl_LSB = END_INTENSIDADE_REFLEXAO_ANTENA_1_LSB;
-                break;
-            case 2:
-                endereco = END_AJUSTE_CAP0_ANTENA_2;
-                enderecoRefl_MSB = END_INTENSIDADE_REFLEXAO_ANTENA_2_MSB;
-                enderecoRefl_LSB = END_INTENSIDADE_REFLEXAO_ANTENA_2_LSB;
-                break;
-            case 3:
-                endereco = END_AJUSTE_CAP0_ANTENA_3;
-                enderecoRefl_MSB = END_INTENSIDADE_REFLEXAO_ANTENA_3_MSB;
-                enderecoRefl_LSB = END_INTENSIDADE_REFLEXAO_ANTENA_3_LSB;
-                break;
-            case 4: 
-                endereco = END_AJUSTE_CAP0_ANTENA_4;
-                enderecoRefl_MSB = END_INTENSIDADE_REFLEXAO_ANTENA_4_MSB;
-                enderecoRefl_LSB = END_INTENSIDADE_REFLEXAO_ANTENA_4_LSB;                       
-                break;
-        }
-        
-        EscreverNaEEprom(endereco, params->cin);
-        EscreverNaEEprom(endereco+1, params->clen);
-        EscreverNaEEprom(endereco+2, params->cout);
-        
-        aux1 = (unsigned char)(params->reflectedPower>>8);
-        aux2 = (unsigned char)(params->reflectedPower & 0X00FF);
-        EscreverNaEEprom(enderecoRefl_MSB,aux1);
-        EscreverNaEEprom(enderecoRefl_LSB,aux2);
-        
-        Contador = 0;
-        while(Mensagem[Contador]){
-            uart3Tx(Mensagem[Contador]);
-            Contador = Contador + 1;
-        }
-            sel_led(_AntenaASerLida, 0);
-    }
-}
 
 void tick(void) {
 

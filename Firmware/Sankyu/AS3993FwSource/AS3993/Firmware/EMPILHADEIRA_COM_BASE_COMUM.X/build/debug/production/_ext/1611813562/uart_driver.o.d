@@ -26,4 +26,5 @@ build/debug/production/_ext/1611813562/uart_driver.o:  \
 ../src/timer_driver.h  \
 ../src/platform.h  \
  ../src/setup_usb.h  \
-../src/ajuste_cap.h 
+../src/ajuste_cap.h  \
+../src/FSM_DataHora.h 

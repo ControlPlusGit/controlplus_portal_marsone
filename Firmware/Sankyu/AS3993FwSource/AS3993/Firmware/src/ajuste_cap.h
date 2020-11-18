@@ -13,6 +13,8 @@ void buscaTagPorVarreduraDeCapacitores(void);
 void enviaDadosParaUSBserial(char mensagem[100], int tamanho);
 void initAutoSintoniaPorReflexao(void);
 
+void realizaAutoSintoniaDosCapacitores(int Metodo);
+
 //void setaTunerTeste(const TunerConfiguration *config);
 
 

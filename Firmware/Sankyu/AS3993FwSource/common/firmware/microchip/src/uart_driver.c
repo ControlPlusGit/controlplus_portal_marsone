@@ -62,6 +62,7 @@
 #include "timer_driver.h"
 #include "platform.h"
 #include "setup_usb.h"
+#include "FSM_DataHora.h"
 #endif
 /*
  *
@@ -843,9 +844,9 @@ void INTERRUPT _U3ErrInterrupt (void){
 void INTERRUPT _U3RXInterrupt (void){ //Porta usada para receber dados da USB
     //U3RX_Clear_Intr_Status_Bit;
     
-    unsigned char dado;
+   // unsigned char dado;
     int posicao = 0;
-    unsigned char str[100];
+//    unsigned char str[100];
              
     INTCON1bits.NSTDIS = 1;  // an inhamento de interrupção desativado
     IFS5bits.U3RXIF = 0;

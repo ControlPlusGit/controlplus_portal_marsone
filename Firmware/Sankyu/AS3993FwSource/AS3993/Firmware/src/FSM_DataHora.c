@@ -158,7 +158,7 @@ struct tm objetoDataHora;
     }  
         
     void executaMaquinaDeEstados_DataHora(void){     
-        int temp=0;
+//        int temp=0;
         char mensagemParaDebug[200];
      
         incrementaContadorExecucao_FSM_DataHora();
