@@ -20,6 +20,7 @@
 #include "ajuste_cap.h"
 #include <time.h>
 #include "../../../../../../BaseComum/portal.h"
+#include "FSM_DataHora.h"
 
 #include "setup_usb.h"
 

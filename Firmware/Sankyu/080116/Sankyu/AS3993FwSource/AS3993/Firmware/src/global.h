@@ -1,85 +1,24 @@
-/*
- *****************************************************************************
- * Copyright by ams AG                                                       *
- * All rights are reserved.                                                  *
- *                                                                           *
- * IMPORTANT - PLEASE READ CAREFULLY BEFORE COPYING, INSTALLING OR USING     *
- * THE SOFTWARE.                                                             *
- *                                                                           *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS       *
- * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT         *
- * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS         *
- * FOR A PARTICULAR 
- * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT  *
- * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,     *
- * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT          *
- * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,     *
- * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY     *
- * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT       *
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE     *
- * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.      *
- *****************************************************************************
- */
-/** @file
-  * @brief This file provides declarations for global helper functions.
-  *
-  * @author Ulrich Herrmann
-  */
-
 
 #define PODE_SER_ALPHA 1
 
-
-//#define SANKYU 1//CLIENTE
 #define ARCELOR 1//CLIENTE
-//#define BRUNAUER 1//CLIENTE
-//#define CONTROL_PLUS 1//CLIENTE 
-//#define KALUNGA
-//#define RF_IDEIAS 1
-
-#ifdef KALUNGA
-#define PORTAL 1
-#define ARCELOR_JUIZ_DE_FORA_PORTAL_DUAS_ANTENAS 1
-#endif 
-
-#ifdef RF_IDEIAS
-#define PORTAL 1
-#define ARCELOR_JUIZ_DE_FORA_PORTAL_DUAS_ANTENAS 1
-#define INTERFACE_DE_AJUSTES 1 //Para ajustes com o software AjustesMaisPortalMI.py
-#endif
-
-#ifdef SANKYU
-
-//#define SANKYU_SAO_PAULO 1//LUGAR
-#define SANKYU_JOAO_MONLEVADE 1//LUGAR
-
-#ifdef SANKYU_JOAO_MONLEVADE
-// **** DEFINE A SER USADO **** //
-//#define SANKYU_JOAO_MONLEVADE_EMPILHADEIRA_7_5_TONS 1
-#define SANKYU_JOAO_MONLEVADE_TESTADOR_DE_CAPACETE 1
-//#define SANKYU_JOAO_MONLEVADE_VELOCIDADE_EM_FUNCAO_DE_GPS
-#elif SANKYU_SAO_PAULO
-// **** DEFINE A SER USADO **** //
-#define SANKYU_SAO_PAULO_EMPILHADEIRA_2_5_TONS 1
-#endif
-
 
 #elif ARCELOR //CLIENTE
 
 #define JUIZ_DE_FORA  1//LUGAR
+
 #ifdef JUIZ_DE_FORA
 
 #define PORTAL 1//PRODUTO
-//#define EMPILHADEIRA 1//PRODUTO
 
 #ifdef PORTAL
 //Configuracoes extras
 #define PORTAL_COM_ETH 1
-#define WIFI 1
+//#define WIFI 1
 //#define INTERFACE_DE_AJUSTES 1
 
-//#define DUAS_ANTENAS 1//CONFIGURACAO
 #define QUATRO_ANTENAS 1//CONFIGURACAO
+
 #ifdef DUAS_ANTENAS
 // **** DEFINE A SER USADO **** //
 #define ARCELOR_JUIZ_DE_FORA_PORTAL_DUAS_ANTENAS 1
@@ -88,33 +27,7 @@
 #define ARCELOR_JUIZ_DE_FORA_PORTAL_QUATRO_ANTENAS 1
 #endif
 
-#elif EMPILHADEIRA
-//ConfiguraÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â§ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Âµes extras
-#define WIFI 1
-#define INTERFACE_DE_AJUSTES 1
-// **** DEFINE A SER USADO **** //
-#define ARCELOR_JUIZ_DE_FORA_EMPILHADEIRA_TRADMAQ_3_5_TONS 1
 #endif
-
-#endif
-
-#elif BRUNAUER //CLIENTE
-#define JOAO_MONLEVADE 1 //LUGAR 
-#ifdef JOAO_MONLEVADE
-// **** DEFINE A SER USADO **** //
-#define BRUNAUER_JOAO_MONLEVADE_EMPILHADEIRA_2_5_TONS 1
-#endif 
-
-#elif CONTROL_PLUS
-#define CONTROL_PLUS_AUTOTESTE
-#define PORTAL_WIEGAND
-#define PORTAO_RFID
-#endif 
-
-//#define EMPILHADEIRA
-
-//#define BARBACENA 1
-
 
 #ifndef __GLOBAL_H__
 #define __GLOBAL_H__
@@ -124,11 +37,9 @@
 #define SYSCLK_12MHZ                12000000ULL
 #define SYSCLK_8MHZ                 8000000ULL
 #define SYSCLK_4MHZ                 4000000ULL
-#if 1
+
 #define SYSCLK    SYSCLK_16MHZ
-#else
-#define SYSCLK    tbd
-#endif
+
 #define FCY    (SYSCLK)
 
 #include "as3993_config.h"

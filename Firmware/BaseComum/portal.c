@@ -2131,13 +2131,6 @@ void LidaComEstadosDaTagEmTick(void){
 }
 
 void acoesEmCodigoCorrentePortalFrango(void){
-    /*
-    TagEmTratamento = TagEmTratamento + 1;
-    if (TagEmTratamento > (MAXIMO_DE_TAGS_MONITORASDAS_EM_PORTAL - 1)){
-        TagEmTratamento = 0;
-    }
-    */
-    
     
     for (TagEmTratamento = 0;TagEmTratamento < MAXIMO_DE_TAGS_MONITORASDAS_EM_PORTAL;TagEmTratamento = TagEmTratamento + 1){
     //if (TagEmTratamento < MAXIMO_DE_TAGS_MONITORASDAS_EM_PORTAL){
@@ -2154,15 +2147,10 @@ void acoesEmCodigoCorrentePortalFrango(void){
             DadosParaASerial = 1;
             if (RegistroDeTagEmPortal[TagEmTratamento].Epc[0] != 0){
                 eliminaRegistroDeTag(TagEmTratamento);
-            }
-            
+            }            
         }
-    } 
-     //else {
-        //TagEmTratamento = 0;
-    
+    }     
 }
-
 
 void acoesEmTickParaPortalFrango(void){
     int TempoDeSilencioAtualNoZigBee;
@@ -2175,48 +2163,16 @@ void acoesEmTickParaPortalFrango(void){
         PodeEnviarTabelaDeInvisiveis = 1;
     }
 
-    /*
-    TagEmTratamentoEmTick = TagEmTratamentoEmTick + 1;
-    if (TagEmTratamentoEmTick >= MAXIMO_DE_TAGS_MONITORASDAS_EM_PORTAL){
-        TagEmTratamentoEmTick = 0;
-    }
-
-    if (RegistroDeTagEmPortal[TagEmTratamentoEmTick].TempoParaInatividade > 0){
-        RegistroDeTagEmPortal[TagEmTratamentoEmTick].TempoParaInatividade = RegistroDeTagEmPortal[TagEmTratamentoEmTick].TempoParaInatividade - 1;
-    }
-    */
-
-    /*
-    int Posicao;
-    for(Posicao = 0;Posicao < MAXIMO_DE_TAGS_MONITORASDAS_EM_PORTAL;Posicao = Posicao + 1){
-        if (RegistroDeTagEmPortal[Posicao].TempoParaInatividade > 0){
-            RegistroDeTagEmPortal[Posicao].TempoParaInatividade = RegistroDeTagEmPortal[Posicao].TempoParaInatividade - 1;
-        }
-    }
-    */
-    
-    //acoesEmCodigoCorrentePortalFrango();
 }
 
 void acoesEmTickACadaSegundoParaPortalFrango(void){
-
     /*
-    TagEmTratamentoEmTick = TagEmTratamentoEmTick + 1;
-    if (TagEmTratamentoEmTick >= MAXIMO_DE_TAGS_MONITORASDAS_EM_PORTAL){
-        TagEmTratamentoEmTick = 0;
-    }
-
-    if (RegistroDeTagEmPortal[TagEmTratamentoEmTick].TempoParaInatividade > 0){
-        RegistroDeTagEmPortal[TagEmTratamentoEmTick].TempoParaInatividade = RegistroDeTagEmPortal[TagEmTratamentoEmTick].TempoParaInatividade - 1;
-    }
-    */
-
     if (PausaNasMensagensDeAvaliacao != 0){
         if (InibeOperacaoEMesagensComOPC == 0){
             PausaNasMensagensDeAvaliacao = PausaNasMensagensDeAvaliacao - 1;
         }
     }
-
+    */
     int Posicao;
     for(Posicao = 0;Posicao < MAXIMO_DE_TAGS_MONITORASDAS_EM_PORTAL;Posicao = Posicao + 1){
         if (RegistroDeTagEmPortal[Posicao].TempoParaInatividade > 0){
@@ -2231,16 +2187,14 @@ void acoesEmTickACadaSegundoParaPortalFrango(void){
         }
         
     }
-    
-    //operacoesEmTickParaEnviarTabelasDeInvisiveisEVisiveis();
-    //acoesEmCodigoCorrentePortalFrango();
-    
+    /*
     if (ContagemParaExpirarOsComandosDoPC > 0){
         ContagemParaExpirarOsComandosDoPC = ContagemParaExpirarOsComandosDoPC - 1;
         if (ContagemParaExpirarOsComandosDoPC == 1){
             iniciaEstruturaDoProtocoloPC();
         }
     }
+    */
 
 }
 
