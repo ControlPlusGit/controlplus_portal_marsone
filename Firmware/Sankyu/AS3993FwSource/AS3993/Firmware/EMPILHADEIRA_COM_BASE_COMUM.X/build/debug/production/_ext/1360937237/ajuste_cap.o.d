@@ -35,11 +35,11 @@ build/debug/production/_ext/1360937237/ajuste_cap.o:  \
 ../src/appl_commands.h  \
 ../src/tuner.h  \
  ../src/config_i2c3.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/mem_i2c_24LC256.h  \
- ../src/tags.h  \
-../src/empilhadeira.h  \
+../src/mem_i2c_24LC256.h  \
+../src/tags.h  \
+ ../src/empilhadeira.h  \
 ../src/i2c.h  \
 ../src/rtc.h  \
- ../src/portal.h  \
-../src/setup_usb.h  \
+../src/portal.h  \
+ ../src/setup_usb.h  \
 ../src/ajuste_cap.h 

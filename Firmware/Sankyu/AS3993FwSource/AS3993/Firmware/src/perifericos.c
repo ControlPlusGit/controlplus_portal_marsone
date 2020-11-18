@@ -18,7 +18,7 @@
 
 #include <platform.h>
 #include <timer.h>
-#include "C:\Projetos\control-plus\Firmware\BaseComum\perifericos.h"
+#include "perifericos.h"
 
 /*--------------------------------------------------------------------*/
 /*                 ---+++>>> Variaveis <<<+++---                      */

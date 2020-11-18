@@ -8,4 +8,4 @@ build/debug/production/_ext/1360937237/perifericos.o:  \
  ../src/ams_types.h  \
 ../src/GenericTypeDefs.h  \
 ../src/timer.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/perifericos.h 
+ ../src/perifericos.h 

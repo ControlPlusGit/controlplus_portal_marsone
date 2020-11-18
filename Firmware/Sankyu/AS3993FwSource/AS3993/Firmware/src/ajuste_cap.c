@@ -18,7 +18,7 @@
 #include "appl_commands.h"
 #include "tuner.h"
 #include "config_i2c3.h"
-#include "C:\Projetos\control-plus\Firmware\BaseComum\mem_i2c_24LC256.h"
+#include "mem_i2c_24LC256.h"
 #include "tags.h"
 #include "empilhadeira.h"
 #include "i2c.h"
