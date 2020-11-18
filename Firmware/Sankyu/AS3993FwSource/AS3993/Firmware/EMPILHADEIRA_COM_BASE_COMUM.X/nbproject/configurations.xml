@@ -24,9 +24,6 @@
       <itemPath>../src/global.h</itemPath>
       <itemPath>../src/i2c_driver.h</itemPath>
       <itemPath>../src/iso6b.h</itemPath>
-      <itemPath>../src/lcd.h</itemPath>
-      <itemPath>../src/lcd_common.h</itemPath>
-      <itemPath>../src/lcd_font_5x7_ASCII.h</itemPath>
       <itemPath>../src/logger.h</itemPath>
       <itemPath>../src/p24FJ256DA210.h</itemPath>
       <itemPath>../src/platform.h</itemPath>
@@ -61,9 +58,7 @@
       <itemPath>../src/mem_i2c_24LC256.h</itemPath>
       <itemPath>../src/tags.h</itemPath>
       <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/exclusao.h</itemPath>
-      <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/zigbee.h</itemPath>
       <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/portal.h</itemPath>
-      <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/wiegand.h</itemPath>
       <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/i2c.h</itemPath>
       <itemPath>C:/Projetos/control-plus/software/fifo/fifo.h</itemPath>
       <itemPath>C:/Projetos/control-plus/software/fifo/gerenciaPacotes.h</itemPath>
@@ -73,8 +68,6 @@
       <itemPath>../src/setup_usb.h</itemPath>
       <itemPath>../src/empilhadeira.h</itemPath>
       <itemPath>../src/eth.h</itemPath>
-      <itemPath>../src/gps.h</itemPath>
-      <itemPath>../src/wifi.h</itemPath>
       <itemPath>../src/cancelas.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LibraryFiles"
@@ -118,9 +111,7 @@
         <itemPath>../src/onewire.c</itemPath>
         <itemPath>../src/perifericos.c</itemPath>
         <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/exclusao.c</itemPath>
-        <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/zibbee.c</itemPath>
         <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/portal.c</itemPath>
-        <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/wiegand.c</itemPath>
         <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/i2c.c</itemPath>
         <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/config_i2c3.c</itemPath>
         <itemPath>C:/Projetos/control-plus/software/fifo/fifo.c</itemPath>
@@ -130,7 +121,6 @@
         <itemPath>../src/cancelas.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="Especifico" projectFiles="true">
-        <itemPath>../src/lcd.c</itemPath>
         <itemPath>../src/lista.c</itemPath>
         <itemPath>../../../common/firmware/microchip/src/logger.c</itemPath>
         <itemPath>../src/main.c</itemPath>

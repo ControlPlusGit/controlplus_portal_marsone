@@ -101,7 +101,7 @@ void limpa_buffer_tags(unsigned int numDeteccoes)
  */
 void troca_bytes(unsigned int numDeteccoes)
 {
-    static unsigned int conta_ausencia_ze = 0;          // contador de ausencia da area de exclusao
+    /*static unsigned int conta_ausencia_ze = 0;          // contador de ausencia da area de exclusao
     unsigned int indiceMaiorRSSI = 0;
     char buffer[4] = {0};
     char epcBuffer[25] = {0};
@@ -147,7 +147,7 @@ void troca_bytes(unsigned int numDeteccoes)
     {
         sel_led(7,0);
         tem_ze_na_area  = 0;
-    }
+    }*/
 }
 
 //void troca_bytes(void)
@@ -253,7 +253,7 @@ unsigned int verifMaxRSSI(unsigned int tags_detectadas)
     unsigned int maxRSSI = 0;
     unsigned int i = 0, indiceMaxRSSI = 0;
         
-    poe_texto_XY(3,6,"    ");                   // limpamos o campo de exibicao do RSSI
+    //poe_texto_XY(3,6,"    ");                   // limpamos o campo de exibicao do RSSI
     
     for(i=0; i < tags_detectadas; i++)
     {
@@ -287,8 +287,8 @@ unsigned int verifMaxRSSI(unsigned int tags_detectadas)
         }
     }
     
-    poe_texto_XY(3,0,"RSSI: ");                 // mostramos o valor do RSSI no display LCD
-    poe_dado_XY(3,6,maxRSSI);                   // mostramos o modulo RSSI de maior valor
+    //poe_texto_XY(3,0,"RSSI: ");                 // mostramos o valor do RSSI no display LCD
+    //poe_dado_XY(3,6,maxRSSI);                   // mostramos o modulo RSSI de maior valor
     
     return(indiceMaxRSSI);
 }
@@ -391,16 +391,16 @@ void testeRSSI(void)
     char buffer[4] = {0};
     char epcBuffer[25] = {0};
     
-    limpa_display();
+    //limpa_display();
     
     while(42)
     {
-        poe_texto_XY(1,0,"   Teste de RSSI    ");
-        poe_texto_XY(2,0,"I: ");
-        poe_texto_XY(2,7,"Q: ");
-        poe_texto_XY(3,0,"RSSI: ");
-        poe_texto_XY(3,10,"TAGs: ");
-        poe_texto_XY(4,0,"EPC: ");
+//        poe_texto_XY(1,0,"   Teste de RSSI    ");
+//        poe_texto_XY(2,0,"I: ");
+//        poe_texto_XY(2poe_texto_XY,7,"Q: ");
+//        poe_texto_XY(3,0,"RSSI: ");
+//        poe_texto_XY(3,10,"TAGs: ");
+//        poe_texto_XY(4,0,"EPC: ");
         tags_detectadas = inventoryGen2();
         if(tags_detectadas)
         {
@@ -414,11 +414,11 @@ void testeRSSI(void)
                 sel_led(7,0);                       // caso contrario, apaga o LED 7
             }
 
-            poe_texto_XY(2,3,"    ");               // limpamos os campos todas as vezes que alguma TAG eh detectada
-            poe_texto_XY(2,10,"    ");
-            poe_texto_XY(3,6,"    ");
-            poe_texto_XY(3,16,"   ");
-            poe_texto_XY(4,5,"               ");
+//            poe_texto_XY(2,3,"    ");               // limpamos os campos todas as vezes que alguma TAG eh detectada
+//            poe_texto_XY(2,10,"    ");
+//            poe_texto_XY(3,6,"    ");
+//            poe_texto_XY(3,16,"   ");
+//            poe_texto_XY(4,5,"               ");
             delay_ms(1000);                         // intervalo de 1 segundo para notarmos que ocorreu um novo ciclo de leitura
             for(j=0; j < tags_detectadas; j++)      // faz a varredura das TAGs detectadas
             {                
@@ -431,18 +431,18 @@ void testeRSSI(void)
                     itoa(buffer,(unsigned long)tags_[j].epc[i],16); // converte o conteudo do EPC para ascii na base 16
                     strcat(epcBuffer,buffer);                       // e armazena no buffer
                 }
-                poe_texto_XY(2,3,"    ");           // limpamos o campo antes de preencher o valor
-                poe_dado_XY(2,3,rssiI);             // mostramos o valor de I
-                poe_texto_XY(2,10,"    ");          // limpamos o campo antes de preencher o valor
-                poe_dado_XY(2,10,rssiQ);            // mostramos o valor de Q
-                poe_texto_XY(3,6,"    ");           // limpamos o campo antes de preencher o valor
-                poe_dado_XY(3,6,rssi);              // mostramos o modulo RSSI
-                poe_texto_XY(3,16,"   ");           // limpamos o campo antes de preencher o valor
-                poe_dado_XY(3,16,(j+1));            // mostramos o indice + 1 da TAG
-                poe_texto_XY(3,17,"/");             // separador
-                poe_dado_XY(3,18,tags_detectadas);  // mostramos a quantidade de TAGs detectadas
-                poe_texto_XY(4,5,"               ");// limpamos o campo antes de preencher o valor
-                poe_texto_XY(4,5,epcBuffer);        // exibe a TAG no display LCD
+//                poe_texto_XY(2,3,"    ");           // limpamos o campo antes de preencher o valor
+//                poe_dado_XY(2,3,rssiI);             // mostramos o valor de I
+//                poe_texto_XY(2,10,"    ");          // limpamos o campo antes de preencher o valor
+//                poe_dado_XY(2,10,rssiQ);            // mostramos o valor de Q
+//                poe_texto_XY(3,6,"    ");           // limpamos o campo antes de preencher o valor
+//                poe_dado_XY(3,6,rssi);              // mostramos o modulo RSSI
+//                poe_texto_XY(3,16,"   ");           // limpamos o campo antes de preencher o valor
+//                poe_dado_XY(3,16,(j+1));            // mostramos o indice + 1 da TAG
+//                poe_texto_XY(3,17,"/");             // separador
+//                poe_dado_XY(3,18,tags_detectadas);  // mostramos a quantidade de TAGs detectadas
+//                poe_texto_XY(4,5,"               ");// limpamos o campo antes de preencher o valor
+//                poe_texto_XY(4,5,epcBuffer);        // exibe a TAG no display LCD
                 delay_ms(4000);                     // delay de 4 segundos para podermos visualizar todos os valores
             }
         }

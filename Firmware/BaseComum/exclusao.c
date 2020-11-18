@@ -110,7 +110,7 @@ void retornaComCheckSumDaTabelaDeExclusao(unsigned int *CheckSumFinal, int *Tama
 }
 
 void enviaCabecalhoParaEnvioDeTabelaDeEx(int Tamanho){
-    char Rascunho[30];
+    /*char Rascunho[30];
     int Contador;
     
     memset(Rascunho, 0, 30);
@@ -118,11 +118,11 @@ void enviaCabecalhoParaEnvioDeTabelaDeEx(int Tamanho){
     for (Contador = 0;Contador < 30;Contador = Contador + 1){
         enviaBytePorZigBee(Rascunho[Contador]);
     }
-    delay_ms(10);
+    delay_ms(10);*/
 }
 
 int envioDeTabelaDeExclusao (void){
-    unsigned int CheckSum;
+    /*unsigned int CheckSum;
     int Tamanho;
     int Contador;
     int Rascunho;
@@ -177,7 +177,7 @@ int envioDeTabelaDeExclusao (void){
     desliga_led_zig();
     
     TabelaDeExclusaoOcupadoPorEnvio = 0;
-    
+    */
     
     return 0;
 }

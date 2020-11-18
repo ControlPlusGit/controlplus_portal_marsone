@@ -245,7 +245,7 @@ int leUmaEtiquetaParaTesteDeCapacete(int TempoDeLeitura, char *EpcCapturado) {
 }
 
 void calibracaoDoTestadorDeCapacete(void) {
-    int Resultado[6];
+    /*int Resultado[6];
     int Antena;
     char Texto[2];
     int Contador;
@@ -293,11 +293,11 @@ void calibracaoDoTestadorDeCapacete(void) {
             }
         }
         TerminaInvetorio();
-    }
+    }*/
 }
 
 void testadorDeCapacete(void) {
-    int Resultado;
+    /*int Resultado;
     char Etiqueta[TAMANHO_EPC_PARA_EMPILHADEIRA];
     int Antena;
     int Resultados[5];
@@ -369,7 +369,7 @@ void testadorDeCapacete(void) {
             }
             delay_ms(1000);
         }
-    }
+    }*/
 
 }
 
@@ -915,11 +915,11 @@ int main(void){
     tunerInit(&mainTuner);
 
     desliga_saida_pa();
-    inicia_display();
+    //inicia_display();
 
     //delay_ms(1000);
 
-    limpa_display();
+    //limpa_display();
 
     desliga_led_tag();
     

@@ -224,7 +224,7 @@ void *deletaDadoFila(void)
 // @return: 0 se dado eliminado com sucesso, 1 se heap ja estava vazio.
 unsigned int liberaDadoFila(void)
 {
-    Lista *dadoRetirado = NULL;
+    /*Lista *dadoRetirado = NULL;
 
     dadoRetirado = deletaDadoFila();
     if(dadoRetirado)
@@ -235,7 +235,7 @@ unsigned int liberaDadoFila(void)
         dadoRetirado = NULL;
         return 0;
     }
-    else
+    else*/
         return 1;
 }
 

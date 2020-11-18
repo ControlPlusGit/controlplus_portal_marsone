@@ -628,7 +628,7 @@ void aguradaSilencioNa485(void){
 }
 
 void enviaMovimentoParaWiegand(unsigned char *Dado, int Movimento, unsigned char Antena){
-    unsigned char Dados[3];
+    /*unsigned char Dados[3];
     unsigned char Rascunho;
 
     if (ModoWieGand == WIEGAND_PARA_PORTAL){
@@ -644,12 +644,12 @@ void enviaMovimentoParaWiegand(unsigned char *Dado, int Movimento, unsigned char
         Dado = Dado + 1;
         Dados[2] = *Dado;
         enviaWiegand(Dados, 3);
-    }
+    }*/
 }
 
 
 void enviaTAgParaAvaliacaoParaWiegand(unsigned char *Dado, unsigned char Antena){
-    unsigned char Dados[3];
+    /*unsigned char Dados[3];
     unsigned char Rascunho;
 
     if (ModoWieGand == WIEGAND_PARA_AVALIACAO){
@@ -663,7 +663,7 @@ void enviaTAgParaAvaliacaoParaWiegand(unsigned char *Dado, unsigned char Antena)
         Dado = Dado + 1;
         Dados[2] = *Dado;
         enviaWiegand(Dados, 3);
-    }
+    }*/
 }
 
 void resetaParametrosFrango (void){
@@ -1843,7 +1843,7 @@ void acoesEmCodigoCorrentePortalFrango(void){
 }
 
 void acoesEmTickParaPortalFrango(void){
-    int TempoDeSilencioAtualNoZigBee;
+   /* int TempoDeSilencioAtualNoZigBee;
     if (ContadorDeSilencioNa485){
         ContadorDeSilencioNa485 =  ContadorDeSilencioNa485 - 1;
     }
@@ -1852,7 +1852,7 @@ void acoesEmTickParaPortalFrango(void){
     if (TempoDeSilencioAtualNoZigBee >= (TEMPO_MAXIMO_DE_SILENCIO_DO_ZIGBEE - 1)){
         PodeEnviarTabelaDeInvisiveis = 1;
     }
-
+*/
 }
 
 void acoesEmTickACadaSegundoParaPortalFrango(void){
