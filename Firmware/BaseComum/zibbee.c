@@ -12,23 +12,11 @@
 #include "as3993.h"
 #include "timer.h"
 
-//Eram todos sem o caminho dos arquivos
-#include "C:\Projetos\control-plus\Firmware\BaseComum\zigbee.h"
-#include "C:\Projetos\control-plus\Firmware\BaseComum\mem_i2c_24LC256.h"
-#include "C:\Projetos\control-plus\Firmware\BaseComum\rtc.h"
-#include "C:\Projetos\control-plus\Firmware\BaseComum\portal.h"
-#include "C:\Projetos\control-plus\Firmware\BaseComum\exclusao.h"
-#include "C:\Projetos\control-plus\Firmware\BaseComum\zigbee.h"
-
-/*
 #include "zigbee.h"
 #include "mem_i2c_24LC256.h"
 #include "rtc.h"
 #include "portal.h"
 #include "exclusao.h"
-#include "zigbee.h"
-*/
-
 
 extern char num_serie[20];
 

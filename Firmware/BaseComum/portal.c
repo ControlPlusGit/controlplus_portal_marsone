@@ -923,15 +923,7 @@ void obtemParamentrosSalvosFrango (void){
 
     LerDadosDaEEprom(0, &rascunho);
     ModoDeOperacao = rascunho;
-
-    /*
-    if ((ModoDeOperacao != OPERACAO_COM_LEITURA_UNICA) &&
-            (ModoDeOperacao != OPERACAO_COM_MULTIPLAS_LEITURAS)){
-        ModoDeOperacao = OPERACAO_COM_MULTIPLAS_LEITURAS;
-    }
-    */
-    
-    
+      
     if (ModoDeOperacao < OPERACAO_COM_LEITURA_UNICA){
         ModoDeOperacao = OPERACAO_COM_LEITURA_UNICA;
     }
@@ -939,8 +931,6 @@ void obtemParamentrosSalvosFrango (void){
     if (ModoDeOperacao > OPERACAO_LEITURAS_INITERRUPTAS){
         ModoDeOperacao = OPERACAO_LEITURAS_INITERRUPTAS;
     }
-
-
     
     LerDadosDaEEprom(1, &rascunho);
     AtrasoParaDegradarLeitura = rascunho;
@@ -965,8 +955,6 @@ void obtemParamentrosSalvosFrango (void){
     if (TempoParaInatividadeDeTagMonitorada > TEMPO_LIMITE_PARA_INATIVIDADE_DE_TAG_MONITORADA){
         TempoParaInatividadeDeTagMonitorada = TEMPO_LIMITE_PARA_INATIVIDADE_DE_TAG_MONITORADA;
     }
-    
-    
 
     LerDadosDaEEprom(5, &rascunho);
     NumeroDeAntenasLidas = rascunho;
@@ -1010,330 +998,29 @@ void obtemParamentrosSalvosFrango (void){
     LerDadosDaEEprom(16, &rascunho);
     IdDoLeitor[3] = rascunho;
 
-
     LerDadosDaEEprom(17, &rascunho);
     FrequenciaTraseira = rascunho;
     SetaFrequenciaTraseira();
     
+    TempoParaInatividadeDeTagMonitorada = 3000;
     
-    
-//    ModoDeOperacao = OPERACAO_LEITURAS_INITERRUPTAS;
-//    
-//
-//    Capacitores[0] = 0; 
-//    Capacitores[1] = 4;
-//    Capacitores[2] = 3;
-//    tunerInit(&mainTuner);
-//    
-//    ModoDeOperacao = OPERACAO_LEITURAS_INITERRUPTAS;
-//    
-//    TempoParaInatividadeDeTagMonitorada = 10; //7
-      TempoParaInatividadeDeTagMonitorada = 3000;
-    
-    //goto SEM_AJUSTES_FIXOS;
-    
-    
-    //ModoDeOperacao = OPERACAO_COM_LEITURA_UNICA;
-    //ModoDeOperacao = OPERACAO_COM_MULTIPLAS_LEITURAS;
     ModoDeOperacao = OPERACAO_LEITURAS_INITERRUPTAS;
-    
-    
-    
-    // *************************************************************************
-    //  Ajustes de antenas para Portais de Juiz de fora em frequencia de 890Mhz
-    //  As pontes rolantes usam todo o espectro Brasileiro do RFID e com isso
-    //terei de realizar uma nova calibracao em todos os portais.
-    // Vou ter como objetivo ter duas calibracoes:
-    // -Para duas antenas
-    // -Para 4 antenas.
-    // Porem eu sei que havera mais valores
-    // *************************************************************************
-
-    
-    // *************************************************************************
-    // Duas antenas em 890Mhz
-    // *************************************************************************
     
     AtrasoParaDegradarLeitura = 0;
     setaSensibilidade(125);
     NumeroDeAntenasLidas = 4;
-    //Frequencia = 90;//Para chegar em 890Mhz
-    //SetaFrequencias();
-    //SetaFrequencias800();
-    //Frequencia = -20;//Para chegar em 890Mhz
-    //Frequencia = 20;//Para chegar em 890Mhz
+    
     Frequencia = 19;
     SetaFrequencias();
     TempoParaInatividadeDeTagMonitorada = 7;//5;    
     PortaDePortalDeExclusao = 1;
-    //Capacitores[0] = 1; 
-    //Capacitores[1] = 4;
-    //Capacitores[2] = 4;
-    
-    //Capacitores[0] = 0; 
-    //Capacitores[1] = 9;
-    //Capacitores[2] = 5;
-    
-    //Ajuste 1
-    //Capacitores[0] = 1; 
-    //Capacitores[1] = 4;
-    //Capacitores[2] = 4;
-
-    //Ajuste 2
-//    Capacitores[0] = 0; 
-//    Capacitores[1] = 4;
-//    Capacitores[2] = 3;
-
-    //Ajuste 3
-    //Capacitores[0] = 0; 
-    //Capacitores[1] = 9;
-    //Capacitores[2] = 7;
-     
-    //10 para portal alpha com rede de JF em 15/11/19
-    //2 para operacao normal
-//    RepeticaoNaLeitura = 5;//2
-    
-    //salvaParametrosFrango();
-
-    
-    // *************************************************************************
-
-    
-    // *************************************************************************
-    // Quatro antenas em 890Mhz
-    // *************************************************************************
-    /*
-    AtrasoParaDegradarLeitura = 0;
-    setaSensibilidade(125);
-    NumeroDeAntenasLidas = 4;
-    //NumeroDeAntenasLidas = 2;
-    //Frequencia = 80;
-    //SetaFrequencias800();
-    Frequencia = 20;//Para chegar em 890Mhz
-    //Frequencia = 23;//Para chegar em 890Mhz
-    //Frequencia = 15;//Para chegar em 890Mhz
-    SetaFrequencias();
-    TempoParaInatividadeDeTagMonitorada = 10;//14;//7;//5;
-    PortaDePortalDeExclusao = 1;
-
-    //Ajuste padrao
-    //Capacitores[0] = 0; 
-    //Capacitores[1] = 9;
-    //Capacitores[2] = 5;
-
-
-    //Ajuste 1
-    //Capacitores[0] = 1; 
-    //Capacitores[1] = 4;
-    //Capacitores[2] = 4;
-
-    
-    //Ajuste 2
-    Capacitores[0] = 0; 
-    Capacitores[1] = 4;
-    Capacitores[2] = 3;
-    */
     
     Capacitores[0] = 15; 
     Capacitores[1] = 7;
     Capacitores[2] = 9;
     
-    /*
-    //Ajuste 3
-    //Capacitores[0] = 0; 
-    //Capacitores[1] = 9;
-    //Capacitores[2] = 7;
-     */
     RepeticaoNaLeitura = 10;
     
-    /*
-    RepeticaoNaLeitura = 2;
-    //RepeticaoNaLeitura = 1;
-    */
-    // *************************************************************************
-    
-
-    
-    //Ajustes para antena Pixys Air Para Saint Gobain
-    /*
-    AtrasoParaDegradarLeitura = 0;
-    setaSensibilidade(125);
-    NumeroDeAntenasLidas = 4;//Normalmente com 2 antenas
-    Frequencia = 23;
-    RepeticaoNaLeitura = 4;
-    SetaFrequencias();
-    //Frequencies.numFreqs = 0;
-    TempoParaInatividadeDeTagMonitorada = 7;//7;
-    PortaDePortalDeExclusao = 1;
-    Capacitores[0] = 1; 
-    Capacitores[1] = 4;
-    Capacitores[2] = 4;
-    */
-    
-    //Ajustes para a antena de Pixys Air
-    /*
-    AtrasoParaDegradarLeitura = 100;
-    setaSensibilidade(5);
-    NumeroDeAntenasLidas = 2;
-    Frequencia = 15;
-    RepeticaoNaLeitura = 1;
-    SetaFrequencias();
-    TempoParaInatividadeDeTagMonitorada = 7;//7;
-    PortaDePortalDeExclusao = 1;
-    */
-    
-    //Ajustes para antena de vidro
-    /*
-    AtrasoParaDegradarLeitura = 5;
-    setaSensibilidade(125);
-    NumeroDeAntenasLidas = 4;
-    Frequencia = 30;
-    SetaFrequencias();
-    TempoParaInatividadeDeTagMonitorada = 7;//5;    
-    PortaDePortalDeExclusao = 1;
-    */
-    
-    /*
-    AtrasoParaDegradarLeitura = 5;
-    setaSensibilidade(125);
-    NumeroDeAntenasLidas = 2;
-    Frequencia = 30;
-    SetaFrequencias();
-    TempoParaInatividadeDeTagMonitorada = 7;//5;    
-    PortaDePortalDeExclusao = 1;
-l    */
-
-    //O, N, M, G, E, C
-    // Usando com 4 antenas no portal largo de juiz de fora e no da saida do patio de bobinas
-    //AtrasoParaDegradarLeitura = 100;
-    /*
-    AtrasoParaDegradarLeitura = 0;
-    setaSensibilidade(5);
-    NumeroDeAntenasLidas = 4;//4 antenas para o portal largo de juiz de fora
-    Frequencia = 15;
-    SetaFrequencias();
-    TempoParaInatividadeDeTagMonitorada = 7;//5;    
-    PortaDePortalDeExclusao = 1;
-    
-    Capacitores[0] = 0; 
-    Capacitores[1] = 9;
-    Capacitores[2] = 5;
-    RepeticaoNaLeitura = 2;
-    */
-    
-    //Ajustado em campo
-    //O, N, M, E    AtrasoParaDegradarLeitura = 0;
-    // *********************************************************
-    //SERVIU PARA QUASE TODOS OS PORTAIS DE JUIZ DE FORA
-    // *********************************************************
-    /*
-    setaSensibilidade(150);
-    NumeroDeAntenasLidas = 2;
-    //Frequencia = 25;
-    Frequencia = 11;//I JF
-    SetaFrequencias();
-    TempoParaInatividadeDeTagMonitorada = 7;//5;    
-    PortaDePortalDeExclusao = 1;
-    ModoDeOperacao = OPERACAO_COM_MULTIPLAS_LEITURAS;
-    
-    Capacitores[0] = 0; 
-    Capacitores[1] = 4;
-    Capacitores[2] = 3;
-    RepeticaoNaLeitura = 2;
-    //RepeticaoNaLeitura = 4;//i jf
-    */
-    
-    //Ajustado em campo pra placa C
-    /*
-    AtrasoParaDegradarLeitura = 0;
-    setaSensibilidade(150);
-    NumeroDeAntenasLidas = 2;
-    Frequencia = 25;
-    SetaFrequencias();
-    TempoParaInatividadeDeTagMonitorada = 7;//5;    
-    PortaDePortalDeExclusao = 1;
-    ModoDeOperacao = OPERACAO_COM_MULTIPLAS_LEITURAS;
-    
-    Capacitores[0] = 0; 
-    Capacitores[1] = 9;
-    Capacitores[2] = 5;
-    RepeticaoNaLeitura = 2;
-    */
-    
-    
-    //H, I, J, K, L, D
-    //Muito bom para um dos portais de Juiz de Fora em 30/08/18
-    /*
-    //AtrasoParaDegradarLeitura = 100;
-    AtrasoParaDegradarLeitura = 0;
-    setaSensibilidade(141);//k
-    //setaSensibilidade(219);
-    NumeroDeAntenasLidas = 2;
-    //Frequencia = 15;
-    //Frequencia = 4;//k
-    Frequencia = 19;//G jf
-    SetaFrequencias();
-    TempoParaInatividadeDeTagMonitorada = 7;//5;    
-    PortaDePortalDeExclusao = 1;
-    
-    Capacitores[0] = 0; 
-    Capacitores[1] = 9;
-    Capacitores[2] = 7;
-    //RepeticaoNaLeitura = 4;//k
-    RepeticaoNaLeitura = 2;//G
-    */
-    
-    //B
-    /*
-    AtrasoParaDegradarLeitura = 100;
-    setaSensibilidade(5);
-    NumeroDeAntenasLidas = 2;
-    Frequencia = 15;
-    SetaFrequencias();
-    TempoParaInatividadeDeTagMonitorada = 7;//5;    
-    PortaDePortalDeExclusao = 1;
-
-
-    Capacitores[0] = 0; 
-    Capacitores[1] = 9;
-    Capacitores[2] = 7;
-    RepeticaoNaLeitura = 4;
-    */
-/*
-    AtrasoParaDegradarLeitura = 100;
-    setaSensibilidade(5);
-    NumeroDeAntenasLidas = 2;
-    Frequencia = 15;
-    SetaFrequencias();
-    TempoParaInatividadeDeTagMonitorada = 7;//5;    
-    PortaDePortalDeExclusao = 1;
-
-    Capacitores[0] = 0; 
-    Capacitores[1] = 9;
-    Capacitores[2] = 5;
-    RepeticaoNaLeitura = 4;
-    */
-    //A
-    /*
-    AtrasoParaDegradarLeitura = 100;
-    setaSensibilidade(4);
-    NumeroDeAntenasLidas = 2;
-    Frequencia = 15;
-    SetaFrequencias();
-    TempoParaInatividadeDeTagMonitorada = 7;//5;    
-    PortaDePortalDeExclusao = 1;
-    
-    Capacitores[0] = 0; 
-    Capacitores[1] = 4;
-    Capacitores[2] = 3;
-    RepeticaoNaLeitura = 4;
-    */
-    
-SEM_AJUSTES_FIXOS:
-    __asm("NOP");
-#ifdef KALUNGA
-    PortaDePortalDeExclusao = 1;
-#endif 
 }
 
 void salvaCapacitores(int Cin, int Cen, int Cout){
