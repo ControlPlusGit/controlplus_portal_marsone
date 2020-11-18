@@ -9,11 +9,12 @@
 #include "platform.h"
 #include "tuner.h"
 #include <time.h>
-#include "C:\Projetos\control-plus\Firmware\BaseComum\exclusao.h"
+#include "C:\Projetos\control-plus\Firmware\BaseComum\rtc.h"
+#include "exclusao.h"
 #include "portal.h"
 #include "perifericos.h"
-#include "C:\Projetos\control-plus\Firmware\BaseComum\varal.h"
 #include "eth.h"
+
 #include "appl_commands.h"
 #include "cancelas.h"
 #include "setup_usb.h"
@@ -316,8 +317,9 @@ void iniciaEstruturaDoProtocoloPC (void){
 
 
 int trataRecepcaoDoProcoloNoPortal (unsigned char Dado, int *Estado, unsigned char *Comando, unsigned int *Tamanho, unsigned char *Corpo,
-       int *ContadorDoCorpo, unsigned int  *CheckSum){
-    /*signed char Rascunho;
+                                    int *ContadorDoCorpo, unsigned int  *CheckSum){
+    /*
+    unsigned char Rascunho;
     //zeraAContagemDeSilencioNoZigBee();
     ContagemParaExpirarOsComandosDoPC = 3;
 	*CheckSum = *CheckSum + Dado;
@@ -391,7 +393,7 @@ int trataRecepcaoDoProcoloNoPortal (unsigned char Dado, int *Estado, unsigned ch
 			*Estado = ESPERANDO_CABECA;
 			break;
 	}*/
-    return 0;
+	return 0;
 }
 
 
@@ -2399,7 +2401,7 @@ void lidaComComandoDOPC(unsigned char Dado, int Interface){
             //delay_ms (4);
             
             _LATG13 = 0;            
-             
+             * 
         } else {
             
             if (recuperaItemDaListaDeSaida(Saida) >= 0){
@@ -2562,7 +2564,7 @@ void lidaComComandoDOPC(unsigned char Dado, int Interface){
 #endif
 
 void ajustesDoLeitor (unsigned char Dado, int Interface){
-    /*int rascunho;
+   /* int rascunho;
     int Resultado;
     
     Resultado = trataRecepcaoDoProcoloNoPortal (Dado, &EstruturaDeRecepcaoDoPC.Estado, &EstruturaDeRecepcaoDoPC.Comando, &EstruturaDeRecepcaoDoPC.Tamanho, &CorpoDeComandoRecebidoDoPC[EstruturaDeRecepcaoDoPC.ContagemDoCorpo], &EstruturaDeRecepcaoDoPC.ContagemDoCorpo, &EstruturaDeRecepcaoDoPC.CheckSum);
@@ -2711,7 +2713,7 @@ void ajustesDoLeitor (unsigned char Dado, int Interface){
                 break;             
         }
         iniciaEstruturaDoProtocoloPC();
-    } */  
+    }   */
 }
 
 

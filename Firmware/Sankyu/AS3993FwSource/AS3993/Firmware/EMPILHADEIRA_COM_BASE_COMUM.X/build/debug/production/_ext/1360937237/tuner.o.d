@@ -4,6 +4,9 @@ build/debug/production/_ext/1360937237/tuner.o:  \
 ../src/global.h  \
 ../src/ams_types.h  \
  ../src/GenericTypeDefs.h  \
+../src/uart.h  \
+../src/PIC24F_periph_features.h  \
+ ../src/GenericTypeDefs.h  \
 ../src/tuner.h  \
 ../src/as3993_public.h  \
  ../src/errno_as3993.h  \

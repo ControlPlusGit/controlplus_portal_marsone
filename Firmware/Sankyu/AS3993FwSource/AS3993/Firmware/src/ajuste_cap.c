@@ -1,5 +1,3 @@
-
-
 #include <stdio.h>
 #include <string.h>
 #include "lcd.h"
@@ -19,30 +17,13 @@
 #include "timer.h"
 #include "appl_commands.h"
 #include "tuner.h"
-//#include "gprs.h"
-//#include "varal.h"
-//#include "sankyu.h"
-//#include "C:\Projetos\control-plus\Firmware\BaseComum\onewire.h"
-//#include "lista.h"
-//#include "auto_teste.h"
 #include "config_i2c3.h"
 #include "C:\Projetos\control-plus\Firmware\BaseComum\mem_i2c_24LC256.h"
 #include "tags.h"
 #include "empilhadeira.h"
 #include "i2c.h"
-//#include "zigbee.h"
-//#include "C:\Projetos\control-plus\Firmware\BaseComum\zigbee.h"
-//#include "gps.h"
-//#include "C:\Projetos\control-plus\Firmware\BaseComum\rtc.h"
-//#include "C:\Projetos\control-plus\Firmware\BaseComum\exclusao.h"
-//#include "C:\Projetos\control-plus\Firmware\BaseComum\autoteste.h"
-//#include "C:\Projetos\control-plus\Firmware\BaseComum\wifi.h"
-//#include "C:\Projetos\control-plus\Firmware\BaseComum\eth.h"
-
-#include "C:\Projetos\control-plus\Firmware\BaseComum\portal.h"
-
-#include "C:\projetos\control-plus\Firmware\Sankyu\AS3993FwSource\AS3993\Firmware\src\global.h"
-//#include "C:\Projetos\control-plus\Firmware\BaseComum\cancelas.h"
+#include "portal.h"
+#include "global.h"
 #include "as3993.h"
 #include "setup_usb.h"
 

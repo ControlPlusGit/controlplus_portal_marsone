@@ -7,24 +7,22 @@ build/debug/production/_ext/1611813562/uart_driver.o:  \
 ../src/GenericTypeDefs.h  \
 ../src/usb_hal_pic24.h  \
  ../src/Compiler.h  \
+../src/uart.h  \
+../src/PIC24F_periph_features.h  \
+ ../src/GenericTypeDefs.h  \
 ../src/global.h  \
 ../src/as3993_config.h  \
-../src/global.h  \
- ../src/Compiler.h  \
+ ../src/global.h  \
+../src/Compiler.h  \
 ../src/auto_teste.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/gps.h  \
-../src/empilhadeira.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/zigbee.h  \
+ ../src/empilhadeira.h  \
 ../src/timer.h  \
- ../src/p24FJ256DA210.h  \
- C:/projetos/control-plus/Firmware/Sankyu/AS3993FwSource/AS3993/Firmware/src/wifi.h  \
- C:/projetos/control-plus/Firmware/Sankyu/AS3993FwSource/AS3993/Firmware/src//eth.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/eth.h  \
- C:/Projetos/control-plus/software/fifo/gerenciaPacotes.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/portal.h  \
- ../src/appl_commands.h  \
+../src/p24FJ256DA210.h  \
+../src/eth.h  \
+ ../src/portal.h  \
+../src/appl_commands.h  \
 ../src/timer_driver.h  \
-../src/platform.h  \
- ../src/setup_usb.h  \
+ ../src/platform.h  \
+../src/setup_usb.h  \
 ../src/ajuste_cap.h  \
-../src/FSM_DataHora.h 
+ ../src/FSM_DataHora.h 

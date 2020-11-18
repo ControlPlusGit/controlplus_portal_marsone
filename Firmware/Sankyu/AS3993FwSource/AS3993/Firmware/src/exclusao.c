@@ -2,18 +2,23 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
-#include "zigbee.h"
+
+//#include <exclusao.h>
+//#include "zigbee.h"
 #include "rtc.h"
 #include "empilhadeira.h"
 #include "portal.h"
 #include "uart_driver.h"
 #include "p24FJ256DA210.h"
-#include "timer.h"
-#include "zigbee.h"
+#include <timer.h>
+//#include "zigbee.h"
 #include "perifericos.h"
+//#include "exclusao.h"
 #include "exclusao.h"
-#include "C:\Projetos\control-plus\software\fifo\fifo.h"
-#include "../../../control-plus/Firmware/Sankyu/AS3993FwSource/AS3993/Firmware/src/global.h"
+//#include "C:\Projetos\control-plus\software\fifo\fifo.h"
+#include "portal.h"
+//#include "C:\Projetos\control-plus\Firmware\BaseComum\wifi.h"
+#include "global.h"
 #include "platform.h"
 
 extern char empilhadeira[20];
@@ -117,8 +122,8 @@ void enviaCabecalhoParaEnvioDeTabelaDeEx(int Tamanho){
 }
 
 int envioDeTabelaDeExclusao (void){
-    /*unsigned int CheckSum;
-    int Tamanho;
+   /* unsigned int CheckSum;
+   int Tamanho;
     int Contador;
     int Rascunho;
     signed char RascunhoParaEnvio;
@@ -172,8 +177,8 @@ int envioDeTabelaDeExclusao (void){
     desliga_led_zig();
     
     TabelaDeExclusaoOcupadoPorEnvio = 0;
-    */
     
+    */
     return 0;
 }
 
@@ -545,7 +550,7 @@ void enviaEventoDeQueUmPedestreSaiuNaAreaSeguraNoZigBee(unsigned char *Epc, time
 
 
 void enviaEventoDeQueUmPedestreEntrouNaAreaSeguraNa485(unsigned char *Epc, time_t Momento){
-    volatile unsigned char Dados[10];
+   /* volatile unsigned char Dados[10];
     //volatile int Contador;
     
     //formaStringDeComandoParaEpcSeTornarinvisivel(Dados, Epc, Momento);
@@ -560,7 +565,7 @@ void enviaEventoDeQueUmPedestreEntrouNaAreaSeguraNa485(unsigned char *Epc, time_
             
 
             //Solucao velha usada em Juiz de Fora ate meados de Fevereiro de 2019
-            /*
+            
             adicionaItemNaListaDeSaida(Dados);
             
             aguradaSilencioNa485();
@@ -570,16 +575,16 @@ void enviaEventoDeQueUmPedestreEntrouNaAreaSeguraNa485(unsigned char *Epc, time_
                 uart1Tx(Dados[Contador]);
             }
             _LATG13 = 0;
-            */
+            
         }
-    }
+    }*/
 }
 
 
 
 //void enviaEpcParaDeixarDeSerInvisivelNoPortalDeExclusaoPara485(unsigned char *Epc, time_t Momento){
 void enviaEventoDeQueUmPedestreSaiuNaAreaSeguraNa485(unsigned char *Epc, time_t Momento){
-    volatile unsigned char Dados[10];
+   /* volatile unsigned char Dados[10];
     //volatile int Contador;
 
     //void formaStringDeComandoDeEnvendoDeMovimentoDePedestre(unsigned char *Saida, unsigned char *Epc, time_t Momento, unsigned char Comando)
@@ -592,7 +597,7 @@ void enviaEventoDeQueUmPedestreSaiuNaAreaSeguraNa485(unsigned char *Epc, time_t 
         adicionaElementoAFifo((char*)Dados);
 
         //Solucao velha usada em Juiz de Fora ate meados de Fevereiro de 2019
-        /*
+        
         adicionaItemNaListaDeSaida(Dados);
         aguradaSilencioNa485();
         _LATG13 = 1;
@@ -601,8 +606,8 @@ void enviaEventoDeQueUmPedestreSaiuNaAreaSeguraNa485(unsigned char *Epc, time_t 
             uart1Tx(Dados[Contador]);
         }
         _LATG13 = 0;
-        */
-    }
+        
+    }*/
 }
 
 void logicaDeRemocaoDeTabelaDeExclusao (void){

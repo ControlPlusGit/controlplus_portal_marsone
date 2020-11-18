@@ -7,9 +7,12 @@ build/debug/production/_ext/1360937237/tags.o:  \
 ../src/ams_types.h  \
  ../src/GenericTypeDefs.h  \
 ../src/p24FJ256DA210.h  \
-../src/as3993_public.h  \
- ../src/errno_as3993.h  \
+../src/uart.h  \
+ ../src/PIC24F_periph_features.h  \
+../src/GenericTypeDefs.h  \
+ ../src/as3993_public.h  \
+../src/errno_as3993.h  \
 ../src/errno.h  \
-../src/platform.h  \
+ ../src/platform.h  \
 ../src/Compiler.h  \
- ../src/tags.h 
+../src/tags.h 

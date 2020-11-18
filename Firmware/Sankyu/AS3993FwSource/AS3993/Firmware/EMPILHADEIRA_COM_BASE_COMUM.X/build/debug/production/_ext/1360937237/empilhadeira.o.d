@@ -23,10 +23,9 @@ build/debug/production/_ext/1360937237/empilhadeira.o:  \
  C:/Projetos/control-plus/Firmware/BaseComum/mem_i2c_24LC256.h  \
  C:/Projetos/control-plus/Firmware/BaseComum/rtc.h  \
  C:/Projetos/control-plus/Firmware/BaseComum/onewire.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/zigbee.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/exclusao.h  \
-../src/global.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/portal.h  \
+../src/exclusao.h  \
+ ../src/global.h  \
+../src/portal.h  \
  C:/Projetos/control-plus/Firmware/Sankyu/AS3993FwSource/AS3993/Firmware/src/tuner.h  \
  C:/Projetos/control-plus/Firmware/BaseComum/i2c.h  \
 ../src/setup_usb.h  \

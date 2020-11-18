@@ -22,9 +22,9 @@
 #include "C:\Projetos\control-plus\Firmware\BaseComum\rtc.h"
 #include "C:\Projetos\control-plus\Firmware\BaseComum\onewire.h"
 //#include "C:\Projetos\control-plus\Firmware\BaseComum\varal.h" 
-#include "C:\Projetos\control-plus\Firmware\BaseComum\zigbee.h"
-#include "C:\Projetos\control-plus\Firmware\BaseComum\exclusao.h"
-#include "C:\Projetos\control-plus\Firmware\BaseComum\portal.h"
+//#include "C:\Projetos\control-plus\Firmware\BaseComum\zigbee.h"
+#include "exclusao.h"
+#include "portal.h"
 #include "C:\Projetos\control-plus\Firmware\Sankyu\AS3993FwSource\AS3993\Firmware\src\tuner.h"
 #include "C:\Projetos\control-plus\Firmware\BaseComum\i2c.h"
 
@@ -310,10 +310,10 @@ int removerPedestre(int Posicao){
 }
 
 void enviaOcorrenciaDeEventoPorZigBee (unsigned char *EpcPedestre, unsigned char *EpcOperador){
-    unsigned char Rascunho[10];
+   /* unsigned char Rascunho[10];
     memcpy(&Rascunho[0], EpcPedestre, TAMANHO_EPC_PARA_EMPILHADEIRA);
     memcpy(&Rascunho[TAMANHO_EPC_PARA_EMPILHADEIRA], EpcOperador, TAMANHO_EPC_PARA_EMPILHADEIRA);
-    enviaMensagemBinariaAoMonitorPorZigBee((char *)Rascunho, 6, COMANDO_EVENTO_ZIG_BEE);
+    enviaMensagemBinariaAoMonitorPorZigBee((char *)Rascunho, 6, COMANDO_EVENTO_ZIG_BEE);*/
 }
 
 void removerTodosOsPedestre(void){
@@ -529,7 +529,7 @@ int retornaAoMenosUmPedestrePresente (void){
 
 
 int enviaPedestresQuePararamAEmpilhadeira (void){
-    int Contador;
+    /*int Contador;
     char Raschunho[50];
 
     for (Contador = 0;Contador < QUANTIA_MAXIMA_DE_OPERADORES_NO_SISTEMA;Contador = Contador + 1){
@@ -542,7 +542,7 @@ int enviaPedestresQuePararamAEmpilhadeira (void){
             delay_ms(100);
             return 0;
         }
-    }
+    }*/
     return 0;
 }
 
@@ -1219,10 +1219,10 @@ void filtraEpcQueNaoFazemParteDoSistema (int Tamanho){
 */
 
 void iniciaLogicaDeEmpilhadeira (void){
-    //int Contador;
+    /*//int Contador;
     //signed char x;
 
-    enviaTextoDeLogDaOperacao("\nInicia Operacao da empilhaderia\n");
+    //enviaTextoDeLogDaOperacao("\nInicia Operacao da empilhaderia\n");
     
     //ObtemID(IdDoLeitor);
     
@@ -1245,7 +1245,7 @@ void iniciaLogicaDeEmpilhadeira (void){
     //iniciaVelocidadeGps();
     ZonaDeExclusaoDetectada = 0;
     //as3993SetSensitivity(125);
-    
+    */
     //iniciaVelocidadeDeJuizDeFora();
 }
 
@@ -2131,15 +2131,15 @@ void pausaNaOperacaoPorDeteccaoDePedestre(void){
 }
 
 void gerarRegistroDePossivelAcidente(void){
-    enviaTextoDeLogDaOperacao("Empilhadeira foi bloqueada\n");
+//    enviaTextoDeLogDaOperacao("Empilhadeira foi bloqueada\n");
 }
 
 void geraRegistroDeOperadorEntrouNaEmpilhadeira(void){
-    enviaTextoDeLogDaOperacao("Operador entrou na maquina\n");
+//    enviaTextoDeLogDaOperacao("Operador entrou na maquina\n");
 }
 
 void geraRegistroDeOperadorSaiuDaEmpilhadeira(void){
-    enviaTextoDeLogDaOperacao("Operadro saiu da maquina\n");
+//    enviaTextoDeLogDaOperacao("Operadro saiu da maquina\n");
 }
 
 void enviaMensagemPor485 (char *Mensagem){
@@ -2334,7 +2334,7 @@ int trataReducaoDeVelocidadeDeJuizDeFora(unsigned char *Epc){
 
 
 void trataRecepcaoDeTabelaDeExclusaoEmCodigoCorrente(void){
-    //#define TAMANHO_BUFFER_REPOSTA 128
+/*    //#define TAMANHO_BUFFER_REPOSTA 128
     u8 Resposta[UART_RX_BUFFER_SIZE];
     //u8 Resposta[256];
     u16 Tamanho;
@@ -2356,7 +2356,7 @@ void trataRecepcaoDeTabelaDeExclusaoEmCodigoCorrente(void){
             //uart4Tx(Resposta[Contador]);
         }
         Tamanho = uartRxNumBytesAvailable();
-    }
+    }*/
 }
 
 /*
@@ -2522,7 +2522,7 @@ void enviaEventoParaANuvem(void){
     */
 }
 void rotinaDeBloqueioDaMaquinaPorEvento(void){
-    int QuantiaDePedestresLidos;
+  /*  int QuantiaDePedestresLidos;
     int Rascunho;
     int ContagemDeTempoDoAcionamento;
 //Bloqueio:                        
@@ -2616,7 +2616,7 @@ LoopDebloquiero:
     desacionaFitaDeLedsDaEmpilhadeira();    
 #ifdef BRUNAUER_JOAO_MONLEVADE_EMPILHADEIRA_2_5_TONS
     desacionaSireneDaEmpilhadeira();
-#endif 
+#endif */
 }
     
 
@@ -2817,9 +2817,9 @@ void trataMeiosDeComunicacao (void);
 
 
 void bloqueiaOperacaoDoLeitorParaAMaquinaLind(void){
-    TempoDeBloqueioParaMaquinaLind = 3000;
+   /* TempoDeBloqueioParaMaquinaLind = 3000;
     while(TempoDeBloqueioParaMaquinaLind != 0){
-        /*
+        
         trataRecepcaoDeDadosDeZigBee(0);
 #ifdef WIFI
         //trataRecepcaoDeDadosDeEmpilhadeiraPorWifi();
@@ -2827,7 +2827,7 @@ void bloqueiaOperacaoDoLeitorParaAMaquinaLind(void){
         trataRecepcaoDeDadosParaAEmpilhadeiraPorWifi();
         trataComandoRecebidoDoPCEmCodigoCorrente();
 #endif
-        */
+        
         trataMeiosDeComunicacao ();
     }
     liberaEmpilhadeira();
@@ -2837,7 +2837,7 @@ void bloqueiaOperacaoDoLeitorParaAMaquinaLind(void){
     while(TempoDeBloqueioParaMaquinaLind != 0){
         trataRecepcaoDeDadosDeZigBee(0);
     }
-    
+*/    
 }
 
 unsigned char retonaComByteDeDoisCaracteresNumericos(char X, char Y){
@@ -2852,7 +2852,7 @@ unsigned char retonaComByteDeDoisCaracteresNumericos(char X, char Y){
 
 
 void trataMeiosDeComunicacao (void){
-#ifdef WIFI
+/*#ifdef WIFI
     //trataRecepcaoDeDadosDeEmpilhadeiraPorWifi();
     trabalharNaBuscaDoMeuIpWifi();
     confereAConexaoDoWifi();
@@ -2862,11 +2862,11 @@ void trataMeiosDeComunicacao (void){
     trataRecepcaoDeDadosDeZigBee(0);
 #endif
     trataComandoRecebidoDoPCEmCodigoCorrente();//Trata comandos da USB, adicona nessa lugar em Juiz de Fora
-    trataComandoDaEmpilhadeira();
+    trataComandoDaEmpilhadeira();*/
 }
 
 void logicaDeEmpilhadeiraV2 (void){
-    int QuantiaDePedestresLidos;
+    /*int QuantiaDePedestresLidos;
     int Direcao;
     //unsigned int RepeticaoDeLeitura;
     int SintoniaParaOOperadorFeita;
@@ -2973,5 +2973,5 @@ void logicaDeEmpilhadeiraV2 (void){
             }
         }
     }
-    TerminaInvetorio();
+    TerminaInvetorio();*/
 }

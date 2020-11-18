@@ -1,38 +1,4 @@
 /*
- *****************************************************************************
- * Copyright by ams AG                                                       *
- * All rights are reserved.                                                  *
- *                                                                           *
- * IMPORTANT - PLEASE READ CAREFULLY BEFORE COPYING, INSTALLING OR USING     *
- * THE SOFTWARE.                                                             *
- *                                                                           *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS       *
- * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT         *
- * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS         *
- * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT  *
- * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,     *
- * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT          *
- * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,     *
- * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY     *
- * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT       *
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE     *
- * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.      *
- *****************************************************************************
- */
-/*
- *      PROJECT:   AS1130 MCU board firmware
- *      $Revision: $
- *      LANGUAGE:  ANSI C
- */
-
-/*! \file
- *
- *  \author Wolfgang Reichart 
- *
- *  \brief uart driver implementation for PIC24FJ64
- *
- */
-/*
 ******************************************************************************
 * INCLUDES
 ******************************************************************************
@@ -46,24 +12,18 @@
 #include "usb_hal_pic24.h"
 #include "uart.h"
 #include "global.h"
-#ifdef UART_RECEIVE_ENABLED
 #include "Compiler.h"
 #include "string.h"
 #include "auto_teste.h"
-#include "C:\Projetos\control-plus\Firmware\BaseComum\gps.h"
 #include "empilhadeira.h"
-#include "C:\Projetos\control-plus\Firmware\BaseComum\zigbee.h"
 #include "timer.h"
-#include "C:\projetos\control-plus\Firmware\Sankyu\AS3993FwSource\AS3993\Firmware\src\wifi.h"
-#include "C:\Projetos\control-plus\Firmware\BaseComum\eth.h"
-#include "C:\Projetos\control-plus\software\fifo\gerenciaPacotes.h"
-#include "C:\Projetos\control-plus\Firmware\BaseComum\portal.h"
+#include "eth.h"
+#include "portal.h"
 #include "appl_commands.h"
 #include "timer_driver.h"
 #include "platform.h"
 #include "setup_usb.h"
 #include "FSM_DataHora.h"
-#endif
 /*
  *
  *
@@ -724,7 +684,7 @@ void INTERRUPT _U1RXInterrupt (void){ // Porta usada para receber dados de Wifi
             x = ReadUART1();
             //lidaComComandoDOPC(ReadUART1());
             //Solucao nova com FIFO, apos Fevereiro de 2019
-            trataRecepcaoDeDadosPela485((unsigned char)x);
+//            trataRecepcaoDeDadosPela485((unsigned char)x);
             //Solucao velha usada em Juiz de Fora ate meados de Fevereiro de 2019
             //lidaComComandoDOPC(x);
             

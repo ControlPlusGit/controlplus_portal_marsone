@@ -23,6 +23,9 @@ build/debug/production/_ext/1360937237/ajuste_cap.o:  \
 ../src/usb_function_hid.h  \
  ../src/logger.h  \
 ../src/uart_driver.h  \
+../src/uart.h  \
+ ../src/PIC24F_periph_features.h  \
+../src/GenericTypeDefs.h  \
 ../src/errno.h  \
  ../src/as3993_public.h  \
 ../src/errno_as3993.h  \
@@ -36,7 +39,6 @@ build/debug/production/_ext/1360937237/ajuste_cap.o:  \
  ../src/tags.h  \
 ../src/empilhadeira.h  \
 ../src/i2c.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/portal.h  \
- C:/projetos/control-plus/Firmware/Sankyu/AS3993FwSource/AS3993/Firmware/src/global.h  \
+../src/portal.h  \
  ../src/setup_usb.h  \
 ../src/ajuste_cap.h 

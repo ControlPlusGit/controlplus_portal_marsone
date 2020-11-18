@@ -24,6 +24,9 @@ build/debug/production/_ext/1360937237/main.o:  \
 ../src/usb_function_hid.h  \
  ../src/logger.h  \
 ../src/uart_driver.h  \
+../src/uart.h  \
+ ../src/PIC24F_periph_features.h  \
+../src/GenericTypeDefs.h  \
 ../src/errno.h  \
  ../src/as3993_public.h  \
 ../src/errno_as3993.h  \
@@ -34,21 +37,16 @@ build/debug/production/_ext/1360937237/main.o:  \
 ../src/tuner.h  \
  ../src/gprs.h  \
 ../src/sankyu.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/onewire.h  \
+../src/onewire.h  \
 ../src/lista.h  \
- ../src/auto_teste.h  \
-../src/config_i2c3.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/mem_i2c_24LC256.h  \
- ../src/tags.h  \
-../src/empilhadeira.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/zigbee.h  \
-../src/gps.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/rtc.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/exclusao.h  \
+ ../src/config_i2c3.h  \
+../src/mem_i2c_24LC256.h  \
+../src/tags.h  \
+ ../src/empilhadeira.h  \
+C:/Projetos/control-plus/Firmware/BaseComum/rtc.h  \
+ ../src/exclusao.h  \
 ../src/global.h  \
- ../src/wifi.h  \
-C:/Projetos/control-plus/software/fifo/gerenciaPacotes.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/portal.h  \
+../src/portal.h  \
 ../src/cancelas.h  \
  ../src/ajuste_cap.h  \
 ../src/setup_usb.h  \

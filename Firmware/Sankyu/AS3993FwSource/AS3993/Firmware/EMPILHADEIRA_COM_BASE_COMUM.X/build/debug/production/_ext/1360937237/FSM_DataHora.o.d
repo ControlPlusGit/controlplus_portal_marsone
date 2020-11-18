@@ -1,7 +1,7 @@
 build/debug/production/_ext/1360937237/FSM_DataHora.o:  \
  ../src/FSM_DataHora.c  \
- ../src/../../../../../../../../../Program\ Files\ (x86)/Microchip/xc16/v1.24/support/peripheral_24F/uart.h  \
- ../src/../../../../../../../../../Program\ Files\ (x86)/Microchip/xc16/v1.24/support/peripheral_24F/PIC24F_periph_features.h  \
+../src/uart.h  \
+../src/PIC24F_periph_features.h  \
  ../src/GenericTypeDefs.h  \
 ../src/timer.h  \
 ../src/global.h  \
@@ -15,6 +15,6 @@ build/debug/production/_ext/1360937237/FSM_DataHora.o:  \
 ../src/i2c.h  \
 ../src/rtc.h  \
 ../src/ajuste_cap.h  \
- ../../../common/firmware/microchip/include/../../../../../../BaseComum/portal.h  \
- ../src/../../../../../BaseComum/eth.h  \
+ ../src/portal.h  \
+../src/eth.h  \
 ../src/setup_usb.h 

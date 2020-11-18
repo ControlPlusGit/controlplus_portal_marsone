@@ -26,7 +26,6 @@
   * @author Ulrich Herrmann
   */
 
-
 #define PODE_SER_ALPHA 1
 
 //#define SANKYU 1//CLIENTE

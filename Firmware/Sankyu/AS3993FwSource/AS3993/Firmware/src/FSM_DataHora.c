@@ -5,7 +5,7 @@
 // DATA: 07/02/2020
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "../../../../../../../../../Program Files (x86)/Microchip/xc16/v1.24/support/peripheral_24F/uart.h"
+#include "uart.h"
 //#include "FSM_Ethernet.h"
 #include "timer.h"
 #include "FSM_DataHora.h"
@@ -19,9 +19,9 @@
 #include "rtc.h"
 #include "ajuste_cap.h"
 #include <time.h>
-#include "../../../../../../BaseComum/portal.h"
+#include "portal.h"
 #include "FSM_DataHora.h"
-#include "../../../../../BaseComum/eth.h"
+#include "eth.h"
 
 #include "setup_usb.h"
 

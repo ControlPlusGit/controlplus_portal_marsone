@@ -52,16 +52,11 @@
       <itemPath>../src/PwrMgnt.h</itemPath>
       <itemPath>../src/PIC24F_periph_features.h</itemPath>
       <itemPath>../src/onewire.h</itemPath>
-      <itemPath>../src/lista.h</itemPath>
       <itemPath>../src/perifericos.h</itemPath>
       <itemPath>../src/config_i2c3.h</itemPath>
       <itemPath>../src/mem_i2c_24LC256.h</itemPath>
       <itemPath>../src/tags.h</itemPath>
-      <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/exclusao.h</itemPath>
-      <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/portal.h</itemPath>
       <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/i2c.h</itemPath>
-      <itemPath>C:/Projetos/control-plus/software/fifo/fifo.h</itemPath>
-      <itemPath>C:/Projetos/control-plus/software/fifo/gerenciaPacotes.h</itemPath>
       <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/rtc.h</itemPath>
       <itemPath>../src/ajuste_cap.h</itemPath>
       <itemPath>../src/FSM_DataHora.h</itemPath>
@@ -69,6 +64,9 @@
       <itemPath>../src/empilhadeira.h</itemPath>
       <itemPath>../src/eth.h</itemPath>
       <itemPath>../src/cancelas.h</itemPath>
+      <itemPath>../src/uart.h</itemPath>
+      <itemPath>../src/portal.h</itemPath>
+      <itemPath>../src/exclusao.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LibraryFiles"
                    displayName="Library Files"
@@ -110,18 +108,15 @@
         <itemPath>../src/mem_i2c_24LC256.c</itemPath>
         <itemPath>../src/onewire.c</itemPath>
         <itemPath>../src/perifericos.c</itemPath>
-        <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/exclusao.c</itemPath>
-        <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/portal.c</itemPath>
         <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/i2c.c</itemPath>
         <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/config_i2c3.c</itemPath>
-        <itemPath>C:/Projetos/control-plus/software/fifo/fifo.c</itemPath>
-        <itemPath>C:/Projetos/control-plus/software/fifo/gerenciaPacotes.c</itemPath>
         <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/rtc.c</itemPath>
         <itemPath>../src/eth.c</itemPath>
         <itemPath>../src/cancelas.c</itemPath>
+        <itemPath>../src/portal.c</itemPath>
+        <itemPath>../src/exclusao.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="Especifico" projectFiles="true">
-        <itemPath>../src/lista.c</itemPath>
         <itemPath>../../../common/firmware/microchip/src/logger.c</itemPath>
         <itemPath>../src/main.c</itemPath>
         <itemPath>../src/tags.c</itemPath>
