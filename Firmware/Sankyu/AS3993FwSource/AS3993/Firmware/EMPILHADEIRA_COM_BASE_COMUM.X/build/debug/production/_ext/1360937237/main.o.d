@@ -43,12 +43,12 @@ build/debug/production/_ext/1360937237/main.o:  \
 ../src/mem_i2c_24LC256.h  \
 ../src/tags.h  \
  ../src/empilhadeira.h  \
-C:/Projetos/control-plus/Firmware/BaseComum/rtc.h  \
- ../src/exclusao.h  \
+../src/rtc.h  \
+../src/exclusao.h  \
 ../src/global.h  \
-../src/portal.h  \
+ ../src/portal.h  \
 ../src/cancelas.h  \
- ../src/ajuste_cap.h  \
+../src/ajuste_cap.h  \
 ../src/setup_usb.h  \
-../src/i2c.h  \
- ../src/FSM_DataHora.h 
+ ../src/i2c.h  \
+../src/FSM_DataHora.h 

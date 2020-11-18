@@ -11,6 +11,8 @@
 time_t Tempo;
 
 
+struct tm * timeinfo;
+
 extern int contadori2c;
 
 char strDiaDaSemana[10];
@@ -20,9 +22,17 @@ char stringData[20];
 char stringHora[20];
 int minuto;
 
+int ContagemDeMiliSegundo;
+
+struct tm * retornaTimeInfo(void){
+    return timeinfo;
+}
+
 void IniciaRTC (void){
     I2C1BRG = (unsigned int)(VELOCIDADE_I2C / (SYSCLK * 2) ) - 1;   //LUCIANO: Apliquei um cast para eliminar um warning.
     I2C1CONbits.I2CEN = 1;
+    
+    atualizaHoraEData();
 }
 
 char conversao1307 (char dado){
@@ -98,6 +108,7 @@ void atualizaHoraEData (void){
     int diaDaSemana;
     int mes;
     int ano;
+    static int SegundoAnterior;
 
     unsigned int countTimeout = 0;
     const unsigned int limCountTimeout = 1000;
@@ -226,6 +237,13 @@ void atualizaHoraEData (void){
         if(countTimeout++ > limCountTimeout)
             break;              // sai do loop por timeout. 
     }//;
+    
+    
+    if (segundo != SegundoAnterior){
+        ContagemDeMiliSegundo = 0;
+        SegundoAnterior = segundo;
+    }
+    
 
 
     segundo = conversao1307(segundo);
@@ -235,11 +253,20 @@ void atualizaHoraEData (void){
     mes = conversao1307(mes);
     ano = conversao1307(ano);
 
-    sprintf(stringData,"%02d/%02d/20%02d",dia,mes,ano);
+    
+#ifdef RF_IDEIAS
+    sprintf(stringData,"%02d-%02d-20%02d", dia, mes, ano);
+#else    
+    sprintf(stringData,"%02d/%02d/20%02d", dia, mes, ano);
+#endif    
+    
+    
     time_t rawtime;
-    struct tm * timeinfo;
 
-    timeinfo = localtime ( &rawtime );        
+    timeinfo = localtime ( &rawtime );    
+
+    ano = ano + 100;
+    mes = mes - 1;
 
     timeinfo->tm_year = ano;
     timeinfo->tm_mon = mes;
@@ -247,14 +274,23 @@ void atualizaHoraEData (void){
     timeinfo->tm_hour = hora;
     timeinfo->tm_min = minuto;
     timeinfo->tm_sec = segundo;
+    timeinfo->tm_isdst = -1;
 
+#ifndef RF_IDEIAS
     Tempo = mktime ( timeinfo );
-
-    //strftime(Saida, sizeof(Saida), "%I:%M%p", timeinfo);        
+#endif
+    
+    //strftime(Saida, sizeof(Saida), "%I:%M%p", timeinfo);    
     (void)strftime(stringHora, sizeof(stringHora), "%H:%M:%S", timeinfo);
     (void)strftime(strDiaDaSemana, sizeof(stringHora), "%a", timeinfo);
     (void)strftime(strMes, sizeof(stringHora), "%b", timeinfo);
+#ifdef RF_IDEIAS
+    sprintf(stringHora,"%02d.%02d.%02d.%03d", hora, minuto, segundo, ContagemDeMiliSegundo);
+#else    
     sprintf(stringHora,"%02d:%02d:%02d",hora,minuto,segundo);
+#endif    
+    
+    
         
 }
 
@@ -321,55 +357,50 @@ void SetarHoraRTC (int segundo, int minuto, int hora, int dia, int mes, int ano)
     }//;
 }
 
+int AjustarOHorario;
 void SetaTempoComEpoch (time_t Epoch){
-    struct tm * timeinfo;
-    int Segundo, Minuto, Hora;
-    int Dia, Mes, Ano;
-    timeinfo = localtime (&Epoch);
-    Segundo = timeinfo->tm_sec;
-    Minuto = timeinfo->tm_min;
-    Hora = timeinfo->tm_hour;
-    Dia = timeinfo->tm_mday;
-    Mes = timeinfo->tm_mon + 1;
-    Ano = timeinfo->tm_year;
-    Ano = Ano + 1900;
-    Ano = Ano - 2000;
+    AjustarOHorario = 1;
+    Tempo = Epoch;
     
-    //printf("%d:%d:%d %d/%d/%d %ld", 2018Hora, Minuto, Segundo, Dia, Mes, Ano, Epoch);
-    
-    //int segundo, int minuto, int hora, int dia, int mes, int ano
-    SetarHoraRTC(Segundo, Minuto, Hora, Dia, Mes, Ano);
     
 }
 
 
-void OperacoesParaRtcEmTick (void){//O tick eh gerado por interrupcao da CPU
-    //static int Pulso;
-    static int ContadorParaUmSegundo;
-    char Saida[50];
-    
-    time_t Tempo;
-    time_t rawtime;
+void operacoesParaRtcEmCodigoCorrente(void){
     struct tm * timeinfo;
+    int Segundo, Minuto, Hora;
+    int Dia, Mes, Ano;
+    
+    if (AjustarOHorario){    
+        timeinfo = localtime (&Tempo);
+        Segundo = timeinfo->tm_sec;
+        Minuto = timeinfo->tm_min;
+        Hora = timeinfo->tm_hour;
+        Dia = timeinfo->tm_mday;
+        Mes = timeinfo->tm_mon + 1;
+        Ano = timeinfo->tm_year;
+        Ano = Ano - 100;
 
-    time ( &rawtime );
-    timeinfo = localtime ( &rawtime );
-    timeinfo->tm_year = 100;
-    timeinfo->tm_mon = 9;
-    timeinfo->tm_mday = 16;
-    timeinfo->tm_hour = 0;
-    timeinfo->tm_min = 0;
-    timeinfo->tm_sec = 0;    
+        //int segundo, int minuto, int hora, int dia, int mes, int ano
 
-    Tempo = mktime ( timeinfo );
+        SetarHoraRTC(Segundo, Minuto, Hora, Dia, Mes, Ano);
+        AjustarOHorario = 0;
+    }
+    
+}
 
-    strftime(Saida, sizeof(Saida), "%I:%M%p", timeinfo);
-
+void OperacoesParaRtcEmTick (void){//O tick eh gerado por interrupcao da CPU
+    static int ContadorParaUmSegundo;
+    
+    ContagemDeMiliSegundo = ContagemDeMiliSegundo + 1;
+    
     if (ContadorParaUmSegundo < 1000){  
         ContadorParaUmSegundo = ContadorParaUmSegundo + 1;
     } else {
         ContadorParaUmSegundo = 0;
+        //atualizaHoraEData();
         Tempo = Tempo + 1;
+        
         /*
         if (Pulso != 0){
             Pulso = 0;

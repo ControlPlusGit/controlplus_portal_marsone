@@ -3,34 +3,25 @@
 #include <string.h>
 #include <p24FJ256DA210.h>
 #include "appl_commands.h"
-//#include "empilhadeira.h"
-#include "C:\projetos\control-plus\Firmware\Sankyu\AS3993FwSource\AS3993\Firmware\src\empilhadeira.h"
+#include "empilhadeira.h"
 #include "perifericos.h"
 #include "as3993_public.h"
 #include "global.h"
 #include "uart_driver.h"
 #include "timer.h"
 #include <math.h>
-#include "C:\Projetos\control-plus\Firmware\BaseComum\gprs.h"
-#include "C:\Projetos\control-plus\Firmware\BaseComum\gps.h"
-//#include "auto_teste.h"
-//#include "C:\Projetos\control-plus\Firmware\BaseComum\auto_teste.h"
 #include "tuner.h"
 #include "tags.h"
-#include "C:\Projetos\control-plus\Firmware\BaseComum\mem_i2c_24LC256.h"
+#include "mem_i2c_24LC256.h"
 #include "uart_driver.h"
-#include "C:\Projetos\control-plus\Firmware\BaseComum\rtc.h"
-#include "C:\Projetos\control-plus\Firmware\BaseComum\onewire.h"
-//#include "C:\Projetos\control-plus\Firmware\BaseComum\varal.h" 
-//#include "C:\Projetos\control-plus\Firmware\BaseComum\zigbee.h"
+#include "rtc.h"
+#include "onewire.h"
 #include "exclusao.h"
 #include "portal.h"
-#include "C:\Projetos\control-plus\Firmware\Sankyu\AS3993FwSource\AS3993\Firmware\src\tuner.h"
-#include "C:\Projetos\control-plus\Firmware\BaseComum\i2c.h"
-
+#include "tuner.h"
+#include "i2c.h"
 #include "tuner.h"
 #include "appl_commands.h"
-
 #include "setup_usb.h"
 
 //#include "main.h"
@@ -1758,42 +1749,42 @@ int obterPedestres(int Antena){
 
 
 int AtualizarPontenciaDeRFIDEmFuncaoDaVelocidadeDaMaquina(int Antena){
-    
-    signed char Sensibilidade;
-    //desliga_buzzer();
-    
-    atualizaLedGps();
-    if ((EstadoLedGps != ESTADO_LED_PISCANDO__ACESSO_GPS) && (EstadoLedGps != ESTADO_LED_PISCANDO__APAGADO_GPS)){
-        return 0;
-    }
-    //VelocidadeFinal = 10; //Para testes da operaÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½o leitor
-    
-    if (Antena < 4){
-        if (VelocidadeFinal < LIMITE_DE_VELOCIDADE_GPS){
-            Sensibilidade = as3993GetSensitivity();
-            if (Sensibilidade != 125){
-                as3993SetSensitivity(125);
-
-                //liga_buzzer();
-                //desliga_led_gps();
-                EstadoLedGps = ESTADO_LED_LIGADO_GPS;;
-            }
-        } else {
-
-            Sensibilidade = as3993GetSensitivity();
-            if (Sensibilidade != -80){
-                as3993SetSensitivity(-80);
-                //liga_buzzer();
-                //liga_led_gps();
-                EstadoLedGps = ESTADO_LED_DESLIGADO_GPS;
-            }
-
-        }
-    } else {
-        as3993SetSensitivity(125);
-        Sensibilidade = 125;
-    }
-    
+//    
+//    signed char Sensibilidade;
+//    //desliga_buzzer();
+//    
+//    atualizaLedGps();
+//    if ((EstadoLedGps != ESTADO_LED_PISCANDO__ACESSO_GPS) && (EstadoLedGps != ESTADO_LED_PISCANDO__APAGADO_GPS)){
+//        return 0;
+//    }
+//    //VelocidadeFinal = 10; //Para testes da operaÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½o leitor
+//    
+//    if (Antena < 4){
+//        if (VelocidadeFinal < LIMITE_DE_VELOCIDADE_GPS){
+//            Sensibilidade = as3993GetSensitivity();
+//            if (Sensibilidade != 125){
+//                as3993SetSensitivity(125);
+//
+//                //liga_buzzer();
+//                //desliga_led_gps();
+//                EstadoLedGps = ESTADO_LED_LIGADO_GPS;;
+//            }
+//        } else {
+//
+//            Sensibilidade = as3993GetSensitivity();
+//            if (Sensibilidade != -80){
+//                as3993SetSensitivity(-80);
+//                //liga_buzzer();
+//                //liga_led_gps();
+//                EstadoLedGps = ESTADO_LED_DESLIGADO_GPS;
+//            }
+//
+//        }
+//    } else {
+//        as3993SetSensitivity(125);
+//        Sensibilidade = 125;
+//    }
+//    
     return 0;
 }
 

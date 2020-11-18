@@ -8,6 +8,7 @@
 #ifndef I2C_H
 #define	I2C_H
 
+#include "rtc.h"
 //void SetarHoraRTC (int segundo, int minuto, int hora, int dia, int mes, int ano);
 int CompararHoraDadaComADoRTC (int minutoDado, int horaDado, int diaDado, int mesDado, int anoDado);
 void LigaI2CMemoria (void);

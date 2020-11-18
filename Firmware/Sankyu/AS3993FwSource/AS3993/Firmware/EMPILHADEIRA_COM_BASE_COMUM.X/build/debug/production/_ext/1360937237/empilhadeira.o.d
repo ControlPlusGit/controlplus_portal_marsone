@@ -6,27 +6,24 @@ build/debug/production/_ext/1360937237/empilhadeira.o:  \
 ../src/as3993_config.h  \
 ../src/ams_types.h  \
  ../src/GenericTypeDefs.h  \
- C:/projetos/control-plus/Firmware/Sankyu/AS3993FwSource/AS3993/Firmware/src/empilhadeira.h  \
- ../src/perifericos.h  \
-../src/as3993_public.h  \
+../src/empilhadeira.h  \
+../src/perifericos.h  \
+ ../src/as3993_public.h  \
 ../src/errno_as3993.h  \
- ../src/errno.h  \
-../src/platform.h  \
+../src/errno.h  \
+ ../src/platform.h  \
 ../src/p24FJ256DA210.h  \
- ../src/Compiler.h  \
-../src/uart_driver.h  \
+../src/Compiler.h  \
+ ../src/uart_driver.h  \
 ../src/timer.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/gprs.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/gps.h  \
 ../src/tuner.h  \
- ../src/tags.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/mem_i2c_24LC256.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/rtc.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/onewire.h  \
+../src/tags.h  \
+ ../src/mem_i2c_24LC256.h  \
+../src/rtc.h  \
+../src/onewire.h  \
 ../src/exclusao.h  \
  ../src/global.h  \
 ../src/portal.h  \
- C:/Projetos/control-plus/Firmware/Sankyu/AS3993FwSource/AS3993/Firmware/src/tuner.h  \
- C:/Projetos/control-plus/Firmware/BaseComum/i2c.h  \
+../src/i2c.h  \
 ../src/setup_usb.h  \
  ../src/ajuste_cap.h 

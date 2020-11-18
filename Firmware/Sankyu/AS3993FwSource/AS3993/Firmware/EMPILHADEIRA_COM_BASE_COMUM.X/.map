@@ -42,9 +42,6 @@ Command:
   build/debug/production/_ext/1360937237/mem_i2c_24LC256.o \
   build/debug/production/_ext/1360937237/onewire.o \
   build/debug/production/_ext/1360937237/perifericos.o \
-  build/debug/production/_ext/1229013914/i2c.o \
-  build/debug/production/_ext/1229013914/config_i2c3.o \
-  build/debug/production/_ext/1229013914/rtc.o \
   build/debug/production/_ext/1611813562/logger.o \
   build/debug/production/_ext/1360937237/main.o \
   build/debug/production/_ext/1360937237/tags.o \
@@ -57,6 +54,9 @@ Command:
   build/debug/production/_ext/1360937237/cancelas.o \
   build/debug/production/_ext/1360937237/portal.o \
   build/debug/production/_ext/1360937237/exclusao.o \
+  build/debug/production/_ext/1360937237/config_i2c3.o \
+  build/debug/production/_ext/1360937237/i2c.o \
+  build/debug/production/_ext/1360937237/rtc.o \
   --local-stack \
   --defsym=__MPLAB_BUILD=1 \
   -Tp24FJ256DA210.gld.00 \
@@ -153,7 +153,7 @@ c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(atoi.eo
 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(atol.eo)
                               build/debug/production/_ext/1360937237/empilhadeira.o (_atol)
 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(ctime.eo)
-                              build/debug/production/_ext/1229013914/rtc.o (_localtime)
+                              build/debug/production/_ext/1360937237/rtc.o (_localtime)
 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(itoa.eo)
                               build/debug/production/_ext/1360937237/tags.o (_itoa)
 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(memcmp.eo)
@@ -165,7 +165,7 @@ c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(memmove
 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(memset.eo)
                               build/debug/production/_ext/1360937237/appl_commands.o (_memset)
 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(mktime.eo)
-                              build/debug/production/_ext/1229013914/rtc.o (_mktime)
+                              build/debug/production/_ext/1360937237/rtc.o (_mktime)
 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(strcat.eo)
                               build/debug/production/_ext/1360937237/tags.o (_strcat)
 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(strchr.eo)
@@ -175,7 +175,7 @@ c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(strcmp.
 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(strcpy.eo)
                               build/debug/production/_ext/1360937237/eth.o (_strcpy)
 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(strftime.eo)
-                              build/debug/production/_ext/1229013914/rtc.o (_strftime)
+                              build/debug/production/_ext/1360937237/rtc.o (_strftime)
 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(strlen.eo)
                               build/debug/production/_ext/1611813562/stream_dispatcher.o (_strlen)
 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(strncmp.eo)
@@ -2012,9 +2012,6 @@ LOAD build/debug/production/_ext/1611813562/weak_stream_functions.o
 LOAD build/debug/production/_ext/1360937237/mem_i2c_24LC256.o
 LOAD build/debug/production/_ext/1360937237/onewire.o
 LOAD build/debug/production/_ext/1360937237/perifericos.o
-LOAD build/debug/production/_ext/1229013914/i2c.o
-LOAD build/debug/production/_ext/1229013914/config_i2c3.o
-LOAD build/debug/production/_ext/1229013914/rtc.o
 LOAD build/debug/production/_ext/1611813562/logger.o
 LOAD build/debug/production/_ext/1360937237/main.o
 LOAD build/debug/production/_ext/1360937237/tags.o
@@ -2027,6 +2024,9 @@ LOAD build/debug/production/_ext/1360937237/eth.o
 LOAD build/debug/production/_ext/1360937237/cancelas.o
 LOAD build/debug/production/_ext/1360937237/portal.o
 LOAD build/debug/production/_ext/1360937237/exclusao.o
+LOAD build/debug/production/_ext/1360937237/config_i2c3.o
+LOAD build/debug/production/_ext/1360937237/i2c.o
+LOAD build/debug/production/_ext/1360937237/rtc.o
                     0x0001                  __MPLAB_BUILD = 0x1
 LOAD c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib/PIC24F\libpPIC24Fxxx-elf.a
                     0x2abf8                  __CONFIG4 = 0x2abf8
@@ -2238,7 +2238,7 @@ __CONFIG1         0x02abfe          0x2
 .comment
  *(.comment)
 
-.debug_info       0x000000      0x235dd
+.debug_info       0x000000      0x2351f
  *(.debug_info)
  .debug_info      0x000000       0x1bea build/debug/production/_ext/1360937237/appl_commands.o
  .debug_info      0x001bea        0x21c build/debug/production/_ext/1360937237/appl_commands_table.o
@@ -2261,21 +2261,21 @@ __CONFIG1         0x02abfe          0x2
  .debug_info      0x010112        0x5be build/debug/production/_ext/1360937237/mem_i2c_24LC256.o
  .debug_info      0x0106d0        0x76c build/debug/production/_ext/1360937237/onewire.o
  .debug_info      0x010e3c       0x14ab build/debug/production/_ext/1360937237/perifericos.o
- .debug_info      0x0122e7       0x1073 build/debug/production/_ext/1229013914/i2c.o
- .debug_info      0x01335a        0x5ee build/debug/production/_ext/1229013914/config_i2c3.o
- .debug_info      0x013948        0xc23 build/debug/production/_ext/1229013914/rtc.o
- .debug_info      0x01456b        0x19e build/debug/production/_ext/1611813562/logger.o
- .debug_info      0x014709       0x19f2 build/debug/production/_ext/1360937237/main.o
- .debug_info      0x0160fb        0x50b build/debug/production/_ext/1360937237/tags.o
- .debug_info      0x016606       0x1e30 build/debug/production/_ext/1611813562/uart_driver.o
- .debug_info      0x018436        0x764 build/debug/production/_ext/1360937237/ajuste_cap.o
- .debug_info      0x018b9a        0x736 build/debug/production/_ext/1360937237/FSM_DataHora.o
- .debug_info      0x0192d0       0x21a5 build/debug/production/_ext/1360937237/setup_usb.o
- .debug_info      0x01b475       0x3242 build/debug/production/_ext/1360937237/empilhadeira.o
- .debug_info      0x01e6b7       0x15f7 build/debug/production/_ext/1360937237/eth.o
- .debug_info      0x01fcae        0x297 build/debug/production/_ext/1360937237/cancelas.o
- .debug_info      0x01ff45       0x2acc build/debug/production/_ext/1360937237/portal.o
- .debug_info      0x022a11        0xbcc build/debug/production/_ext/1360937237/exclusao.o
+ .debug_info      0x0122e7        0x19e build/debug/production/_ext/1611813562/logger.o
+ .debug_info      0x012485       0x19f2 build/debug/production/_ext/1360937237/main.o
+ .debug_info      0x013e77        0x50b build/debug/production/_ext/1360937237/tags.o
+ .debug_info      0x014382       0x1e30 build/debug/production/_ext/1611813562/uart_driver.o
+ .debug_info      0x0161b2        0x764 build/debug/production/_ext/1360937237/ajuste_cap.o
+ .debug_info      0x016916        0x736 build/debug/production/_ext/1360937237/FSM_DataHora.o
+ .debug_info      0x01704c       0x21a5 build/debug/production/_ext/1360937237/setup_usb.o
+ .debug_info      0x0191f1       0x31f3 build/debug/production/_ext/1360937237/empilhadeira.o
+ .debug_info      0x01c3e4       0x15f7 build/debug/production/_ext/1360937237/eth.o
+ .debug_info      0x01d9db        0x297 build/debug/production/_ext/1360937237/cancelas.o
+ .debug_info      0x01dc72       0x2acc build/debug/production/_ext/1360937237/portal.o
+ .debug_info      0x02073e        0xbcc build/debug/production/_ext/1360937237/exclusao.o
+ .debug_info      0x02130a        0x5c9 build/debug/production/_ext/1360937237/config_i2c3.o
+ .debug_info      0x0218d3       0x104e build/debug/production/_ext/1360937237/i2c.o
+ .debug_info      0x022921        0xbfe build/debug/production/_ext/1360937237/rtc.o
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000       0x341a
@@ -2301,23 +2301,23 @@ __CONFIG1         0x02abfe          0x2
  .debug_abbrev    0x0018a1        0x124 build/debug/production/_ext/1360937237/mem_i2c_24LC256.o
  .debug_abbrev    0x0019c5        0x117 build/debug/production/_ext/1360937237/onewire.o
  .debug_abbrev    0x001adc         0xfa build/debug/production/_ext/1360937237/perifericos.o
- .debug_abbrev    0x001bd6        0x1de build/debug/production/_ext/1229013914/i2c.o
- .debug_abbrev    0x001db4         0xfe build/debug/production/_ext/1229013914/config_i2c3.o
- .debug_abbrev    0x001eb2        0x238 build/debug/production/_ext/1229013914/rtc.o
- .debug_abbrev    0x0020ea         0x1f build/debug/production/_ext/1611813562/logger.o
- .debug_abbrev    0x002109        0x2ae build/debug/production/_ext/1360937237/main.o
- .debug_abbrev    0x0023b7        0x134 build/debug/production/_ext/1360937237/tags.o
- .debug_abbrev    0x0024eb        0x200 build/debug/production/_ext/1611813562/uart_driver.o
- .debug_abbrev    0x0026eb        0x149 build/debug/production/_ext/1360937237/ajuste_cap.o
- .debug_abbrev    0x002834         0xed build/debug/production/_ext/1360937237/FSM_DataHora.o
- .debug_abbrev    0x002921        0x14e build/debug/production/_ext/1360937237/setup_usb.o
- .debug_abbrev    0x002a6f        0x28d build/debug/production/_ext/1360937237/empilhadeira.o
- .debug_abbrev    0x002cfc        0x226 build/debug/production/_ext/1360937237/eth.o
- .debug_abbrev    0x002f22         0x56 build/debug/production/_ext/1360937237/cancelas.o
- .debug_abbrev    0x002f78        0x29d build/debug/production/_ext/1360937237/portal.o
- .debug_abbrev    0x003215        0x205 build/debug/production/_ext/1360937237/exclusao.o
+ .debug_abbrev    0x001bd6         0x1f build/debug/production/_ext/1611813562/logger.o
+ .debug_abbrev    0x001bf5        0x2ae build/debug/production/_ext/1360937237/main.o
+ .debug_abbrev    0x001ea3        0x134 build/debug/production/_ext/1360937237/tags.o
+ .debug_abbrev    0x001fd7        0x200 build/debug/production/_ext/1611813562/uart_driver.o
+ .debug_abbrev    0x0021d7        0x149 build/debug/production/_ext/1360937237/ajuste_cap.o
+ .debug_abbrev    0x002320         0xed build/debug/production/_ext/1360937237/FSM_DataHora.o
+ .debug_abbrev    0x00240d        0x14e build/debug/production/_ext/1360937237/setup_usb.o
+ .debug_abbrev    0x00255b        0x28d build/debug/production/_ext/1360937237/empilhadeira.o
+ .debug_abbrev    0x0027e8        0x226 build/debug/production/_ext/1360937237/eth.o
+ .debug_abbrev    0x002a0e         0x56 build/debug/production/_ext/1360937237/cancelas.o
+ .debug_abbrev    0x002a64        0x29d build/debug/production/_ext/1360937237/portal.o
+ .debug_abbrev    0x002d01        0x205 build/debug/production/_ext/1360937237/exclusao.o
+ .debug_abbrev    0x002f06         0xfe build/debug/production/_ext/1360937237/config_i2c3.o
+ .debug_abbrev    0x003004        0x1de build/debug/production/_ext/1360937237/i2c.o
+ .debug_abbrev    0x0031e2        0x238 build/debug/production/_ext/1360937237/rtc.o
 
-.debug_line       0x000000      0x15e53
+.debug_line       0x000000      0x15ca7
  *(.debug_line)
  .debug_line      0x000000       0x218c build/debug/production/_ext/1360937237/appl_commands.o
  .debug_line      0x00218c         0x66 build/debug/production/_ext/1360937237/appl_commands_table.o
@@ -2340,21 +2340,21 @@ __CONFIG1         0x02abfe          0x2
  .debug_line      0x008b5f        0x2ab build/debug/production/_ext/1360937237/mem_i2c_24LC256.o
  .debug_line      0x008e0a        0x20f build/debug/production/_ext/1360937237/onewire.o
  .debug_line      0x009019        0x96b build/debug/production/_ext/1360937237/perifericos.o
- .debug_line      0x009984        0xb74 build/debug/production/_ext/1229013914/i2c.o
- .debug_line      0x00a4f8        0x1fd build/debug/production/_ext/1229013914/config_i2c3.o
- .debug_line      0x00a6f5        0x894 build/debug/production/_ext/1229013914/rtc.o
- .debug_line      0x00af89         0x24 build/debug/production/_ext/1611813562/logger.o
- .debug_line      0x00afad        0xc37 build/debug/production/_ext/1360937237/main.o
- .debug_line      0x00bbe4        0x356 build/debug/production/_ext/1360937237/tags.o
- .debug_line      0x00bf3a        0xc37 build/debug/production/_ext/1611813562/uart_driver.o
- .debug_line      0x00cb71        0x48d build/debug/production/_ext/1360937237/ajuste_cap.o
- .debug_line      0x00cffe        0x4a3 build/debug/production/_ext/1360937237/FSM_DataHora.o
- .debug_line      0x00d4a1       0x234e build/debug/production/_ext/1360937237/setup_usb.o
- .debug_line      0x00f7ef       0x2793 build/debug/production/_ext/1360937237/empilhadeira.o
- .debug_line      0x011f82        0xe5a build/debug/production/_ext/1360937237/eth.o
- .debug_line      0x012ddc        0x1f4 build/debug/production/_ext/1360937237/cancelas.o
- .debug_line      0x012fd0       0x26fc build/debug/production/_ext/1360937237/portal.o
- .debug_line      0x0156cc        0x787 build/debug/production/_ext/1360937237/exclusao.o
+ .debug_line      0x009984         0x24 build/debug/production/_ext/1611813562/logger.o
+ .debug_line      0x0099a8        0xc37 build/debug/production/_ext/1360937237/main.o
+ .debug_line      0x00a5df        0x356 build/debug/production/_ext/1360937237/tags.o
+ .debug_line      0x00a935        0xc37 build/debug/production/_ext/1611813562/uart_driver.o
+ .debug_line      0x00b56c        0x48d build/debug/production/_ext/1360937237/ajuste_cap.o
+ .debug_line      0x00b9f9        0x4a3 build/debug/production/_ext/1360937237/FSM_DataHora.o
+ .debug_line      0x00be9c       0x234e build/debug/production/_ext/1360937237/setup_usb.o
+ .debug_line      0x00e1ea       0x2697 build/debug/production/_ext/1360937237/empilhadeira.o
+ .debug_line      0x010881        0xe5a build/debug/production/_ext/1360937237/eth.o
+ .debug_line      0x0116db        0x1f4 build/debug/production/_ext/1360937237/cancelas.o
+ .debug_line      0x0118cf       0x26d0 build/debug/production/_ext/1360937237/portal.o
+ .debug_line      0x013f9f        0x787 build/debug/production/_ext/1360937237/exclusao.o
+ .debug_line      0x014726        0x1d1 build/debug/production/_ext/1360937237/config_i2c3.o
+ .debug_line      0x0148f7        0xb48 build/debug/production/_ext/1360937237/i2c.o
+ .debug_line      0x01543f        0x868 build/debug/production/_ext/1360937237/rtc.o
 
 .debug_frame      0x000000       0x46b8
  *(.debug_frame)
@@ -2377,22 +2377,22 @@ __CONFIG1         0x02abfe          0x2
  .debug_frame     0x001260         0x54 build/debug/production/_ext/1360937237/mem_i2c_24LC256.o
  .debug_frame     0x0012b4         0x9c build/debug/production/_ext/1360937237/onewire.o
  .debug_frame     0x001350        0x2c4 build/debug/production/_ext/1360937237/perifericos.o
- .debug_frame     0x001614        0x148 build/debug/production/_ext/1229013914/i2c.o
- .debug_frame     0x00175c         0x64 build/debug/production/_ext/1229013914/config_i2c3.o
- .debug_frame     0x0017c0        0x150 build/debug/production/_ext/1229013914/rtc.o
- .debug_frame     0x001910        0x22c build/debug/production/_ext/1360937237/main.o
- .debug_frame     0x001b3c         0x94 build/debug/production/_ext/1360937237/tags.o
- .debug_frame     0x001bd0        0x1e4 build/debug/production/_ext/1611813562/uart_driver.o
- .debug_frame     0x001db4         0xec build/debug/production/_ext/1360937237/ajuste_cap.o
- .debug_frame     0x001ea0        0x118 build/debug/production/_ext/1360937237/FSM_DataHora.o
- .debug_frame     0x001fb8        0xdb8 build/debug/production/_ext/1360937237/setup_usb.o
- .debug_frame     0x002d70        0x9a0 build/debug/production/_ext/1360937237/empilhadeira.o
- .debug_frame     0x003710        0x514 build/debug/production/_ext/1360937237/eth.o
- .debug_frame     0x003c24         0xa4 build/debug/production/_ext/1360937237/cancelas.o
- .debug_frame     0x003cc8        0x87c build/debug/production/_ext/1360937237/portal.o
- .debug_frame     0x004544        0x174 build/debug/production/_ext/1360937237/exclusao.o
+ .debug_frame     0x001614        0x22c build/debug/production/_ext/1360937237/main.o
+ .debug_frame     0x001840         0x94 build/debug/production/_ext/1360937237/tags.o
+ .debug_frame     0x0018d4        0x1e4 build/debug/production/_ext/1611813562/uart_driver.o
+ .debug_frame     0x001ab8         0xec build/debug/production/_ext/1360937237/ajuste_cap.o
+ .debug_frame     0x001ba4        0x118 build/debug/production/_ext/1360937237/FSM_DataHora.o
+ .debug_frame     0x001cbc        0xdb8 build/debug/production/_ext/1360937237/setup_usb.o
+ .debug_frame     0x002a74        0x9a0 build/debug/production/_ext/1360937237/empilhadeira.o
+ .debug_frame     0x003414        0x514 build/debug/production/_ext/1360937237/eth.o
+ .debug_frame     0x003928         0xa4 build/debug/production/_ext/1360937237/cancelas.o
+ .debug_frame     0x0039cc        0x87c build/debug/production/_ext/1360937237/portal.o
+ .debug_frame     0x004248        0x174 build/debug/production/_ext/1360937237/exclusao.o
+ .debug_frame     0x0043bc         0x64 build/debug/production/_ext/1360937237/config_i2c3.o
+ .debug_frame     0x004420        0x148 build/debug/production/_ext/1360937237/i2c.o
+ .debug_frame     0x004568        0x150 build/debug/production/_ext/1360937237/rtc.o
 
-.debug_str        0x000000       0x1e41
+.debug_str        0x000000       0x1e24
  *(.debug_str)
  .debug_str       0x000000         0xab build/debug/production/_ext/1360937237/appl_commands.o
  .debug_str       0x0000ab         0x51 build/debug/production/_ext/1360937237/as3993.o
@@ -2412,20 +2412,20 @@ __CONFIG1         0x02abfe          0x2
  .debug_str       0x0006da         0x2a build/debug/production/_ext/1360937237/mem_i2c_24LC256.o
  .debug_str       0x000704         0x31 build/debug/production/_ext/1360937237/onewire.o
  .debug_str       0x000735         0x81 build/debug/production/_ext/1360937237/perifericos.o
- .debug_str       0x0007b6        0x120 build/debug/production/_ext/1229013914/i2c.o
- .debug_str       0x0008d6         0x36 build/debug/production/_ext/1229013914/config_i2c3.o
- .debug_str       0x00090c         0xa7 build/debug/production/_ext/1229013914/rtc.o
- .debug_str       0x0009b3        0x27b build/debug/production/_ext/1360937237/main.o
- .debug_str       0x000c2e         0x1d build/debug/production/_ext/1360937237/tags.o
- .debug_str       0x000c4b        0x176 build/debug/production/_ext/1611813562/uart_driver.o
- .debug_str       0x000dc1         0x89 build/debug/production/_ext/1360937237/ajuste_cap.o
- .debug_str       0x000e4a        0x140 build/debug/production/_ext/1360937237/FSM_DataHora.o
- .debug_str       0x000f8a        0x2cb build/debug/production/_ext/1360937237/setup_usb.o
- .debug_str       0x001255        0x3ee build/debug/production/_ext/1360937237/empilhadeira.o
- .debug_str       0x001643        0x246 build/debug/production/_ext/1360937237/eth.o
- .debug_str       0x001889         0x59 build/debug/production/_ext/1360937237/cancelas.o
- .debug_str       0x0018e2        0x4a9 build/debug/production/_ext/1360937237/portal.o
- .debug_str       0x001d8b         0xb6 build/debug/production/_ext/1360937237/exclusao.o
+ .debug_str       0x0007b6        0x27b build/debug/production/_ext/1360937237/main.o
+ .debug_str       0x000a31         0x1d build/debug/production/_ext/1360937237/tags.o
+ .debug_str       0x000a4e        0x176 build/debug/production/_ext/1611813562/uart_driver.o
+ .debug_str       0x000bc4         0x89 build/debug/production/_ext/1360937237/ajuste_cap.o
+ .debug_str       0x000c4d        0x140 build/debug/production/_ext/1360937237/FSM_DataHora.o
+ .debug_str       0x000d8d        0x2cb build/debug/production/_ext/1360937237/setup_usb.o
+ .debug_str       0x001058        0x3d1 build/debug/production/_ext/1360937237/empilhadeira.o
+ .debug_str       0x001429        0x246 build/debug/production/_ext/1360937237/eth.o
+ .debug_str       0x00166f         0x59 build/debug/production/_ext/1360937237/cancelas.o
+ .debug_str       0x0016c8        0x4a9 build/debug/production/_ext/1360937237/portal.o
+ .debug_str       0x001b71         0xb6 build/debug/production/_ext/1360937237/exclusao.o
+ .debug_str       0x001c27         0x36 build/debug/production/_ext/1360937237/config_i2c3.o
+ .debug_str       0x001c5d        0x120 build/debug/production/_ext/1360937237/i2c.o
+ .debug_str       0x001d7d         0xa7 build/debug/production/_ext/1360937237/rtc.o
 
 .debug_loc
  *(.debug_loc)
@@ -2479,33 +2479,33 @@ __CONFIG1         0x02abfe          0x2
  .debug_pubnames
                   0x001940        0x312 build/debug/production/_ext/1360937237/perifericos.o
  .debug_pubnames
-                  0x001c52        0x245 build/debug/production/_ext/1229013914/i2c.o
+                  0x001c52        0x4e3 build/debug/production/_ext/1360937237/main.o
  .debug_pubnames
-                  0x001e97         0x71 build/debug/production/_ext/1229013914/config_i2c3.o
+                  0x002135         0xb4 build/debug/production/_ext/1360937237/tags.o
  .debug_pubnames
-                  0x001f08        0x1db build/debug/production/_ext/1229013914/rtc.o
+                  0x0021e9        0x2a1 build/debug/production/_ext/1611813562/uart_driver.o
  .debug_pubnames
-                  0x0020e3        0x4e3 build/debug/production/_ext/1360937237/main.o
+                  0x00248a         0xce build/debug/production/_ext/1360937237/ajuste_cap.o
  .debug_pubnames
-                  0x0025c6         0xb4 build/debug/production/_ext/1360937237/tags.o
+                  0x002558        0x318 build/debug/production/_ext/1360937237/FSM_DataHora.o
  .debug_pubnames
-                  0x00267a        0x2a1 build/debug/production/_ext/1611813562/uart_driver.o
+                  0x002870        0xc6e build/debug/production/_ext/1360937237/setup_usb.o
  .debug_pubnames
-                  0x00291b         0xce build/debug/production/_ext/1360937237/ajuste_cap.o
+                  0x0034de       0x13e9 build/debug/production/_ext/1360937237/empilhadeira.o
  .debug_pubnames
-                  0x0029e9        0x318 build/debug/production/_ext/1360937237/FSM_DataHora.o
+                  0x0048c7        0x7cd build/debug/production/_ext/1360937237/eth.o
  .debug_pubnames
-                  0x002d01        0xc6e build/debug/production/_ext/1360937237/setup_usb.o
+                  0x005094        0x152 build/debug/production/_ext/1360937237/cancelas.o
  .debug_pubnames
-                  0x00396f       0x13e9 build/debug/production/_ext/1360937237/empilhadeira.o
+                  0x0051e6        0xd53 build/debug/production/_ext/1360937237/portal.o
  .debug_pubnames
-                  0x004d58        0x7cd build/debug/production/_ext/1360937237/eth.o
+                  0x005f39        0x469 build/debug/production/_ext/1360937237/exclusao.o
  .debug_pubnames
-                  0x005525        0x152 build/debug/production/_ext/1360937237/cancelas.o
+                  0x0063a2         0x71 build/debug/production/_ext/1360937237/config_i2c3.o
  .debug_pubnames
-                  0x005677        0xd53 build/debug/production/_ext/1360937237/portal.o
+                  0x006413        0x245 build/debug/production/_ext/1360937237/i2c.o
  .debug_pubnames
-                  0x0063ca        0x469 build/debug/production/_ext/1360937237/exclusao.o
+                  0x006658        0x1db build/debug/production/_ext/1360937237/rtc.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -2551,33 +2551,33 @@ __CONFIG1         0x02abfe          0x2
  .debug_aranges
                   0x0001b8         0x18 build/debug/production/_ext/1360937237/perifericos.o
  .debug_aranges
-                  0x0001d0         0x18 build/debug/production/_ext/1229013914/i2c.o
+                  0x0001d0         0x18 build/debug/production/_ext/1360937237/main.o
  .debug_aranges
-                  0x0001e8         0x18 build/debug/production/_ext/1229013914/config_i2c3.o
+                  0x0001e8         0x18 build/debug/production/_ext/1360937237/tags.o
  .debug_aranges
-                  0x000200         0x18 build/debug/production/_ext/1229013914/rtc.o
+                  0x000200         0x18 build/debug/production/_ext/1611813562/uart_driver.o
  .debug_aranges
-                  0x000218         0x18 build/debug/production/_ext/1360937237/main.o
+                  0x000218         0x18 build/debug/production/_ext/1360937237/ajuste_cap.o
  .debug_aranges
-                  0x000230         0x18 build/debug/production/_ext/1360937237/tags.o
+                  0x000230         0x18 build/debug/production/_ext/1360937237/FSM_DataHora.o
  .debug_aranges
-                  0x000248         0x18 build/debug/production/_ext/1611813562/uart_driver.o
+                  0x000248         0x18 build/debug/production/_ext/1360937237/setup_usb.o
  .debug_aranges
-                  0x000260         0x18 build/debug/production/_ext/1360937237/ajuste_cap.o
+                  0x000260         0x18 build/debug/production/_ext/1360937237/empilhadeira.o
  .debug_aranges
-                  0x000278         0x18 build/debug/production/_ext/1360937237/FSM_DataHora.o
+                  0x000278         0x18 build/debug/production/_ext/1360937237/eth.o
  .debug_aranges
-                  0x000290         0x18 build/debug/production/_ext/1360937237/setup_usb.o
+                  0x000290         0x18 build/debug/production/_ext/1360937237/cancelas.o
  .debug_aranges
-                  0x0002a8         0x18 build/debug/production/_ext/1360937237/empilhadeira.o
+                  0x0002a8         0x18 build/debug/production/_ext/1360937237/portal.o
  .debug_aranges
-                  0x0002c0         0x18 build/debug/production/_ext/1360937237/eth.o
+                  0x0002c0         0x18 build/debug/production/_ext/1360937237/exclusao.o
  .debug_aranges
-                  0x0002d8         0x18 build/debug/production/_ext/1360937237/cancelas.o
+                  0x0002d8         0x18 build/debug/production/_ext/1360937237/config_i2c3.o
  .debug_aranges
-                  0x0002f0         0x18 build/debug/production/_ext/1360937237/portal.o
+                  0x0002f0         0x18 build/debug/production/_ext/1360937237/i2c.o
  .debug_aranges
-                  0x000308         0x18 build/debug/production/_ext/1360937237/exclusao.o
+                  0x000308         0x18 build/debug/production/_ext/1360937237/rtc.o
 
 .ivt              0x000004         0xfc
                   0x000004          0x4 LONG 0x33e DEFINED (__ReservedTrap0)?ABSOLUTE (__ReservedTrap0):ABSOLUTE (__DefaultInterrupt)
@@ -4189,33 +4189,33 @@ LOAD data_init
  .debug_pubtypes
                   0x001119        0x134 build/debug/production/_ext/1360937237/perifericos.o
  .debug_pubtypes
-                  0x00124d         0xbf build/debug/production/_ext/1229013914/i2c.o
+                  0x00124d         0x12 build/debug/production/_ext/1611813562/logger.o
  .debug_pubtypes
-                  0x00130c         0x5a build/debug/production/_ext/1229013914/config_i2c3.o
+                  0x00125f         0xf1 build/debug/production/_ext/1360937237/main.o
  .debug_pubtypes
-                  0x001366         0x6c build/debug/production/_ext/1229013914/rtc.o
+                  0x001350         0x2e build/debug/production/_ext/1360937237/tags.o
  .debug_pubtypes
-                  0x0013d2         0x12 build/debug/production/_ext/1611813562/logger.o
+                  0x00137e        0x1b9 build/debug/production/_ext/1611813562/uart_driver.o
  .debug_pubtypes
-                  0x0013e4         0xf1 build/debug/production/_ext/1360937237/main.o
+                  0x001537         0x69 build/debug/production/_ext/1360937237/ajuste_cap.o
  .debug_pubtypes
-                  0x0014d5         0x2e build/debug/production/_ext/1360937237/tags.o
+                  0x0015a0         0x2e build/debug/production/_ext/1360937237/FSM_DataHora.o
  .debug_pubtypes
-                  0x001503        0x1b9 build/debug/production/_ext/1611813562/uart_driver.o
+                  0x0015ce         0x2f build/debug/production/_ext/1360937237/setup_usb.o
  .debug_pubtypes
-                  0x0016bc         0x69 build/debug/production/_ext/1360937237/ajuste_cap.o
+                  0x0015fd        0x123 build/debug/production/_ext/1360937237/empilhadeira.o
  .debug_pubtypes
-                  0x001725         0x2e build/debug/production/_ext/1360937237/FSM_DataHora.o
+                  0x001720         0x70 build/debug/production/_ext/1360937237/eth.o
  .debug_pubtypes
-                  0x001753         0x2f build/debug/production/_ext/1360937237/setup_usb.o
+                  0x001790        0x182 build/debug/production/_ext/1360937237/portal.o
  .debug_pubtypes
-                  0x001782        0x123 build/debug/production/_ext/1360937237/empilhadeira.o
+                  0x001912         0x3b build/debug/production/_ext/1360937237/exclusao.o
  .debug_pubtypes
-                  0x0018a5         0x70 build/debug/production/_ext/1360937237/eth.o
+                  0x00194d         0x5a build/debug/production/_ext/1360937237/config_i2c3.o
  .debug_pubtypes
-                  0x001915        0x182 build/debug/production/_ext/1360937237/portal.o
+                  0x0019a7         0xbf build/debug/production/_ext/1360937237/i2c.o
  .debug_pubtypes
-                  0x001a97         0x3b build/debug/production/_ext/1360937237/exclusao.o
+                  0x001a66         0x6c build/debug/production/_ext/1360937237/rtc.o
 
 __c30_signature
                   0x001ad2        0x24c
@@ -4262,35 +4262,35 @@ __c30_signature
  __c30_signature
                   0x001b4a          0x6 build/debug/production/_ext/1360937237/perifericos.o
  __c30_signature
-                  0x001b50          0x6 build/debug/production/_ext/1229013914/i2c.o
+                  0x001b50          0x6 build/debug/production/_ext/1611813562/logger.o
  __c30_signature
-                  0x001b56          0x6 build/debug/production/_ext/1229013914/config_i2c3.o
+                  0x001b56          0x6 build/debug/production/_ext/1360937237/main.o
  __c30_signature
-                  0x001b5c          0x6 build/debug/production/_ext/1229013914/rtc.o
+                  0x001b5c          0x6 build/debug/production/_ext/1360937237/tags.o
  __c30_signature
-                  0x001b62          0x6 build/debug/production/_ext/1611813562/logger.o
+                  0x001b62          0x6 build/debug/production/_ext/1611813562/uart_driver.o
  __c30_signature
-                  0x001b68          0x6 build/debug/production/_ext/1360937237/main.o
+                  0x001b68          0x6 build/debug/production/_ext/1360937237/ajuste_cap.o
  __c30_signature
-                  0x001b6e          0x6 build/debug/production/_ext/1360937237/tags.o
+                  0x001b6e          0x6 build/debug/production/_ext/1360937237/FSM_DataHora.o
  __c30_signature
-                  0x001b74          0x6 build/debug/production/_ext/1611813562/uart_driver.o
+                  0x001b74          0x6 build/debug/production/_ext/1360937237/setup_usb.o
  __c30_signature
-                  0x001b7a          0x6 build/debug/production/_ext/1360937237/ajuste_cap.o
+                  0x001b7a          0x6 build/debug/production/_ext/1360937237/empilhadeira.o
  __c30_signature
-                  0x001b80          0x6 build/debug/production/_ext/1360937237/FSM_DataHora.o
+                  0x001b80          0x6 build/debug/production/_ext/1360937237/eth.o
  __c30_signature
-                  0x001b86          0x6 build/debug/production/_ext/1360937237/setup_usb.o
+                  0x001b86          0x6 build/debug/production/_ext/1360937237/cancelas.o
  __c30_signature
-                  0x001b8c          0x6 build/debug/production/_ext/1360937237/empilhadeira.o
+                  0x001b8c          0x6 build/debug/production/_ext/1360937237/portal.o
  __c30_signature
-                  0x001b92          0x6 build/debug/production/_ext/1360937237/eth.o
+                  0x001b92          0x6 build/debug/production/_ext/1360937237/exclusao.o
  __c30_signature
-                  0x001b98          0x6 build/debug/production/_ext/1360937237/cancelas.o
+                  0x001b98          0x6 build/debug/production/_ext/1360937237/config_i2c3.o
  __c30_signature
-                  0x001b9e          0x6 build/debug/production/_ext/1360937237/portal.o
+                  0x001b9e          0x6 build/debug/production/_ext/1360937237/i2c.o
  __c30_signature
-                  0x001ba4          0x6 build/debug/production/_ext/1360937237/exclusao.o
+                  0x001ba4          0x6 build/debug/production/_ext/1360937237/rtc.o
  __c30_signature
                   0x001baa          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib/PIC24F\libpPIC24Fxxx-elf.a(DataRdyUART1.o)
  __c30_signature
@@ -4585,7 +4585,7 @@ __c30_signature
 
 .bss                0x3c60         0xa6
  .bss               0x3c60         0x5a build/debug/production/_ext/1611813562/spi_driver.o
- .bss               0x3cba         0x4c build/debug/production/_ext/1229013914/rtc.o
+ .bss               0x3cba         0x4c build/debug/production/_ext/1360937237/rtc.o
                     0x3cba                  _Tempo
                     0x3cbe                  _timeinfo
                     0x3cc0                  _strDiaDaSemana
@@ -4658,7 +4658,7 @@ __c30_signature
                     0x3f07                  _gen2qbegin
 
 .bss                0x3f1e         0x1a
- .bss               0x3f1e         0x1a build/debug/production/_ext/1229013914/i2c.o
+ .bss               0x3f1e         0x1a build/debug/production/_ext/1360937237/i2c.o
                     0x3f1e                  _ContadorDePOR
                     0x3f20                  _ContadorDeBOR
                     0x3f22                  _ContadorDeEXTR
@@ -4762,8 +4762,8 @@ __c30_signature
                     0xa442                  _firmwareNumber
  .const             0xa4c4         0xc6 build/debug/production/_ext/1360937237/FSM_DataHora.o
  .const             0xa58a         0x84 build/debug/production/_ext/1360937237/ajuste_cap.o
- .const             0xa60e         0x6c build/debug/production/_ext/1229013914/i2c.o
- .const             0xa67a         0x30 build/debug/production/_ext/1229013914/rtc.o
+ .const             0xa60e         0x6c build/debug/production/_ext/1360937237/i2c.o
+ .const             0xa67a         0x30 build/debug/production/_ext/1360937237/rtc.o
  .const             0xa6aa         0x26 build/debug/production/_ext/1611813562/weak_stream_functions.o
  .const             0xa6d0         0x1a build/debug/production/_ext/1360937237/onewire.o
  .const             0xa6ea         0x10 build/debug/production/_ext/1611813562/spi_driver.o
@@ -5086,7 +5086,7 @@ __c30_signature
                   0x00b408                  _limpaBufferRxEthernet
                   0x00b418                  _aguardoPrimeiraConexaoTCP
                   0x00b4b4                  _geraEventosDePassagemParaTestarEmpi
- .text            0x00b5a4        0x8f8 build/debug/production/_ext/1229013914/i2c.o
+ .text            0x00b5a4        0x8f8 build/debug/production/_ext/1360937237/i2c.o
                   0x00b5a4                  _LigaI2CMemoria
                   0x00b5b0                  _LigaI2CRelogio
                   0x00b5bc                  _EscreveArray
@@ -5267,7 +5267,7 @@ __c30_signature
                   0x00e2f6                  _libera_reh
                   0x00e2fe                  _libera_frente
                   0x00e306                  _LigaRX
- .text            0x00e328        0x51c build/debug/production/_ext/1229013914/rtc.o
+ .text            0x00e328        0x51c build/debug/production/_ext/1360937237/rtc.o
                   0x00e328                  _retornaTimeInfo
                   0x00e332                  _IniciaRTC
                   0x00e340                  _conversao1307
@@ -5339,7 +5339,7 @@ __c30_signature
                   0x00ffa8                  _applSpiDeactivateSEN
                   0x00ffb0                  _ioLedOn
                   0x00ffb6                  _ioLedOff
- .text            0x00ffbc         0xc4 build/debug/production/_ext/1229013914/config_i2c3.o
+ .text            0x00ffbc         0xc4 build/debug/production/_ext/1360937237/config_i2c3.o
                   0x00ffbc                  _envia_ack_i2c3
                   0x00ffc6                  _envia_nack_i2c3
                   0x00ffd0                  _aguarda_i2c3

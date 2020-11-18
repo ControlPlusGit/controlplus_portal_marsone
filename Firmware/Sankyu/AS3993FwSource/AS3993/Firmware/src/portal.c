@@ -1,20 +1,19 @@
 
 #include "as3993_public.h"
 #include "timer.h"
-#include "C:\Projetos\control-plus\Firmware\BaseComum\i2c.h"
-#include "C:\Projetos\control-plus\Firmware\BaseComum\onewire.h"
+#include "i2c.h"
+#include "onewire.h"
 #include "as3993_public.h"
 #include "uart_driver.h"
 #include "as3993.h"
 #include "platform.h"
 #include "tuner.h"
 #include <time.h>
-#include "C:\Projetos\control-plus\Firmware\BaseComum\rtc.h"
+#include "rtc.h"
 #include "exclusao.h"
 #include "portal.h"
 #include "perifericos.h"
 #include "eth.h"
-
 #include "appl_commands.h"
 #include "cancelas.h"
 #include "setup_usb.h"

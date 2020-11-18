@@ -21,6 +21,10 @@ void SetarHoraRTC (int segundo, int minuto, int hora, int dia, int mes, int ano)
 void SetaTempoComEpoch (time_t Epoch);
 time_t retornaComEpoch (void);
 void OperacoesParaRtcEmTick (void);
+char conversao1307 (char dado);
+void operacoesParaRtcEmCodigoCorrente(void);
+
+struct tm * retornaTimeInfo(void);
 
 extern char strDiaDaSemana[10];
 extern char strMes[10];
@@ -30,7 +34,7 @@ extern int minuto;
 
 
 extern time_t Tempo;
-
+extern int ContagemDeMiliSegundo;
 
 
 

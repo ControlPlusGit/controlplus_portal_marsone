@@ -39,6 +39,7 @@ build/debug/production/_ext/1360937237/ajuste_cap.o:  \
  ../src/tags.h  \
 ../src/empilhadeira.h  \
 ../src/i2c.h  \
-../src/portal.h  \
- ../src/setup_usb.h  \
+../src/rtc.h  \
+ ../src/portal.h  \
+../src/setup_usb.h  \
 ../src/ajuste_cap.h 

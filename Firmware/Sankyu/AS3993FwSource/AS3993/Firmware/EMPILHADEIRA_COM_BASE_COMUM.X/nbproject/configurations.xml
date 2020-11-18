@@ -56,8 +56,6 @@
       <itemPath>../src/config_i2c3.h</itemPath>
       <itemPath>../src/mem_i2c_24LC256.h</itemPath>
       <itemPath>../src/tags.h</itemPath>
-      <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/i2c.h</itemPath>
-      <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/rtc.h</itemPath>
       <itemPath>../src/ajuste_cap.h</itemPath>
       <itemPath>../src/FSM_DataHora.h</itemPath>
       <itemPath>../src/setup_usb.h</itemPath>
@@ -67,6 +65,8 @@
       <itemPath>../src/uart.h</itemPath>
       <itemPath>../src/portal.h</itemPath>
       <itemPath>../src/exclusao.h</itemPath>
+      <itemPath>../src/i2c.h</itemPath>
+      <itemPath>../src/rtc.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LibraryFiles"
                    displayName="Library Files"
@@ -108,13 +108,13 @@
         <itemPath>../src/mem_i2c_24LC256.c</itemPath>
         <itemPath>../src/onewire.c</itemPath>
         <itemPath>../src/perifericos.c</itemPath>
-        <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/i2c.c</itemPath>
-        <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/config_i2c3.c</itemPath>
-        <itemPath>C:/Projetos/control-plus/Firmware/BaseComum/rtc.c</itemPath>
         <itemPath>../src/eth.c</itemPath>
         <itemPath>../src/cancelas.c</itemPath>
         <itemPath>../src/portal.c</itemPath>
         <itemPath>../src/exclusao.c</itemPath>
+        <itemPath>../src/config_i2c3.c</itemPath>
+        <itemPath>../src/i2c.c</itemPath>
+        <itemPath>../src/rtc.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="Especifico" projectFiles="true">
         <itemPath>../../../common/firmware/microchip/src/logger.c</itemPath>

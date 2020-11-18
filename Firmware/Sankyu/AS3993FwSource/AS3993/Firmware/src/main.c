@@ -26,7 +26,7 @@
 #include "mem_i2c_24LC256.h"
 #include "tags.h"
 #include "empilhadeira.h"
-#include "C:\Projetos\control-plus\Firmware\BaseComum\rtc.h"
+#include "rtc.h"
 #include "exclusao.h"
 #include "portal.h"
 #include "global.h"
