@@ -57,30 +57,6 @@
             </bookmark>
         </file>
         <file>
-            <url>file:/C:/projetos/control-plus/Firmware/Sankyu/080116/Sankyu/AS3993FwSource/AS3993/Firmware/src/empilhadeira.c</url>
-            <bookmark id="30">
-                <name/>
-                <line>2662</line>
-                <key/>
-            </bookmark>
-        </file>
-        <file>
-            <url>file:/C:/projetos/control-plus/Firmware/Sankyu/080116/Sankyu/AS3993FwSource/common/firmware/microchip/src/uart_driver.c</url>
-            <bookmark id="25">
-                <name/>
-                <line>677</line>
-                <key/>
-            </bookmark>
-        </file>
-        <file>
-            <url>file:/C:/Projetos/control-plus/Firmware/BaseComum/zibbee.c</url>
-            <bookmark id="22">
-                <name/>
-                <line>379</line>
-                <key/>
-            </bookmark>
-        </file>
-        <file>
             <url>file:/C:/Projetos/control-plus/Firmware/Sankyu/080116/Sankyu/AS3993FwSource/AS3993/Firmware/src/empilhadeira.c</url>
             <bookmark id="6">
                 <name/>
@@ -139,27 +115,6 @@
             </bookmark>
         </file>
         <file>
-            <url>file:/C:/projetos/control-plus/Firmware/Sankyu/080116/Sankyu/AS3993FwSource/AS3993/Firmware/src/main.c</url>
-            <bookmark id="32">
-                <name/>
-                <line>1356</line>
-                <key/>
-            </bookmark>
-            <bookmark id="28">
-                <name/>
-                <line>1512</line>
-                <key/>
-            </bookmark>
-        </file>
-        <file>
-            <url>file:/C:/projetos/control-plus/Firmware/BaseComum/exclusao.c</url>
-            <bookmark id="24">
-                <name/>
-                <line>109</line>
-                <key/>
-            </bookmark>
-        </file>
-        <file>
             <url>file:/C:/Projetos/control-plus/Firmware/BaseComum/eth.c</url>
             <bookmark id="37">
                 <name/>
@@ -195,8 +150,57 @@
                 <key/>
             </bookmark>
         </file>
+        <file>
+            <url>file:/C:/projetos/control-plus/Firmware/Sankyu/080116/Sankyu/AS3993FwSource/AS3993/Firmware/src/empilhadeira.c</url>
+            <bookmark id="30">
+                <name/>
+                <line>2662</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>file:/C:/projetos/control-plus/Firmware/Sankyu/080116/Sankyu/AS3993FwSource/AS3993/Firmware/src/main.c</url>
+            <bookmark id="32">
+                <name/>
+                <line>1356</line>
+                <key/>
+            </bookmark>
+            <bookmark id="28">
+                <name/>
+                <line>1512</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>file:/C:/Projetos/control-plus/Firmware/BaseComum/zibbee.c</url>
+            <bookmark id="22">
+                <name/>
+                <line>379</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>file:/C:/projetos/control-plus/Firmware/Sankyu/080116/Sankyu/AS3993FwSource/common/firmware/microchip/src/uart_driver.c</url>
+            <bookmark id="25">
+                <name/>
+                <line>677</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>file:/C:/projetos/control-plus/Firmware/BaseComum/exclusao.c</url>
+            <bookmark id="24">
+                <name/>
+                <line>109</line>
+                <key/>
+            </bookmark>
+        </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/projetos/control-plus/src/eth.c</file>
+            <file>file:/C:/projetos/control-plus/src/uart_driver.c</file>
+            <file>file:/C:/projetos/control-plus/src/setup_usb.c</file>
+        </group>
     </open-files>
 </project-private>

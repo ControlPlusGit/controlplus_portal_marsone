@@ -183,16 +183,27 @@ int estouroDoTimeOutDoBufferDoEthDosPortais(char *BufferDeSaida){
 
 void enviaDadosParaEthPortais(char dados[TAMANHO_BUFFER_RX_ETHERNET], int Tamanho){
     int posicao;
-    if(!debugInterfaceEthernet){
+    
+    if( !debugInterfaceEthernet ){
+    
         for (posicao = 0; posicao < Tamanho; posicao = posicao + 1){
+        
             uart2Tx(dados[posicao]);//Porta ETH
+        
         }
-    }
-    if(debugInterfaceEthernet_Silent){
-        for (posicao = 0; posicao < Tamanho; posicao = posicao + 1){
-            uart3Tx(dados[posicao]);//Porta USB
+        
+        if( debugInterfaceEthernet_Silent ) {
+            
+            for( posicao = 0; posicao < Tamanho; posicao = posicao + 1 ) {
+                
+                uart3Tx( dados[ posicao ] );//Porta USB
+                
+            }
+        
         }
+    
     }
+   
 }
 
 void enviaDadoParaEthPortais(char Dado){
@@ -260,14 +271,14 @@ void exemploDeUsoDaEth (void){
 }
 
 
-void entraEmModoAt(void){
-    char comando[20];
+void entraEmModoAt( void ){
+    char comando[ 20 ];
     //comandoAtivo == ENTRA_MODO_AT;
-    sprintf(comando, "+++");
-    enviaDadosParaEthPortais(comando, strlen(comando));
-    delay_ms(100);
-    sprintf(comando, "a");
-    enviaDadosParaEthPortais(comando, strlen(comando));
+    sprintf( comando, "+++" );
+    enviaDadosParaEthPortais( comando, strlen( comando ) );
+    delay_ms( 100 );
+    sprintf( comando, "a" );
+    enviaDadosParaEthPortais( comando, strlen( comando ) );
     delay_ms(100);
     //comandoAtivo == NENHUM;
 }
@@ -612,36 +623,40 @@ void solicitaDataHoraPelaEthernet(void){
 }
 */
 
-void enviaKeepAliveParaEthernet(char status){
-    char mensagem[100];
-//    static int timer = 0;
+void enviaKeepAliveParaEthernet( char status ){
     
-    /*
-    if(timer < 50){
-        timer = timer + 1;
-        return;
+    char mensagem[ 100 ];
+    
+    if( statusDeConexaoTCP == CONNECTED ) {
+        
+        sprintf( mensagem, "<FD;%c%c%c%c;A0>", idDoLeitor[0], idDoLeitor[1], idDoLeitor[2], idDoLeitor[3] );
+    
+        enviaDadosParaEthPortais( mensagem, strlen( mensagem ) );
+        
     }
-    */
-    //if(statusDeConexaoTCP == TENTANDO_CONECTAR || statusDeConexaoTCP == CONNECTED){
-        //timer = 0;
-        //sprintf(mensagem, "<FD;%c%c%c%c;%02d>\r\n", IdDOLeitor[0], IdDOLeitor[1], IdDOLeitor[2], IdDOLeitor[3], status);
-        sprintf(mensagem, "<FD;%c%c%c%c;A0>", idDoLeitor[0], idDoLeitor[1], idDoLeitor[2], idDoLeitor[3]);
-        enviaDadosParaEthPortais(mensagem, strlen(mensagem));
-    //}       
+    else{
+     
+        //aguardoPrimeiraConexaoTCP();
+        
+    }
+        
 }
 
 
 void defineDestinoDasMensagensEthernet(char ipRemoto[TAMANHO_DA_STRING_DE_IP], int portaRemota){
+    
     char comando[50];
 
     entraEmModoAt();
-    //entraEmModoAt();
-    sprintf(comando, "AT+SOCK=TCPC,%s,%d\r", ipRemoto, portaRemota);
-    enviaDadosParaEthPortais(comando, strlen(comando));
-    delay_ms(100);
+    
+    sprintf( comando, "AT+SOCK=TCPC,%s,%d\r", ipRemoto, portaRemota );
+    
+    enviaDadosParaEthPortais( comando, strlen( comando ) );
+    
+    delay_ms( 100 );
+    
     resetModuloETH();
-    //delay_ms(100);
-    //saiDoModoAt();
+    
 }
 
 
@@ -658,11 +673,13 @@ char solicitaStatusDeConexaoTCP(void){
     strcpy(respostaEsperada, "\r\n+OK=connect\r\n");
     if(strncmp(bufferRxEthernet, respostaEsperada, 15) == 0){
         delay_ms(100);
+        statusDeConexaoTCP = CONNECTED;
         saiDoModoAt();
         delay_ms(100);
         return 1;
     }else{
         delay_ms(200);
+        statusDeConexaoTCP = NOT_CONNECTED;
         saiDoModoAt();
         delay_ms(100);
         return 0;
@@ -750,23 +767,53 @@ void alertaSemConexaoComEthernet(void){
 
 
 void checaNecessidadeDeTrocaDeIPRemoto(void){
-    char mensagem[100];
     
-    if(statusDeConexaoTCP == NOT_CONNECTED && timerParaTrocaDeRemoteIP >= INTERVALO_DE_TROCA_REMOTE_IP){
+    char mensagem[ 100 ];
+    
+    if( statusDeConexaoTCP == NOT_CONNECTED && timerParaTrocaDeRemoteIP >= INTERVALO_DE_TROCA_REMOTE_IP ) {
+        
         timerParaTrocaDeRemoteIP = 0;
+    
         //statusDeConexaoTCP = TENTANDO_CONECTAR;
-        if(destinoDosEventos == IP_REMOTO_PRINCIPAL){
-            defineDestinoDasMensagensEthernet(ipRemotoSecundario, portaRemotaSecundaria);
+        if( destinoDosEventos == IP_REMOTO_PRINCIPAL ){
+            
+            defineDestinoDasMensagensEthernet( ipRemotoSecundario, portaRemotaSecundaria );
+            
             destinoDosEventos = IP_REMOTO_SECUNDARIO;
-            sprintf(mensagem, "Tentando conexao com: %s:%d\r\n", ipRemotoSecundario, portaRemotaSecundaria);
-            enviaDadosParaUSBserial(mensagem, strlen(mensagem));
-        }else{
-            defineDestinoDasMensagensEthernet(ipRemotoPrincipal, portaRemotaPrincipal);
-            destinoDosEventos = IP_REMOTO_PRINCIPAL;
-            sprintf(mensagem, "Tentando conexao com: %s:%d\r\n", ipRemotoPrincipal, portaRemotaPrincipal);
-            enviaDadosParaUSBserial(mensagem, strlen(mensagem));
+            
+            sprintf( mensagem, "Tentando conexao com: %s:%d\r\n", ipRemotoSecundario, portaRemotaSecundaria );
+            
+            enviaDadosParaUSBserial( mensagem, strlen( mensagem ) );
+        
         }
+        else {
+            
+            defineDestinoDasMensagensEthernet( ipRemotoPrincipal, portaRemotaPrincipal );
+            
+            destinoDosEventos = IP_REMOTO_PRINCIPAL;
+            
+            sprintf( mensagem, "Tentando conexao com: %s:%d\r\n", ipRemotoPrincipal, portaRemotaPrincipal );
+            
+            enviaDadosParaUSBserial( mensagem, strlen( mensagem ) );
+        
+        }
+        
+        while( solicitaStatusDeConexaoTCP() == 0 ) {
+        //sprintf( mensagem, "." );
+        //enviaDadosParaUSBserial( mensagem, strlen( mensagem ) );
+        delay_ms( 100 );
+        }
+
+        if( debugInterfaceEthernet_Silent ) {
+
+            sprintf( mensagem, "\r\nCONECTADO!\r\n" );
+
+            enviaDadosParaUSBserial( mensagem, strlen( mensagem ) );
+
+        }
+    
     }
+
 }
 
 
