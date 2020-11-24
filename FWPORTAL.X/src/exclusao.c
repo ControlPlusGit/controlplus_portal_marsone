@@ -10,8 +10,8 @@
 #include "portal.h"
 #include "uart_driver.h"
 #include "p24FJ256DA210.h"
-#include <timer.h>
-//#include "zigbee.h"
+#include "timer.h"
+//#include "zigbe'e.h"
 #include "perifericos.h"
 //#include "exclusao.h"
 #include "exclusao.h"
@@ -505,7 +505,7 @@ void formaStringDeComandoDeEnvendoDeMovimentoDePedestre(unsigned char *Saida, un
 //void enviaEpcParaSerInvisivelNoPortalDeExclusao(unsigned char *Epc, time_t Momento){
 //void enviaEventoDeQueUmPedestreSaiuNaAreaSegura(unsigned char *Epc, time_t Momento){
 void enviaEventoDeQueUmPedestreEntrouNaAreaSeguraNoZigBee(unsigned char *Epc, time_t Momento){
-    unsigned char Dados[10];
+    /*unsigned char Dados[10];
     int Contador;
     
     //formaStringDeComandoParaEpcSeTornarinvisivel(Dados, Epc, Momento);
@@ -522,7 +522,7 @@ void enviaEventoDeQueUmPedestreEntrouNaAreaSeguraNoZigBee(unsigned char *Epc, ti
             }
             //_LATG13 = 0;
         }
-    }
+    }*/
 }
 
 

@@ -640,7 +640,7 @@ void spiInit(void)
 
     // setup spi configuration
     spiconf.frequency = 2000000ULL;
-    spiconf.instance = SPI1;
+    spiconf.instance = 0; // spi1
     spiconf.clockPhase = 0;
     spiconf.clockPolarity = 0;
     spiconf.deviceId = 0;

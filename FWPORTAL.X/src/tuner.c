@@ -434,7 +434,7 @@ void tunerSetCap(const TunerConfiguration *config,  u8 component, u8 val )
 
     /* reconfigure spi to 2MHz */
     tunerConfig.frequency = 2000000ULL;
-    tunerConfig.instance = SPI1;
+    tunerConfig.instance = 0;
     tunerConfig.clockPhase = 1;
     tunerConfig.clockPolarity = 0;
     tunerConfig.deviceId = 0;

@@ -16,7 +16,7 @@ extern "C" {
 
 
 #include <time.h>
-#include <global.h>
+#include "global.h"
 
 #define QUANTIA_DE_ELEMENTOS 200
 #define TAMANHO_DOS_ELEMENTOS 5

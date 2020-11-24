@@ -3,7 +3,7 @@
 #include <string.h>
 #include "eth.h"
 #include "uart_driver.h"
-#include <timer.h>
+#include "timer.h"
 #include <time.h>
 #include <ctype.h>
 #include <uart.h>
