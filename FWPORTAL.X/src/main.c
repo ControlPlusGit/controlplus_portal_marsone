@@ -1016,6 +1016,13 @@ int main(void){
         };
         int Antena;
 
+        if (ContadorParaUmSegundo > 1000){
+            ContadorParaUmSegundo = 0;
+            enviaKeepAliveParaEthernet(1);
+            contaIntervaloDeKeepAlive();
+            contaIntevaloEntreTrocaDeRemoteIP(); 
+        }
+        
         comecaInvetorio();
 
         for (antena_atual = 1; antena_atual <= numeroDeAntenasAtivas; antena_atual = antena_atual + 1) {
@@ -1290,13 +1297,13 @@ void tick(void) {
     }
     
     ContadorParaUmSegundo = ContadorParaUmSegundo + 1;
-    if (ContadorParaUmSegundo > 1000){
-        ContadorParaUmSegundo = 0;
-        enviaKeepAliveParaEthernet(1);
-        contaIntervaloDeKeepAlive();
-        contaIntevaloEntreTrocaDeRemoteIP();        
-        //alertaSemConexaoComEthernet();
-    }
+//    if (ContadorParaUmSegundo > 1000){
+//        ContadorParaUmSegundo = 0;
+//        enviaKeepAliveParaEthernet(1);
+//        contaIntervaloDeKeepAlive();
+//        contaIntevaloEntreTrocaDeRemoteIP();        
+//        //alertaSemConexaoComEthernet();
+//    }
     
     ContadorPara500ms = ContadorPara500ms + 1;
     if (ContadorPara500ms > 500){
