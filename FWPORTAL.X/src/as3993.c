@@ -1,3 +1,36 @@
+/*
+ *****************************************************************************
+ * Copyright by ams AG                                                       *
+ * All rights are reserved.                                                  *
+ *                                                                           *
+ * IMPORTANT - PLEASE READ CAREFULLY BEFORE COPYING, INSTALLING OR USING     *
+ * THE SOFTWARE.                                                             *
+ *                                                                           *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS       *
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT         *
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS         *
+ * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT  *
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,     *
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT          *
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,     *
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY     *
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT       *
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE     *
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.      *
+ *****************************************************************************
+ */
+/*! \file
+ *
+ *  \author U.Herrmann (based on work by E.Grubmueller)
+ *  \author T. Luecker (Substitute)
+ *  \author Bernhard Breinbauer
+ *
+ *   \brief Functions provided by the as3993 series chips
+ *
+ *   Functions provided by the as3993 series chips. All higher level
+ *   and protocol work is contained in gen2.c and iso6b.c
+ */
+
 #include "as3993_config.h"
 #include "platform.h"
 #include "as3993.h"
@@ -314,7 +347,7 @@ u16 as3993Initialize(u32 baseFreq)
     /*RF Output and LO Control Register 0x0C */
     /*LF_R3<2-1> LF_C3<5-3> cp<2-0>  */
     /*    0 0       1 1 0    1 0 1   = 0x25 */
-    /* 30kOhm, 160pF, 1500uA */
+    /* 30kOhm, 160pF, 1500uA */    
     as3993SingleWrite(AS3993_REG_CPCONTROL, 0x35);
 
 #ifdef INTVCO
@@ -849,7 +882,7 @@ void as3993WaitForStartup(void)
         osc_ok = as3993SingleRead(AS3993_REG_AGCANDSTATUS);
         count++;
     }
-    while (!(((version == 0x60) && (osc_ok & 0x01)) || (count > 250)));    //wait for startup
+    while (!((version == 0x60 && osc_ok & 0x01) || count > 250));    //wait for startup
     delay_us(500);
     as3993ContinuousRead(AS3993_REG_IRQSTATUS1, 2, &myBuf[0]);    // ensure that IRQ bits are reset
     as3993ClrResponse();
@@ -978,10 +1011,10 @@ s8 as3993GetSensitivity( )
 s8 as3993SetSensitivity( s8 minimumSignal )
 {
     u8 reg0d, reg0a, gain;
-
+      
     reg0a = as3993SingleRead(AS3993_REG_RXMIXERGAIN);
     reg0d = as3993SingleRead(AS3993_REG_MISC1);
-
+        
     reg0a &= 0x1C;
     if ((reg0d & 0x04))
     { /* single ended input mixer*/
@@ -1030,6 +1063,7 @@ s8 as3993SetSensitivity( s8 minimumSignal )
     }
     reg0a |= (gain<<6);
     as3993SingleWrite(AS3993_REG_RXMIXERGAIN, reg0a);
+        
     return minimumSignal;
 }
 

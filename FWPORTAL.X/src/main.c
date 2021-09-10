@@ -1060,9 +1060,11 @@ int main(void){
                 //sel_led(Antena, 1);
                 //sel_antena(Antena);
                 
-                if(modoDeOperacao == OPERACAO_COM_MULTIPLAS_LEITURAS) total_parcial = inventorioSimplificadoComPausa();
-                if(modoDeOperacao == OPERACAO_LEITURAS_INITERRUPTAS) total_parcial = inventorioSimplificado();
+                //if(modoDeOperacao == OPERACAO_COM_MULTIPLAS_LEITURAS) total_parcial = inventorioSimplificadoComPausa();
+                //if(modoDeOperacao == OPERACAO_LEITURAS_INITERRUPTAS) total_parcial = inventorioSimplificado();
                 if(modoDeOperacao == OPERACAO_COM_LEITURA_UNICA) total_parcial = inventoryGen2();
+                
+                total_parcial = inventorioSimplificado();
                 
                 if(total_parcial){
                     setaSinaleiro(SINALEIRO_AMARELO);

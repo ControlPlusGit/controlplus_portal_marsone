@@ -1817,7 +1817,8 @@ u8 inventorioSimplificadoComPausa(void){
             //num_of_tags = gen2SearchForTags(tags_, MAXTAG, gen2qbegin, continueCheckTimeout, fastInventory?0:1, 1);
     //num_of_tags = gen2SearchForTags(tags_, MAXTAG, gen2qbegin, continueCheckTimeout, 0, 0);
     //num_of_tags = gen2SearchForTagsAutoAck(tags_, MAXTAG, gen2qbegin, continueCheckTimeout, 0, 0);
-    num_of_tags = gen2SearchForTagsAutoAckNormal(tags_, MAXTAG, gen2qbegin, continueCheckTimeout, 0, 0);
+    
+    //num_of_tags = gen2SearchForTagsAutoAckNormal(tags_, MAXTAG, gen2qbegin, continueCheckTimeout, 0, 0);
 
     //}
     //inventoryResult = result;
@@ -1857,6 +1858,24 @@ u8 inventoryGen2(void)
     //APPLOG("end inventory, found tags: %hhx\n", num_of_tags);
     return num_of_tags;
 }
+
+//uint8_t RFID_searchForTags(void){
+//    uint8_t num_of_tags;
+//    
+//    liga_saida_pa();
+//    num_of_tags = inventoryGen2();
+//    if(num_of_tags>=1){
+//        int i=0;
+//        LED_TAG_SetHigh();
+//        i=1;
+//    }
+//    LIGA_PA_SetLow();
+//    delay_ms(100);
+//    LED_TAG_SetLow();
+//    
+//    return num_of_tags;
+//}
+
 
 /** This function singulates a Gen2 tag using the given mask for subsequent
  * operations like inventory/read/write. Several (#MAX_SELECTS) Select commands can be
