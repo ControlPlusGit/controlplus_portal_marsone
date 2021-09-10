@@ -115,6 +115,8 @@ int ContadorParaEnviarArrayXbee;
 
 int ContadorParaRemocaoDeTabelaDeExclusao;
 
+int ContadorParaReiniciarAS3993;
+
 extern int timeoutRespostaKeepAlive;
 
 extern unsigned char statusDeConexaoTCP;
@@ -847,6 +849,25 @@ SAIDA:
      */  
 }
 
+void InicializaAS3993(void){
+    
+    
+    TerminaInvetorio();
+    delay_ms(500);
+    //Frequencies.freq[0] = 902750;
+    Frequencies.freq[0] = 915000; //teste do ajuste automatico
+    readerInitStatus = as3993Initialize(Frequencies.freq[0]);
+    
+    
+    tunerInit(&mainTuner);
+    Frequencia = frequenciaDeOperacao;
+    SetaFrequencias();
+    as3993SetSensitivity(sensibilidade); //Ajuste normal
+    
+}
+
+
+
 //******************************************************************************
 //************************** PROGRAMA PRINCIPAL ********************************
 //******************************************************************************
@@ -856,6 +877,8 @@ int main(void){
 #ifdef PORTAL
     int contador;
 #endif
+    
+    
     
     int Resultado;
     u32 baudrate, realrate;
@@ -886,17 +909,18 @@ int main(void){
     uart2TxInitialize(SYSCLK, baudrate, &realrate);// Ethernet
    
     ligaTodosOsLeds();
-    //delay_ms (1000);
+    delay_ms (1000);
 
     delay_ms(1);
     lista_freq_anatel();
-    //Frequencies.freq[0] = 902750;
-    Frequencies.freq[0] = 915000; //teste do ajuste automatico
-
-    readerInitStatus = as3993Initialize(Frequencies.freq[0]);
-
+    
+    InicializaAS3993();
+    
+    
     USBModuleDisable();
     initCommands(); // USB report commands
+    
+    delay_ms(1000);
     
     desliga_led_rede();
     desliga_led_3g();
@@ -905,14 +929,10 @@ int main(void){
     desliga_led_tag();
     sel_led(0,0);
     
+    
     tunerInit(&mainTuner);
 
     desliga_saida_pa();
-    //inicia_display();
-
-    //delay_ms(1000);
-
-    //limpa_display();
 
     desliga_led_tag();
     
@@ -953,8 +973,7 @@ int main(void){
     desliga_led_gps();
     
     iniciaCancelas();
-    as3993SetSensitivity(125); //Ajuste normal
-    
+        
     iniciaPortalFrango();
 
     desligaTodosOsLeds();
@@ -990,13 +1009,15 @@ int main(void){
     //comecaInvetorio();
     Frequencia = frequenciaDeOperacao;
     SetaFrequencias();
+    as3993SetSensitivity(sensibilidade); //Ajuste normal
+    
 
 //******************************************************************************
 //**************************** LOOP PRINCIPAL **********************************
 //******************************************************************************
 
     while (1) {
-
+        
         operacoesParaRtcEmCodigoCorrente();
         
         acoesEmCodigoCorrentePortalFrango();
@@ -1025,7 +1046,7 @@ int main(void){
         
         comecaInvetorio();
 
-        for (antena_atual = 1; antena_atual <= numeroDeAntenasAtivas; antena_atual = antena_atual + 1) {
+        for(antena_atual = 1; antena_atual <= numeroDeAntenasAtivas; antena_atual = antena_atual + 1){
 
             sel_led(0, 0);
             Antena = TABELA_DE_ANTEAS[antena_atual];                  
@@ -1035,56 +1056,42 @@ int main(void){
             setaSensibilidade(sensibilidade);
 
             for (contador = 1; contador < (repeticaoNaLeitura + 1); contador = contador + 1) {
-                sel_led(0, 0);
-
-                //Antena = antena_atual;
-                //Antena = TABELA_DE_ANTEAS[antena_atual];
-
-                sel_led(Antena, 1);
-                sel_antena(Antena);
+                //sel_led(0, 0);
+                //sel_led(Antena, 1);
+                //sel_antena(Antena);
                 
-                if (modoDeOperacao == OPERACAO_COM_MULTIPLAS_LEITURAS)
-                    total_parcial = inventorioSimplificadoComPausa();
-                if (modoDeOperacao == OPERACAO_LEITURAS_INITERRUPTAS)
-                    total_parcial = inventorioSimplificado();
-                if (modoDeOperacao == OPERACAO_COM_LEITURA_UNICA)
-                    total_parcial = inventoryGen2();
+                if(modoDeOperacao == OPERACAO_COM_MULTIPLAS_LEITURAS) total_parcial = inventorioSimplificadoComPausa();
+                if(modoDeOperacao == OPERACAO_LEITURAS_INITERRUPTAS) total_parcial = inventorioSimplificado();
+                if(modoDeOperacao == OPERACAO_COM_LEITURA_UNICA) total_parcial = inventoryGen2();
                 
-                if (total_parcial) {
+                if(total_parcial){
                     setaSinaleiro(SINALEIRO_AMARELO);
                     if(ContadorDeTempoParaManterCancelaDestravada == 0){
                         travaCancelaDoPortal();
                     }
-                    
                     liga_led_tag();
-                    
                     liga_buzzer();
-                    
                     TempoParaDesligarBuzzer = TEMPO_PARA_DESLIGAR_BUZZER;
 
-                    if (Antena & 0x01) {
+                    if(Antena & 0x01){
                         PreTratamentoDeTagsParaOPortalFrango(1, Antena);
-                    } else {
+                    }else{
                         PreTratamentoDeTagsParaOPortalFrango(2, Antena);
                     }
-                    
-                    desliga_led_tag();
-                    
+                    desliga_led_tag();             
                 }
             }
             sel_led(0, 0);
-            if (modoDeOperacao == OPERACAO_COM_LEITURA_UNICA)TerminaInvetorio();
-            //TerminaInvetorio();
+            if (modoDeOperacao == OPERACAO_COM_LEITURA_UNICA) TerminaInvetorio();
         }
-        if (atrasoParaDegradarLeitura != 0) {
+        if(atrasoParaDegradarLeitura != 0){
             delay_ms(atrasoParaDegradarLeitura);
         }
-        //realizaBeepDeComandoFrango();
         TerminaInvetorio();
     }
 }
 
-void lista_freq_anatel(void) {
+void lista_freq_anatel(void){
 
     Frequencies.freq[0] = 902750;
     Frequencies.freq[1] = 903250;
@@ -1108,12 +1115,10 @@ void lista_freq_anatel(void) {
     Frequencies.freq[18] = 918750;
    
     Frequencies.numFreqs = 19;
-
-    Frequencies.freq[0] = 902750; //Frequencia otima ate 26/12/18, vou mudar porque le 20 metros ou mais e
-
+    Frequencies.freq[0] = 902750; //Frequencia otima ate 26/12/18, vou mudar porque l e 20 metros ou mais e
     Frequencies.numFreqs = 0;
-
 }
+
 
 void systemInit(void) {
 #if RUN_ON_AS3994
@@ -1268,13 +1273,27 @@ void tick(void) {
     }
 
     ContadorParaRemocaoDeTabelaDeExclusao = ContadorParaRemocaoDeTabelaDeExclusao + 1;
-    //if (ContadorParaRemocaoDeTabelaDeExclusao == 10000){
-
     if (ContadorParaRemocaoDeTabelaDeExclusao == 100) {
         ContadorParaRemocaoDeTabelaDeExclusao = 0;
         //logicaDeRemocaoDeTabelaDeExclusao();
 
     }
+    
+
+    ContadorParaReiniciarAS3993 = ContadorParaReiniciarAS3993 + 1;
+    if(ContadorParaReiniciarAS3993 > 10000){
+        ContadorParaReiniciarAS3993 = 0;
+        _LATG0 = !_LATG0;
+//        TerminaInvetorio();
+//        InicializaAS3993();
+//        delay_ms(500);
+//        tunerInit(&mainTuner);
+//        Frequencia = frequenciaDeOperacao;
+//        SetaFrequencias();
+//        as3993SetSensitivity(sensibilidade); //Ajuste normal
+//        comecaInvetorio();
+    }
+            
     
     //logicaDeRemocaoDeTabelaDeExclusao();
 

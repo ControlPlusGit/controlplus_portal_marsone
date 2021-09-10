@@ -1755,7 +1755,13 @@ void callInventoryGen2(void)
 }
 
 
+
+
+
+
+
 void comecaInvetorio(void){
+    /*
     //result = hopFrequencies();
     (void)hopFrequencies();
             //**************************************************************
@@ -1769,12 +1775,27 @@ void comecaInvetorio(void){
             num_of_tags = 0;
             performSelects();
             //**************************************************************
+    */ 
     
+    s8 result;
+    
+    result = hopFrequencies();
+    if(!result){
+        checkAndSetSession(SESSION_GEN2);
+        as3993SingleWrite(AS3993_REG_STATUSPAGE, rssiMode);
+        if (rssiMode == RSSI_MODE_PEAK){      //if we use peak rssi mode, we have to send anti collision commands
+            as3993SingleCommand(AS3993_CMD_ANTI_COLL_ON);
+        }
+        num_of_tags = 0;
+        performSelects();
+    }
 }
 
 void TerminaInvetorio(void){
+    if (rssiMode == RSSI_MODE_PEAK){      //if we use peak rssi mode, we have to send anti collision commands
+        as3993SingleCommand(AS3993_CMD_ANTI_COLL_OFF);
+    }
     hopChannelRelease();
-    
 }
 
 u8 inventorioSimplificado(void){
