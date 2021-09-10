@@ -391,16 +391,4 @@ void gen2Close(void);
  *****************************************************************************
  */
 s8 gen2QueryMeasureRSSI(u8 *agc, u8 *log_rssis, s8 *irssi, s8 *qrssi);
-
-
-
-
-unsigned gen2SearchForTagsAutoAckNormal(Tag *tags_
-                      , u8 maxtags
-                      , u8 q
-                      , BOOL (*cbContinueScanning)(void)
-                      , BOOL singulate
-                      , BOOL toggleSession
-);
-
 #endif

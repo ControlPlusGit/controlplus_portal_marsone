@@ -1,3 +1,32 @@
+/*
+ *****************************************************************************
+ * Copyright by ams AG                                                       *
+ * All rights are reserved.                                                  *
+ *                                                                           *
+ * IMPORTANT - PLEASE READ CAREFULLY BEFORE COPYING, INSTALLING OR USING     *
+ * THE SOFTWARE.                                                             *
+ *                                                                           *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS       *
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT         *
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS         *
+ * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT  *
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,     *
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT          *
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,     *
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY     *
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT       *
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE     *
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.      *
+ *****************************************************************************
+ */
+/** @file
+  * @brief This file includes functions providing an implementation of the ISO6c aka GEN2 RFID EPC protocol.
+  *
+  * Detailed documentation of the provided functionality can be found in gen2.h.
+  *
+  * @author Ulrich Herrmann
+  * @author Bernhard Breinbauer
+  */
 #include "as3993_config.h"
 #include "platform.h"
 #include "as3993.h"
@@ -111,9 +140,6 @@ static void gen2GetAgcRssi(u8 *agc, u8 *rssi)
     *agc = buf[0];
     *rssi = buf[1];
 }
-
-
-
 /*------------------------------------------------------------------------- */
 /* global functions */
 /*------------------------------------------------------------------------- */
@@ -853,9 +879,9 @@ unsigned gen2SearchForTagsAutoAck(Tag *tags_
     {
         gen2ResetTimeout--;
         if (gen2ResetTimeout == 0)
-        {
-            //as3993AntennaPower(0);      /* we do not want that rf power is turned on after reset */
-            //as3993Reset();
+        {           
+            //as3993AntennaPower(0); //FWEMP_1303_V01R03.hex     /* we do not want that rf power is turned on after reset */
+            //as3993Reset();         //FWEMP_1303_V01R02.hex
             gen2ResetTimeout = GEN2_RESET_TIMEOUT;
         }
     }
@@ -865,114 +891,6 @@ unsigned gen2SearchForTagsAutoAck(Tag *tags_
     }
     return num_of_tags;
 }
-
-unsigned gen2SearchForTagsAutoAckNormal(Tag *tags_
-                      , u8 maxtags
-                      , u8 q
-                      , BOOL (*cbContinueScanning)(void)
-                      , BOOL singulate
-                      , BOOL toggleSession
-                      )
-{
-    u16 num_of_tags = 0;
-    u16 collisions = 0;
-    u16 slot_count;
-    u8 i = 0;
-    u8 cmd = AS3993_CMD_QUERY;
-    u8 followCmd = 0;
-    u8 autoAck;
-    BOOL goOn = 1;
-    total_tags = 0;
-
-    //EPCLOG("Searching for Tags with autoACK, maxtags=%hhd, q=%hhd\n",maxtags, q);
-    //EPCLOG("-------------------------------\n");
-
-#if !RUN_ON_AS3980 && !RUN_ON_AS3981
-    if (toggleSession)
-        followCmd = AS3993_CMD_QUERYREP;
-#endif
-    
-    as3993AntennaPower(1);
-    as3993ContinuousRead(AS3993_REG_IRQSTATUS1, 2, &buf_[0]);    // ensure that IRQ bits are reset
-    as3993ClrResponse();
-
-    //configure autoACK mode
-    autoAck = as3993SingleRead(AS3993_REG_PROTOCOLCTRL);
-    autoAck &= ~0x30;
-    if (singulate)
-        autoAck |= 0x20;
-    else
-        autoAck |= 0x10;
-    as3993SingleWrite(AS3993_REG_PROTOCOLCTRL, autoAck);
-
-    for (i=0; i < maxtags; i++)   /*Reseting the TAGLIST */
-    {
-        tags_[i].rn16[0] = 0;
-        tags_[i].rn16[1] = 0;
-        tags_[i].epclen=0;
-    }
-
-    slot_count = 1UL<<q;   /*get the maximum slot_count */
-    do
-    {
-        if (num_of_tags >= maxtags)
-        {/*    ERROR it is not possible to store more than maxtags Tags */
-            break;
-        }
-        slot_count--;
-        switch (gen2SlotAutoAck(tags_+num_of_tags, cmd, q, !singulate, followCmd))
-        {
-            case -1:
-                //EPCLOG("collision\n");
-                collisions++;
-                cmd = AS3993_CMD_QUERYREP;
-                break;
-            case 1:
-                num_of_tags++;
-                total_tags++;
-                if (followCmd)
-                    cmd = 0;
-                else
-                    cmd = AS3993_CMD_QUERYREP;
-                break;
-            case 0:
-                //EPCLOG("NO EPC response -> empty Slot\n");
-                cmd = AS3993_CMD_QUERYREP;
-                break;
-            default:
-                break;
-        }
-        goOn = cbContinueScanning();
-    } while (slot_count && goOn );
-
-    //unset autoACK mode again
-    autoAck = as3993SingleRead(AS3993_REG_PROTOCOLCTRL);
-    autoAck &= ~0x30;
-    as3993SingleWrite(AS3993_REG_PROTOCOLCTRL, autoAck);
-
-#if EPCDEBUG
-    EPCLOG("-------------------------------\n");
-    EPCLOG("%hx  Tags found", num_of_tags);
-    EPCLOG("\n");
-#endif
-    if (num_of_tags == 0)
-    {
-        gen2ResetTimeout--;
-        if (gen2ResetTimeout == 0)
-        {
-            as3993AntennaPower(0);      /* we do not want that rf power is turned on after reset */
-            as3993Reset();
-            gen2ResetTimeout = GEN2_RESET_TIMEOUT;
-        }
-    }
-    else
-    {
-        gen2ResetTimeout = GEN2_RESET_TIMEOUT;
-    }
-    return num_of_tags;
-}
-
-
 
 void gen2Configure(const struct gen2Config *config)
 {

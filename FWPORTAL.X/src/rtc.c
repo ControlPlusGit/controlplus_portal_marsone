@@ -102,6 +102,7 @@ void aguardaI2CACKENSemContagem (void){
 }
 
 void atualizaHoraEData (void){
+    
     int segundo;
     int hora;
     int dia;

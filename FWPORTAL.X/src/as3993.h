@@ -392,5 +392,4 @@ extern u8 as3993ChipVersion;
  *****************************************************************************
  */
 void as3993WaitForStartup(void);
-s8 as3993SetSensitivity( s8 minimumSignal );
 #endif /* _AS3993_H_ */

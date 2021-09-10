@@ -1524,6 +1524,8 @@ void obtemParametrosDaMemoria(void){
     LerDadosDaEEprom(END_SENSIBILIDADE_DA_ANTENA_6, &rssiMinAntena6);
     LerDadosDaEEprom(END_SENSIBILIDADE_DA_ANTENA_7, &rssiMinAntena7);
     LerDadosDaEEprom(END_SENSIBILIDADE_DA_ANTENA_8, &rssiMinAntena8);
+
+    
 }
 
 
