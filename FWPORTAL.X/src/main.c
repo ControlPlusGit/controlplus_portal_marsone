@@ -52,49 +52,31 @@
 #endif
 
 char num_serie[ 20 ];
-    
 char empilhadeira[ 20 ];
-
 int dbm_tag_real;
-
 extern void tick( void );
-
 extern void ObtemID( char * );
-
 extern Freq Frequencies;
-
 extern Tag __attribute__( ( far ) ) tags_[ MAXTAG ];
-
 int total_parcial = 0;
-
 u8 cin, clen, cout = 0;
-
 unsigned int total_tags = 0;
-
 void lista_freq_anatel( void );
-
 extern u8 inventoryGen2( void );
-
 void ligaTimer2( void );
-
 extern void uart4Tx( u8 );
-
 extern u16 readerInitStatus;
 
 /** FW information which will be reported to host. */
-
 static const char gAS3993FwInfo[] = FIRMWARE_ID "||" HARDWARE_ID;
 
 /** FW information which will be logged on startup. Version information is included in logger. */
-
 static const char gLogStartup[] = FIRMWARE_ID" %hhx.%hhx.%hhx on "HARDWARE_ID"\n";
 
 /** FW version which will be reported to host */
-
 const u32 firmwareNumber = FIRMWARE_VERSION;
 
 //static u8 usedAntenna = 8;
-
 int tem_ze_na_area;
 
 int TempoParaDesligarBuzzer;
@@ -102,26 +84,19 @@ int TempoParaDesligarBuzzer;
 #define  TEMPO_PARA_DESLIGAR_BUZZER 100
 
 int antena_atual;
-
 int ContadorParaUmSegundo;
-
 int ContadorPara500ms;
-
 int ContadorPara100ms;
-
 char ContadorParaUmCentessimo;
-
 int ContadorParaEnviarArrayXbee;
-
 int ContadorParaRemocaoDeTabelaDeExclusao;
-
-int ContadorParaReiniciarAS3993;
-
 extern int timeoutRespostaKeepAlive;
-
 extern unsigned char statusDeConexaoTCP;
-
 extern int ContadorDeTempoParaManterCancelaDestravada;
+
+#define TAMANHO_DA_RESERVA_DE_EVENTO 2000
+char ReservaDeEventos[TAMANHO_DA_RESERVA_DE_EVENTO];
+int ContadorDaReservaDeEventos;
 
 void systemInit( void );
 
@@ -152,52 +127,11 @@ void mainSenCOUT(int select) {
 }
 
 TunerConfiguration mainTuner = {
-
     mainSenCIN,
-
-    mainSenCLEN,
-    
-    mainSenCOUT
-            
+    mainSenCLEN,   
+    mainSenCOUT         
 };
 
-void trataTagsParaAKalunga( int Antena ) {
-    
-    int Contador;
-    
-    int SubContador;
-    
-    int Indice;
-    
-    char Mensagem[ 100 ];
-
-    for ( Contador = 0; Contador < MAXTAG; Contador = Contador + 1 ) {
-    
-        if ( tags_[Contador].epclen != 0 ) { // Tem tag na posicao?
-        
-            Indice = sprintf( Mensagem, "ID=1059,Antena=%d,Etiqueta=", Antena );
-            
-            for ( SubContador = 0; SubContador < 12; SubContador = SubContador + 1 ) {
-                            
-                Indice = Indice + sprintf( &Mensagem[ Indice ], "%02X", tags_[ Contador ].epc[ SubContador ] );
-            
-            }
-            
-            Mensagem[ Indice ] = 0x0A;
-            
-            Indice = Indice + 1;
-            
-            for ( SubContador = 0; SubContador < Indice; SubContador = SubContador + 1 ) {
-            
-                uart3Tx( Mensagem[ SubContador ] );
-            
-            }
-            
-        }
-        
-    }
-    
-}
 
 void PreTratamentoDeTagsParaOPortalFrango(int Antena, int AntenaReal) {
     int Contador;
@@ -220,240 +154,6 @@ void PreTratamentoDeTagsParaOPortalFrango(int Antena, int AntenaReal) {
     }
 }
 
-int leUmaEtiquetaParaTesteDeCapacete(int TempoDeLeitura, char *EpcCapturado) {
-    int Resultado;
-    int Contador;
-    for (Contador = 0; Contador < TempoDeLeitura; Contador = Contador + 1) {
-        Resultado = inventorioSimplificado();
-        if (Resultado != 0) {
-            if (*EpcCapturado == 0) {
-                memcpy(EpcCapturado, tags_[0].epc, TAMANHO_EPC_PARA_EMPILHADEIRA);
-                return 1;
-            } else {
-                Resultado = memcmp(EpcCapturado, tags_[0].epc, TAMANHO_EPC_PARA_EMPILHADEIRA);
-                if (Resultado == 0) return 1;
-            }
-        }
-        delay_ms(1);
-    }
-    return -1;
-}
-
-void calibracaoDoTestadorDeCapacete(void) {
-    /*int Resultado[6];
-    int Antena;
-    char Texto[2];
-    int Contador;
-
-    while (1) {
-        comecaInvetorio();
-        while (1) {
-            poe_texto_XY(1, 0, "  Lidos         ");
-            poe_texto_XY(2, 0, "                ");
-
-            for (Contador = 0; Contador < 100; Contador = Contador + 1) {
-                for (Antena = 1; Antena < 6; Antena = Antena + 1) {
-                    sel_led(Antena, 1);
-                    sel_antena(Antena);
-                    //memset(Etiqueta, 0, TAMANHO_EPC_PARA_EMPILHADEIRA );
-                    //Resultado = leUmaEtiquetaParaTesteDeCapacete(100, Etiqueta);
-                    Resultado[Antena] = Resultado[Antena] | inventorioSimplificado();
-                    //Resultados[Antena - 1] = Resultado;
-                    sel_led(Antena, 0);
-                }
-            }
-
-            for (Antena = 1; Antena < 6; Antena = Antena + 1) {
-                if (Resultado[Antena] > 0) {
-                    liga_buzzer();
-                    Texto[0] = '0';
-                    Texto[1] = 0;
-                    Texto[0] = Texto[0] + Antena;
-                    poe_texto_XY(2, 1 + Antena, Texto);
-
-                    desliga_buzzer();
-                    desliga_led_tag();
-                }
-            }
-
-            Texto[0] = 0;
-            for (Antena = 1; Antena < 6; Antena = Antena + 1) {
-                if (Resultado[Antena] > 0) {
-                    Texto[0] = Texto[0] | 1;
-                }
-                Resultado[Antena] = 0;
-            }
-            if (Texto[0] > 0) {
-                delay_ms(100);
-            }
-        }
-        TerminaInvetorio();
-    }*/
-}
-
-void testadorDeCapacete(void) {
-    /*int Resultado;
-    char Etiqueta[TAMANHO_EPC_PARA_EMPILHADEIRA];
-    int Antena;
-    int Resultados[5];
-    int Contador;
-    char Texto[2];
-
-    //niciaPortalFrango();
-
-    tunerInitCapacete(&mainTuner);
-    calibracaoDoTestadorDeCapacete();
-
-    while (1) {
-        poe_texto_XY(1, 0, "  Control Plus  ");
-        poe_texto_XY(2, 0, "Coloque capacete");
-        if (!_RG6) {
-            poe_texto_XY(1, 0, " Em testes      ");
-            poe_texto_XY(2, 0, "                ");
-            comecaInvetorio();
-            for (Antena = 1; Antena < 6; Antena = Antena + 1) {
-                sel_led(Antena, 1);
-                sel_antena(Antena);
-                memset(Etiqueta, 0, TAMANHO_EPC_PARA_EMPILHADEIRA);
-                Resultado = leUmaEtiquetaParaTesteDeCapacete(100, Etiqueta);
-                Resultados[Antena - 1] = Resultado;
-                if (Resultado > -1) {
-                    liga_led_tag();
-                    liga_buzzer();
-                    delay_ms(10);
-                }
-                sel_led(Antena, 0);
-                desliga_led_tag();
-                desliga_buzzer();
-            }
-            //poe_texto_XY(1,1,"Solto");
-            TerminaInvetorio();
-
-            Resultado = 1;
-            for (Contador = 0; Contador < 5; Contador = Contador + 1) {
-                if (Resultados[Contador] != 1)Resultado = -1;
-                //Resultado = Resultado | Resultados[Contador];
-            }
-
-            poe_texto_XY(1, 0, "Testando        ");
-            poe_texto_XY(2, 0, "                ");
-            if (Resultado > -1) {
-                poe_texto_XY(1, 0, " Sucesso ");
-                liga_buzzer();
-                delay_ms(300);
-                desliga_buzzer();
-
-            } else {
-                poe_texto_XY(1, 0, "Falha nas tags:");
-                for (Contador = 0; Contador < 5; Contador = Contador + 1) {
-                    if (Resultados[Contador] < 0) {
-                        Texto[0] = '1';
-                        Texto[1] = 0;
-                        Texto[0] = Texto[0] + Contador;
-                        poe_texto_XY(2, 1 + Contador, Texto);
-                    }
-                }
-                //poe_texto_XY(1,0," Sucesso ");
-                liga_buzzer();
-                delay_ms(100);
-                desliga_buzzer();
-                delay_ms(50);
-                liga_buzzer();
-                delay_ms(100);
-                desliga_buzzer();
-            }
-            delay_ms(1000);
-        }
-    }*/
-
-}
-
-#ifdef RF_IDEIAS
-
-void IniciaLeitorRfIdeias(void) {
-    obtemParametrosSalvosNaEeprom();
-}
-
-void trataLeituraRfIdeias(int Antena) {
-    int Contador;
-    int SubContador;
-    int Indice;
-    char Mensagem[100];
-
-
-    liga_led_tag();
-    liga_buzzer();
-
-    for (Contador = 0; Contador < MAXTAG; Contador = Contador + 1) {
-        if (tags_[Contador].epclen != 0) { // Tem tag na posicao?
-            atualizaHoraEData();
-            memset(Mensagem, 0, 100);
-            Indice = sprintf(Mensagem, "%d", Antena);
-            //Epc
-            for (SubContador = 0; SubContador < 12; SubContador = SubContador + 1) {
-                Indice = Indice + sprintf(&Mensagem[Indice], "%02X", tags_[Contador].epc[SubContador]);
-            }
-            //Hora e Data
-            Indice = Indice + sprintf(&Mensagem[Indice], "%s%s", stringHora, stringData);
-            Mensagem[Indice] = 0x0A;
-
-            Indice = Indice + 1;
-            for (SubContador = 0; SubContador < Indice; SubContador = SubContador + 1) {
-                //uart4Tx(Mensagem[SubContador]);
-                uart3Tx(Mensagem[SubContador]);
-                //uart2Tx(Mensagem[SubContador]);
-                //uart1Tx(Mensagem[SubContador]);
-            }
-        }
-    }
-    desliga_led_tag();
-    desliga_buzzer();
-}
-
-void setaAntenaELed(int Antena) {
-    sel_led(0, 0);
-    sel_led(Antena, 1);
-    sel_antena(Antena);
-}
-
-void LeitorRfIdeias(void) {
-    int Contador;
-    int RepeticaoNaLeitura = 10;
-    int QuantiaDeTagsObtidas;
-    int Antena;
-
-    tunerInit(&mainTuner);
-    as3993SetSensitivity(SensibilidadeDaAntena);
-    atualizaHoraEData();
-
-    comecaInvetorio();
-    while (1) {
-        asm("CLRWDT");
-
-        operacoesParaRtcEmCodigoCorrente();
-        for (Antena = 1; Antena < (NumeroDeAntenasLidas + 1); Antena = Antena + 1) {
-            setaAntenaELed(Antena);
-            if (ModoDeOperacao == OPERACAO_COM_LEITURA_UNICA) {
-                comecaInvetorio();
-                for (Contador = 1; Contador < (RepeticaoNaLeitura + 1); Contador = Contador + 1) {
-                    QuantiaDeTagsObtidas = inventorioSimplificadoComPausa();
-                    if (QuantiaDeTagsObtidas)trataLeituraRfIdeias(Antena);
-                }
-
-                if (ModoDeOperacao != OPERACAO_COM_LEITURA_UNICA)comecaInvetorio();
-            } else {
-                for (Contador = 1; Contador < (RepeticaoNaLeitura + 1); Contador = Contador + 1) {
-                    if (ModoDeOperacao == OPERACAO_LEITURAS_INITERRUPTAS)QuantiaDeTagsObtidas = inventorioSimplificado();
-                    if (ModoDeOperacao == OPERACAO_COM_MULTIPLAS_LEITURAS)QuantiaDeTagsObtidas = inventorioSimplificadoComPausa();
-                    if (QuantiaDeTagsObtidas)trataLeituraRfIdeias(Antena);
-                }
-            }
-        }
-    }
-}
-
-
-#endif
 
 void ligaTodosOsLeds(void) {
     sel_led(0, 0);
@@ -467,7 +167,6 @@ void ligaTodosOsLeds(void) {
     liga_led_3g();
     liga_led_gps();
     liga_buzzer();
-
 }
 
 void desligaTodosOsLeds(void) {
@@ -484,197 +183,9 @@ void desligaTodosOsLeds(void) {
     sel_led(0, 0);
     desliga_led_tag();
     desliga_dir();
-
 }
 
-/*
-void testesRelesInterTravamento(void) {
-    _TRISA7 = 0; //SAIDA LED A8
-    while (1) {
-        //ld_saidas(4, 0);
-        ld_saidas(7, 1);
-        //GP_15(1);
-        delay_ms(1000);
-        //ld_saidas(4, 1);
-        ld_saidas(7, 0);
-        //GP_15(0);
-        delay_ms(1000);
-    }
-}
-*/
 
-/*
-void maquinaDeEnvioDeDadosPorWifi(void) {
-#define TAMANHO_DA_RESERVA_LOCAL 12
-    static int Estado = 0;
-    //int OcupacaoDoWifi;
-    static char Rascunho[TAMANHO_DA_RESERVA_LOCAL];
-    static int ContadorDoRascunho;
-    
-    
-    static int Estados[20];
-    static int ContadorEstados = 0;
-    
-    
-    Estados[ContadorEstados] = Estado;
-    ContadorEstados = ContadorEstados + 1;
-    if (ContadorEstados >= 20){
-        ContadorEstados = 0;
-    }
-    
-#ifdef WIFI
-
-#endif
-    
-    
-    if (TimeOutEthPortal >= TIMEOUT_ETH_PORTAIS){ 
-        if (ContadorReservaEthPortais > 0){
-            lidaComATrocaDePortalAlpha();
-            if (ContadorReservaEthPortais <= TAMANHO_DA_RESERVA_LOCAL){
-                //memcpy(Rascunho, ReservaEthPortais, ContadorReservaEthPortais);
-                memmove(Rascunho, ReservaEthPortais, ContadorReservaEthPortais);
-                ContadorDoRascunho = ContadorReservaEthPortais;
-                ContadorReservaEthPortais = 0;
-            }
-        }
-        resetNaReservaDeDadosDaEth();
-    }
-    
-#ifdef PODE_SER_ALPHA
-    if (disponivelParaSerOAlpha() < 1){
-        switch (Estado) {
-            case 0:
-                OcupacaoDoWifi = enviaParaTodosOsPortaisAPresencaDesseLeitor(-1);
-                if (OcupacaoDoWifi < 0) {
-                    Estado = 1;
-                }
-                break;
-            case 1:
-                //O envio da tabela de exclusao sera feito no momento em que obter uma reposta de algum membro da rede.
-                OcupacaoDoWifi = enviaATabelaDeExclusaoParaAsEmpilhadeirasPresentes(-1);
-                if (OcupacaoDoWifi < 0) {
-                    Estado = 2;
-                }
-
-                break;
-            case 2:
-                //Repassa aas mensagens de movimento para o SARS 192.168.1.200:8000
-                if (ContadorDoRascunho > 0){
-                    enviaFluxoDeDadosPorWifi("192.168.1.200", 8000, Rascunho, ContadorDoRascunho);
-                    int FimDaString;
-                    char UltimoNumeroDoIp;
-                    char RascunhoDoUltimoNumeroDoIp;
-                    FimDaString = strlen(MeuIpWifi);
-                    FimDaString = FimDaString - 1;
-                    UltimoNumeroDoIp = MeuIpWifi[FimDaString];
-                    if (UltimoNumeroDoIp == 2)RascunhoDoUltimoNumeroDoIp = 1;
-                    else RascunhoDoUltimoNumeroDoIp = 2;
-                    MeuIpWifi[FimDaString] = RascunhoDoUltimoNumeroDoIp;
-                    enviaFluxoDeDadosPorWifi(MeuIpWifi, 8000, Rascunho, ContadorDoRascunho);
-                    MeuIpWifi[FimDaString] = UltimoNumeroDoIp;
-                    memset(Rascunho, 0, TAMANHO_DA_RESERVA_LOCAL);
-                    ContadorDoRascunho = 0;
-                }
-                Estado = 0;
-                break;
-            default:
-                Estado = 0;
-                break;
-        }
-    }
-    
-    trataRecepcaoDeDadosDeEmpilhadeiraPorWifi();
-    LimpaEResetaARecepcaoDeDadosDoWifi();
-#endif     
-}
-*/
-
-
-#define TAMANHO_DA_RESERVA_DE_EVENTO 2000
-char ReservaDeEventos[TAMANHO_DA_RESERVA_DE_EVENTO];
-int ContadorDaReservaDeEventos;
-
-void repassaAsMensagensDeMovimentoDosPortaisParaOSars(void) {
-    /*int Contador;
-    if (TimeOutEthPortal >= TIMEOUT_ETH_PORTAIS) {
-        if (ContadorDaReservaDeEventos > 0) {
-            //(void)memcpy(BufferDeSaida, ReservaEthPortais, ContadorReservaEthPortais);
-            //enviaFluxoDeDadosParaUartWifi(ReservaEthPortais, ContadorReservaEthPortais);
-            //enviaFluxoDeDadosPorWifi("192.168.1.200", 8000, ReservaDeEventos, ContadorDaReservaDeEventos);
-            enviaFluxoDeDadosPorWifi("10.159.158.10", 8000, ReservaDeEventos, ContadorDaReservaDeEventos);
-            for (Contador = 0; Contador < ContadorDaReservaDeEventos; Contador = Contador + 1) {
-                trataRecepcaoDeDadosDeZigBee(ReservaDeEventos[Contador]);
-            }
-            //resetNaReservaDeDadosDaEth();
-        }
-    }*/
-}
-
-void coletaEventosDaEth(void){
-    /*
-    int Contador;
-    if (TimeOutEthPortal >= TIMEOUT_ETH_PORTAIS){ 
-        if (ContadorReservaEthPortais > 0){
-            if (disponivelParaSerOAlpha() < 1){
-                liga_led_gps();
-                liga_buzzer();
-                delay_ms(10);
-                if (ContadorReservaEthPortais <= TAMANHO_DA_RESERVA_DE_EVENTO){
-                    for (Contador = 0;Contador < ContadorReservaEthPortais;Contador = Contador + 1){
-                        //lidaComComandoDOPC(ReservaEthPortais[Contador], 0);
-                        lidaComComandoDOPC(ReservaEthPortais[Contador], 0);//Conferir se o parametro de interface esta correto
-                    }
-                    //memmove(ReservaDeEventos, ReservaEthPortais, ContadorReservaEthPortais);
-                    //ContadorDaReservaDeEventos = ContadorReservaEthPortais;
-                    memmove(&ReservaDeEventos[ContadorDaReservaDeEventos], ReservaEthPortais, ContadorReservaEthPortais);
-                    ContadorDaReservaDeEventos = ContadorDaReservaDeEventos + ContadorReservaEthPortais;
-                    //resetNaReservaDeDadosDaEth();
-                    ContadorReservaEthPortais = 0;
-                }
-                desliga_led_gps();
-                desliga_buzzer();
-            }
-            //resetNaReservaDeDadosDaEth();
-        }
-        resetNaReservaDeDadosDaEth();
-    }
-    */
-}
-
-void repasseDeEventoParaOSars(void){
-    /*if (ContadorDaReservaDeEventos > 0){
-        //enviaFluxoDeDadosPorWifi("192.168.1.200", 8000, ReservaDeEventos, ContadorDaReservaDeEventos);
-        enviaFluxoDeDadosPorWifi("10.159.158.10", 8000, ReservaDeEventos, ContadorDaReservaDeEventos);
-    }*/
-}
-
-void repasseDeEventoParaOOutroLeitorAlfa(void){
-    if (ContadorDaReservaDeEventos > 0){
-        /*
-        extern char __attribute__((near)) MeuIpEth[TAMANHO_DA_STRING_DE_IP];
-        int FimDaString;
-        char UltimoNumeroDoIp;
-        char RascunhoDoUltimoNumeroDoIp;
-        
-        //FimDaString = strlen(MeuIpWifi);
-        FimDaString = strlen(MeuIpEth);
-        FimDaString = FimDaString - 1;
-        //UltimoNumeroDoIp = MeuIpWifi[FimDaString];
-        UltimoNumeroDoIp = MeuIpEth[FimDaString];
-        if (UltimoNumeroDoIp == '2')RascunhoDoUltimoNumeroDoIp = '1';
-        else RascunhoDoUltimoNumeroDoIp = '2';
-        //MeuIpWifi[FimDaString] = RascunhoDoUltimoNumeroDoIp;
-        MeuIpEth[FimDaString] = RascunhoDoUltimoNumeroDoIp;
-        //enviaFluxoDeDadosPorWifi(MeuIpWifi, 8000, ReservaDeEventos, ContadorDaReservaDeEventos);
-        //enviaFluxoDeDadosPorWifi(MeuIpWifi, 9000, ReservaDeEventos, ContadorDaReservaDeEventos);
-        enviaFluxoDeDadosPorWifi(MeuIpEth, 8000, ReservaDeEventos, ContadorDaReservaDeEventos);
-        //MeuIpWifi[FimDaString] = UltimoNumeroDoIp;
-        MeuIpEth[FimDaString] = UltimoNumeroDoIp;
-        */
-        
-        enviaDadosParaEthPortais(ReservaDeEventos, ContadorDaReservaDeEventos);
-    }
-}
 
 void descartaEventoColetado(void){
     if (ContadorDaReservaDeEventos > 0){
@@ -683,175 +194,8 @@ void descartaEventoColetado(void){
     }
 }
 
-int enviaTabelaDeExclusaoParaUmaEmpilhadeira(int Indice){
-    /*extern const char TABELA_COM_OS_IPS_DAS_EMPILHADEIRAS[QUANTIA_MAXIMA_DE_IPS_CADASTRADOS][TAMANHO_MAXIMO_STRING_IP];
-    //extern char __attribute__((far)) ReservaDeEnvioDaUartDeWifi[TAMANHO_DA_RESERVA];
-    //extern int QuantiaDeDadosParaEnviarPorWifiPorInterrupcao;
 
-
-    if (strlen(TABELA_COM_OS_IPS_DAS_EMPILHADEIRAS[Indice]) > 0){
-        atualizaTabelaDeExclusaoParaEnvioPorWifi();
-        
-        disparaOEnvioDeFLuxoDeDadosPorWifi((char *)TABELA_COM_OS_IPS_DAS_EMPILHADEIRAS[Indice]
-                , 9000, QuantiaDeDadosParaEnviarPorWifiPorInterrupcao);
-        
-        disparaOEnvioDeFLuxoDeDadosPorWifi((char *)TABELA_COM_OS_IPS_DAS_EMPILHADEIRAS[Indice]
-                , 8000, QuantiaDeDadosParaEnviarPorWifiPorInterrupcao);
-
-
-        delay_ms(5);
-        enviaFluxoDeDadosPorPolling(ReservaDeEnvioDaUartDeWifi, QuantiaDeDadosParaEnviarPorWifiPorInterrupcao);
-        //(void)trataOEnvioDaTabelaDeExclusaoEmCodigoCorrente(QuantiaDeDadosParaEnviarPorWifiPorInterrupcao);
-        //disparaOEnvioDaReservaDeDadosDoWifi(QuantiaDeDadosParaEnviarPorWifiPorInterrupcao);
-        return 0;
-    }
-    return -1;
-     */ 
-    return 0;
-}
-
-int trataOEnvioDaTabelaDeExclusaoEmCodigoCorrente(int QuantiaDeDados){
-    /*static int ContadorDeEnvio;
-    static int QuantiaDeDadosHaEnviar;
-    int ContadorDePassadasDeEnvio;
-    extern char __attribute__((far)) ReservaDeEnvioDaUartDeWifi[TAMANHO_DA_RESERVA];
-    
-    if (QuantiaDeDados > 0){
-        QuantiaDeDadosHaEnviar = QuantiaDeDados;
-        return 0;
-    } else {
-        if (QuantiaDeDadosHaEnviar < 1){
-            resetaELimpaAReservaDeEnvioPorWifi();
-            ContadorDeEnvio = 0;
-            QuantiaDeDadosHaEnviar = 0;
-            return 0;
-        }
-        for (ContadorDePassadasDeEnvio = 0;ContadorDePassadasDeEnvio < 5;ContadorDePassadasDeEnvio = ContadorDePassadasDeEnvio + 1){
-            if (ContadorDeEnvio < QuantiaDeDadosHaEnviar){
-                enviaFluxoDeDadosPorPolling(&ReservaDeEnvioDaUartDeWifi[ContadorDeEnvio], 1);
-                uart4Tx(ReservaDeEnvioDaUartDeWifi[ContadorDeEnvio]);
-                ContadorDeEnvio =  ContadorDeEnvio + 1;
-                return -1;
-            } else {
-                resetaELimpaAReservaDeEnvioPorWifi();
-                ContadorDeEnvio = 0;
-                QuantiaDeDadosHaEnviar = 0;
-                return 0;
-            }
-        }
-    }
-    return -1;*/
-    return 0;
-}
-
-void maquinaDeEnvioDeDadosPorWifi2(void) {
-    /*lidaComATrocaDePortalAlpha();
-    trataRecepcaoDeDadosDeZigBee(0);
-    confereAConexaoDoWifi();
-#ifdef PODE_SER_ALPHA    
-    static int EstadoDeTarefa = 0;
-    static int IndiceDeEnvioDeEmpilhadeira;
-    
-    extern const char TABELA_COM_OS_IPS_DAS_EMPILHADEIRAS[QUANTIA_MAXIMA_DE_IPS_CADASTRADOS][TAMANHO_MAXIMO_STRING_IP];
-    extern char __attribute__((far)) ReservaDeEnvioDaUartDeWifi[TAMANHO_DA_RESERVA];
-    
-    //lidaComATrocaDePortalAlpha();
-
-    
-    coletaEventosDaEth();
-    if (disponivelParaSerOAlpha() < 1){
-        //coletaEventosDaEth();
-        repasseDeEventoParaOSars();
-        // repasseDeEventoParaOOutroLeitorAlfa();
-    }
-    descaraEventoColetado();
-    
-    
-    //if (pacoteSendoEnviadoPelaUartDeWifi() == 0){
-    //if (trataOEnvioDaTabelaDeExclusaoEmCodigoCorrente(0) == 0){
-
-    
-    coletaEventosDaEth();
-    
-    //trataRecepcaoDeDadosDeZigBee(0);
-    
-    if (disponivelParaSerOAlpha() < 1){
-        
-        //trataRecepcaoDeDadosDeEmpilhadeiraPorWifi();
-        switch(EstadoDeTarefa){
-            case 0:
-                //enviaPerguntaDePresencaParaAsEmpilhadeirasNaArea();
-                   
-                while (enviaTabelaDeExclusaoParaUmaEmpilhadeira(IndiceDeEnvioDeEmpilhadeira) == -1){
-                    IndiceDeEnvioDeEmpilhadeira = IndiceDeEnvioDeEmpilhadeira + 1;
-                    if (IndiceDeEnvioDeEmpilhadeira < 0)IndiceDeEnvioDeEmpilhadeira = 0;
-                    if (IndiceDeEnvioDeEmpilhadeira >= QUANTIA_MAXIMA_DE_IPS_CADASTRADOS)
-                        IndiceDeEnvioDeEmpilhadeira = 0;
-                    
-                    //EstadoDeTarefa = 2;
-                    //goto SAIDA;
-                    
-                    
-                    if (IndiceDeEnvioDeEmpilhadeira == 0){
-                        EstadoDeTarefa = 2;
-                        //EstadoDeTarefa = 1;
-                        goto SAIDA;
-                    }
-                }
-                IndiceDeEnvioDeEmpilhadeira = IndiceDeEnvioDeEmpilhadeira + 1;
-                if (IndiceDeEnvioDeEmpilhadeira < 0)IndiceDeEnvioDeEmpilhadeira = 0;
-                if (IndiceDeEnvioDeEmpilhadeira >= QUANTIA_MAXIMA_DE_IPS_CADASTRADOS)
-                    IndiceDeEnvioDeEmpilhadeira = 0;
-                if (IndiceDeEnvioDeEmpilhadeira == 0){
-                    EstadoDeTarefa = 2;
-                }
-SAIDA:                
-                break;
-                
-            case 1:
-                if (pacoteSendoEnviadoPelaUartDeWifi() == 0){
-                    if (trataOEnvioDaTabelaDeExclusaoEmCodigoCorrente(0) == 0){
-                        if (IndiceDeEnvioDeEmpilhadeira == 0)EstadoDeTarefa = 2;
-                        else EstadoDeTarefa = 0;
-                    }
-                }
-
-                break;
-            case 2:
-                //enviaParaTodosOsPortaisAPresencaDesseLeitor(-1);
-                enviaParaTodosOsPortiasAPresencaDesseLeitorPorPolling();
-                //EstadoDeTarefa = -1;
-                EstadoDeTarefa = 3;
-                break;
-                
-            case 3:
-                repasseDeEventoParaOSars();
-                descartaEventoColetado();
-                //EstadoDeTarefa = 0;
-                EstadoDeTarefa = 4;
-                break;
-            case 4:
-                //repasseDeEventoParaOOutroLeitorAlfa();
-                //descartaEventoColetado();
-                trabalharNaBuscaDoMeuIpWifi();
-                EstadoDeTarefa = 0;
-                break;
-            default:
-                EstadoDeTarefa = -1;
-                break;
-        }
-        //delay_ms(70);
-        //EstadoDeTarefa = EstadoDeTarefa + 1;
-        if (EstadoDeTarefa >= 4)EstadoDeTarefa = 0;
-        if (EstadoDeTarefa < 0)EstadoDeTarefa = 0;
-    }
-#endif
-     */  
-}
-
-void InicializaAS3993(void){
-    
-    
+void InicializaAS3993(void){ 
     TerminaInvetorio();
     delay_ms(500);
     //Frequencies.freq[0] = 902750;
@@ -874,17 +218,11 @@ void InicializaAS3993(void){
 
 int main(void){
     char num_serie_velho[20];
-#ifdef PORTAL
     int contador;
-#endif
-    
-    
-    
     int Resultado;
+    
     u32 baudrate, realrate;
     
-    statusDeConexaoTCP = NOT_CONNECTED;
-
     CNPU1bits.CN15PUE = 1;
     CNPU2bits.CN16PUE = 1;
     CNPU2bits.CN19PUE = 1;
@@ -893,29 +231,35 @@ int main(void){
     CNPU4bits.CN57PUE = 1;
     CNPU2bits.CN28PUE = 1;
     
+    statusDeConexaoTCP = NOT_CONNECTED;
+    
     desliga_saida_pa();
-
     ld_saidas(0, 0);
 
-    systemInit();
+    //systemInit();
     timerInit();
     platformInit();
     spiInit();
+    
+    INTCON1bits.NSTDIS = 1; //habilita o aninhamento de interrupcoes
     
     baudrate = BAUDRATE;
     
     uart3TxInitialize(SYSCLK, baudrate, &realrate);// Porta USB
 
     uart2TxInitialize(SYSCLK, baudrate, &realrate);// Ethernet
+    
+    uartTxInitialize(SYSCLK, baudrate, &realrate); // wifi 
+    
+    uart4TxInitialize(SYSCLK, baudrate, &realrate);
    
     ligaTodosOsLeds();
     delay_ms (1000);
 
     delay_ms(1);
     lista_freq_anatel();
-    
-    InicializaAS3993();
-    
+    Frequencies.freq[0] = 915000;
+    readerInitStatus = as3993Initialize(Frequencies.freq[0]);
     
     USBModuleDisable();
     initCommands(); // USB report commands
@@ -927,15 +271,12 @@ int main(void){
     desliga_led_gps();
     desliga_led_zig();
     desliga_led_tag();
+    desliga_saida_pa();
+    desliga_buzzer();
     sel_led(0,0);
-    
     
     tunerInit(&mainTuner);
 
-    desliga_saida_pa();
-
-    desliga_led_tag();
-    
     ligaTimer2();
     uartRx1Initialize();
     uartRx2Initialize();
@@ -943,62 +284,50 @@ int main(void){
     uartRx4Initialize();
     
     IniciaRTC();
-    
     inicializa_i2c3();
     
-    atualizaHoraEData();
+//    atualizaHoraEData();
     
-    num_serie[0] = 0x66;
-    num_serie[1] = 0x66;
-    num_serie[2] = 0x66;
-    num_serie[3] = 0x66;
+//    num_serie[0] = 0x66;
+//    num_serie[1] = 0x66;
+//    num_serie[2] = 0x66;
+//    num_serie[3] = 0x66;
+//    
+//    ObtemID(num_serie);
     
-    ObtemID(num_serie);
+//    Resultado = 1;
     
-    Resultado = 1;
-    
-    while ((num_serie[0] == 0x66) && (num_serie[1] == 0x66) &&
-            (num_serie[2] == 0x66) && (num_serie[3] == 0x66) && Resultado != 0) {
-        ObtemID(num_serie);
-        memcpy(num_serie_velho, num_serie, 12);
-        ObtemID(num_serie);
-        Resultado = memcmp(num_serie, num_serie_velho, 12);
-    }
+//    while ((num_serie[0] == 0x66) && (num_serie[1] == 0x66) &&
+//            (num_serie[2] == 0x66) && (num_serie[3] == 0x66) && Resultado != 0) {
+//        ObtemID(num_serie);
+//        memcpy(num_serie_velho, num_serie, 12);
+//        ObtemID(num_serie);
+//        Resultado = memcmp(num_serie, num_serie_velho, 12);
+//    }
 
-    iniciaExclusao(); 
-    
-    desliga_buzzer();
-    desliga_led_rede();
-    desliga_led_3g();
-    desliga_led_gps();
-    
-    iniciaCancelas();
-        
+         
+    iniciaExclusao();
+    iniciaCancelas();    
     iniciaPortalFrango();
-
     desligaTodosOsLeds();
 
     char mensagem[100];
 
-    //obtemParametrosSalvosNaEeprom();
     sprintf(mensagem, "Obtendo Parametros Salvos na Memoria\r\n");
-    
     enviaDadosParaUSBserial(mensagem, strlen(mensagem));
-    
     obtemParametrosDaMemoria();
-
-    //exibe obtemParametrosSalvosNaEeprom();
     
     sprintf(mensagem, "Exibindo Parametros Obtidos...\r\n\r\n");
-    
     enviaDadosParaUSBserial(mensagem, strlen(mensagem));
-    
     exibirParametrosObtidos();
+    
+    num_serie[0] = idDoLeitor[0];
+    num_serie[1] = idDoLeitor[1];
+    num_serie[2] = idDoLeitor[2];
+    num_serie[3] = idDoLeitor[3];    
 
     travaCancelaDoPortal();
-    
-    aguardoPrimeiraConexaoTCP();
-    
+    aguardoPrimeiraConexaoTCP(); 
     destravaCancelaDoPortal();
 
     inicializaMaquinaDeEstados_DataHora();
@@ -1006,10 +335,16 @@ int main(void){
 
     atualizaHoraEData();
 
-    //comecaInvetorio();
+    if(readerInitStatus){
+        Frequencies.freq[0] = 915000;
+        readerInitStatus = as3993Initialize(Frequencies.freq[0]);
+    }
+    
     Frequencia = frequenciaDeOperacao;
     SetaFrequencias();
     as3993SetSensitivity(sensibilidade); //Ajuste normal
+    
+    comecaInvetorio();
     
 
 //******************************************************************************
@@ -1019,9 +354,7 @@ int main(void){
     while (1) {
         
         operacoesParaRtcEmCodigoCorrente();
-        
         acoesEmCodigoCorrentePortalFrango();
-
         checaNecessidadeDeTrocaDeIPRemoto();
 
         if (TempoParaDesligarBuzzer == 0) {
@@ -1044,7 +377,7 @@ int main(void){
             contaIntevaloEntreTrocaDeRemoteIP(); 
         }
         
-        comecaInvetorio();
+        //comecaInvetorio();
 
         for(antena_atual = 1; antena_atual <= numeroDeAntenasAtivas; antena_atual = antena_atual + 1){
 
@@ -1062,7 +395,7 @@ int main(void){
                 
                 //if(modoDeOperacao == OPERACAO_COM_MULTIPLAS_LEITURAS) total_parcial = inventorioSimplificadoComPausa();
                 //if(modoDeOperacao == OPERACAO_LEITURAS_INITERRUPTAS) total_parcial = inventorioSimplificado();
-                if(modoDeOperacao == OPERACAO_COM_LEITURA_UNICA) total_parcial = inventoryGen2();
+                //if(modoDeOperacao == OPERACAO_COM_LEITURA_UNICA) total_parcial = inventoryGen2();
                 
                 total_parcial = inventorioSimplificado();
                 
@@ -1084,12 +417,15 @@ int main(void){
                 }
             }
             sel_led(0, 0);
-            if (modoDeOperacao == OPERACAO_COM_LEITURA_UNICA) TerminaInvetorio();
+            //if (modoDeOperacao == OPERACAO_COM_LEITURA_UNICA) TerminaInvetorio();
         }
         if(atrasoParaDegradarLeitura != 0){
             delay_ms(atrasoParaDegradarLeitura);
         }
-        TerminaInvetorio();
+        desliga_saida_pa();
+        delay_ms(50);
+        liga_saida_pa();
+        //TerminaInvetorio();
     }
 }
 
@@ -1280,22 +616,6 @@ void tick(void) {
         //logicaDeRemocaoDeTabelaDeExclusao();
 
     }
-    
-
-    ContadorParaReiniciarAS3993 = ContadorParaReiniciarAS3993 + 1;
-    if(ContadorParaReiniciarAS3993 > 10000){
-        ContadorParaReiniciarAS3993 = 0;
-        _LATG0 = !_LATG0;
-//        TerminaInvetorio();
-//        InicializaAS3993();
-//        delay_ms(500);
-//        tunerInit(&mainTuner);
-//        Frequencia = frequenciaDeOperacao;
-//        SetaFrequencias();
-//        as3993SetSensitivity(sensibilidade); //Ajuste normal
-//        comecaInvetorio();
-    }
-            
     
     //logicaDeRemocaoDeTabelaDeExclusao();
 
