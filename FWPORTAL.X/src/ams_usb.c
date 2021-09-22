@@ -19,39 +19,63 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.      *
  *****************************************************************************
  */
+
 /*
- *      PROJECT:   PIC bootloader v2.x.y
+ *      PROJECT:   AMS USB encapsulation
  *      $Revision: $
- *      LANGUAGE:  ANSI C
+ *      LANGUAGE: C++
  */
 
-/*! \file bootloadable.c
+/*! \file 
  *
  *  \author M. Arpa
  *
- *  \brief file to be compiled and linked by any application that shall be
- * loadable by the bootloader.
- *
+ *  \brief Encapsulating of some parts of USB handling.
+ *         If used, this allows to wakeup from USB even when sleeping,        
+ *         without a seperate pin for this purpose.
  */
 
-/*
-******************************************************************************
-* INCLUDES
-******************************************************************************
-*/
-//#include <p24Fxxxx.h>
-#include "p24FJ256DA210.h"
-#include "bootloadable.h"
+#include "ams_usb.h"
+#include "usb.h"
+#include "usb_device.h"
 
-/* the following lines ensure that an application is loadable by
-   the ams bootloader version 2.x.y */
 
-extern void _reset();/* so that we can get the address of the reset - code */
-const unsigned short userReset __attribute__ ((space(psv),address(USER_PROG_RESET_ADDR))) = (unsigned short)_reset;
-const unsigned short appId __attribute__ ((space(psv),address(APP_ID_ADDR))) = APP_ID;
+/* ------------- functions ------------------------------------------------- */
 
-void __attribute__((space(prog),address(ENABLE_BOOTLOADER_ADDR))) enableBootloader()
+void amsUsbInitialise ( )
 {
-    while ( 1 ) ; /* the bootloader brings this function with real functionality,
-		here we just make sure if your application calls this function is never returns; */
+    asm("disi #0x3FFF"); /* disable interrupts while handling flags */
+    USBDeviceInit();	/* Initializes USB module SFRs and firmware */
+#ifdef AMS_USB_WAKEUP_FROM_SLEEP
+    IFS5bits.USB1IF = 0;
+    /* clear flag, as bus device is not attached */
+    USBClearInterruptFlag(USBActivityIFReg,USBActivityIFBitNum);
+    U1OTGIEbits.ACTVIE = 1;
+    IEC5bits.USB1IE = 1;     /* Enable the interrupt */
+#endif
+    USBDeviceAttach();  /* device is ready to be detected on bus now */
+    asm( "disi #0" ); /* allow interrupt handling now */
+}
+
+s8 amsUsbIsCableConnected ( )
+{
+#ifdef AMS_USB_WAKEUP_FROM_SLEEP
+    return ( U1OTGSTATbits.VBUSVD );
+#else
+    return amsUsbIsReady( );
+#endif
+}
+
+s8 amsUsbIsReady ( )
+{
+#ifdef AMS_USB_WAKEUP_FROM_SLEEP
+    if ( amsUsbIsCableConnected() )
+#endif
+    {
+        return ( ( USBGetDeviceState() == CONFIGURED_STATE ) && ! USBSuspendControl );
+    }
+}
+
+void amsUsbIsNotReady ( )
+{
 }

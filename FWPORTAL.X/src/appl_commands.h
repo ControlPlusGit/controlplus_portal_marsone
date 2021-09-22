@@ -70,7 +70,6 @@ void TerminaInvetorio(void);
 
 
 u8 inventorioSimplificado(void);
-u8 inventorioSimplificadoComPausa(void);
 
 /* command functions table */
 extern struct callFunction call_fkt_[CALL_FKT_SIZE];

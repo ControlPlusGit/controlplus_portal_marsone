@@ -389,15 +389,13 @@ int main(void){
             setaSensibilidade(sensibilidade);
 
             for (contador = 1; contador < (repeticaoNaLeitura + 1); contador = contador + 1) {
-                //sel_led(0, 0);
-                //sel_led(Antena, 1);
-                //sel_antena(Antena);
-                
                 //if(modoDeOperacao == OPERACAO_COM_MULTIPLAS_LEITURAS) total_parcial = inventorioSimplificadoComPausa();
                 //if(modoDeOperacao == OPERACAO_LEITURAS_INITERRUPTAS) total_parcial = inventorioSimplificado();
                 //if(modoDeOperacao == OPERACAO_COM_LEITURA_UNICA) total_parcial = inventoryGen2();
                 
-                total_parcial = inventorioSimplificado();
+                //_T2IE = 0;
+                total_parcial = inventoryGen2();
+                //_T2IE = 1;
                 
                 if(total_parcial){
                     setaSinaleiro(SINALEIRO_AMARELO);
@@ -422,10 +420,11 @@ int main(void){
         if(atrasoParaDegradarLeitura != 0){
             delay_ms(atrasoParaDegradarLeitura);
         }
+        //TerminaInvetorio();
         desliga_saida_pa();
         delay_ms(50);
         liga_saida_pa();
-        //TerminaInvetorio();
+        
     }
 }
 

@@ -197,17 +197,6 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/src/main.c</file>
-            <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/src/appl_commands.c</file>
-            <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/src/appl_commands.h</file>
-            <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/src/empilhadeira.c</file>
-            <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/src/portal.h</file>
-            <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/src/gen2.c</file>
-            <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/src/platform.h</file>
-            <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/src/as3993.c</file>
-            <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/src/perifericos.h</file>
-            <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/src/perifericos.c</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
