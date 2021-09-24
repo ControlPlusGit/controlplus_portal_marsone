@@ -35,8 +35,10 @@
 #include "ajuste_cap.h"
 #include "setup_usb.h"
 #include "i2c.h"
+//#include "barreiraIR.h"
 
 #include "FSM_DataHora.h"
+#include "barreiraIR.h"
 
 #ifdef __PIC24FJ256DA210__
 
@@ -93,6 +95,8 @@ int ContadorParaRemocaoDeTabelaDeExclusao;
 extern int timeoutRespostaKeepAlive;
 extern unsigned char statusDeConexaoTCP;
 extern int ContadorDeTempoParaManterCancelaDestravada;
+
+extern unsigned char statusDeOperacaoDoLeitorRFID;
 
 #define TAMANHO_DA_RESERVA_DE_EVENTO 2000
 char ReservaDeEventos[TAMANHO_DA_RESERVA_DE_EVENTO];
@@ -217,9 +221,9 @@ void InicializaAS3993(void){
 //******************************************************************************
 
 int main(void){
-    char num_serie_velho[20];
+    //char num_serie_velho[20];
     int contador;
-    int Resultado;
+    //int Resultado;
     
     u32 baudrate, realrate;
     
@@ -329,6 +333,7 @@ int main(void){
     travaCancelaDoPortal();
     aguardoPrimeiraConexaoTCP(); 
     destravaCancelaDoPortal();
+    InitSensorIR();
 
     inicializaMaquinaDeEstados_DataHora();
     habilitaMaquinaDeEstados_DataHora();
@@ -356,6 +361,7 @@ int main(void){
         operacoesParaRtcEmCodigoCorrente();
         acoesEmCodigoCorrentePortalFrango();
         checaNecessidadeDeTrocaDeIPRemoto();
+        MonitoraPassagemValidaPeloPortal();
 
         if (TempoParaDesligarBuzzer == 0) {
             if(alarmeFaltaDeRedeEthernet == 0){
@@ -369,10 +375,10 @@ int main(void){
             0,1,2,3,4,1,2,3,4
         };
         int Antena;
-
+        
         if (ContadorParaUmSegundo > 1000){
             ContadorParaUmSegundo = 0;
-            enviaKeepAliveParaEthernet(1);
+            enviaKeepAliveParaEthernet(statusDeOperacaoDoLeitorRFID);
             contaIntervaloDeKeepAlive();
             contaIntevaloEntreTrocaDeRemoteIP(); 
         }
@@ -399,6 +405,7 @@ int main(void){
                 
                 if(total_parcial){
                     setaSinaleiro(SINALEIRO_AMARELO);
+                    setaPedestreNaAntenaRFID();
                     if(ContadorDeTempoParaManterCancelaDestravada == 0){
                         travaCancelaDoPortal();
                     }
@@ -590,6 +597,7 @@ void enableBootloader() {
 void tick(void) {
 
     executaMaquinaDeEstados_DataHora();
+    LerSensorIR();
 
     operacoesEmTickParaEth();
     //operacoesDeTickParaWifi();

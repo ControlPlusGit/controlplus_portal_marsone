@@ -197,6 +197,11 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/src/barreiraIR.c</file>
+            <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/src/barreiraIR.h</file>
+            <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/src/eth.h</file>
+            <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/src/main.c</file>
+        </group>
     </open-files>
 </project-private>

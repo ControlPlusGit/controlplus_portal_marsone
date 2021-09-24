@@ -66,6 +66,7 @@
       <itemPath>src/usb_hal.h</itemPath>
       <itemPath>src/usb_hal_pic24.h</itemPath>
       <itemPath>src/usb_hid_stream_driver.h</itemPath>
+      <itemPath>src/barreiraIR.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LibraryFiles"
                    displayName="Library Files"
@@ -119,6 +120,7 @@
       <itemPath>src/usb_hal_pic24.c</itemPath>
       <itemPath>src/usb_hid_stream_driver.c</itemPath>
       <itemPath>src/weak_stream_functions.c</itemPath>
+      <itemPath>src/barreiraIR.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

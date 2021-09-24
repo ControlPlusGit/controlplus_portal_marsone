@@ -17,6 +17,7 @@
 #include "appl_commands.h"
 #include "cancelas.h"
 #include "setup_usb.h"
+#include "barreiraIR.h"
 
 
 extern u16 readerInitStatus;
@@ -1643,7 +1644,8 @@ void enviaStringDoRegistroDeMovimento (TipoRegistroDeTagEmPortal Tag){
     rascunho[POSICAO_DO_TAMANHO_TOTAL_PARA_MOVIMENTO_PIC_PC_FRANGO] = 0xFF;
     setaSinaleiro(SINALEIRO_VERDE);
     destravaCancelaDoPortal();
-
+    ChecaSeHouveFalhaNoSensorIR();
+    //setaPedestreNaAntenaRFID();
 }
 
 //void geraStringDoRegistroDeMovimento (TipoRegistroDeTagEmPortal Tag, char *StringFinal){
@@ -1654,14 +1656,12 @@ void geraStringDoRegistroDeMovimento (TipoRegistroDeTagEmPortal Tag){
     int GerouEvento;
     GerouEvento = 0;
     
-    if ((Tag.AntenaDaPrimeiraLeitura ==  ANTENA_DE_ENTRADA) &&
-            (Tag.AntenaDaUltimaLeitura == ANTENA_DE_SAIDA)){
+    if ((Tag.AntenaDaPrimeiraLeitura ==  ANTENA_DE_ENTRADA) && (Tag.AntenaDaUltimaLeitura == ANTENA_DE_SAIDA)){
         Tag.estado = PORTAL_SAIU;
         enviaStringDoRegistroDeMovimento(Tag);
         GerouEvento = 1;
     } else {
-        if ((Tag.AntenaDaPrimeiraLeitura ==  ANTENA_DE_ENTRADA) &&
-                (Tag.estado == PORTAL_SAINDO)){
+        if ((Tag.AntenaDaPrimeiraLeitura ==  ANTENA_DE_ENTRADA) && (Tag.estado == PORTAL_SAINDO)){
             Tag.estado = PORTAL_SAIU;
             enviaStringDoRegistroDeMovimento(Tag);
             GerouEvento = 1;

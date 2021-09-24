@@ -36,6 +36,11 @@
 
 #define INTERVALO_DE_TROCA_REMOTE_IP 25
 
+// Status de operação do leitor - Informa no Keep Alive a condição de operação do leitor RFID
+#define STATUS_NORMAL 0
+#define STATUS_FALHA_NA_ANTENA 1
+#define STATUS_FALHA_SENSOR_IR 2
+
 
 //#define TIMEOUT_PARA_SER_ALFA 20000
 

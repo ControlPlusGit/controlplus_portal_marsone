@@ -623,23 +623,14 @@ void solicitaDataHoraPelaEthernet(void){
 }
 */
 
-void enviaKeepAliveParaEthernet( char status ){
+void enviaKeepAliveParaEthernet(char status){
     
     char mensagem[ 100 ];
     
-    if( statusDeConexaoTCP == CONNECTED ) {
-        
-        sprintf( mensagem, "<FD;%c%c%c%c;A0>", idDoLeitor[0], idDoLeitor[1], idDoLeitor[2], idDoLeitor[3] );
-    
+    if( statusDeConexaoTCP == CONNECTED){
+        sprintf( mensagem, "<FD;%c%c%c%c;A%d>", idDoLeitor[0], idDoLeitor[1], idDoLeitor[2], idDoLeitor[3], status);
         enviaDadosParaEthPortais( mensagem, strlen( mensagem ) );
-        
     }
-    else{
-     
-        //aguardoPrimeiraConexaoTCP();
-        
-    }
-        
 }
 
 
