@@ -657,6 +657,9 @@ void tick(void) {
     if (ContadorPara500ms > 500){
         ContadorPara500ms = 0;
         setaStatusDoLedDeEthernet();
+//        if(statusDeOperacaoDoLeitorRFID == STATUS_NORMAL && statusDeConexaoTCP == NOT_CONNECTED){
+//            _LATB3 = !_LATB3; // SINALEIRO VERMELHO
+//        }
     }
         
     ContadorPara100ms = ContadorPara100ms + 1;

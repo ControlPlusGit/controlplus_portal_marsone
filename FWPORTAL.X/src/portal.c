@@ -61,6 +61,9 @@ char IdDOLeitor[20] = "4035";
 
 int PausaNasMensagensDeAvaliacao = 0;
 
+unsigned int tempoDeIntermitenciaDoSinaleiroVermelho = 0;
+extern unsigned char statusDeOperacaoDoLeitorRFID;
+
 int Beepar;
 char Capacitores[6];
 
@@ -97,6 +100,8 @@ int ContagemParaExpirarOsComandosDoPC;
 
 unsigned char ListaDeSaida[TAMANHO_DA_LISTA][TAMANHO_DO_ITEM];
 int ContadorDeReenvioDeDadosDaListaDeSaida;
+
+extern unsigned char statusDeConexaoTCP;
 
 void EnviaBytePara485 (unsigned char dado){
     
@@ -555,12 +560,22 @@ void atualizarSinaleiro (void){
         
     switch(EstadoDoSinaleiro){
         case SINALEIRO_VERMELHO:
-            liga_rele4(); //vermelho
-            desliga_rele2();
-            desliga_rele3();
+            if(statusDeOperacaoDoLeitorRFID != STATUS_NORMAL){
+                desliga_rele2(); //amarelo
+                desliga_rele3(); //verde
+                tempoDeIntermitenciaDoSinaleiroVermelho++;
+                if(tempoDeIntermitenciaDoSinaleiroVermelho > 7){
+                    tempoDeIntermitenciaDoSinaleiroVermelho = 0;
+                    _LATB3 = !_LATB3; //vermelho
+                }  
+            }else{
+                liga_rele4(); //vermelho
+                desliga_rele2(); //amarelo
+                desliga_rele3(); //verde
+            }
             break;
         case SINALEIRO_AMARELO:
-            liga_rele2(); // amarelo
+            liga_rele2(); //amarelo
             desliga_rele3();
             desliga_rele4();
             break;

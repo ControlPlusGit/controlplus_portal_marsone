@@ -733,27 +733,14 @@ void setaStatusDoLedDeEthernet(void){
         LED_REDE = 1;
     }else{
         LED_REDE = !LED_REDE;
+        _LATB3 = !_LATB3; //vermelho
     }
 }
 
 void alertaSemConexaoComEthernet(void){
-    static char alarmeAtivado = 0;
-    
     if(alarmeFaltaDeRedeEthernet == 1){
         _LATB3 = !_LATB3; // SINALEIRO VERMELHO
-        _LATC2 = !_LATC2; // SIRENE
-        _LATG15 = 0;
-        _LATC1 = 0;
-        //travaCancelaDoPortal();
-        alarmeAtivado = 1;
-    }else{
-        if(alarmeAtivado == 1){
-            alarmeAtivado = 0;
-            _LATB3 = 0; // SINALEIRO VERMELHO
-            _LATC2 = 0; // SIRENE
-            //destravaCancelaDoPortal();
-        }
-    }        
+    }    
 }
 
 
