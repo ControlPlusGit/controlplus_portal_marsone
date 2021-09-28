@@ -14,7 +14,8 @@
 //#define FIRMWARE "FWPORTAL_V01R01"
 //#define FIRMWARE "FWPORTAL_V02R03"
 //#define FIRMWARE "FWPORTAL_V02R04" // substituido todos os arquivos relacionados a RF para tentar resolver problema de parar de ler
-#define FIRMWARE "FWPORTAL_V03R00" // Incluído o recurso de redundancia na checagem de parragem pelo Portal usando Sensor IR.
+//#define FIRMWARE "FWPORTAL_V03R00" // Incluído o recurso de redundancia na checagem de parragem pelo Portal usando Sensor IR.
+#define FIRMWARE "FWPORTAL_V03R01"   // Implementação de sinalização de falha no sinaleiro. Vermelho fica intermitente indica falha.
 
 
 #define TAMANHO_ENDERECO_IP 15
