@@ -75,6 +75,8 @@ char __attribute__((near)) MeuIpEth[TAMANHO_DA_STRING_DE_IP];
 
 extern struct tm *dataHora;
 
+extern unsigned char statusDeOperacaoDoLeitorRFID;
+
 void decrementaContadorDeParaEnvioDoMeuIpParaSerOAlphaDosOutrosPortais(void);
 void coletaOIpDoModuloUSRTCP232T24(void);
 void impedeDeSerAlpha(void);
@@ -731,9 +733,11 @@ void contaIntevaloEntreTrocaDeRemoteIP(void){
 void setaStatusDoLedDeEthernet(void){
     if(statusDeConexaoTCP == CONNECTED){
         LED_REDE = 1;
+        //SetaAlarmeDeAvaria();
     }else{
         LED_REDE = !LED_REDE;
         _LATB3 = !_LATB3; //vermelho
+        //SetaAlarmeDeAvaria();
     }
 }
 
@@ -741,6 +745,22 @@ void alertaSemConexaoComEthernet(void){
     if(alarmeFaltaDeRedeEthernet == 1){
         _LATB3 = !_LATB3; // SINALEIRO VERMELHO
     }    
+}
+
+void SetaAlarmeDeAvaria(void){
+    static char timer = 0;
+    
+    timer = timer + 1;
+    if(timer > 2){
+        timer = 0;
+        _LATC2 = !_LATC2;
+    }
+    //liga_rele1(); //SIRENE
+//    if(alarmeFaltaDeRedeEthernet == 1 || statusDeOperacaoDoLeitorRFID != STATUS_NORMAL){
+//        liga_rele1(); //SIRENE
+//    }else{
+//        desliga_rele1(); //SIRENE
+//    }       
 }
 
 

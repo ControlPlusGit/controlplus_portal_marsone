@@ -75,6 +75,7 @@ void checaNecessidadeDeTrocaDeIPRemoto(void);
 void defineIPRemotoInicial(void);
 void limpaBufferRxEthernet(void);
 void aguardoPrimeiraConexaoTCP(void);
+void SetaAlarmeDeAvaria(void);
 
 void contaIntevaloEntreTrocaDeRemoteIP(void);
 

@@ -453,11 +453,11 @@ void atulizaBeepDeCancelamento(void){
     } else {
         if (TempoDeAcionamentoDoBuzzerDeCancelamento > 10){
             TempoDeAcionamentoDoBuzzerDeCancelamento = TempoDeAcionamentoDoBuzzerDeCancelamento - 1;
-            desliga_rele1();
+            desliga_rele1(); //SIRENE
         } else {
             if (TempoDeAcionamentoDoBuzzerDeCancelamento > 0){
                 TempoDeAcionamentoDoBuzzerDeCancelamento = TempoDeAcionamentoDoBuzzerDeCancelamento - 1;
-                liga_rele1();
+                liga_rele1(); //SIRENE
             } else {
                 TempoDeAcionamentoDoBuzzerDeCancelamento = 0;
                 desliga_rele1();
@@ -563,6 +563,7 @@ void atualizarSinaleiro (void){
             if(statusDeOperacaoDoLeitorRFID != STATUS_NORMAL){
                 desliga_rele2(); //amarelo
                 desliga_rele3(); //verde
+                //SetaAlarmeDeAvaria();
                 tempoDeIntermitenciaDoSinaleiroVermelho++;
                 if(tempoDeIntermitenciaDoSinaleiroVermelho > 7){
                     tempoDeIntermitenciaDoSinaleiroVermelho = 0;
@@ -572,6 +573,7 @@ void atualizarSinaleiro (void){
                 liga_rele4(); //vermelho
                 desliga_rele2(); //amarelo
                 desliga_rele3(); //verde
+                //SetaAlarmeDeAvaria();
             }
             break;
         case SINALEIRO_AMARELO:
@@ -1845,7 +1847,12 @@ void acoesEmTickACadaSegundoParaPortalFrango(void){
     if (PortaDePortalDeExclusao != 0){
         if(alarmeFaltaDeRedeEthernet == 0){
             atualizarSinaleiro();
-            atulizaBeepDeCancelamento();
+            if(alarmeFaltaDeRedeEthernet == 1 || statusDeOperacaoDoLeitorRFID != STATUS_NORMAL){
+                SetaAlarmeDeAvaria();
+            }else{
+                atulizaBeepDeCancelamento();
+            }
+            
         }
         
     }
