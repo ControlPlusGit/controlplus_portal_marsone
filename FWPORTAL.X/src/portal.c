@@ -17,6 +17,7 @@
 #include "appl_commands.h"
 #include "cancelas.h"
 #include "setup_usb.h"
+#include "barreiraIR.h"
 
 
 extern u16 readerInitStatus;
@@ -60,6 +61,9 @@ char IdDOLeitor[20] = "4035";
 
 int PausaNasMensagensDeAvaliacao = 0;
 
+unsigned int tempoDeIntermitenciaDoSinaleiroVermelho = 0;
+extern unsigned char statusDeOperacaoDoLeitorRFID;
+
 int Beepar;
 char Capacitores[6];
 
@@ -96,6 +100,8 @@ int ContagemParaExpirarOsComandosDoPC;
 
 unsigned char ListaDeSaida[TAMANHO_DA_LISTA][TAMANHO_DO_ITEM];
 int ContadorDeReenvioDeDadosDaListaDeSaida;
+
+extern unsigned char statusDeConexaoTCP;
 
 void EnviaBytePara485 (unsigned char dado){
     
@@ -447,11 +453,11 @@ void atulizaBeepDeCancelamento(void){
     } else {
         if (TempoDeAcionamentoDoBuzzerDeCancelamento > 10){
             TempoDeAcionamentoDoBuzzerDeCancelamento = TempoDeAcionamentoDoBuzzerDeCancelamento - 1;
-            desliga_rele1();
+            desliga_rele1(); //SIRENE
         } else {
             if (TempoDeAcionamentoDoBuzzerDeCancelamento > 0){
                 TempoDeAcionamentoDoBuzzerDeCancelamento = TempoDeAcionamentoDoBuzzerDeCancelamento - 1;
-                liga_rele1();
+                liga_rele1(); //SIRENE
             } else {
                 TempoDeAcionamentoDoBuzzerDeCancelamento = 0;
                 desliga_rele1();
@@ -554,12 +560,24 @@ void atualizarSinaleiro (void){
         
     switch(EstadoDoSinaleiro){
         case SINALEIRO_VERMELHO:
-            liga_rele4(); //vermelho
-            desliga_rele2();
-            desliga_rele3();
+            if(statusDeOperacaoDoLeitorRFID != STATUS_NORMAL){
+                desliga_rele2(); //amarelo
+                desliga_rele3(); //verde
+                //SetaAlarmeDeAvaria();
+                tempoDeIntermitenciaDoSinaleiroVermelho++;
+                if(tempoDeIntermitenciaDoSinaleiroVermelho > 7){
+                    tempoDeIntermitenciaDoSinaleiroVermelho = 0;
+                    _LATB3 = !_LATB3; //vermelho
+                }  
+            }else{
+                liga_rele4(); //vermelho
+                desliga_rele2(); //amarelo
+                desliga_rele3(); //verde
+                //SetaAlarmeDeAvaria();
+            }
             break;
         case SINALEIRO_AMARELO:
-            liga_rele2(); // amarelo
+            liga_rele2(); //amarelo
             desliga_rele3();
             desliga_rele4();
             break;
@@ -1629,29 +1647,22 @@ void enviaStringDoRegistroDeMovimento (TipoRegistroDeTagEmPortal Tag){
     enviaMovimentoParaWiegand(Tag.Epc, Tag.estado, Tag.AntenaDaUltimaLeitura);
     dataHora = retornaTimeInfo();
     if (Tag.AntenaDaUltimaLeitura == ANTENA_DE_SAIDA){
-        //enviaEpcParaSerInvisivelNoPortalDeExclusao(Tag.Epc, retornaComEpoch());
-        //enviaEpcParaSerInvisivelNoPortalDeExclusaoNa485(Tag.Epc, retornaComEpoch());
-        //enviaEventoDeQueUmPedestreSaiuNaAreaSeguraNa485(Tag.Epc, retornaComEpoch());
         sprintf(mensagem, "<FF;%c%c%c%c;S;%02x%02x%02x00;%02d%02d20%02d;%02d%02d%02d>", idDoLeitor[0], idDoLeitor[1], idDoLeitor[2], idDoLeitor[3], Tag.Epc[0], Tag.Epc[1], Tag.Epc[2], dataHora->tm_mday, dataHora->tm_mon + 1, dataHora->tm_year - 100, dataHora->tm_hour, dataHora->tm_min, dataHora->tm_sec);
         enviaDadosParaEthPortais(mensagem, strlen(mensagem));
-        //adicionaItemNaTabelaDeInvisiveis(Tag.Epc);
-        //(void)adicionaElementoDaTabelaDeExclusao (Tag.Epc, SAIU_NA_AREA_SEGURA);
+        //enviaDadosParaUSBserial(mensagem, strlen(mensagem));
         (void)adicionaElementoDaTabelaDeExclusao (Tag.Epc, NomeDoPortal[0], NomeDoPortal[1], SAIU_NA_AREA_SEGURA);
     } else {
-        //enviaEpcParaDeixarDeSerInvisivelNoPortalDeExclusao(Tag.Epc, retornaComEpoch());
-        //enviaEpcParaDeixarDeSerInvisivelNoPortalDeExclusaoPara485(Tag.Epc, retornaComEpoch());
-        //enviaEventoDeQueUmPedestreEntrouNaAreaSeguraNa485(Tag.Epc, retornaComEpoch());
         sprintf(mensagem, "<FF;%c%c%c%c;E;%02x%02x%02x00;%02d%02d20%02d;%02d%02d%02d>", idDoLeitor[0], idDoLeitor[1], idDoLeitor[2], idDoLeitor[3], Tag.Epc[0], Tag.Epc[1], Tag.Epc[2], dataHora->tm_mday, dataHora->tm_mon + 1, dataHora->tm_year - 100, dataHora->tm_hour, dataHora->tm_min, dataHora->tm_sec);
         enviaDadosParaEthPortais(mensagem, strlen(mensagem));
-        //adicionaItemNaTabelaDeVisiveis(Tag.Epc);
+        //enviaDadosParaUSBserial(mensagem, strlen(mensagem));
         (void)adicionaElementoDaTabelaDeExclusao (Tag.Epc, NomeDoPortal[0], NomeDoPortal[1], ENTROU_NA_AREA_SEGURA);
     }
-    
     
     rascunho[POSICAO_DO_TAMANHO_TOTAL_PARA_MOVIMENTO_PIC_PC_FRANGO] = 0xFF;
     setaSinaleiro(SINALEIRO_VERDE);
     destravaCancelaDoPortal();
-
+    ChecaSeHouveFalhaNoSensorIR();
+    //setaPedestreNaAntenaRFID();
 }
 
 //void geraStringDoRegistroDeMovimento (TipoRegistroDeTagEmPortal Tag, char *StringFinal){
@@ -1662,14 +1673,12 @@ void geraStringDoRegistroDeMovimento (TipoRegistroDeTagEmPortal Tag){
     int GerouEvento;
     GerouEvento = 0;
     
-    if ((Tag.AntenaDaPrimeiraLeitura ==  ANTENA_DE_ENTRADA) &&
-            (Tag.AntenaDaUltimaLeitura == ANTENA_DE_SAIDA)){
+    if ((Tag.AntenaDaPrimeiraLeitura ==  ANTENA_DE_ENTRADA) && (Tag.AntenaDaUltimaLeitura == ANTENA_DE_SAIDA)){
         Tag.estado = PORTAL_SAIU;
         enviaStringDoRegistroDeMovimento(Tag);
         GerouEvento = 1;
     } else {
-        if ((Tag.AntenaDaPrimeiraLeitura ==  ANTENA_DE_ENTRADA) &&
-                (Tag.estado == PORTAL_SAINDO)){
+        if ((Tag.AntenaDaPrimeiraLeitura ==  ANTENA_DE_ENTRADA) && (Tag.estado == PORTAL_SAINDO)){
             Tag.estado = PORTAL_SAIU;
             enviaStringDoRegistroDeMovimento(Tag);
             GerouEvento = 1;
@@ -1690,28 +1699,6 @@ void geraStringDoRegistroDeMovimento (TipoRegistroDeTagEmPortal Tag){
         }
     }
 
-    /*
-    rascunho[POSICAO_DO_ESTADO_PARA_MOVIMENTO_PIC_PC_FRANGO] = Tag.estado;
-
-    switch(Tag.AntenaDaUltimaLeitura){
-        ContadorDeTagMovimentos = ContadorDeTagMovimentos + 1;
-        case ANTENA_DE_ENTRADA:
-            if (Tag.AntenaDaPrimeiraLeitura == ANTENA_DE_SAIDA){
-                rascunho[POSICAO_DA_ANTENA_DA_ULTIMA_LEITURA_PIC_PC_FRANGO] = 1;
-            }
-            break;
-        case ANTENA_DE_SAIDA:
-            if (Tag.AntenaDaPrimeiraLeitura == ANTENA_DE_ENTRADA){
-                rascunho[POSICAO_DA_ANTENA_DA_ULTIMA_LEITURA_PIC_PC_FRANGO] = 2;
-            }
-            break;
-        default:
-            //(void)sprintf(StringFinal, "Tag,%s,Foi e lida e ocorreu algum erro\n",(char *)SubStringDeEPC);
-            break;
-    }
-    */
-    
-    //if (rascunho[POSICAO_DO_TAMANHO_TOTAL_PARA_MOVIMENTO_PIC_PC_FRANGO] == 0){
     if (GerouEvento == 0){
         rascunho[POSICAO_DO_COMANDO_PIC_PC_FRANGO] = TAG_DE_MOVIMENTO_CANCELADO;
         rascunho[POSICAO_DA_ANTENA_DA_LEITURA_PIC_PC_FRANGO] = 0xFF;
@@ -1860,7 +1847,12 @@ void acoesEmTickACadaSegundoParaPortalFrango(void){
     if (PortaDePortalDeExclusao != 0){
         if(alarmeFaltaDeRedeEthernet == 0){
             atualizarSinaleiro();
-            atulizaBeepDeCancelamento();
+            if(alarmeFaltaDeRedeEthernet == 1 || statusDeOperacaoDoLeitorRFID != STATUS_NORMAL){
+                SetaAlarmeDeAvaria();
+            }else{
+                atulizaBeepDeCancelamento();
+            }
+            
         }
         
     }

@@ -75,6 +75,8 @@ char __attribute__((near)) MeuIpEth[TAMANHO_DA_STRING_DE_IP];
 
 extern struct tm *dataHora;
 
+extern unsigned char statusDeOperacaoDoLeitorRFID;
+
 void decrementaContadorDeParaEnvioDoMeuIpParaSerOAlphaDosOutrosPortais(void);
 void coletaOIpDoModuloUSRTCP232T24(void);
 void impedeDeSerAlpha(void);
@@ -623,23 +625,14 @@ void solicitaDataHoraPelaEthernet(void){
 }
 */
 
-void enviaKeepAliveParaEthernet( char status ){
+void enviaKeepAliveParaEthernet(char status){
     
     char mensagem[ 100 ];
     
-    if( statusDeConexaoTCP == CONNECTED ) {
-        
-        sprintf( mensagem, "<FD;%c%c%c%c;A0>", idDoLeitor[0], idDoLeitor[1], idDoLeitor[2], idDoLeitor[3] );
-    
+    if( statusDeConexaoTCP == CONNECTED){
+        sprintf( mensagem, "<FD;%c%c%c%c;A%d>", idDoLeitor[0], idDoLeitor[1], idDoLeitor[2], idDoLeitor[3], status);
         enviaDadosParaEthPortais( mensagem, strlen( mensagem ) );
-        
     }
-    else{
-     
-        //aguardoPrimeiraConexaoTCP();
-        
-    }
-        
 }
 
 
@@ -740,29 +733,34 @@ void contaIntevaloEntreTrocaDeRemoteIP(void){
 void setaStatusDoLedDeEthernet(void){
     if(statusDeConexaoTCP == CONNECTED){
         LED_REDE = 1;
+        //SetaAlarmeDeAvaria();
     }else{
         LED_REDE = !LED_REDE;
+        _LATB3 = !_LATB3; //vermelho
+        //SetaAlarmeDeAvaria();
     }
 }
 
 void alertaSemConexaoComEthernet(void){
-    static char alarmeAtivado = 0;
-    
     if(alarmeFaltaDeRedeEthernet == 1){
         _LATB3 = !_LATB3; // SINALEIRO VERMELHO
-        _LATC2 = !_LATC2; // SIRENE
-        _LATG15 = 0;
-        _LATC1 = 0;
-        //travaCancelaDoPortal();
-        alarmeAtivado = 1;
-    }else{
-        if(alarmeAtivado == 1){
-            alarmeAtivado = 0;
-            _LATB3 = 0; // SINALEIRO VERMELHO
-            _LATC2 = 0; // SIRENE
-            //destravaCancelaDoPortal();
-        }
-    }        
+    }    
+}
+
+void SetaAlarmeDeAvaria(void){
+    static char timer = 0;
+    
+    timer = timer + 1;
+    if(timer > 2){
+        timer = 0;
+        _LATC2 = !_LATC2;
+    }
+    //liga_rele1(); //SIRENE
+//    if(alarmeFaltaDeRedeEthernet == 1 || statusDeOperacaoDoLeitorRFID != STATUS_NORMAL){
+//        liga_rele1(); //SIRENE
+//    }else{
+//        desliga_rele1(); //SIRENE
+//    }       
 }
 
 

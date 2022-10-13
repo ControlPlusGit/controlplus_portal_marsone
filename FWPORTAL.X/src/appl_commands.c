@@ -1,4 +1,47 @@
 /*
+ *****************************************************************************
+ * Copyright by ams AG                                                       *
+ * All rights are reserved.                                                  *
+ *                                                                           *
+ * IMPORTANT - PLEASE READ CAREFULLY BEFORE COPYING, INSTALLING OR USING     *
+ * THE SOFTWARE.                                                             *
+ *                                                                           *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS       *
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT         *
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS         *
+ * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT  *
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,     *
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT          *
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,     *
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY     *
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT       *
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE     *
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.      *
+ *****************************************************************************
+ */
+
+/** @file
+ * @brief Functions which handle commands received via USB or UART.
+ *
+ * This file contains all functions for processing commands received via either USB or UART.
+ * It implements the parsing of reports data, executing the requested command
+ * and sending data back.
+ *
+ * A description of the protocol between host and FW is included in the
+ * documentation for commands().
+ * The documentation of the various appl command functions (call*) will only discuss the
+ * payload of the command data and will not include the header information for
+ * every transmitted packet, as this is already described for commands().
+ *
+ * \n
+ * The frequency hopping is also done in this file before calling protocol/device
+ * specific functions.
+ *
+ * @author Ulrich Herrmann
+ * @author Bernhard Breinbauer
+ */
+
+/*
  ******************************************************************************
  * INCLUDES
  ******************************************************************************
@@ -1755,14 +1798,7 @@ void callInventoryGen2(void)
 }
 
 
-
-
-
-
-
 void comecaInvetorio(void){
-    /*
-    //result = hopFrequencies();
     (void)hopFrequencies();
             //**************************************************************
             //TESTE
@@ -1774,59 +1810,16 @@ void comecaInvetorio(void){
 
             num_of_tags = 0;
             performSelects();
-            //**************************************************************
-    */ 
-    
-    s8 result;
-    
-    result = hopFrequencies();
-    if(!result){
-        checkAndSetSession(SESSION_GEN2);
-        as3993SingleWrite(AS3993_REG_STATUSPAGE, rssiMode);
-        if (rssiMode == RSSI_MODE_PEAK){      //if we use peak rssi mode, we have to send anti collision commands
-            as3993SingleCommand(AS3993_CMD_ANTI_COLL_ON);
-        }
-        num_of_tags = 0;
-        performSelects();
-    }
 }
 
 void TerminaInvetorio(void){
-    if (rssiMode == RSSI_MODE_PEAK){      //if we use peak rssi mode, we have to send anti collision commands
-        as3993SingleCommand(AS3993_CMD_ANTI_COLL_OFF);
-    }
-    hopChannelRelease();
+    hopChannelRelease();    
 }
 
 u8 inventorioSimplificado(void){
     num_of_tags = gen2SearchForTagsAutoAck(tags_, MAXTAG, gen2qbegin, continueCheckTimeout, 0, 0);
     return num_of_tags;
 }
-
-u8 inventorioSimplificadoComPausa(void){
-    //u8 result;
-    //result = hopFrequencies();
-    //if (!result){
-            /*
-            checkAndSetSession(SESSION_GEN2);
-            as3993SingleWrite(AS3993_REG_STATUSPAGE, rssiMode);
-
-            num_of_tags = 0;
-            performSelects();
-            */
-            //num_of_tags = gen2SearchForTags(tags_, MAXTAG, gen2qbegin, continueCheckTimeout, fastInventory?0:1, 1);
-    //num_of_tags = gen2SearchForTags(tags_, MAXTAG, gen2qbegin, continueCheckTimeout, 0, 0);
-    //num_of_tags = gen2SearchForTagsAutoAck(tags_, MAXTAG, gen2qbegin, continueCheckTimeout, 0, 0);
-    
-    //num_of_tags = gen2SearchForTagsAutoAckNormal(tags_, MAXTAG, gen2qbegin, continueCheckTimeout, 0, 0);
-
-    //}
-    //inventoryResult = result;
-    //hopChannelRelease();
-    return num_of_tags;
-}
-
-
 
 u8 inventoryGen2(void)
 {
@@ -1858,24 +1851,6 @@ u8 inventoryGen2(void)
     //APPLOG("end inventory, found tags: %hhx\n", num_of_tags);
     return num_of_tags;
 }
-
-//uint8_t RFID_searchForTags(void){
-//    uint8_t num_of_tags;
-//    
-//    liga_saida_pa();
-//    num_of_tags = inventoryGen2();
-//    if(num_of_tags>=1){
-//        int i=0;
-//        LED_TAG_SetHigh();
-//        i=1;
-//    }
-//    LIGA_PA_SetLow();
-//    delay_ms(100);
-//    LED_TAG_SetLow();
-//    
-//    return num_of_tags;
-//}
-
 
 /** This function singulates a Gen2 tag using the given mask for subsequent
  * operations like inventory/read/write. Several (#MAX_SELECTS) Select commands can be

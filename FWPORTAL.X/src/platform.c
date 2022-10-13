@@ -612,19 +612,9 @@ void platformInit(void)
     ANSE = 0;   // all I/O digital
     ANSF = 0;   // all I/O digital
     ANSG = 0;   // all I/O digital
-#if EVALBOARD
-    initEvalBoard();
-#elif FERMI
+    
     initFermi();
-#elif FEMTO2
-    initFemto2();
-#elif FEMTO2_1
-    initFemto2_1();
-#elif MEGA
-    initMega();
-#elif RADON
-    initRadon();
-#endif
+
     EN(LOW);
     NCS_DESELECT();
 

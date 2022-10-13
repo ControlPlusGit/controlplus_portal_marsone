@@ -1,7 +1,11 @@
 #include "cancelas.h"
+#include <xc.h>
+#include "p24FJ256DA210.h"
+#include "barreiraIR.h"
 
 int ContadorDeTempoDasCancelas;
 int ContadorDeTempoParaManterCancelaDestravada;
+extern unsigned char statusDeOperacaoDoLeitorRFID;
 
 void iniciaCancelas(void){
     ContadorDeTempoDasCancelas = 0;
