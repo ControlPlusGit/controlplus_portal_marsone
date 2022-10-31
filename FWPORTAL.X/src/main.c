@@ -428,6 +428,7 @@ int main(void){
             delay_ms(atrasoParaDegradarLeitura);
         }
         //TerminaInvetorio();
+        
         desliga_saida_pa();
         delay_ms(50);
         liga_saida_pa();

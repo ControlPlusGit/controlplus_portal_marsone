@@ -198,16 +198,19 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/src/perifericos.c</file>
-            <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/src/platform.h</file>
-            <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/src/main.c</file>
             <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/src/portal.c</file>
-            <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/src/global.h</file>
-            <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/src/as3993_config.h</file>
             <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/src/tuner.c</file>
-            <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/src/barreiraIR.c</file>
+            <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/src/portal.h</file>
+            <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/src/main.c</file>
             <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/src/cancelas.c</file>
+            <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/src/as3993_config.h</file>
+            <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/src/barreiraIR.c</file>
+            <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/src/global.h</file>
+            <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/src/ajuste_cap.c</file>
             <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/src/eth.c</file>
+            <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/src/platform.h</file>
+            <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/src/perifericos.c</file>
+            <file>file:/C:/Projetos/control-plus/Firmware/controlplus_portal/FWPORTAL.X/nbproject/Makefile-impl.mk</file>
         </group>
     </open-files>
 </project-private>

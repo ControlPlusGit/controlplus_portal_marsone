@@ -39,6 +39,8 @@ char SerialOcupada;
 int ContadorDeTagMonitoradas;
 int ContadorDeTagMovimentos;
 
+extern unsigned char pedestreNoSensorIR;
+
 int TagEmTratamento;
 //int TagEmTratamentoEmTick;
 
@@ -66,6 +68,8 @@ extern unsigned char statusDeOperacaoDoLeitorRFID;
 
 int Beepar;
 char Capacitores[6];
+
+int GerouEvento;
 
 struct tm *dataHora;
 
@@ -1659,10 +1663,13 @@ void enviaStringDoRegistroDeMovimento (TipoRegistroDeTagEmPortal Tag){
     }
     
     rascunho[POSICAO_DO_TAMANHO_TOTAL_PARA_MOVIMENTO_PIC_PC_FRANGO] = 0xFF;
-    setaSinaleiro(SINALEIRO_VERDE);
-    destravaCancelaDoPortal();
+    if(GerouEvento == 1){
+        setaSinaleiro(SINALEIRO_VERDE);
+        destravaCancelaDoPortal();
+        //setaPedestreNaAntenaRFID();
+    }
     ChecaSeHouveFalhaNoSensorIR();
-    //setaPedestreNaAntenaRFID();
+    
 }
 
 //void geraStringDoRegistroDeMovimento (TipoRegistroDeTagEmPortal Tag, char *StringFinal){
@@ -1670,34 +1677,51 @@ void geraStringDoRegistroDeMovimento (TipoRegistroDeTagEmPortal Tag){
     int Contador;
     char rascunho[30];
     memset(rascunho, 0, 30);
-    int GerouEvento;
+    //int GerouEvento;
+    
     GerouEvento = 0;
     
     if ((Tag.AntenaDaPrimeiraLeitura ==  ANTENA_DE_ENTRADA) && (Tag.AntenaDaUltimaLeitura == ANTENA_DE_SAIDA)){
         Tag.estado = PORTAL_SAIU;
-        enviaStringDoRegistroDeMovimento(Tag);
         GerouEvento = 1;
+        enviaStringDoRegistroDeMovimento(Tag);
     } else {
         if ((Tag.AntenaDaPrimeiraLeitura ==  ANTENA_DE_ENTRADA) && (Tag.estado == PORTAL_SAINDO)){
             Tag.estado = PORTAL_SAIU;
-            enviaStringDoRegistroDeMovimento(Tag);
             GerouEvento = 1;
+            enviaStringDoRegistroDeMovimento(Tag);
         }
     }
 
-    if ((Tag.AntenaDaPrimeiraLeitura ==  ANTENA_DE_SAIDA) &&
-            (Tag.AntenaDaUltimaLeitura == ANTENA_DE_ENTRADA)){
+    if ((Tag.AntenaDaPrimeiraLeitura ==  ANTENA_DE_SAIDA) && (Tag.AntenaDaUltimaLeitura == ANTENA_DE_ENTRADA)){
         Tag.estado = PORTAL_ENTROU;
-        enviaStringDoRegistroDeMovimento(Tag);
         GerouEvento = 1;
+        enviaStringDoRegistroDeMovimento(Tag);
     } else {
-        if ((Tag.AntenaDaPrimeiraLeitura ==  ANTENA_DE_SAIDA) &&
-                (Tag.estado == PORTAL_ENTRANDO)){
+        if ((Tag.AntenaDaPrimeiraLeitura ==  ANTENA_DE_SAIDA) && (Tag.estado == PORTAL_ENTRANDO)){
             Tag.estado = PORTAL_ENTROU;
-            enviaStringDoRegistroDeMovimento(Tag);
             GerouEvento = 1;
+            enviaStringDoRegistroDeMovimento(Tag);
         }
     }
+    
+    //Validar essa parte
+    //Implementação minha para avisar o SARS que o pedestre passou pelo portal mas não foi lido por uma das antenas **********************************
+    if ((Tag.AntenaDaPrimeiraLeitura ==  ANTENA_DE_SAIDA) && (Tag.AntenaDaUltimaLeitura != ANTENA_DE_ENTRADA) && (pedestreNoSensorIR == PRESENTE)){
+        Tag.AntenaDaUltimaLeitura = ANTENA_DE_SAIDA; //Força essa condição para tornar apenas o pedestre que gerou a falha de movimento visível
+        Tag.estado = PORTAL_SAIU; //Coloca pedestre visível
+        GerouEvento = 0;
+        enviaStringDoRegistroDeMovimento(Tag);
+    }
+        
+    if ((Tag.AntenaDaPrimeiraLeitura ==  ANTENA_DE_ENTRADA) && (Tag.AntenaDaUltimaLeitura != ANTENA_DE_SAIDA) && (pedestreNoSensorIR == PRESENTE)){
+        Tag.AntenaDaUltimaLeitura = ANTENA_DE_SAIDA; //Força essa condição para tornar apenas o pedestre que gerou a falha de movimento visível
+        Tag.estado = PORTAL_SAIU; //Coloca pedestre visível
+        GerouEvento = 0;
+        enviaStringDoRegistroDeMovimento(Tag);
+    }
+      
+    
 
     if (GerouEvento == 0){
         rascunho[POSICAO_DO_COMANDO_PIC_PC_FRANGO] = TAG_DE_MOVIMENTO_CANCELADO;
@@ -1719,7 +1743,7 @@ void geraStringDoRegistroDeMovimento (TipoRegistroDeTagEmPortal Tag){
             }
         }
        
-        enviaMovimentoParaWiegand(Tag.Epc, Tag.estado, Tag.AntenaDaUltimaLeitura);
+        //enviaMovimentoParaWiegand(Tag.Epc, Tag.estado, Tag.AntenaDaUltimaLeitura);
         
         setaSinaleiro(SINALEIRO_VERMELHO);
         //setaSinaleiro(SINALEIRO_CANCELADO);

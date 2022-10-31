@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include "barreiraIR.h"
 
 #ifdef	__cplusplus
 extern "C" {
@@ -24,6 +25,7 @@ extern "C" {
 #define SEM_REGISTRO_DE_ANTENA 0
 #define ANTENA_DE_ENTRADA  1
 #define ANTENA_DE_SAIDA  2
+#define FORCA_ANTENA_DE_ENTRADA 3 //Para tornar apenas o pedestre que gerou a falha no movimento visível.
     
 #define MAXIMO_DE_TAGS_MONITORASDAS_EM_PORTAL 50
 //#define TEMPO_PARA_INATIVIDADE_DE_TAG_MONITORADA 30000 //Em ticks da maquina
