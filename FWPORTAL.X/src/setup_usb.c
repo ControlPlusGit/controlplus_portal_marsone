@@ -8,6 +8,7 @@
 #include "uart_driver.h"
 #include <timer.h>
 #include "FSM_DataHora.h"
+#include "frequencies.h"
 
 void realizaAutoSintoniaDosCapacitores(int Metodo);
 
@@ -788,7 +789,7 @@ void setaFrequenciaDeOperacao(void){
         num[1] = bufferRxUSB[8];
         num[2] = bufferRxUSB[9];
         valor = atoi(num);
-        if(valor >= 0 && valor <= 22){ //RANGE
+        if(valor >= 0 && valor <= getNumFreqs()){ //RANGE
             EscreverNaEEprom(END_FREQUENCIA, valor);
             retornaOk();
             return;        
@@ -1131,7 +1132,7 @@ void obtemFrequenciaDeOperacao(void){
     
     memset(mensagem, NULL, 50);
     LerDadosDaEEprom(END_FREQUENCIA, &valor);
-    sprintf(mensagem, "#OK,%03d\r\n", valor);
+    sprintf(mensagem, "#OK,%lu\r\n", getFreq(valor));
     enviaRespostaAosComandosDeSetupUSB(mensagem, strlen(mensagem));
 }
 
@@ -1577,7 +1578,7 @@ void exibirParametrosObtidos(void){
     sprintf(mensagem, "SINTONIA CAP ANT 8:  %03d, %03d, %03d, %05u\r\n", capAntena8[0], capAntena8[1], capAntena8[2], reflexaoAntena8);
     enviaDadosParaUSBserial(mensagem, strlen(mensagem));
     
-    sprintf(mensagem, "FREQUENCIA OPERACAO: %02d\r\n", frequenciaDeOperacao);
+    sprintf(mensagem, "FREQUENCIA OPERACAO: %lu\r\n", getFreq(frequenciaDeOperacao));
     enviaDadosParaUSBserial(mensagem, strlen(mensagem));
     
     sprintf(mensagem, "ID DO LEITOR:        %c%c%c%c\r\n", idDoLeitor[0], idDoLeitor[1], idDoLeitor[2], idDoLeitor[3]);

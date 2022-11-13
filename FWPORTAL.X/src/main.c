@@ -40,6 +40,8 @@
 #include "FSM_DataHora.h"
 #include "barreiraIR.h"
 
+#include "frequencies.h"
+
 #ifdef __PIC24FJ256DA210__
 
     _CONFIG1( WDTPS_PS1 & FWPSA_PR32 & ALTVREF_ALTVREDIS & WINDIS_OFF & 
@@ -204,7 +206,7 @@ void InicializaAS3993(void){
     delay_ms(500);
     //Frequencies.freq[0] = 902750;
     Frequencies.freq[0] = 915000; //teste do ajuste automatico
-    readerInitStatus = as3993Initialize(Frequencies.freq[0]);
+    readerInitStatus = as3993Initialize(getFreqIndex(frequenciaDeOperacao));
     
     
     tunerInit(&mainTuner);
@@ -263,7 +265,7 @@ int main(void){
     delay_ms(1);
     lista_freq_anatel();
     Frequencies.freq[0] = 915000;
-    readerInitStatus = as3993Initialize(Frequencies.freq[0]);
+    readerInitStatus = as3993Initialize(getFreq(frequenciaDeOperacao));
     
     USBModuleDisable();
     initCommands(); // USB report commands

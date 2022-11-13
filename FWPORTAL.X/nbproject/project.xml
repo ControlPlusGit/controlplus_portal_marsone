@@ -17,6 +17,7 @@
                 <sourceRootElem>C:\Projetos\control-plus\Firmware\BaseComum</sourceRootElem>
                 <sourceRootElem>C:\Projetos\control-plus_back-up_20_04_2017\control-plus\Firmware\Sankyu\080116\Sankyu\AS3993FwSource\AS3993\Firmware\src</sourceRootElem>
                 <sourceRootElem>C:\Projetos\control-plus\software\fifo</sourceRootElem>
+                <sourceRootElem>../../../02_empilhadeira/controlplus_empilhadeira_urano/FWEMP.X/src</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>
