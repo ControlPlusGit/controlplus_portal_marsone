@@ -789,7 +789,7 @@ void setaFrequenciaDeOperacao(void){
         num[1] = bufferRxUSB[8];
         num[2] = bufferRxUSB[9];
         valor = atoi(num);
-        if(valor >= 0 && valor <= getNumFreqs()){ //RANGE
+        if(valor >= 0 && valor < getNumFreqs()){ //RANGE
             EscreverNaEEprom(END_FREQUENCIA, valor);
             retornaOk();
             return;        
